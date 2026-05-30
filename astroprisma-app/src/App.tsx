@@ -1,4 +1,22 @@
+import { useState } from 'react'
+import { testGemini } from './lib/gemini'
+
 function App() {
+  const [geminiResult, setGeminiResult] = useState<string>('')
+  const [loading, setLoading] = useState(false)
+
+  async function handleTest() {
+    setLoading(true)
+    try {
+      const text = await testGemini()
+      setGeminiResult(text)
+    } catch (e) {
+      setGeminiResult('❌ Erreur : ' + (e as Error).message)
+    } finally {
+      setLoading(false)
+    }
+  }
+
   return (
     <div className="min-h-screen bg-[#0a0a0f] flex flex-col items-center justify-center text-center px-4">
 
@@ -20,8 +38,22 @@ function App() {
         ⚡ Système en ligne — Phase 0 opérationnelle
       </div>
 
+      {/* Gemini Test */}
+      <div className="mt-8 flex flex-col items-center gap-4">
+        <button
+          onClick={handleTest}
+          disabled={loading}
+          className="px-6 py-2 border border-purple-500 text-purple-300 text-sm tracking-widest uppercase rounded hover:bg-purple-500/20 disabled:opacity-50 transition"
+        >
+          {loading ? 'Connexion...' : '⚡ Tester Gemini'}
+        </button>
+        {geminiResult && (
+          <p className="max-w-md text-slate-300 text-sm text-center italic">{geminiResult}</p>
+        )}
+      </div>
+
       {/* Decoration */}
-      <div className="mt-16 text-slate-700 text-xs tracking-widest">
+      <div className="mt-12 text-slate-700 text-xs tracking-widest">
         VIGOR · GRACE · MIND · TECH
       </div>
     </div>
