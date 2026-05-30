@@ -1,0 +1,5 @@
+name = "astrogame-android"
+compatibility_date = "2025-05-30"
+
+[assets]
+directory = "./dist"
