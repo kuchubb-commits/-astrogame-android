@@ -96,10 +96,26 @@ STUN · BREACH · SHOCK · SILENCE · IMMUNITY · OVERHEAT
 - Journal des interactions
 
 ### 7. Base de données
-- Ennemis (stats, comportements)
-- Vaisseaux ennemis
-- Tables aléatoires (NPC, loot, événements)
-- Générateur de PNJ
+> ✅ Contenu confirmé — Spacefarer's Journal DATABASE 01-04
+
+**Ennemis (20 fiches avec stats) :**
+- WARG : Grenadier, Partisan Guard
+- ISF : Starscout, Walking Fortress
+- Medusa : Griddper, Cyphersteel
+- Corsair : Buccaneer, Casino Shark
+- Synth : Chromesage, Solarsphynx
+- Indépendants : Clone Colonist, Corpo Paramilitary, Narco-Addict, Afterlife Ghoul, Melting-Machine
+- Créatures : Scrapeater, Emperor Scrapeater, Cortex Brainworm, Quetzal Declarlis, Horned Tarrasqosaur
+
+**Vaisseaux ennemis (12 fiches) :**
+- Ultra : Thunderbolt, Typhoon, Duskwind Heron, Scabas Pharaoh, Vector-7 Orchid, Hammerhead Hauler
+- Class Y : Venus Transporter, X-Surface Crawler, Neon-Sea Delta, Lunar-Charger, A-2 Voyager, Gamma Interceptor
+
+**Tables d100 à implémenter :**
+- `character_encounters.json` (100 entrées)
+- `settlement_quirks.json` (100 entrées)
+
+**Générateur de PNJ** (à construire depuis CHARACTER ENCOUNTERS)
 
 ### 8. IA Narrative (Gemini)
 - Contexte injecté : état du personnage + situation actuelle + règle appliquée
@@ -109,6 +125,11 @@ STUN · BREACH · SHOCK · SILENCE · IMMUNITY · OVERHEAT
 - Interprétation dramatique des résultats Oracle
 
 ### 9. Journal de campagne
+> ✅ Inspiré du Spacefarer's Journal officiel (format journal physique)
+
+- Pages de notes de session (interface type "journal" avec lignes)
+- **PLAYTHROUGHS tracker** — compteur de parties avec historique
+- **ACHIEVEMENTS (7)** : Astroprisma, Origin Story, Serum Addict, Core Conflict, Lone Wolf, Hardcore, Immortal
 - Log automatique des événements
 - Résumé de session généré par Gemini
 - Export (texte, markdown)

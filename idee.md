@@ -40,6 +40,37 @@ Une **Progressive Web App (PWA)** accessible depuis un navigateur mobile ou desk
 - **Phase 1** : Solo uniquement
 - **Phase 2** : Extension multijoueur (architecture prévue dès le départ)
 
+## Contenu confirmé dans les fichiers officiels
+
+### Spacefarer's Journal (PDF form-fillable, 17 pages)
+> Source directe pour les données JSON à intégrer dans l'app
+
+**Achievements (7) — à implémenter comme système de succès :**
+- ASTROPRISMA · ORIGIN STORY · SERUM ADDICT · CORE CONFLICT · LONE WOLF · HARDCORE · IMMORTAL
+
+**Tables aléatoires d100 (page 12) :**
+- `CHARACTER ENCOUNTERS` — 100 entrées de rencontres de personnages
+- `SETTLEMENT QUIRKS` — 100 entrées de particularités de colonies
+
+**DATABASE 01 & 02 — Ennemis avec stats complètes :**
+- Faction WARG : Grenadier, Partisan Guard
+- Faction ISF : Starscout, Walking Fortress
+- Faction Medusa : Griddper, Cyphersteel
+- Faction Corsair : Buccaneer, Casino Shark
+- Faction Synth : Chromesage, Solarsphynx
+- Indépendants : Clone Colonist, Corpo Paramilitary, Narco-Addict, Afterlife Ghoul, Melting-Machine
+- Créatures : Scrapeater, Emperor Scrapeater, Cortex Brainworm, Quetzal Declarlis, Horned Tarrasqosaur
+
+**DATABASE 03 & 04 — Vaisseaux avec stats :**
+- Classe Ultra : V-Ace Thunderbolt, Typhoon Speeder, Duskwind Heron, Scabas Pharaoh, Vector-7 Orchid, Hammerhead Hauler
+- Classe Y : Venus Transporter, X-Surface Crawler, Neon-Sea Delta, Lunar-Charger, A-2 Voyager, Gamma Interceptor
+
+**Journal de session :**
+- 9 doubles pages vierges lignées (format journal physique à reproduire en digital)
+- PLAYTHROUGHS tracker (suivi du nombre de parties)
+
+---
+
 ## Périmètre Phase 1
 
 - [ ] Création et gestion de personnage
