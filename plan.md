@@ -42,8 +42,9 @@ Créer un personnage complet et le sauvegarder localement.
 
 ### Contenu du chapitre 2 à implémenter
 - Création : choix d'origine (Background/Origin system)
-- Stats de base : FORCE, AGILITY, MIND, PRESENCE
-- Stats dérivées : HP, Defense, Initiative
+- Stats de base : VIGOR, GRACE, MIND, TECH *(noms exacts — Character Sheet 2.0)*
+- Ressources : HEALTH (20), ENERGY (20), ARMOR, EXP, HYPERDRIVE (jauge)
+- Status Conditions : STUN, BREACH, SHOCK, SILENCE, IMMUNITY, OVERHEAT
 - Map de compétences (Skills map)
 - Connexions (NPCs liés)
 - Équipage (Crewmembers)

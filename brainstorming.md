@@ -24,12 +24,47 @@ PWA       : Vite PWA plugin (installable sur mobile)
 ## Modules fonctionnels identifiés
 
 ### 1. Personnage (Character Sheet)
-- Stats : FORCE, AGILITY, MIND, PRESENCE + dérivées (HP, armor, etc.)
-- Origins (race/background) avec effets mécaniques
-- Connexions (NPCs liés)
-- Équipement et inventaire
-- Vaisseau (lié au personnage)
-- Points d'expérience / progression
+> ⚠️ Données vérifiées sur la **Character Sheet 2.0** officielle (PDF form-fillable)
+
+**Stats de base (4) — noms exacts :**
+- **VIGOR** (force physique)
+- **GRACE** (agilité / discrétion)
+- **MIND** (intelligence / perception)
+- **TECH** (technologie / hacking)
+
+**Ressources trackables :**
+- **HEALTH** (20 de base) + **ARMOR**
+- **ENERGY** (20 de base) — 2e pool distinct de la santé
+- **EXP** — points d'expérience
+- **HYPERDRIVE** — jauge dédiée (barre de progression)
+
+**Autres champs :**
+- NAME + ORIGIN
+- **MEMORY SLOTS** (6 emplacements, certains verrouillés par défaut)
+- **CYBERTECH** (6 slots d'améliorations cybernétiques)
+- WEAPON 1 + WEAPON 2 chacune avec **MODS**
+- INVENTORY (8 slots)
+- **Faction scores** — 5 icônes de factions avec score individuel
+
+**Status Conditions (6) — noms exacts :**
+STUN · BREACH · SHOCK · SILENCE · IMMUNITY · OVERHEAT
+
+**Enemy Tracker intégré :** Health / Armor / Effects (sur la feuille perso)
+
+**Page 2 — Vaisseau (STARSHIP) :**
+- Carte hexagonale du vaisseau (grille libre)
+- **HULL 20** + **FUEL 20** + SHIELDS
+- CARGO HOLD (6 slots)
+- CONTROL PANEL : Controls / Modules / Modules (arbre de modules)
+- **4 membres d'équipage (CREW)** : NAME, ROLE, PASSIVE, HP, VIG/GRA/MIN/TEC, INVENTORY, SKILL 1/2/3
+- **CONNECTIONS** (7) : NAME, LOCATION, DATA + jauge de relation (dots)
+
+**Page 3 — Campagne / Monde :**
+- **STAR SYSTEM map** : grille hexagonale numérotée (36 secteurs + centre STAR)
+- **QUEST LOG** (8 quêtes : I → VIII)
+- **CAMPAIGN tracker** : 3 actes (I/II/III) avec BASES et OUTCOME
+- **MEMORY CLOCK** cards (6 cartes de compte à rebours narratif)
+- **CYBER SPHERE** section dédiée
 
 ### 2. Système de dés (Dice Engine)
 - Lancers 2d6 + modificateurs (le système de base d'Astroprisma)
