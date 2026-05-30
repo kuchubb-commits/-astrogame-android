@@ -1,0 +1,166 @@
+# Brainstorming — Astroprisma App
+
+## Architecture générale
+
+### Stack retenu
+```
+Frontend  : React 18 + Vite + TypeScript
+Style     : Tailwind CSS (mobile-first)
+IA        : Gemini API (Google One AI Premium)
+Deploy    : Cloudflare Pages (gratuit, CDN mondial)
+Stockage  : localStorage + IndexedDB (Phase 1) → Cloudflare D1 (Phase 2)
+PWA       : Vite PWA plugin (installable sur mobile)
+```
+
+### Pourquoi ces choix ?
+- **React** : composants réutilisables, état facile à gérer (feuille de perso = gros state)
+- **Vite** : build ultra-rapide, DX agréable pour apprendre
+- **Tailwind** : classes utilitaires = UI rapide sans CSS custom
+- **Cloudflare Pages** : déploiement git push, domaine .pages.dev gratuit
+- **Gemini** : déjà inclus dans l'abonnement Google One, API moderne
+
+---
+
+## Modules fonctionnels identifiés
+
+### 1. Personnage (Character Sheet)
+- Stats : FORCE, AGILITY, MIND, PRESENCE + dérivées (HP, armor, etc.)
+- Origins (race/background) avec effets mécaniques
+- Connexions (NPCs liés)
+- Équipement et inventaire
+- Vaisseau (lié au personnage)
+- Points d'expérience / progression
+
+### 2. Système de dés (Dice Engine)
+- Lancers 2d6 + modificateurs (le système de base d'Astroprisma)
+- Lecture automatique des tables Oracle
+- Résultats enrichis par Gemini (description narrative du résultat)
+- Historique des lancers dans la session
+
+### 3. Combat
+- Tour par tour : initiative, attaques, défense
+- Armes portée vs mêlée (tables de dégâts)
+- Gestion PV ennemis + joueur
+- Log de combat narratif (Gemini)
+
+### 4. Hacking & Drones
+- Système de hack (tableaux de succès/échec)
+- Gestion des drones/mechs
+- Améliorations cybertech du personnage
+
+### 5. Exploration
+- Génération de planètes (tables aléatoires)
+- Satellites, cicatrices abyssales
+- Colonies et activités
+- Rencontres aléatoires (Ring Encounters)
+- Cybersphère (environnement numérique)
+
+### 6. Factions
+- Suivi de faveur par faction (W.A.R.G., Fédération, Médusa, etc.)
+- Missions disponibles selon niveau de faveur
+- Journal des interactions
+
+### 7. Base de données
+- Ennemis (stats, comportements)
+- Vaisseaux ennemis
+- Tables aléatoires (NPC, loot, événements)
+- Générateur de PNJ
+
+### 8. IA Narrative (Gemini)
+- Contexte injecté : état du personnage + situation actuelle + règle appliquée
+- Suggestions de narration (3 options courtes ou 1 description longue)
+- Dialogues PNJ générés
+- Descriptions de lieux à l'exploration
+- Interprétation dramatique des résultats Oracle
+
+### 9. Journal de campagne
+- Log automatique des événements
+- Résumé de session généré par Gemini
+- Export (texte, markdown)
+
+### 10. Mode Campagne (Phase 1 avancée)
+- Objectifs et arcs narratifs
+- Tableau de bord de progression
+- Achievements débloquables
+
+---
+
+## Architecture technique détaillée
+
+### Structure des fichiers (React + Vite)
+```
+src/
+  components/
+    character/     → CharacterSheet, StatBlock, Inventory
+    dice/          → DiceRoller, OracleTable, DiceHistory
+    combat/        → CombatTracker, WeaponCard, EnemyCard
+    exploration/   → PlanetGenerator, EncounterCard
+    factions/      → FactionTracker, MissionCard
+    ai/            → NarratorPanel, GeminiChat
+    ui/            → shared (Button, Card, Modal, Badge)
+  hooks/
+    useCharacter.ts
+    useDice.ts
+    useCombat.ts
+    useGemini.ts
+  stores/
+    characterStore.ts   → Zustand
+    gameStore.ts        → état global de partie
+    journalStore.ts
+  data/
+    rules/         → JSON : tables, stats de base, factions
+    enemies.json
+    equipment.json
+    factions.json
+  lib/
+    gemini.ts      → wrapper Gemini API
+    dice.ts        → moteur de dés
+    tables.ts      → lecture tables aléatoires
+  pages/
+    Home.tsx
+    Character.tsx
+    Play.tsx        → écran principal de jeu
+    Explore.tsx
+    Journal.tsx
+```
+
+### Flux de données Gemini
+```
+Action joueur → construire prompt contextuel → Gemini API
+                                               ↓
+                              Réponse narrative → affichée dans UI
+```
+
+**Prompt type :**
+```
+Tu es le narrateur d'Astroprisma. Contexte : [état perso + situation].
+Le joueur vient de [action]. Résultat du dé : [X] (succès/échec).
+Décris la scène en 2-3 phrases, style SF spatial sombre.
+```
+
+### Gestion de l'état (Zustand)
+- `characterStore` : tout le personnage (persisté IndexedDB)
+- `gameStore` : session en cours (scène actuelle, ennemis actifs, etc.)
+- `journalStore` : log des événements
+
+---
+
+## Questions ouvertes / décisions à prendre
+
+| Question | Options | Décision actuelle |
+|---|---|---|
+| Dark mode par défaut ? | Oui / Non | Oui (ambiance SF) |
+| Langue de l'interface | FR / EN / Bilingue | FR avec termes EN entre parenthèses |
+| Son & musique d'ambiance | Oui / Non | Optionnel Phase 2 |
+| Connexion utilisateur | Non (local only) / Oui (cloud) | Phase 1 : local only |
+| Générateur de carte stellaire | Non / Oui | À évaluer Phase 2 |
+
+---
+
+## Ce qu'on NE fait PAS (Phase 1)
+
+- Pas de backend serveur (tout client-side)
+- Pas d'authentification utilisateur
+- Pas de multijoueur temps réel
+- Pas d'éditeur de scénarios custom
+- Pas de son / musique
