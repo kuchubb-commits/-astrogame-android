@@ -1,26 +1,31 @@
 import { useState } from 'react'
-import { testGemini } from './lib/gemini'
+import { CharacterSheet } from './components/CharacterSheet'
+
+type Page = 'home' | 'character'
 
 function App() {
-  const [geminiResult, setGeminiResult] = useState<string>('')
-  const [loading, setLoading] = useState(false)
+  const [page, setPage] = useState<Page>('home')
 
-  async function handleTest() {
-    setLoading(true)
-    try {
-      const text = await testGemini()
-      setGeminiResult(text)
-    } catch (e) {
-      setGeminiResult('❌ Erreur : ' + (e as Error).message)
-    } finally {
-      setLoading(false)
-    }
+  if (page === 'character') {
+    return (
+      <div>
+        <nav className="sticky top-0 z-10 bg-[#0a0a0f]/90 backdrop-blur border-b border-slate-800 px-4 py-3 flex items-center gap-4">
+          <button
+            onClick={() => setPage('home')}
+            className="text-slate-400 hover:text-white text-sm tracking-widest uppercase transition"
+          >
+            ← Accueil
+          </button>
+          <span className="text-purple-400 text-sm tracking-widest uppercase">Feuille de personnage</span>
+        </nav>
+        <CharacterSheet />
+      </div>
+    )
   }
 
   return (
     <div className="min-h-screen bg-[#0a0a0f] flex flex-col items-center justify-center text-center px-4">
 
-      {/* Logo */}
       <div className="mb-8">
         <h1 className="text-5xl font-black tracking-widest text-white uppercase">
           ASTRO<span className="text-purple-400">PRISMA</span>
@@ -28,31 +33,31 @@ function App() {
         <div className="h-0.5 w-full bg-gradient-to-r from-transparent via-purple-500 to-transparent mt-3" />
       </div>
 
-      {/* Subtitle */}
       <p className="text-slate-400 text-sm tracking-widest uppercase mb-12">
         Digital Companion — v0.1.0
       </p>
 
-      {/* Status */}
-      <div className="border border-purple-500/30 bg-purple-500/5 rounded-lg px-8 py-4 text-purple-300 text-sm tracking-wide">
-        ⚡ Système en ligne — Phase 0 opérationnelle
-      </div>
-
-      {/* Gemini Test */}
-      <div className="mt-8 flex flex-col items-center gap-4">
+      <div className="flex flex-col gap-3 w-full max-w-xs">
         <button
-          onClick={handleTest}
-          disabled={loading}
-          className="px-6 py-2 border border-purple-500 text-purple-300 text-sm tracking-widest uppercase rounded hover:bg-purple-500/20 disabled:opacity-50 transition"
+          onClick={() => setPage('character')}
+          className="px-6 py-3 border border-purple-500 text-purple-300 text-sm tracking-widest uppercase rounded hover:bg-purple-500/20 transition"
         >
-          {loading ? 'Connexion...' : '⚡ Tester Gemini'}
+          👤 Feuille de personnage
         </button>
-        {geminiResult && (
-          <p className="max-w-md text-slate-300 text-sm text-center italic">{geminiResult}</p>
-        )}
+        <button
+          disabled
+          className="px-6 py-3 border border-slate-700 text-slate-600 text-sm tracking-widest uppercase rounded cursor-not-allowed"
+        >
+          🎲 Dés & Oracle
+        </button>
+        <button
+          disabled
+          className="px-6 py-3 border border-slate-700 text-slate-600 text-sm tracking-widest uppercase rounded cursor-not-allowed"
+        >
+          ⚔️ Combat
+        </button>
       </div>
 
-      {/* Decoration */}
       <div className="mt-12 text-slate-700 text-xs tracking-widest">
         VIGOR · GRACE · MIND · TECH
       </div>
