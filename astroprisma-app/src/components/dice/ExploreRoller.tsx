@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { d6, useDiceStore } from '../../stores/diceStore'
+import type { Ring } from '../../data/exploration'
 import {
-  Ring,
   EXPLORATION_D6,
   HOSTILE_ENCOUNTERS,
   NEUTRAL_ENCOUNTERS,
