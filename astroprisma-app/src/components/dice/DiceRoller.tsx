@@ -5,21 +5,18 @@ import {
   challengeRoll,
   xxChallengeRoll,
   malwareRoll,
-  explorationRoll,
   useDiceStore,
   MALWARE_TABLE,
-  EXPLORATION_TABLE,
 } from '../../stores/diceStore'
 
 // ── Types de jets disponibles ─────────────────────────────────────────────────
-type Mode = 'initiative' | 'challenge' | 'escape' | 'hack' | 'exploration' | 'malware'
+type Mode = 'initiative' | 'challenge' | 'escape' | 'hack' | 'malware'
 
 const MODES: { id: Mode; label: string; icon: string; desc: string }[] = [
   { id: 'initiative', label: 'Initiative', icon: '⚡', desc: 'd10 + GRA' },
   { id: 'challenge', label: 'Challenge', icon: '🎲', desc: 'd10+stat vs d10+stat' },
   { id: 'escape', label: 'Escape', icon: '🏃', desc: 'xROLL GRA vs ennemi' },
   { id: 'hack', label: 'Hack', icon: '💻', desc: 'xROLL MIN vs ennemi' },
-  { id: 'exploration', label: 'Explore', icon: '🌌', desc: 'd6 → table ring' },
   { id: 'malware', label: 'Malware', icon: '☠️', desc: 'd10 → table malware' },
 ]
 
@@ -48,7 +45,6 @@ export function DiceRoller() {
     challenge: character[selectedStat],
     escape: character.grace,
     hack: character.mind,
-    exploration: 0,
     malware: 0,
   }
 
@@ -57,7 +53,6 @@ export function DiceRoller() {
     challenge: selectedStat.slice(0, 3).toUpperCase(),
     escape: 'GRA',
     hack: 'MIN',
-    exploration: '—',
     malware: '—',
   }
 
@@ -113,16 +108,6 @@ export function DiceRoller() {
         addEntry({ type: 'hack', label: 'Hack xROLL MIN', result: r.success ? 'RÉUSSI' : 'MALWARE', detail: res.subText })
         // Si échec → suggérer de lancer Malware
         if (!r.success) res.subText += ' — Lance Malware !'
-      }
-
-      else if (mode === 'exploration') {
-        const r = explorationRoll()
-        res = {
-          mainText: r.result,
-          subText: `d6 = ${r.die}`,
-          color: 'purple',
-        }
-        addEntry({ type: 'exploration', label: 'Exploration Roll', result: r.result, detail: res.subText })
       }
 
       else {
@@ -197,7 +182,7 @@ export function DiceRoller() {
       )}
 
       {/* Stat auto-info (initiative, escape, hack) */}
-      {!needsStatSelector && autoStat[mode] !== undefined && mode !== 'exploration' && mode !== 'malware' && (
+      {!needsStatSelector && autoStat[mode] !== undefined && mode !== 'malware' && (
         <div className="flex items-center gap-2 text-xs text-slate-500 bg-slate-800/40 rounded px-3 py-2">
           <span>Stat auto :</span>
           <span className="font-bold text-white">{statLabel[mode]} = {autoStat[mode]}</span>
@@ -262,16 +247,6 @@ export function DiceRoller() {
         </div>
       )}
 
-      {mode === 'exploration' && (
-        <div className="text-xs text-slate-600 space-y-0.5">
-          {EXPLORATION_TABLE.map((r, i) => (
-            <div key={i} className="flex gap-2">
-              <span className="w-4 text-right text-slate-700">{i + 1}</span>
-              <span>{r}</span>
-            </div>
-          ))}
-        </div>
-      )}
     </div>
   )
 }

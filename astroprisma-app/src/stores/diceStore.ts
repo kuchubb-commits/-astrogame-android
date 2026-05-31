@@ -88,21 +88,6 @@ export function malwareRoll() {
   return { die, result: MALWARE_TABLE[die - 1] }
 }
 
-// ── Exploration Roll: d6 ──────────────────────────────────────────────────────
-export const EXPLORATION_TABLE = [
-  'Faction Encounter',
-  'Neutral Encounter',
-  'Hostile Encounter',
-  'Planet',
-  'Ring Event',
-  'Settlement',
-]
-
-export function explorationRoll() {
-  const die = d6()
-  return { die, result: EXPLORATION_TABLE[die - 1] }
-}
-
 // ── Oracle YES/NO: d6 ─────────────────────────────────────────────────────────
 export const YES_NO_TABLE = [
   'NO, AND…',
