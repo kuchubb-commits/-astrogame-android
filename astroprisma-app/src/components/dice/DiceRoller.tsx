@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useCharacterStore } from '../../stores/characterStore'
+import { useEnemyStore } from '../../stores/enemyStore'
 import {
   initiativeRoll,
   challengeRoll,
@@ -31,9 +32,15 @@ interface RollResult {
 export function DiceRoller() {
   const addEntry = useDiceStore((s) => s.addEntry)
   const character = useCharacterStore((s) => s.character)
+  const selectedEnemy = useEnemyStore((s) => s.selectedEnemy)
 
   const [mode, setMode] = useState<Mode>('initiative')
   const [challengeStat, setChallengeStat] = useState(0)
+
+  // Sync challenge stat from selected enemy
+  useEffect(() => {
+    if (selectedEnemy) setChallengeStat(selectedEnemy.difficulty)
+  }, [selectedEnemy])
   const [selectedStat, setSelectedStat] = useState<'vigor' | 'grace' | 'mind' | 'tech'>('vigor')
   const [xxMode, setXxMode] = useState(false)
   const [result, setResult] = useState<RollResult | null>(null)
@@ -137,7 +144,14 @@ export function DiceRoller() {
 
   return (
     <div className="bg-[#111118] border border-slate-800 rounded-lg p-4 space-y-4">
-      <h2 className="text-xs tracking-widest uppercase text-slate-400">Jets de dés</h2>
+      <div className="flex items-center justify-between">
+        <h2 className="text-xs tracking-widest uppercase text-slate-400">Jets de dés</h2>
+        {selectedEnemy && (
+          <span className="text-[10px] px-2 py-0.5 rounded border border-purple-700 text-purple-400 bg-purple-900/20">
+            ⚔️ {selectedEnemy.name} (diff. {selectedEnemy.difficulty})
+          </span>
+        )}
+      </div>
 
       {/* Mode selector */}
       <div className="grid grid-cols-3 gap-1">

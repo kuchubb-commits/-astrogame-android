@@ -4,8 +4,9 @@ import { DiceRoller } from './components/dice/DiceRoller'
 import { OraclePanel } from './components/dice/OraclePanel'
 import { DiceHistory } from './components/dice/DiceHistory'
 import { ExploreRoller } from './components/dice/ExploreRoller'
+import { EnemyPanel } from './components/enemies/EnemyPanel'
 
-type Page = 'home' | 'character' | 'dice'
+type Page = 'home' | 'character' | 'dice' | 'enemies'
 
 function NavBar({ onBack, title }: { onBack: () => void; title: string }) {
   return (
@@ -35,6 +36,19 @@ function DicePage({ onBack }: { onBack: () => void }) {
   )
 }
 
+function EnemiesPage({ onBack }: { onBack: () => void }) {
+  return (
+    <div>
+      <NavBar onBack={onBack} title="Ennemis" />
+      <div className="max-w-lg mx-auto px-4 py-6 space-y-4">
+        <EnemyPanel />
+        <DiceRoller />
+        <DiceHistory />
+      </div>
+    </div>
+  )
+}
+
 function App() {
   const [page, setPage] = useState<Page>('home')
 
@@ -49,6 +63,10 @@ function App() {
 
   if (page === 'dice') {
     return <DicePage onBack={() => setPage('home')} />
+  }
+
+  if (page === 'enemies') {
+    return <EnemiesPage onBack={() => setPage('home')} />
   }
 
   return (
@@ -79,10 +97,10 @@ function App() {
           🎲 Dés & Oracle
         </button>
         <button
-          disabled
-          className="px-6 py-3 border border-slate-700 text-slate-600 text-sm tracking-widest uppercase rounded cursor-not-allowed"
+          onClick={() => setPage('enemies')}
+          className="px-6 py-3 border border-purple-500 text-purple-300 text-sm tracking-widest uppercase rounded hover:bg-purple-500/20 transition"
         >
-          ⚔️ Combat
+          ⚔️ Ennemis & Combat
         </button>
       </div>
 
