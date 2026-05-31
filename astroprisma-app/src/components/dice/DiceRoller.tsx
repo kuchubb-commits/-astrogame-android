@@ -69,13 +69,23 @@ export function DiceRoller() {
       let res: RollResult
 
       if (mode === 'initiative') {
-        const r = initiativeRoll(character.grace)
-        res = {
-          mainText: `${r.total}`,
-          subText: `d10(${r.die}) + GRA(${r.gra})`,
-          color: 'blue',
+        const r = initiativeRoll(character.grace, selectedEnemy?.difficulty)
+        if (r.enemyDie !== null && r.playerFirst !== null) {
+          res = {
+            success: r.playerFirst,
+            mainText: r.playerFirst ? 'JOUEUR EN PREMIER' : 'ENNEMI EN PREMIER',
+            subText: `Joueur: d10(${r.playerDie})+GRA(${r.gra})=${r.playerTotal} | ${selectedEnemy?.name}: d10(${r.enemyDie})+${r.enemyDifficulty}=${r.enemyTotal}`,
+            color: r.playerFirst ? 'green' : 'red',
+          }
+          addEntry({ type: 'initiative', label: 'Initiative', result: res.mainText, detail: res.subText })
+        } else {
+          res = {
+            mainText: `${r.playerTotal}`,
+            subText: `d10(${r.playerDie}) + GRA(${r.gra})`,
+            color: 'blue',
+          }
+          addEntry({ type: 'initiative', label: 'Initiative', result: `${r.playerTotal}`, detail: res.subText })
         }
-        addEntry({ type: 'initiative', label: 'Initiative', result: `${r.total}`, detail: res.subText })
       }
 
       else if (mode === 'challenge') {

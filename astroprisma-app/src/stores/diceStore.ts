@@ -43,10 +43,16 @@ export const useDiceStore = create<DiceStore>((set) => ({
 export const d6 = () => Math.floor(Math.random() * 6) + 1
 export const d10 = () => Math.floor(Math.random() * 10) + 1
 
-// ── Initiative: d10 + GRA ─────────────────────────────────────────────────────
-export function initiativeRoll(gra: number) {
-  const die = d10()
-  return { die, gra, total: die + gra }
+// ── Initiative: d10 + GRA (joueur) vs d10 + difficulty (ennemi) ──────────────
+export function initiativeRoll(gra: number, enemyDifficulty?: number) {
+  const playerDie = d10()
+  const playerTotal = playerDie + gra
+  if (enemyDifficulty == null) {
+    return { playerDie, gra, playerTotal, enemyDie: null, enemyTotal: null, playerFirst: null }
+  }
+  const enemyDie = d10()
+  const enemyTotal = enemyDie + enemyDifficulty
+  return { playerDie, gra, playerTotal, enemyDie, enemyDifficulty, enemyTotal, playerFirst: playerTotal >= enemyTotal }
 }
 
 // ── Challenge Roll: Player d10+stat vs Challenge d10+opponentStat ─────────────
