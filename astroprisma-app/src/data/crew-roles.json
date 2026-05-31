@@ -1,0 +1,24 @@
+{
+  "base": [
+    { "id": "marine",    "label": "Marine",    "stats": "VIG 3 / GRA 1 / MIN 0 / TEC 0", "passive": "PCs can choose 1 ally to join when boarding enemy ships" },
+    { "id": "gunner",    "label": "Gunner",    "stats": "VIG 2 / GRA 1 / MIN 0 / TEC 1", "passive": "Starship Weapons Modules deal +1 extra damage" },
+    { "id": "navigator", "label": "Navigator", "stats": "VIG 0 / GRA 1 / MIN 3 / TEC 0", "passive": "Using Warp or HyperLight Drive costs 3 Fuel" },
+    { "id": "medic",     "label": "Medic",     "stats": "VIG 0 / GRA 1 / MIN 3 / TEC 0", "passive": "All crew under 10 HP heal to 10 HP at end of each cycle" },
+    { "id": "pilot",     "label": "Pilot",     "stats": "VIG 0 / GRA 3 / MIN 0 / TEC 1", "passive": "Reroll once per attempt when escaping space combat" },
+    { "id": "mechanic",  "label": "Mechanic",  "stats": "VIG 1 / GRA 0 / MIN 0 / TEC 3", "passive": "Repairing the ship with Scraps restores d10 + TEC Hull" }
+  ],
+  "faction": [
+    { "id": "sea_wolf",              "label": "Sea Wolf",              "faction": "warg" },
+    { "id": "militia",               "label": "Militia",               "faction": "warg" },
+    { "id": "warrior_poet",          "label": "Warrior Poet",          "faction": "warg" },
+    { "id": "biologist",             "label": "Biologist",             "faction": "isf" },
+    { "id": "alienology_academic",   "label": "Alienology Academic",   "faction": "isf" },
+    { "id": "hacker",                "label": "Hacker",                "faction": "medusa" },
+    { "id": "cybersphere_savant",    "label": "Cybersphere Savant",    "faction": "medusa" },
+    { "id": "smuggler",              "label": "Smuggler",              "faction": "corsair" },
+    { "id": "low_life",              "label": "Low-Life",              "faction": "corsair" },
+    { "id": "renegade",              "label": "Renegade",              "faction": "corsair" },
+    { "id": "occultist",             "label": "Occultist",             "faction": "synth" },
+    { "id": "technospiritual_seer",  "label": "Technospiritual Seer",  "faction": "synth" }
+  ]
+}

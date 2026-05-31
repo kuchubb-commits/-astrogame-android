@@ -1,0 +1,32 @@
+{
+  "control": [
+    "Navigation Array — +1 Fuel efficiency",
+    "Tactical Core — +1 Action Die per turn",
+    "Stealth Module — Reduce enemy detection range",
+    "Command Bridge — Allies gain +1 to all stats in combat"
+  ],
+  "engines": [
+    "Standard Drive — 2 Action Dice per turn",
+    "Overdrive Engine — 3 Action Dice per turn, +1 Fuel cost",
+    "HyperLight Drive — Warp costs 3 Fuel",
+    "Warp Core — Travel 2 hexes per move"
+  ],
+  "weapons": [
+    "Laser Turret — 3-5: d6 damage, destroy 1 Shield",
+    "Missile Launcher — 6: 2d6 damage",
+    "Ion Cannon — X: X damage, apply Overheat",
+    "Rail Gun — 6: d10 + TEC damage"
+  ],
+  "systems": [
+    "Shield Generator — 3-5: Gain 2 Shields",
+    "Repair Drone — X: Restore X Hull",
+    "Energy Converter — 3-5: Restore 4⚡ to all allies",
+    "Turret Array — 6: Attack all enemy ships for d6"
+  ],
+  "prebuilt_ships": [
+    "Vector Ace Fighter",
+    "Duskwing",
+    "Smuggler Speeder",
+    "Scarab Interceptor"
+  ]
+}
