@@ -1,7 +1,37 @@
 import { useState } from 'react'
 import { CharacterSheet } from './components/CharacterSheet'
+import { DiceRoller } from './components/dice/DiceRoller'
+import { OraclePanel } from './components/dice/OraclePanel'
+import { DiceHistory } from './components/dice/DiceHistory'
 
-type Page = 'home' | 'character'
+type Page = 'home' | 'character' | 'dice'
+
+function NavBar({ onBack, title }: { onBack: () => void; title: string }) {
+  return (
+    <nav className="sticky top-0 z-10 bg-[#0a0a0f]/90 backdrop-blur border-b border-slate-800 px-4 py-3 flex items-center gap-4">
+      <button
+        onClick={onBack}
+        className="text-slate-400 hover:text-white text-sm tracking-widest uppercase transition"
+      >
+        ← Accueil
+      </button>
+      <span className="text-purple-400 text-sm tracking-widest uppercase">{title}</span>
+    </nav>
+  )
+}
+
+function DicePage({ onBack }: { onBack: () => void }) {
+  return (
+    <div>
+      <NavBar onBack={onBack} title="Dés & Oracle" />
+      <div className="max-w-lg mx-auto px-4 py-6 space-y-4">
+        <DiceRoller />
+        <OraclePanel />
+        <DiceHistory />
+      </div>
+    </div>
+  )
+}
 
 function App() {
   const [page, setPage] = useState<Page>('home')
@@ -9,18 +39,14 @@ function App() {
   if (page === 'character') {
     return (
       <div>
-        <nav className="sticky top-0 z-10 bg-[#0a0a0f]/90 backdrop-blur border-b border-slate-800 px-4 py-3 flex items-center gap-4">
-          <button
-            onClick={() => setPage('home')}
-            className="text-slate-400 hover:text-white text-sm tracking-widest uppercase transition"
-          >
-            ← Accueil
-          </button>
-          <span className="text-purple-400 text-sm tracking-widest uppercase">Feuille de personnage</span>
-        </nav>
+        <NavBar onBack={() => setPage('home')} title="Feuille de personnage" />
         <CharacterSheet />
       </div>
     )
+  }
+
+  if (page === 'dice') {
+    return <DicePage onBack={() => setPage('home')} />
   }
 
   return (
@@ -34,7 +60,7 @@ function App() {
       </div>
 
       <p className="text-slate-400 text-sm tracking-widest uppercase mb-12">
-        Digital Companion — v0.1.0
+        Digital Companion — v0.2.0
       </p>
 
       <div className="flex flex-col gap-3 w-full max-w-xs">
@@ -45,8 +71,8 @@ function App() {
           👤 Feuille de personnage
         </button>
         <button
-          disabled
-          className="px-6 py-3 border border-slate-700 text-slate-600 text-sm tracking-widest uppercase rounded cursor-not-allowed"
+          onClick={() => setPage('dice')}
+          className="px-6 py-3 border border-purple-500 text-purple-300 text-sm tracking-widest uppercase rounded hover:bg-purple-500/20 transition"
         >
           🎲 Dés & Oracle
         </button>
