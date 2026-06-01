@@ -1,9 +1,11 @@
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import { useCombatStore } from '../../stores/combatStore'
 import { useCharacterStore } from '../../stores/characterStore'
 import { d10, d6 } from '../../stores/diceStore'
 import type { StatusEffect } from '../../stores/combatStore'
 import { FACTION_COLORS } from '../../data/enemies'
+import { NarratorPanel } from '../NarratorPanel'
+import type { NarrativeContext } from '../../lib/gemini'
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -157,6 +159,8 @@ export function CombatTracker() {
     applyEnemyStatus, applyPlayerStatus,
   } = store
 
+  const [narratorCtx, setNarratorCtx] = useState<NarrativeContext | null>(null)
+
   if (!enemy) return null
 
   const factionStyle = FACTION_COLORS[enemy.faction]
@@ -173,6 +177,13 @@ export function CombatTracker() {
     const net = Math.max(0, total) // pas d'armure côté joueur → dégâts nets
     addLog('player', `🗡 ${weapon.name || `Arme ${weaponIndex + 1}`} — d(${base}) + stat(${stat}) = ${total} dégâts`)
     damageEnemy(net)
+    setNarratorCtx({
+      characterName: character.name || 'Inconnu',
+      action: `attaque avec ${weapon.name || `Arme ${weaponIndex + 1}`}`,
+      outcome: `${net} dégâts infligés à ${enemy.name}`,
+      enemyName: enemy.name,
+      mood: net >= 8 ? 'épique' : 'tendu',
+    })
     if (phase !== 'victory') nextTurn()
   }
 
@@ -187,9 +198,23 @@ export function CombatTracker() {
     addLog('player', `🏃 Fuite — Toi d10(${playerDie})+GRA(${character.grace})=${playerTotal} vs d10(${enemyDie})+${enemy.difficulty}=${enemyTotal}`)
     if (success) {
       addLog('system', '✅ Fuite réussie !')
+      setNarratorCtx({
+        characterName: character.name || 'Inconnu',
+        action: 'tente de fuir le combat',
+        outcome: 'fuite réussie, disparaît dans l\'ombre',
+        enemyName: enemy.name,
+        mood: 'épique',
+      })
       endCombat('escaped')
     } else {
       addLog('system', '❌ Fuite échouée — tour ennemi.')
+      setNarratorCtx({
+        characterName: character.name || 'Inconnu',
+        action: 'tente de fuir le combat',
+        outcome: 'fuite échouée, coincé face à l\'ennemi',
+        enemyName: enemy.name,
+        mood: 'tendu',
+      })
       nextTurn()
     }
   }
@@ -294,6 +319,9 @@ export function CombatTracker() {
 
       {/* Log */}
       <CombatLog />
+
+      {/* Narration Gemini */}
+      <NarratorPanel ctx={narratorCtx} characterName={character.name || 'Inconnu'} />
 
       {/* Actions joueur */}
       {phase === 'player-turn' && (

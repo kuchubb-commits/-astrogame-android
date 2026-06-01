@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { oracleYesNo, oracleOpen, useDiceStore } from '../../stores/diceStore'
+import { NarratorPanel } from '../NarratorPanel'
+import { useCharacterStore } from '../../stores/characterStore'
 
 const YES_NO_COLORS: Record<string, string> = {
   'YES, AND…': 'text-green-300',
@@ -21,8 +23,10 @@ const OPEN_TABLE = [
 
 export function OraclePanel() {
   const addEntry = useDiceStore((s) => s.addEntry)
+  const { character } = useCharacterStore()
   const [yesNoResult, setYesNoResult] = useState<ReturnType<typeof oracleYesNo> | null>(null)
   const [openResult, setOpenResult] = useState<ReturnType<typeof oracleOpen> | null>(null)
+  const [oracleWord, setOracleWord] = useState<string | null>(null)
   const [tab, setTab] = useState<'yesno' | 'open'>('yesno')
 
   function rollYesNo() {
@@ -39,6 +43,7 @@ export function OraclePanel() {
   function rollOpen() {
     const res = oracleOpen()
     setOpenResult(res)
+    setOracleWord(res.word)
     addEntry({
       type: 'oracle-open',
       label: 'Oracle Open-Ended',
@@ -103,6 +108,13 @@ export function OraclePanel() {
               <div className="text-xs text-slate-500">d6({openResult.d1}) × d6({openResult.d2})</div>
             </div>
           )}
+
+          {/* Narration Gemini */}
+          <NarratorPanel
+            ctx={null}
+            oracleWord={oracleWord}
+            characterName={character.name || 'Inconnu'}
+          />
 
           {/* Table visuelle */}
           <div className="overflow-x-auto">
