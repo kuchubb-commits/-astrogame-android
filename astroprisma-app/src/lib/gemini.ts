@@ -2,7 +2,7 @@ import { GoogleGenerativeAI } from '@google/generative-ai'
 
 const apiKey = import.meta.env.VITE_GEMINI_API_KEY as string | undefined
 const genAI = apiKey ? new GoogleGenerativeAI(apiKey) : null
-const model = genAI?.getGenerativeModel({ model: 'gemini-2.0-flash' }) ?? null
+const model = genAI?.getGenerativeModel({ model: 'gemini-1.5-flash-8b' }) ?? null
 
 export const geminiAvailable = !!model
 

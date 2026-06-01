@@ -56,7 +56,8 @@ export function NarratorPanel({ ctx, oracleWord, characterName = 'Inconnu' }: Na
           : await narrateOracle(oracleWord!, characterName)
         setNarration(text)
       } catch (e) {
-        setError(e instanceof Error ? e.message : 'Erreur Gemini')
+        const msg = e instanceof Error ? e.message : String(e)
+        setError(msg.slice(0, 120))
       } finally {
         setLoading(false)
       }
