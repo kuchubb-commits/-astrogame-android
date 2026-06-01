@@ -5,8 +5,11 @@ import { OraclePanel } from './components/dice/OraclePanel'
 import { DiceHistory } from './components/dice/DiceHistory'
 import { ExploreRoller } from './components/dice/ExploreRoller'
 import { EnemyPanel } from './components/enemies/EnemyPanel'
+import { CombatSetup } from './components/combat/CombatSetup'
+import { CombatTracker } from './components/combat/CombatTracker'
+import { useCombatStore } from './stores/combatStore'
 
-type Page = 'home' | 'character' | 'dice' | 'enemies'
+type Page = 'home' | 'character' | 'dice' | 'enemies' | 'combat'
 
 function NavBar({ onBack, title }: { onBack: () => void; title: string }) {
   return (
@@ -49,6 +52,22 @@ function EnemiesPage({ onBack }: { onBack: () => void }) {
   )
 }
 
+function CombatPage({ onBack }: { onBack: () => void }) {
+  const { phase, reset } = useCombatStore()
+  const inCombat = phase !== 'setup'
+
+  return (
+    <div>
+      <NavBar onBack={() => { reset(); onBack() }} title="Combat" />
+      <div className="max-w-lg mx-auto px-4 py-6">
+        <div className="bg-[#111118] border border-slate-800 rounded-lg p-4">
+          {inCombat ? <CombatTracker /> : <CombatSetup />}
+        </div>
+      </div>
+    </div>
+  )
+}
+
 function App() {
   const [page, setPage] = useState<Page>('home')
 
@@ -67,6 +86,10 @@ function App() {
 
   if (page === 'enemies') {
     return <EnemiesPage onBack={() => setPage('home')} />
+  }
+
+  if (page === 'combat') {
+    return <CombatPage onBack={() => setPage('home')} />
   }
 
   return (
@@ -100,7 +123,13 @@ function App() {
           onClick={() => setPage('enemies')}
           className="px-6 py-3 border border-purple-500 text-purple-300 text-sm tracking-widest uppercase rounded hover:bg-purple-500/20 transition"
         >
-          ⚔️ Ennemis & Combat
+          📋 Ennemis & Base de données
+        </button>
+        <button
+          onClick={() => setPage('combat')}
+          className="px-6 py-3 border border-red-600 text-red-300 text-sm tracking-widest uppercase rounded hover:bg-red-500/20 transition"
+        >
+          ⚔️ Combat
         </button>
       </div>
 
