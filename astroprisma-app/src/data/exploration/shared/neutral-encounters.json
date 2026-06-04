@@ -1,0 +1,217 @@
+{
+  "table": "neutral_encounters",
+  "source_pages": [74, 75],
+  "section": "7.8 Neutral Encounters",
+  "entries": [
+    {
+      "id": 1,
+      "title": "Comète — restauration totale",
+      "description": "Vous vous trouvez à quelques kilomètres d'une comète alors qu'elle approche le centre du système stellaire. Sa traîne illumine l'horizon et peint le sombre canevas de l'espace d'un éclat aquamarine et indigo.",
+      "mechanic": null,
+      "reward": "Gagnez 10 EXP et restaurez votre Santé et votre Énergie à 20."
+    },
+    {
+      "id": 2,
+      "title": "Anomalie temporelle — rajeunissement",
+      "description": "Les commandes de navigation du vaisseau commencent à vibrer et à mal fonctionner. L'aiguille de votre montre se fige pendant une heure entière, avant de commencer à tourner en sens inverse. Votre tête se sent légère. Vous mettez le vaisseau en autopilote et vous allongez. Vous vous réveillez exactement d6 années plus jeune.",
+      "mechanic": "Lancez d6 → résultat = nombre d'années rajeunies (effet narratif / cosmétique).",
+      "reward": null
+    },
+    {
+      "id": 3,
+      "title": "Prisme de cristal rose — bonus de stat permanent",
+      "description": "Un colossal prisme de cristal rose flotte au-dessus du vide, une lueur technicolor émane de l'intérieur du shard cristallin. Une douce voix dans votre tête vous pousse à sortir du vaisseau en combinaison spatiale et à toucher le prisme.",
+      "mechanic": null,
+      "reward": "Gagnez un +1 permanent à une stat de votre choix."
+    },
+    {
+      "id": 4,
+      "title": "Voidcrawler — intrus dans les réservoirs",
+      "description": "Vous entendez un son métallique strident provenant de la salle des moteurs. Un Voidcrawler tente de s'introduire dans votre dépôt de carburant et de boire le liquide noir à l'intérieur.",
+      "mechanic": "Attaquer → Combattez l'alien. | Laisser se nourrir → La créature se téléporte dans l'espace. Perdez 4 Carburant.",
+      "reward": null
+    },
+    {
+      "id": 5,
+      "title": "Eclipse Warden Synth Arch — message prophétique",
+      "description": "Vous croisez un vaisseau Eclipse Warden. Une voix profonde générée par ordinateur vous parle à travers le système de comms : 'QUELLE LUMIÈRE GUIDE VOTRE CHEMIN ?' La voix attend une réponse alors que vous restez assis en silence, paralysé. Elle conclut : 'PUISSIEZ-VOUS TROUVER L'ÉTREINTE DU PROPHÈTE AVANT LA FIN'",
+      "mechanic": null,
+      "reward": null
+    },
+    {
+      "id": 6,
+      "title": "Champ électromagnétique — téléportation",
+      "description": "Un étrange champ électromagnétique est détecté par vos systèmes de navigation. Votre vaisseau est déjà trop profondément à l'intérieur du champ pour pouvoir s'échapper à son attraction. Sans autre option, vous foncer à pleine puissance vers son épicentre.",
+      "mechanic": null,
+      "reward": "Votre vaisseau est transporté vers n'importe quel hex de votre choix."
+    },
+    {
+      "id": 7,
+      "title": "Signal audio ancien — Lune Nucléaire",
+      "description": "Vous recevez un faible signal audio. Les données du journal reflètent qu'il a été envoyé il y a des décennies. Vous lancez l'enregistrement — une voix tremblante dit qu'une ogive nucléaire est dirigée vers leur colonie lunaire, à 1 case au sud-est. Votre radar indique qu'il y a maintenant une Lune Nucléaire à ces coordonnées.",
+      "mechanic": null,
+      "reward": "Marquez l'emplacement d'une Lune Nucléaire à 1 case au sud-est."
+    },
+    {
+      "id": 8,
+      "title": "Résonance des profondeurs spatiales — dommages systèmes",
+      "description": "Une résonance des profondeurs spatiales noie tous les autres signaux radio. Sa force surpasse votre électronique et endommage votre vaisseau. Vous essayez de désactiver vos antennes avant qu'il ne soit trop tard.",
+      "mechanic": "JET TECH Succès → Vous sauvez les systèmes du vaisseau. [+1⚛] | Échec → Perdez 8 Coque.",
+      "reward": null
+    },
+    {
+      "id": 9,
+      "title": "'Le Silence' — zone EMP",
+      "description": "L'affichage de votre système radar bug et affiche de la neige. Tous les signaux radio disparaissent, remplacés par un fort bruit blanc. Votre vaisseau est entré dans 'Le Silence' — une zone de l'espace contrôlée par des hors-la-loi, où les comms sont désactivées par des relais IEM.",
+      "mechanic": "Lancez un Jet de Rencontre Hostile sur le prochain hex inexploré.",
+      "reward": null
+    },
+    {
+      "id": 10,
+      "title": "Signal d'urgence — Établissement Synth capturé",
+      "description": "Un voyant orange s'allume au-dessus de vos commandes radio. Il indique que vous avez reçu un signal d'urgence du réseau interplanétaire. Un Établissement Synth à 1 case au sud-ouest a récemment été attaqué par les forces WARG et est maintenant sous leur contrôle.",
+      "mechanic": null,
+      "reward": null
+    },
+    {
+      "id": 11,
+      "title": "Station de radio pirate — musique du Vieux Monde",
+      "description": "Les antennes de votre vaisseau captent un étrange signal de basse fréquence. Après quelques secondes à essayer de le synchroniser, de la musique commence à jouer depuis les haut-parleurs du cockpit. Vous reconnaissez certaines mélodies — c'est de la musique du Vieux Monde, jouée par ce qui semble être une station de radio pirate.",
+      "mechanic": null,
+      "reward": null
+    },
+    {
+      "id": 12,
+      "title": "Scarab Interceptor — survivants d'un Établissement capturé",
+      "description": "Le pilote d'un Scarab Interceptor transporte des survivants d'une bataille voisine. Un Établissement du Secteur Medusa à 2 cases au sud-ouest vient d'être violemment pris par les mercenaires du Syndicat Corsaire. Vous pouvez aider les survivants en leur donnant 100 Sérum.",
+      "mechanic": null,
+      "reward": "Gagnez +1 Faveur si vous aidez."
+    },
+    {
+      "id": 13,
+      "title": "Snowstorm Delta — réfugiés d'une colonie abandonnée",
+      "description": "Un Snowstorm Delta transporte un groupe de réfugiés d'une colonie abandonnée. Ils manquent de ressources et ont besoin de réparations urgentes pour leur vaisseau. Vous pouvez les aider en fournissant 40 Scraps.",
+      "mechanic": null,
+      "reward": "Ils révèlent l'emplacement d'une planète Sylvanienne à 2 cases au nord."
+    },
+    {
+      "id": 14,
+      "title": "Orion Moth en panne — échange Carburant/drone",
+      "description": "Un vaisseau Orion Moth dérive lentement dans l'espace, son moteur droit ne parvenant à s'allumer que quelques secondes à la fois. L'équipage contacte votre vaisseau par comms et demande du carburant en échange de leur cargaison.",
+      "mechanic": null,
+      "reward": "Vous pouvez perdre 5 Carburant et gagner un DRONE_Coccinelle."
+    },
+    {
+      "id": 15,
+      "title": "Vector-7 Mantis — révolutionnaires WARG en fuite",
+      "description": "Un commandement de révolutionnaires affiliés au WARG volent à bord d'un Vector-7 Mantis à la recherche d'un abri, tentant de se cacher d'une opération ennemie imminente. Si vous connaissez l'emplacement d'un Établissement WARG ou d'une Planque Pirate, vous pouvez le leur révéler.",
+      "mechanic": null,
+      "reward": "Gagnez +1 Faveur si vous le faites."
+    },
+    {
+      "id": 16,
+      "title": "A-1 Voyager — Voidcrawlers à bord",
+      "description": "Vous recevez un appel de détresse. L'ingénieur d'un A-1 Voyager a été tué par des créatures aliens hostiles qui ont infiltré leur vaisseau : 3 Voidcrawlers. Le reste de l'équipage offre de vous récompenser avec 100 Sérum et 50 Scraps si vous éliminez la menace.",
+      "mechanic": "Combattez les 3 Voidcrawlers.",
+      "reward": "100 Sérum et 50 Scraps."
+    },
+    {
+      "id": 17,
+      "title": "Edgecharger W — vaisseau hôpital ISF",
+      "description": "Des panneaux blancs et célestes décorent l'extérieur d'un Edgecharger W, un ancien vaisseau de guerre maintenant utilisé comme vaisseau hôpital ISF. Ils transportent des centaines de soldats blessés, opérant à pleine capacité. Vous pouvez les aider en donnant 2 Trousses de Santé.",
+      "mechanic": null,
+      "reward": "Gagnez +1 Faveur si vous aidez."
+    },
+    {
+      "id": 18,
+      "title": "Code Morse — emplacement caché d'un Établissement Medusa",
+      "description": "Un bip se fait entendre à travers vos systèmes de comms. Vous réalisez que c'est du code Morse, jouant une série de valeurs hexadécimales. Vous essayez de décoder ce que dit le message caché.",
+      "mechanic": "JET ESPRIT Succès → Marquez l'emplacement d'un Établissement Medusa à 2 cases au sud-est.",
+      "reward": null
+    },
+    {
+      "id": 19,
+      "title": "Twinrotor Hauler — marchand itinérant — échange de sang",
+      "description": "Un marchand itinérant approche votre vaisseau dans un Twinrotor Hauler. L'intérieur de son vaisseau est sombre, éclairé seulement par des bougies holographiques. Il vous propose un étrange commerce : votre sang contre du Sérum.",
+      "mechanic": "Vous pouvez perdre 4 Santé et gagner 80 Sérum, répétable jusqu'à 5 fois.",
+      "reward": null
+    },
+    {
+      "id": 20,
+      "title": "Shell-4 Transporter — équipage mort, module récupérable",
+      "description": "Les feux de navigation d'un Shell-4 Transporter clignotent de façon incontrôlable. Vous montez à bord et trouvez l'équipage allongé mort sur le sol, la soute vide. 'Pirates spatiaux' — vous vous dites.",
+      "mechanic": null,
+      "reward": "Vous pouvez récupérer un module de vaisseau Disruptor Beams."
+    },
+    {
+      "id": 21,
+      "title": "Beluga Transporter — cargaison déconnectée",
+      "description": "Vous recevez un signal de détresse d'un Beluga Transporter voisin. Une partie de leur cargaison a été accidentellement déconnectée du vaisseau. Ils vous demandent si vous pouvez la récupérer.",
+      "mechanic": "JET GRÂCE Succès → Ils vous donnent 30 Scraps et 70 Sérum.",
+      "reward": null
+    },
+    {
+      "id": 22,
+      "title": "Beluga Transporter — armurier artisan",
+      "description": "Un Beluga Transporter orange et rouge croise votre chemin, géré par un vieux armurier artisan. Vous contemplez les conceptions d'armes ornées qui décorent les murs de son atelier pendant qu'il propose ses marchandises.",
+      "mechanic": null,
+      "reward": "Vous pouvez acheter n'importe quelle arme ou mod d'arme auprès de lui."
+    },
+    {
+      "id": 23,
+      "title": "Twinrotor Hauler — marchandises en chargement",
+      "description": "Un Twinrotor Hauler est stationné à un checkpoint voisin. De grands conteneurs métalliques sont chargés dans la soute du vaisseau. Un des membres de l'équipage vous approche et propose de commercer une partie de leur stock.",
+      "mechanic": null,
+      "reward": "Vous pouvez acheter n'importe quel objet ou Set d'Armure auprès d'eux."
+    },
+    {
+      "id": 24,
+      "title": "Shell-4 Transporter — équipage de clones androïdes",
+      "description": "Vous amarrez avec un Shell-4 Transporter. Son équipage est entièrement composé de clones androïdes. Ils ont besoin d'énergie pour alimenter leur vaisseau et vous proposent d'acheter l'un de leurs implants cybertechs de rechange.",
+      "mechanic": null,
+      "reward": "Vous pouvez acheter n'importe quel cybertech à son coût en Sérum + 10 Énergie, au lieu du coût EXP habituel."
+    },
+    {
+      "id": 25,
+      "title": "Vaisseau de combat du Vieux Monde — Ion Carbine",
+      "description": "Un vaisseau de combat spatial pré-guerre, son moteur brisé, touché par un missile balistique. Vous entrez par la porte d'urgence et trouvez le squelette du pilote encore assis sur le siège de contrôle.",
+      "mechanic": null,
+      "reward": "Parmi les restes, vous ramassez une Ion Carbine et un mod d'arme à distance aléatoire."
+    },
+    {
+      "id": 26,
+      "title": "Vaisseau de forage d'astéroïdes — 50 Sérum caché",
+      "description": "Un vieux vaisseau de forage d'astéroïdes, sa peinture blanche et brune décolorée après des années d'exposition aux conditions difficiles de l'espace. À l'intérieur, un ensemble compliqué de commandes et un manuel d'opérateur écrit dans un dialecte que vous ne comprenez pas.",
+      "mechanic": null,
+      "reward": "Vous trouvez 50 Sérum dans un casier."
+    },
+    {
+      "id": 27,
+      "title": "Intercepteurs écrasés — 60 Scraps récupérables",
+      "description": "Deux intercepteurs spatiaux dérivent lentement, leurs coques s'étant percutées, conséquence d'une ancienne bataille. Leurs intérieurs sont presque entièrement détruits, mais vous parvenez à récupérer du matériel.",
+      "mechanic": null,
+      "reward": "Récupérez 60 Scraps depuis l'une de leurs salles des machines."
+    },
+    {
+      "id": 28,
+      "title": "Vaisseau de transport — Trousses de Santé abandonnées",
+      "description": "De la glace blanche recouvre la moitié d'un vaisseau de transport de taille moyenne. Les journaux de données révèlent qu'une explosion dans les réservoirs d'O2 a exposé l'intérieur du vaisseau au froid glacial de l'espace. L'équipage a laissé des objets derrière en partant dans une capsule de sauvetage.",
+      "mechanic": null,
+      "reward": "L'équipage a laissé 2 Trousses de Santé derrière lui."
+    },
+    {
+      "id": 29,
+      "title": "Porte-vaisseaux fendu — tourelle automatique",
+      "description": "Une brèche verticale divise la coque d'un grand porte-vaisseaux en deux. Alors que vous vous préparez à explorer son intérieur, une tourelle de défense automatique s'active et pointe son laser sur vous.",
+      "mechanic": "JET VIGUEUR Succès → Vous détruisez la tourelle. [+1⚛] | Échec → Perdez 2d4 Santé.",
+      "reward": null
+    },
+    {
+      "id": 30,
+      "title": "Vaisseau de contrebande endommagé — narcobiotiques cachés",
+      "description": "Un vaisseau de contrebande moderne, endommagé par l'impact d'un petit astéroïde. Les cadavres de deux pirates spatiaux peuvent être trouvés à l'intérieur, déshydratés et en décomposition. Parmi des piles de marchandises volées, vous trouvez une cache cachée.",
+      "mechanic": null,
+      "reward": "2 narcobiotiques aléatoires et une cache secrète contenant 100 Sérum."
+    }
+  ]
+}

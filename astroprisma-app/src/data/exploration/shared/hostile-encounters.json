@@ -1,0 +1,248 @@
+{
+  "table": "hostile_encounters",
+  "source_pages": [72, 73],
+  "section": "7.7 Hostile Encounters",
+  "note_d6": "Lancez un d6 avant la rencontre hostile. Sur un résultat de 1, aucune rencontre cette fois — laissez la case vide et relancez un Jet d'Exploration lors de votre prochain passage.",
+  "entries": [
+    {
+      "id": 1,
+      "title": "Duskwing rebelle — attaque surprise",
+      "description": "La traîne des moteurs-fusée d'un Duskwing vous aveugle quelques secondes alors que le vaisseau effectue un saut juste devant vous. Sans temps de réagir, le vaisseau hostile engage des manœuvres de combat. Des pirates spatiaux ont dû capter votre signal radio lorsque vous avez pénétré le quadrant.",
+      "mechanic": "Combat",
+      "reward": null,
+      "faction": null
+    },
+    {
+      "id": 2,
+      "title": "Snowstorm Delta — faux marchand",
+      "description": "Vous êtes approché par ce qui ressemble à un marchand spatial. Le grand nombre de modules d'armes sur le vaisseau ennemi vous fait rapidement reconsidérer votre première impression. Le vaisseau Snowstorm Delta commence à tirer sur votre vaisseau une fois qu'il s'est rapproché.",
+      "mechanic": "Combat",
+      "reward": null,
+      "faction": null
+    },
+    {
+      "id": 3,
+      "title": "Starpredator — hologramme piège",
+      "description": "Vous approchez un vaisseau cargo pour commercer ou demander des directions. Mais en vous rapprochant, sa silhouette disparaît dans les airs. Le vaisseau était une projection holographique d'un Starpredator pirate hostile cherchant à attirer une proie sans méfiance.",
+      "mechanic": "Combat",
+      "reward": null,
+      "faction": null
+    },
+    {
+      "id": 4,
+      "title": "Vector-7 Mantis — vaisseau de pièces volées",
+      "description": "Vous êtes attaqué par un Vector-7 Mantis. Le vaisseau est composé de pièces de différentes couleurs et formes provenant de divers modèles de vaisseaux, comme s'il avait été assemblé à partir de pièces récupérées ou volées — une pratique courante parmi les hors-la-loi et les groupes pirates.",
+      "mechanic": "Combat",
+      "reward": null,
+      "faction": null
+    },
+    {
+      "id": 5,
+      "title": "Epsilon Interceptor — attaque en autopilote",
+      "description": "Vous essayez de vous reposer pendant que le vaisseau vole en mode autopilote, quand vous êtes soudainement réveillé par le son de votre système de détection radar. Un Epsilon Interceptor pirate approche vos coordonnées.",
+      "mechanic": "Combat",
+      "reward": "Gagnez 1 Zero-G Liquor après les avoir vaincus.",
+      "faction": null
+    },
+    {
+      "id": 6,
+      "title": "Tarrasque Titan — fleuron de la flotte pirate",
+      "description": "Le joyau de la plus grande flotte de pirates spatiaux de ce système : un Tarrasque Titan en parfait état, volé dans une ancienne base militaire du Vieux Monde. Vous avez la malchance de croiser sa route. Votre tentative de fuite est futile alors que le vaisseau prépare son attaque.",
+      "mechanic": "Combat",
+      "reward": null,
+      "faction": null
+    },
+    {
+      "id": 7,
+      "title": "Smuggler Speeder — aucun témoin",
+      "description": "Vous croisez un Smuggler Speeder volant à une vitesse extrêmement élevée, tentant d'éviter la détection radar. Le vaisseau ralentit et se tourne vers vous. Ils ne peuvent laisser personne qui identifie leur vaisseau s'en sortir vivant.",
+      "mechanic": "Combat",
+      "reward": "Gagnez 1 Colis de Contrebande après les avoir vaincus.",
+      "faction": null
+    },
+    {
+      "id": 8,
+      "title": "Twinrotor Hauler — vaisseau volé par des pillards",
+      "description": "Vous êtes alerté par les bruyants moteurs d'un Twinrotor Hauler. Le vaisseau semble transporter plus de cargaison que sa capacité ne le permet. Des découpes laser sur son écoutille confirment que c'est un vaisseau volé, très probablement pris par des pillards après avoir raflé un Établissement.",
+      "mechanic": "Combat",
+      "reward": null,
+      "faction": null
+    },
+    {
+      "id": 9,
+      "title": "Shell-4 Transporter — transport clandestin",
+      "description": "Vous traversez sans le savoir une route spatiale commune pour les transports de cargaison furtifs. Après quelques minutes, vous êtes approché par un Shell-4 Transporter. Leur pilote réalise rapidement que vous n'êtes pas des leurs et engage des procédures de combat contre votre vaisseau.",
+      "mechanic": "Combat",
+      "reward": null,
+      "faction": null
+    },
+    {
+      "id": 10,
+      "title": "Beluga Transporter — cargo de contrebande",
+      "description": "Un Beluga Transporter se déplace lentement dans l'espace, transportant des tonnes de conteneurs de cargaison. Vous essayez de contacter le vaisseau, mais leurs communications sont éteintes. À inspection plus approfondie, vous réalisez que le vaisseau n'a aucune identification. C'est un vaisseau de cargaison de contrebande.",
+      "mechanic": "Combat",
+      "reward": null,
+      "faction": null
+    },
+    {
+      "id": 11,
+      "title": "Orion Moth — cas de méprise",
+      "description": "Un petit vaisseau Orion Moth vous confronte. Ils activent leurs systèmes d'armes tout en vous contactant par comms. L'équipage du vaisseau semble vous avoir pris pour un vaisseau de patrouille commerciale ISF. Vous tentez d'expliquer la situation, mais il est trop tard.",
+      "mechanic": "Combat",
+      "reward": null,
+      "faction": "Medusa Sector"
+    },
+    {
+      "id": 12,
+      "title": "Edgecharger W — hub de contrebande secret",
+      "description": "Un grandiose porte-vaisseaux Edgecharger W effectue un saut à quelques centaines de kilomètres de votre position. Le vaisseau semble mener une opération de construction secrète pour un nouveau hub de commerce de contrebande. Les systèmes radar du vaisseau captent rapidement votre signal et le vaisseau vous attaque.",
+      "mechanic": "Combat",
+      "reward": null,
+      "faction": null
+    },
+    {
+      "id": 13,
+      "title": "WARG — attaque d'un Shell-4 ISF",
+      "description": "Une colonne WARG est à court de ravitaillement après une mission ratée. Ils ont déployé un Vector Ace Fighter et un Vector-7 Mantis pour attaquer et piller un Shell-4 Transporter ISF.",
+      "mechanic": "Combattre les deux vaisseaux de chasse [+2 Faveur][-1 Sérum] | Détruire le transporteur [+1 Faveur][-1 Sérum]",
+      "reward": null,
+      "faction": "WARG"
+    },
+    {
+      "id": 14,
+      "title": "WARG vs Twinrotor Hauler Synth Arch",
+      "description": "Un Starpredator WARG lance une attaque sur un Twinrotor Hauler Synth Arch transportant des pièces cybertechs pour une usine androïde voisine.",
+      "mechanic": "Détruire le Starpredator [+1 Faveur][-1 Sérum] | Attaquer le Twinrotor Hauler [+1 Faveur][-1 Sérum]",
+      "reward": null,
+      "faction": "WARG / Synth Arch"
+    },
+    {
+      "id": 15,
+      "title": "ISF vs The Claw — appel à soutien",
+      "description": "L'ISF a envoyé un message radio à tous les vaisseaux du quadrant demandant du soutien pour une mission d'attaque contre le Syndicat. Deux A-1 Voyagers combattent un vaisseau-mère The Claw.",
+      "mechanic": "Attaquer le vaisseau-mère [+1 Faveur][-1 Sérum] | Détruire les deux vaisseaux ISF [+2 Faveur][-1 Sérum]",
+      "reward": null,
+      "faction": "ISF / Corsair Syndicate"
+    },
+    {
+      "id": 16,
+      "title": "Corsair Syndicate vs Medusa Stingray Frontier",
+      "description": "Deux vaisseaux Snowstorm Delta du Syndicat Corsaire attaquent un Medusa Stingray Frontier, avec l'intention de vendre les données qu'il transporte sur le marché noir.",
+      "mechanic": "Tendre une embuscade au Stingray Frontier [+1 Faveur][-1 Sérum] | Attaquer les deux vaisseaux [+2 Faveur][-1 Sérum]",
+      "reward": null,
+      "faction": "Corsair Syndicate / Medusa Sector"
+    },
+    {
+      "id": 17,
+      "title": "Medusa Sector vs Eclipse Warden Synth Arch",
+      "description": "Un Orion Moth du Secteur Medusa combat un puissant vaisseau Eclipse Warden contrôlé par le Synth Arch, transportant des données chiffrées puissantes d'avant l'apocalypse.",
+      "mechanic": "Combattre l'Eclipse Warden [+1 Faveur][-1 Sérum] | Attaquer l'Orion Moth [+1 Faveur][-1 Sérum]",
+      "reward": null,
+      "faction": "Medusa Sector / Synth Arch"
+    },
+    {
+      "id": 18,
+      "title": "Synth Arch vs Tarrasque Titan ISF",
+      "description": "L'expansion du commerce ISF a mis en danger les objectifs transhumanistes du Synth Arch. Deux pilotes synths dans des Epsilon Interceptors mènent une attaque sur un Tarrasque Titan.",
+      "mechanic": "Attaquer le Tarrasque Titan [+1 Faveur][-1 Sérum] | Combattre les Interceptors [+2 Faveur][-1 Sérum]",
+      "reward": null,
+      "faction": "Synth Arch / ISF"
+    },
+    {
+      "id": 19,
+      "title": "Xénobiologiste fugitif — spécimen alien",
+      "description": "Un xénobiologiste se dirige vers un Établissement Corsaire voisin dans son Scarab Interceptor. Il s'est échappé d'une installation de recherche avec un rare spécimen alien et a l'intention de le vendre sur le marché noir pour une bonne somme de Sérum.",
+      "mechanic": "Combat",
+      "reward": null,
+      "faction": null
+    },
+    {
+      "id": 20,
+      "title": "Beluga Transporter — équipage automate hostile",
+      "description": "L'équipage automate d'un Beluga Transporter est devenu hostile. Après avoir survécu à plusieurs attaques de pillards et de vaisseaux pirates, leur code endommagé a décidé d'attaquer chaque vaisseau qu'ils croisent.",
+      "mechanic": "Combat",
+      "reward": null,
+      "faction": null
+    },
+    {
+      "id": 21,
+      "title": "Eclipse Warden — androïdes hérétiques en fuite",
+      "description": "Un groupe d'androïdes hérétiques fuyant depuis une base Synth Arch qu'ils ont détruite. Ils volent à grande vitesse sur un Eclipse Warden. Pensant que vous êtes aligné avec leurs ennemis ou que vous pourriez révéler leur emplacement, ils vous attaquent immédiatement.",
+      "mechanic": "Combat",
+      "reward": null,
+      "faction": "Synth Arch (dissident)"
+    },
+    {
+      "id": 22,
+      "title": "Twinrotor Hauler — équipe de chasseurs de trésors",
+      "description": "Un équipage de scavengers et de chasseurs de trésors volent à bord d'un Twinrotor Hauler. Craignant que vous ayez l'intention de voler leurs trouvailles, ils attaquent votre vaisseau dès qu'ils vous détectent croiser leur chemin.",
+      "mechanic": "Combat",
+      "reward": "Gagnez un Tesseract lorsque vous les vainquez.",
+      "faction": null
+    },
+    {
+      "id": 23,
+      "title": "A-1 Voyager — IA renégate",
+      "description": "Le système d'autopilote d'un ancien A-1 Voyager a mal fonctionné et pris le contrôle du vaisseau entier après le décès du pilote. L'intelligence artificielle renégate est hostile et attaque tous les vaisseaux qu'elle croise. Cette fois, c'est le tour de votre vaisseau.",
+      "mechanic": "Combat",
+      "reward": null,
+      "faction": null
+    },
+    {
+      "id": 24,
+      "title": "Stingray Frontier — cyborg dément",
+      "description": "Un cyborg pilote un Stingray Frontier. Son jugement et ses sens humains sont gravement endommagés par ses implants cybernétiques. Il plonge le vaisseau entier vers vous, tentant sans relâche d'écraser votre vaisseau. Vous n'avez pas d'autre choix que de riposter.",
+      "mechanic": "Combat",
+      "reward": null,
+      "faction": null
+    },
+    {
+      "id": 25,
+      "title": "Vector Ace Fighter modifié — piège stationnaire",
+      "description": "Vous détectez un petit obstacle sur votre trajectoire : un Vector Ace Fighter modifié, apparemment statique et sans pilote. Vous changez de route pour éviter le vaisseau, mais en vous en approchant, il commence à vous attaquer de nulle part.",
+      "mechanic": "Combat",
+      "reward": null,
+      "faction": null
+    },
+    {
+      "id": 26,
+      "title": "Vector-7 Mantis — mercenaire",
+      "description": "'RENDEZ-VOUS' — les mots résonnent dans votre cockpit, venant des haut-parleurs du comms. Votre vaisseau est intercepté par un vaisseau mercenaire, un Vector-7 Mantis. 'Pour qui travaillez-vous ?' — vous demandez au vaisseau hostile, mais leur seule réponse est une rafale de balles.",
+      "mechanic": "Combat",
+      "reward": null,
+      "faction": null
+    },
+    {
+      "id": 27,
+      "title": "Starpredator chromé — chasseur de primes",
+      "description": "Un vaisseau Starpredator chromé avec des flammes rouges peintes sur son extérieur intercepte votre vaisseau. 'Ici l'agent 203H47, sur contrat de prime spécial de [CENSURÉ], je dois capturer le pilote de ce vaisseau mort ou vif. C'est juste du business.' Le vaisseau attaque dès que le message se termine.",
+      "mechanic": "Combat",
+      "reward": null,
+      "faction": null
+    },
+    {
+      "id": 28,
+      "title": "Snowstorm Delta — attaque silencieuse",
+      "description": "Un vaisseau Snowstorm Delta vole à côté de votre vaisseau, comme si le pilote essayait de voir votre visage à travers votre cockpit. Vous essayez de communiquer avec eux, mais leur radio est éteinte. Quelques secondes passent avant que le vaisseau vous attaque.",
+      "mechanic": "Combat",
+      "reward": null,
+      "faction": null
+    },
+    {
+      "id": 29,
+      "title": "Orion Moth rouillé — chasseur de primes",
+      "description": "Un chasseur de primes pilotant un Orion Moth rouillé approche votre vaisseau. Que ce soit un cas de méprise ou que votre passé vous ait rattrapé, il n'y a maintenant qu'une seule échappatoire : se battre pour sa vie.",
+      "mechanic": "Combat",
+      "reward": "Gagnez un Exosquelette de Combat après les avoir vaincus.",
+      "faction": null
+    },
+    {
+      "id": 30,
+      "title": "Edgecharger W porte-vaisseaux — Vieux Monde",
+      "description": "Un grandiose porte-vaisseaux Edgecharger W effectue un saut près de votre position. Vous prenez un moment pour contempler le design complexe de sa coque, une merveille des vaisseaux spatiaux du Vieux Monde. Mais il ne faut pas longtemps pour réaliser que le vaisseau se dirige vers vous, prêt à engager le combat.",
+      "mechanic": "Combat",
+      "reward": null,
+      "faction": null
+    }
+  ]
+}

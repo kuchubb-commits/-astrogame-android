@@ -1,0 +1,91 @@
+{
+  "ring": "outer",
+  "source_pages": [67, 68],
+  "section": "7.4 Outer Ring Encounters",
+  "entries": [
+    {
+      "id": 1,
+      "title": "Champ de débris spatiaux",
+      "description": "Votre radar détecte un champ d'astéroïdes entrant, mais en vous en approchant, vous réalisez qu'il n'est pas composé de roches ou de formations de glace, mais de débris fabriqués par l'homme. La destruction d'une grande station spatiale a créé des tonnes de déchets cosmiques composés de panneaux métalliques tranchants, de poutres en acier et d'autres matériaux dangereux.",
+      "mechanic": null,
+      "reward": "Parmi les déchets, vous récupérez des objets de valeur : 60 Scraps, 1 Grenade IEM et 1 Cartouche Taser."
+    },
+    {
+      "id": 2,
+      "title": "Pluie d'astéroïdes",
+      "description": "Un brusque changement du champ gravitationnel a provoqué l'orbite d'un groupe d'astéroïdes autour de l'étoile du système à une vitesse toujours croissante. Les astéroïdes, composés de glace tranchante et de roches, approchent rapidement votre vaisseau. À quelques secondes d'une collision directe, vous tentez une manœuvre.",
+      "mechanic": "JET GRÂCE : Succès → Vous esquivez tous les astéroïdes. [+1⚛] | Échec → Perdez 5 Coque.",
+      "reward": null
+    },
+    {
+      "id": 3,
+      "title": "Circuit de course des Corsairs",
+      "description": "Vous croisez un groupe de hors-la-loi du Syndicat Corsaire qui font la course avec leurs vaisseaux dans un circuit d'astéroïdes.",
+      "mechanic": "Course stellaire → Lancez vos Dés d'Action (vous pouvez utiliser les capacités Moteurs) et additionnez les résultats. Comparez le total au tableau des scores. Si vous battez un score, vous recevez la récompense indiquée. ❶15 points [MASTER HACK aléatoire] ❷12 points [mod d'arme aléatoire] ❸9 points [narcobiotique aléatoire]",
+      "reward": "Vous pouvez acheter Zero-G Liquor et Stardust™Soda au bar."
+    },
+    {
+      "id": 4,
+      "title": "Cellule WARG cachée",
+      "description": "Vous trouvez une cellule WARG cachée dans une base secrète dans le champ d'astéroïdes. Un vaisseau rebelle Duskwing vous confronte — ils ne peuvent pas vous laisser partir après avoir découvert leur emplacement.",
+      "mechanic": "Combattre le vaisseau rebelle → Vous trouvez un mod d'arme à distance aléatoire parmi leurs restes. | +1⚛ → Expliquer que vous êtes un allié → Ils vous laissent partir et révèlent l'emplacement d'un Établissement WARG, 2 cases au sud-est.",
+      "reward": null
+    },
+    {
+      "id": 5,
+      "title": "Océan d'astéroïdes — cache de narcobiotiques",
+      "description": "Une série de champs d'astéroïdes interconnectés forme un vaste océan d'astéroïdes. Le grand nombre de roches de petite et moyenne taille rend la visibilité difficile et rend les systèmes radar complètement inutiles. De nombreux hors-la-loi et contrebandiers cachent leurs marchandises illégales dans ce quadrant.",
+      "mechanic": null,
+      "reward": "Après des heures de voyage, vous trouvez une cache secrète contenant des narcobiotiques : 3 Hormones Testogre et 2 Comprimés de Tricillin."
+    },
+    {
+      "id": 6,
+      "title": "Station Synth Arch dissimulée",
+      "description": "Vous entrez dans une dense ceinture d'astéroïdes. La grande quantité de roches sature votre radar. Vous parvenez à dépasser la formation et atteignez une station spatiale Synth Arch en son centre. Vous découvrez que le champ d'astéroïdes est artificiel, créé par un puissant générateur holographique, opéré par un équipage de 3 Synthés Androïdes.",
+      "mechanic": "+3⚛ → Ils vous chargent de transporter un Tesseract vers un Établissement Synth Arch, 3 cases au nord-ouest.",
+      "reward": null
+    },
+    {
+      "id": 7,
+      "title": "Starpredator pirate — rançon",
+      "description": "Votre vaisseau est arrêté par un Starpredator pirate. Ils vous demandent de vous identifier.",
+      "mechanic": "Acheter votre liberté → Ils vous laisseront partir pour 120 Sérum. | Confronter le pirate → Attaquez le Starpredator. Gagnez 3 Colis de Contrebande si vous gagnez. | +2⚛ → Ils vous remettent 1 Colis de Contrebande et vous chargent de le livrer à une Planque Pirate. Si vous le faites, gagnez +1 Faveur et un mod d'arme de mêlée aléatoire.",
+      "reward": null
+    },
+    {
+      "id": 8,
+      "title": "Epsilon Interceptor — reddition",
+      "description": "En entrant dans la zone d'une base de pirates spatiaux, votre vaisseau commence à être suivi par un Epsilon Interceptor. Lentement, le vaisseau pirate se rapproche jusqu'à vous stopper. 'Rendez votre cargaison ou soyez annihilé' — crie le pilote par comms.",
+      "mechanic": "Se rendre → Donnez-leur 3 objets de votre inventaire ou 100 Sérum. | Attaquer le pirate → Gagnez 2 Colis de Contrebande des restes du vaisseau.",
+      "reward": null
+    },
+    {
+      "id": 9,
+      "title": "Snowstorm Delta — attaque à distance",
+      "description": "Un tir laser manque votre vaisseau de peu alors que vous volez dans les secteurs dangereux de l'Anneau Extérieur. Vous basculez en mode manuel et vous retournez. Un équipage pirate, à bord d'un Snowstorm Delta, a détecté votre présence et vous attaque de loin.",
+      "mechanic": "Confronter le vaisseau → Vous trouvez 50 Scraps dans le vaisseau ennemi détruit. | Fuir → Déplacez votre vaisseau vers un hex adjacent de l'Anneau Médian et échappez. Perdez 3 Carburant.",
+      "reward": null
+    },
+    {
+      "id": 10,
+      "title": "Smuggler Speeder — pilleur",
+      "description": "Votre radar capte le signal d'un petit vaisseau au loin. Vous vous rapprochez. C'est un Smuggler Speeder qui retourne vers une Planque Pirate après avoir pillé plusieurs marchands et cargos.",
+      "mechanic": "Attaquer le vaisseau → Prenez leur cargaison volée : 40 Scraps, une arme à distance aléatoire et un Colis de Contrebande. Vous pouvez rapporter les objets à un Établissement ISF pour +1 Faveur.",
+      "reward": null
+    },
+    {
+      "id": 11,
+      "title": "Base militaire pirate — A-1 Voyager intact",
+      "description": "Une ancienne base militaire pirate du Vieux Monde orbite autour de l'Anneau Extérieur. Vous voyez plusieurs vaisseaux garés dans son hangar, la plupart endommagés. Alors que vous êtes sur le point de partir, vous trouvez un dernier vaisseau : un A-1 Voyager première génération en parfait état.",
+      "mechanic": null,
+      "reward": "Vous pouvez soit remplacer votre vaisseau actuel par l'A-1 Voyager, soit prendre l'un de ses modules et l'ajouter à votre vaisseau."
+    },
+    {
+      "id": 12,
+      "title": "Recrues pirates — Vector-7 Mantis",
+      "description": "Un groupe de recrues pirates débutantes effectue des exercices de pilotage près d'une Planque Pirate sur un grand astéroïde. Quand elles voient votre vaisseau apparaître sur leur radar, un pilote vétéran monte à bord d'un Vector-7 Mantis et se dirige vers vous.",
+      "mechanic": "S'échapper dans un champ d'astéroïdes → Vous évitez la confrontation, mais perdez 3 Carburant. | Combattre le vaisseau → Gagnez 2 Grenades Frag du vaisseau ennemi détruit.",
+      "reward": null
+    }
+  ]
+}

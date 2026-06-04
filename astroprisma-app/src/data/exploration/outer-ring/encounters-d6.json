@@ -1,0 +1,56 @@
+{
+  "ring": "outer",
+  "die": "d6",
+  "titre": "Table de Rencontre — Outer Ring",
+  "ref_page_livre": 66,
+  "description": "Lancer un d6 lors de l exploitation de l Outer Ring pour determiner ce que le joueur rencontre.",
+  "results": [
+    {
+      "roll": 1,
+      "type": "settlement",
+      "label": "Colonie (Settlement)",
+      "ref_page": 57,
+      "data_file": "shared/settlements.json"
+    },
+    {
+      "roll": 2,
+      "type": "outer_ring_event",
+      "label": "Evenement Outer Ring",
+      "ref_page": 64,
+      "data_file": null,
+      "note": "Table des evenements Outer Ring p.64 (asteroides, pirates, courses...)"
+    },
+    {
+      "roll": 3,
+      "type": "planet",
+      "label": "Planete",
+      "ref_page": 73,
+      "data_file": null,
+      "note": "Regles de generation de planetes p.73"
+    },
+    {
+      "roll": 4,
+      "type": "hostile_encounter",
+      "label": "Rencontre Hostile",
+      "ref_page": 69,
+      "data_file": null,
+      "note": "Table des rencontres hostiles p.69"
+    },
+    {
+      "roll": 5,
+      "type": "neutral_encounter",
+      "label": "Rencontre Neutre",
+      "ref_page": 71,
+      "data_file": null,
+      "note": "Table des rencontres neutres p.71"
+    },
+    {
+      "roll": 6,
+      "type": "faction_encounter",
+      "label": "Rencontre de Faction",
+      "ref_page": 92,
+      "data_file": null,
+      "note": "Table des rencontres de faction p.92"
+    }
+  ]
+}

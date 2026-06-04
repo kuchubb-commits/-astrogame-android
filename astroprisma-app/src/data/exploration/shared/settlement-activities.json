@@ -1,0 +1,89 @@
+{
+  "section": "7.2",
+  "titre": "Activités et Quêtes Secondaires de Colonie",
+  "description": "Il existe différentes activités que vous pouvez effectuer en passant du temps dans la Colonie.",
+  "ref_page": 59,
+  "activites": [
+    {
+      "id": "simulation_combat",
+      "nom": "Simulation de Combat",
+      "description": "Entrez dans une simulation de combat en réalité virtuelle pour entraîner votre précision et vos réflexes.",
+      "zone": "Combat Sim",
+      "regles": [
+        "Une fois par cycle, vous pouvez simuler un combat avec un ennemi de votre choix.",
+        "Si vous gagnez, vous obtenez de l'EXP selon leur difficulté et +2 VIG lors de votre prochain combat contre cet ennemi.",
+        "Vous n'obtenez pas de butin, et les objets utilisés pendant le combat ne sont pas consommés.",
+        "Vous ne pouvez pas mourir dans la simulation.",
+        "Réinitialisez HP et Énergie à leurs valeurs précédentes après le combat."
+      ]
+    },
+    {
+      "id": "depot_ferraille",
+      "nom": "Le Dépôt de Ferraille (Scrapyard)",
+      "description": "Un grand sanctuaire orbital de technologie brisée, foyer de récupérateurs et d'artificiers.",
+      "regles": [
+        "Vous pouvez fabriquer n'importe quelle Arme, Mod, Armure, DRONE ou Grenade en dépensant de la Ferraille égale à son coût en Serum indiqué.",
+        "Fabriquer un objet pour la première fois rapporte 1 EXP.",
+        "Vous obtenez de la Ferraille en démantèlant des objets des catégories susmentionnées, gagnant de la Ferraille égale à la moitié du coût en Serum de l'objet (arrondi au supérieur)."
+      ]
+    },
+    {
+      "id": "installation_vol",
+      "nom": "Installation de Vol (Test Flight)",
+      "description": "Exercices d'entraînement spatiaux.",
+      "cout": "3 Énergie par cycle",
+      "exercices": [
+        {
+          "id": "course_vitesse",
+          "nom": "Course de Vitesse (Speed Race)",
+          "description": "Volez à travers un circuit holographique.",
+          "mecanique": "xROLL GRACE — Succès : votre vaisseau se déplace en premier pendant les 2 prochaines batailles."
+        },
+        {
+          "id": "drill_combat",
+          "nom": "Drill de Combat (Combat Drill)",
+          "description": "Testez vos compétences de combat spatial.",
+          "mecanique": "xROLL VIGOR — Succès : vous avez +1 Dé d'Action par tour pendant votre prochaine bataille spatiale."
+        }
+      ]
+    }
+  ],
+  "quetes_secondaires": {
+    "description": "Les quêtes secondaires sont de courtes missions qui aident votre personnage à bâtir sa réputation auprès de la faction au contrôle de la Colonie, gagnant leur confiance en accomplissant de simples tâches. Compléter une quête secondaire vous accorde +1 Faveur avec cette faction.",
+    "conditions": "Lors d'une visite dans une Colonie, vous pouvez choisir d'obtenir une quête secondaire si vous avez entre 0 et 3 Faveur avec la faction dirigeante et aucune quête secondaire incomplète en cours.",
+    "recompense": "+1 Faveur avec la faction dirigeante",
+    "de": "d30",
+    "entrees": [
+      { "roll": 1, "texte": "Défeindre un ISF A-1 Voyager qui approche la Colonie, 1 case au nord." },
+      { "roll": 2, "texte": "Reprendre un avant-poste WARG 2 cases au sud, récemment pris par un Synthé Android." },
+      { "roll": 3, "texte": "Voyager jusqu'au satellite le plus proche et tendre une embuscade à une patrouille de 2 Soldats ISF." },
+      { "roll": 4, "texte": "Fournir un soutien de combat en défaisant un Mercenaire sur la planète la plus proche." },
+      { "roll": 5, "texte": "Fabriquer 5 Grenades Frag au Dépôt de Ferraille. Vous pouvez les garder après la quête." },
+      { "roll": 6, "texte": "Entraîner vos capacités de combat en défaisant un Sentinelle ISF dans le Combat Sim." },
+      { "roll": 7, "texte": "Obtenir une Graine de Terraformation et la planter sur la planète la plus proche." },
+      { "roll": 8, "texte": "Défaindre 2 Combattants Rebelles cachés sur le satellite le plus proche." },
+      { "roll": 9, "texte": "Livrer un conteneur de cargaison à un Checkpoint ISF, 3 cases au sud-est." },
+      { "roll": 10, "texte": "Aider à réparer la puce d'eau cassée de la Colonie en fournissant 100 Ferraille." },
+      { "roll": 11, "texte": "Compléter une Course de Vitesse réussie à l'Installation de Vol de la Colonie." },
+      { "roll": 12, "texte": "Défaindre 2 Speeders de Contrebandiers, 1 case au nord et 1 case au sud, respectivement." },
+      { "roll": 13, "texte": "Voler une Clé NGHTMR sur un Transporteur Beluga ISF, 2 cases au nord-est." },
+      { "roll": 14, "texte": "Détruire un brouilleur de réseau situé 4 cases au sud-est, protégé par un Bot Automate." },
+      { "roll": 15, "texte": "Défaindre 2 Synthés Androïds qui ont détruit une antenne, 1 case au sud-ouest." },
+      { "roll": 16, "texte": "Se connecter, atteindre un Nœud Matriciel, et se déconnecter de la Cybersphère en 5 mouvements ou moins." },
+      { "roll": 17, "texte": "Atteindre avec succès 2 Nœuds Matriciels lors de la même session de surf dans la Cybersphère." },
+      { "roll": 18, "texte": "Défaindre 2 ennemis quelconques à l'intérieur de la Cybersphère." },
+      { "roll": 19, "texte": "Voler un Tesseract gardé par un Cyborg sur le satellite le plus proche." },
+      { "roll": 20, "texte": "Obtenir un mod de corps à corps aléatoire en défaisant un WARG Vector-7 Mantis, 1 case au sud." },
+      { "roll": 21, "texte": "Attaquer un Transporteur Beluga ISF 2 cases au nord et lui voler 60 Serum." },
+      { "roll": 22, "texte": "Obtenir un Colis de Contrebande et le faire passer clandestinement dans la Colonie d'une autre faction." },
+      { "roll": 23, "texte": "Voyager vers une Planque de Pirates sur la case Outer Ring inexplorée la plus proche." },
+      { "roll": 24, "texte": "Compléter un Drill de Combat réussi à l'Installation de Vol de la Colonie." },
+      { "roll": 25, "texte": "Récupérer un Tesseract dans une Ferme Helios et l'offrir au prophète de la Colonie." },
+      { "roll": 26, "texte": "Détruire un drone espion 1 case au nord, défendu par une Méduse Orion Moth." },
+      { "roll": 27, "texte": "Défaindre 2 Pillards qui ont saccagé une usine de synthés sur la planète la plus proche." },
+      { "roll": 28, "texte": "Fabriquer un DRONE de n'importe quel type au Dépôt de Ferraille. Vous pouvez le garder après la quête." },
+      { "roll": 29, "texte": "Obtenir 60 Ferraille en démantèlant des objets et équipements, et les offrir à l'Arche." },
+      { "roll": 30, "texte": "Gagner 3 EXP en fabriquant 3 objets pour la première fois au Dépôt de Ferraille." }
+    ]
+  }
+}
