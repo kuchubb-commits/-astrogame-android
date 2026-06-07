@@ -8,7 +8,7 @@
 | 1 — Personnage | Feuille de perso interactive | 2-3 sessions |
 | 2 — Dés & Oracle | Moteur de dés + tables | 1-2 sessions |
 | 3 — Combat | Système de combat complet | 2-3 sessions |
-| 4 — IA Gemini | Narration contextuelle | 1-2 sessions |
+| 4 — Narration | Narration contextuelle | 1-2 sessions |
 | 5 — Exploration | Génération de mondes | 2-3 sessions |
 | 6 — Factions & DB | Factions, ennemis, PNJ | 2 sessions |
 | 7 — Polish | UI, PWA, déploiement final | 1-2 sessions |
@@ -123,7 +123,7 @@ Combat tour-par-tour jouable jusqu'à victoire/défaite.
 
 ---
 
-## Phase 4 — IA Narrative (Gemini)
+## Phase 4 — Narration
 
 ### Objectif
 Gemini raconte le jeu en temps réel.

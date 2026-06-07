@@ -3,7 +3,6 @@ import { CharacterSheet } from './components/CharacterSheet'
 import { DiceRoller } from './components/dice/DiceRoller'
 import { OraclePanel } from './components/dice/OraclePanel'
 import { DiceHistory } from './components/dice/DiceHistory'
-import { ExploreRoller } from './components/dice/ExploreRoller'
 import { EnemyPanel } from './components/enemies/EnemyPanel'
 import { CombatSetup } from './components/combat/CombatSetup'
 import { CombatTracker } from './components/combat/CombatTracker'
@@ -31,7 +30,6 @@ function DicePage({ onBack }: { onBack: () => void }) {
       <NavBar onBack={onBack} title="Dés & Oracle" />
       <div className="max-w-lg mx-auto px-4 py-6 space-y-4">
         <DiceRoller />
-        <ExploreRoller />
         <OraclePanel />
         <DiceHistory />
       </div>

@@ -1,0 +1,130 @@
+{
+  "section": "Inner Ring Encounters",
+  "page_livre": [67, 68],
+  "contenu": {
+    "table_navigation_d6": {
+      "description": "Lancez un d6 pour déterminer le type de rencontre dans un hex de l'Inner Ring.",
+      "resultats": [
+        { "valeur": 1, "type": "Rencontre de Faction", "renvoi": "p.92" },
+        { "valeur": 2, "type": "Rencontre Neutre", "renvoi": "p.71" },
+        { "valeur": 3, "type": "Rencontre Hostile", "renvoi": "p.69" },
+        { "valeur": 4, "type": "Planète", "renvoi": "p.73" },
+        { "valeur": 5, "type": "Événement Inner Ring", "renvoi": "p.68" },
+        { "valeur": 6, "type": "Établissement", "renvoi": "p.57" }
+      ]
+    },
+    "types_de_planetes": [
+      {
+        "id": 1,
+        "description": "Planète de taille moyenne avec un seul satellite observable en orbite."
+      },
+      {
+        "id": 2,
+        "description": "Petite planète sans lunes en orbite, communément trouvée près de l'étoile du système."
+      },
+      {
+        "id": 3,
+        "description": "Qu'il soit le résultat d'un événement surnaturel ou d'une expérience humaine, sa surface est partiellement corrompue par le vide."
+      }
+    ],
+    "evenements_inner_ring": {
+      "description": "Table des événements de l'Inner Ring. Zone la plus proche de l'étoile — événements liés à l'énergie solaire, aux radiations et aux dangers thermiques.",
+      "source_pdf_page": 71,
+      "evenements": [
+        {
+          "id": 1,
+          "texte": "Vous vous préparez à traverser ce que vous pensez être une mer d'astéroïdes dense. En vous en approchant, vous réalisez que ce ne sont pas des astéroïdes, mais des centaines de récepteurs d'énergie sphériques, convertissant le rayonnement solaire en énergie. Certaines des sphères montrent des signes d'usure et de détérioration, après des années sans réparation.",
+          "choix": [
+            { "option": "Se connecter aux sphères", "effet": "Restaurez d10 Énergie en connectant votre système à la sortie d'énergie de l'une des sphères." }
+          ]
+        },
+        {
+          "id": 2,
+          "texte": "Un essaim de panneaux solaires rhomboïdes interconnectés forme une vaste ferme héliaque en forme d'étoile. Sur ses bords, plusieurs vaisseaux stellaires attendent en file pour recharger leur alimentation électrique. Vous êtes approché par un vaisseau du Syndicat Corsaire, qui propose du Carburant de contrebande pour votre vaisseau maintenant, mais à un coût.",
+          "choix": [
+            { "option": "Attendre en file pour se ravitailler", "effet": "Restaurez votre Carburant à 20, mais perdez 5 Énergie après avoir attendu si longtemps." },
+            { "option": "Payer pour le carburant illégal", "effet": "Payez 4 crédits par unité de Carburant que vous souhaitez restaurer." }
+          ]
+        },
+        {
+          "id": 3,
+          "texte": "La lumière d'un grand panneau néon attire votre attention — 'STATION SOL ROUGE'. Il semble être le nom d'une station-service située à proximité. Toutes sortes de vaisseaux spatiaux sont arrimés à la structure. Les pilotes boivent et s'amusent dans le bar pendant que leurs vaisseaux se ravitaillent dehors.",
+          "choix": [
+            { "option": "Ravitailler votre vaisseau", "effet": "Payez 3 crédits par unité de Carburant que vous souhaitez restaurer." },
+            { "option": "Entrer dans le bar", "effet": "Vous pouvez acheter du Liqueur Zéro-G, du Soda Stardust™ et des narcobiotiques auprès du barman." }
+          ]
+        },
+        {
+          "id": 4,
+          "texte": "Une gigantesque structure en forme d'anneau orbite lentement autour de l'étoile. Des poutres métalliques, des câbles et des panneaux d'aluminium dépassent de ses bords. Une petite salle de contrôle située dans sa couche extérieure contient des archives de sa construction : la structure devait faire partie d'une sphère de Dyson, construite autour de l'étoile du système. Inachevée et brisée, la structure orbite désormais sans but autour de sa source d'énergie.",
+          "choix": [
+            { "option": "Puiser dans la réserve d'énergie", "effet": "Restaurez 8 Énergie et 6 Carburant, prélevés de la réserve d'énergie de l'installation." }
+          ]
+        },
+        {
+          "id": 5,
+          "texte": "Vous accostez votre vaisseau dans une ferme solaire en forme de croissant. Après avoir attendu que votre Énergie et votre Carburant soient rechargés, vous réalisez qu'il y a quelque chose qui ne va pas avec le système de la ferme. Les dommages causés par un raid de pirates de l'espace ont rendu le terminal informatique inutilisable.",
+          "choix": [
+            { "option": "LANCER TECH", "effet": "Succès : Vous remplacez la carte mère du terminal de carburant. Restaurez 10 Carburant." },
+            { "option": "LANCER ESPRIT", "effet": "Succès : Vous corrigez son OS et réactivez la sortie d'énergie. Restaurez 10 Énergie." }
+          ]
+        },
+        {
+          "id": 6,
+          "texte": "Vous croisez un Medusa Stingray Frontier, transportant un grand stock de Carburant vers un Établissement proche, à 1 case au sud-ouest. Vous recevez un message du pilote du vaisseau, indiquant qu'ils sont encerclés par 3 Chasseurs Vector Ace qui tentent de voler leur cargaison.",
+          "choix": [
+            { "option": "Combattre l'embuscade rebelle", "effet": "Le vaisseau cargo vous ravitaille en Carburant à 20. [+1 Faveur]" },
+            { "option": "Rejoindre l'attaque", "effet": "Combattez le vaisseau Medusa. Gagnez 7 Carburant et une arme de mêlée aléatoire. [+1 Faveur]" }
+          ]
+        },
+        {
+          "id": 7,
+          "texte": "Des colonnes de feu éruptent de la surface de l'étoile. Les grandes éruptions solaires se courbent et se tordent en s'étendant dans l'espace, comme possédées par un instinct sauvage de s'échapper de l'étreinte de l'étoile. Vous essayez de réagir et d'atteindre les commandes, alors qu'une des colonnes s'approche de votre vaisseau.",
+          "choix": [
+            { "option": "LANCER GRÂCE", "effet": "Succès : Vous effectuez une manœuvre dangereuse et esquivez la flamme. [+1 Atome] Échec : Vous réagissez trop tard et la colonne percute votre vaisseau. Perdez 3 Carburant et 4 Coque." }
+          ]
+        },
+        {
+          "id": 8,
+          "texte": "Alors que vous approchez de la zone, vos indicateurs de température commencent à culminer. Les panneaux métalliques à l'extérieur de votre vaisseau changent de couleur et brillent d'une teinte orange et jaune. Votre vaisseau ne pourra pas supporter cela beaucoup plus longtemps.",
+          "choix": [
+            { "option": "LANCER VIGUEUR", "effet": "Succès : Vous êtes capable de rester conscient dans la chaleur extrême et d'échapper. [+1 Atome] Échec : Votre vaisseau est lourdement endommagé par l'éruption solaire. Perdez 6 Coque." }
+          ]
+        },
+        {
+          "id": 9,
+          "texte": "Une lumière verte commence à clignoter sur votre tableau de bord. 'NIVEAUX DE RADIATION EN HAUSSE' — vous voyez le message apparaître sur votre écran de navigation. Une vague de radiation solaire vient de frapper votre vaisseau spatial. Vous essayez de démarrer le protocole de sécurité manuellement en utilisant votre terminal informatique.",
+          "choix": [
+            { "option": "LANCER ESPRIT", "effet": "Succès : Vous êtes capable d'activer le système anti-radiation. [+1 Atome] Échec : Vous ne pouvez pas saisir le code assez vite pour éviter les dégâts. Perdez 5 Santé et 4 Coque." }
+          ]
+        },
+        {
+          "id": 10,
+          "texte": "Votre voyage dans le périmètre de l'étoile est soudainement compromis, car l'un des compartiments de votre vaisseau prend feu. Vous devez agir rapidement. Pour éteindre l'incendie, vous devez ouvrir le sas dans la pièce touchée, afin que tout l'oxygène soit aspiré et que l'incendie soit éteint.",
+          "choix": [
+            { "option": "LANCER TECH", "effet": "Succès : Vous verrouillez la porte et déclenchez le sas d'évacuation. [+1 Atome] Échec : Vous ne pouvez pas activer le circuit et devez éteindre l'incendie vous-même. Perdez 6 Santé." }
+          ]
+        },
+        {
+          "id": 11,
+          "texte": "Vous recevez un signal de détresse d'un vaisseau voisin. Un vaisseau cargo Twinrotor Hauler a été frappé par une éruption solaire sur sa route pour livrer des narcobiotiques à un Établissement, à 3 cases au nord-est.",
+          "choix": [
+            { "option": "Réparer leur vaisseau", "effet": "Utilisez 50 Ferrailles. Ils vous récompensent avec 100 crédits." },
+            { "option": "Transporter l'équipage jusqu'à l'Établissement", "effet": "Ils vous laissent prendre une partie de leur cargaison en compensation. Gagnez 2 Stimulants Vesterone et un Physic Supranova." }
+          ]
+        },
+        {
+          "id": 12,
+          "texte": "Une explosion sur la surface solaire crée une immense éruption qui approche votre vaisseau à une vitesse incroyable. Un mur gigantesque de feu est à quelques secondes d'entrer en contact direct avec votre vaisseau spatial. Avec à peine le temps de réagir, vous devez faire un choix difficile.",
+          "choix": [
+            { "option": "Encaisser le coup", "effet": "Pour économiser du carburant, afin de pouvoir voyager quelque part en sécurité pour réparer. Perdez 8 Coque." },
+            { "option": "Dépenser les réserves de carburant", "effet": "Surchargez vos propulseurs et échappez. Perdez 5 Carburant." }
+          ]
+        }
+      ]
+    },
+    "regles_specifiques": {
+      "description": "L'Inner Ring est la zone la plus proche de l'étoile du système. Les événements sont dominés par les phénomènes solaires : éruptions, radiations, chaleur extrême. Les jets de dés (GRÂCE, VIGUEUR, TECH, ESPRIT) sont fréquents pour survivre aux aléas stellaires. Les sources d'énergie solaire permettent de recharger Énergie et Carburant, mais au prix de risques élevés."
+    }
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "section": "Middle Ring Encounters",
+  "page_livre": [65, 66],
+  "contenu": {
+    "table_navigation_d6": {
+      "description": "Lancez un d6 pour déterminer le type de rencontre dans un hex du Middle Ring.",
+      "resultats": [
+        { "valeur": 1, "type": "Rencontre de Faction", "renvoi": "p.92" },
+        { "valeur": 2, "type": "Rencontre Neutre", "renvoi": "p.71" },
+        { "valeur": 3, "type": "Rencontre Hostile", "renvoi": "p.69" },
+        { "valeur": 4, "type": "Planète", "renvoi": "p.73" },
+        { "valeur": 5, "type": "Événement Middle Ring", "renvoi": "p.66" },
+        { "valeur": 6, "type": "Établissement", "renvoi": "p.57" }
+      ]
+    },
+    "types_de_planetes": [
+      {
+        "id": 1,
+        "description": "Planète de taille moyenne avec un seul satellite observable en orbite."
+      },
+      {
+        "id": 2,
+        "description": "Petite planète avec deux satellites orbitant autour de son noyau gravitationnel."
+      },
+      {
+        "id": 3,
+        "description": "Planète de taille moyenne sans satellites, communément trouvée dans la Zone Habitable Circumstellaire."
+      }
+    ],
+    "evenements_middle_ring": {
+      "description": "Table des événements du Middle Ring. Lancez le dé approprié et consultez l'événement correspondant.",
+      "source_pdf_page": 69,
+      "evenements": [
+        {
+          "id": 1,
+          "texte": "Votre vaisseau est arrêté par un Edgecharger W : 'C'est un point de contrôle de l'ISF. Ouvrez l'écoutille de votre vaisseau pour une inspection de sécurité.' Deux Soldats ISF entrent dans votre vaisseau et commencent à scanner.",
+          "choix": [
+            { "option": "Tout est en ordre", "effet": "Si vous ne transportez pas de cargaison illégale, vous pouvez continuer." },
+            { "option": "Révéler la cargaison", "effet": "Tous les Colis de Contrebande et narcobiotiques vous sont confisqués. [-1 Faveur]" },
+            { "option": "Soudoyer les soldats", "effet": "Dépensez 100 crédits." },
+            { "option": "Vaincre les soldats", "effet": "Fuir le contrôle. [-2 Faveur]" }
+          ]
+        },
+        {
+          "id": 2,
+          "texte": "Alors que votre vaisseau avance dans un petit ensemble d'astéroïdes, vous percevez un signal radar inhabituel. Un Beluga Transporter stationnaire est devenu un avant-poste militaire improvisé pour une cellule WARG, qui utilise le vaisseau pour fabriquer des explosifs de haute qualité.",
+          "choix": [
+            { "option": "Apporter du soutien", "effet": "Aidez-les dans leurs efforts. Ils vous récompensent avec un Pulse Rifle. [+1 Faveur]" },
+            { "option": "Infiltrer le vaisseau", "effet": "Saboter les réserves d'explosifs. Gagnez 5 grenades Frag. [-2 Faveur]" }
+          ]
+        },
+        {
+          "id": 3,
+          "texte": "Des bannières de l'Arche Synth ornent les murs d'une petite station spatiale. À l'intérieur, vous êtes accueilli par un Apôtre Synth. La moitié de son visage de porcelaine est brisée, exposant les circuits en dessous. Il vous guide vers une salle médicale, où un Cyborg inconscient gît sur un lit chirurgical. 'Pas longtemps avant que son corps atteigne la perfection' — chuchote l'apôtre. 'Aspirez-vous aussi à la lumière du prophète ?'",
+          "choix": [
+            { "option": "Oui", "effet": "Gagnez un implant cybertech aléatoire. [+1 Faveur]" },
+            { "option": "Non", "effet": "Le Synth vous attaque. [-1 Faveur]" }
+          ]
+        },
+        {
+          "id": 4,
+          "texte": "Trois stations de recherche orbitent une planète naine terraformée. Un seul Scientifique reste du groupe de recherche originel, chargé d'observer la mutation de la vie extraterrestre à la surface. Stressé et anxieux, il demande votre aide. L'un des spécimens extraterrestres s'est échappé de son unité de confinement dans la troisième station.",
+          "choix": [
+            { "option": "Aider le scientifique", "effet": "Combattez le Deepworm. Le scientifique vous donne un HACK aléatoire en récompense." }
+          ]
+        },
+        {
+          "id": 5,
+          "texte": "Un bâtiment en béton fortifié se détache sur le flanc d'un astéroïde. Vous trouvez à l'intérieur un vieux dossier nommé 'PROJET ATLAS', avec des plans détaillés pour la création de super-soldats cyborgs. Vous vous connectez à un terminal informatique relié à une unité de chirurgie robotique, capable d'installer des implants cybertechs sur votre système. Vous pouvez alimenter l'unité en dépensant 10 Énergie. Si vous le faites, choisissez l'un des implants suivants à installer.",
+          "choix": [
+            { "option": "Os en Titane", "effet": "Implant installé." },
+            { "option": "Main à Explosion de Force", "effet": "Implant installé." },
+            { "option": "Doigts Gâchette", "effet": "Implant installé." }
+          ]
+        },
+        {
+          "id": 6,
+          "texte": "Un groupe de trois NetHackers travaillent sans relâche pour craquer le code d'un vieux terminal informatique situé dans une station de recherche informatique abandonnée. La station garde les clés de NGHTMR, l'un des virus numériques les plus puissants jamais développés.",
+          "choix": [
+            { "option": "Les aider à craquer le code", "effet": "LANCER ESPRIT. En cas de succès, gagnez 1 Clé NGHTMR. [+1 Faveur]" },
+            { "option": "Les combattre", "effet": "Détruire la station. La menace du virus est trop grande. [-1 Faveur]" }
+          ]
+        },
+        {
+          "id": 7,
+          "texte": "Le châssis d'un Shell-4 Transporter a été converti en yacht spatial de luxe. L'équipage du vaisseau opulent vous contacte par radio : 'Il y a eu un accident avec notre système de feux d'artifice lors d'un récent concert et maintenant le toit de notre salle d'événements est en feu. Nous avons urgemment besoin de BandePansements. Nous paierons généreusement pour tout ce que vous voudrez bien nous donner.'",
+          "choix": [
+            { "option": "Aider en fournissant des BandePansements", "effet": "Vous pouvez fournir jusqu'à 5 BandePansements. Ils paieront 50 crédits pour chacun." }
+          ]
+        },
+        {
+          "id": 8,
+          "texte": "Un colossal saule pleureur pousse dans le secteur serre d'un vaisseau terraformeur de l'ISF. Vous trouvez une boîte de Graines de Terraformation génétiquement modifiées dans la pièce. Un terminal informatique révèle qu'elles devaient être replantées sur une planète Gaïenne proche pour restaurer sa vie naturelle. La planète est située à 1 case au sud, selon la carte de navigation de votre vaisseau.",
+          "choix": [
+            { "option": "Terminer la mission", "effet": "Allez sur la planète désertique et plantez les Graines de Terraformation. [+1 Faveur]" }
+          ]
+        },
+        {
+          "id": 9,
+          "texte": "Vous accostez votre vaisseau sur un vaisseau-laboratoire cybernétique abandonné. Soudain, vous êtes surpris par le son d'une voix humaine alors que vous avancez dans l'obscurité. Vous pointez votre lampe torche vers la voix et découvrez un unique survivant. Elle explique que le vaisseau a été ciblé par une embuscade de pirates. Elle a réussi à survivre au raid en se cachant dans un conteneur verrouillé.",
+          "choix": [
+            { "option": "La transporter jusqu'à un Établissement", "effet": "Elle vous donne un HACK aléatoire. [+1 Faveur]" }
+          ]
+        },
+        {
+          "id": 10,
+          "texte": "Vous entrez dans un vaisseau-colonie rotatif. Environ 80 personnes sont maintenues dans un état de sommeil éternel dans des cryo-pods avancés. Le convertisseur d'énergie du vaisseau a cessé de fonctionner, avec seulement assez d'énergie et de carburant pour maintenir les cryo-pods actifs pendant encore 7 mois.",
+          "choix": [
+            { "option": "Les réveiller", "effet": "Les prévenir de la situation, pour qu'ils puissent changer de cap avant que le carburant soit épuisé." },
+            { "option": "Les laisser", "effet": "Pour qu'ils puissent terminer leur course. Perdez 7 Carburant en remplissant leurs dépôts. [+2 Atomes]" }
+          ]
+        },
+        {
+          "id": 11,
+          "texte": "Un vaisseau Edgecharger W s'approche de votre position. Ils vous proposent d'accoster et de commercer avec eux. Une fois à l'intérieur, vous êtes surpris par son état immaculé. Vous êtes accueilli par le superviseur du vaisseau, qui explique qu'il s'agit d'un vaisseau-génération qui a commencé son voyage il y a plus de 125 ans. Ils ont suivi un ensemble strict de règles qui leur a permis de survivre à la chute de la civilisation.",
+          "choix": [
+            { "option": "Commercer", "effet": "Vous pouvez acheter tous les objets ou Ensembles d'Armure disponibles." }
+          ]
+        },
+        {
+          "id": 12,
+          "texte": "Votre système radar capte un signal à haute masse : un vaisseau stellaire Tarrasque Titan complètement silencieux, tous ses systèmes éteints, mais se déplaçant lentement dans l'espace — un vaisseau fantôme. En entrant dans le vaisseau, 2 Pillards émergent de la salle de contrôle : 'Posez votre arme !'",
+          "choix": [
+            { "option": "Négocier avec les hors-la-loi", "effet": "Ils vous laisseront partir pour 100 crédits." },
+            { "option": "Combattre les ennemis", "effet": "Après les avoir vaincus, vous trouvez 1 Colis de Contrebande dans le vaisseau." }
+          ]
+        }
+      ]
+    },
+    "regles_specifiques": {
+      "description": "Le Middle Ring est la zone intermédiaire du Système Stellaire. Les rencontres y sont plus variées et plus dangereuses que dans l'Anneau Extérieur. Les points de contrôle ISF y sont fréquents, et les cellules WARG y opèrent activement. Les joueurs doivent gérer à la fois les factions ennemies et les opportunités commerciales."
+    }
+  }
+}
