@@ -2,338 +2,215 @@
 
 ## Vue d'ensemble
 
-| Phase | Contenu | Durée estimée |
+| Phase | Contenu | Priorité |
 |---|---|---|
-| 0 — Fondations | Setup projet, structure, CI/CD | 1 session |
-| 1 — Personnage | Feuille de perso interactive | 2-3 sessions |
-| 2 — Exploration | Génération de mondes, planètes, rencontres | 2-3 sessions |
-| 3 — Dés | Moteur de dés, lancers, résultats | 1-2 sessions |
-| 4 — Oracle | Tables Oracle, narration aléatoire | 1-2 sessions |
-| 5 — Combat | Système de combat complet | 2-3 sessions |
-| 6 — Narration | Narration contextuelle Gemini | 1-2 sessions |
-| 7 — Factions & DB | Factions, ennemis, PNJ | 2 sessions |
-| 8 — UI/UX Design | Design cohérent, animations, thème SF | 1-2 sessions |
-| 9 — Polish | PWA, responsive, déploiement final | 1-2 sessions |
+| 0 — Fondations | Setup projet, structure, CI/CD | ⬜ |
+| 1 — Star System Map | Carte hexagonale interactive, 3 anneaux, position vaisseau | ⬜ |
+| 2 — Exploration System | Cycles d'exploration, rolls par anneau, tables d'événements | ⬜ |
+| 3 — Oracle | Système Oracle, tables aléatoires, narration procédurale | ⬜ |
+| 4 — Personnage | Feuille de perso, stats, origins, starship | ⬜ |
+| 5 — Dés & Rencontres | Moteur de dés, résultats automatiques, encounters | ⬜ |
+| 6 — Combat | Combat au sol + spatial (vaisseaux) | ⬜ |
+| 7 — Factions | Favor system, missions, rivalités, victoire | ⬜ |
+| 8 — Database | Ennemis, vaisseaux, PNJ, random tables | ⬜ |
+| 9 — Narration IA | Gemini contextuel sur chaque action | ⬜ |
+| 10 — UI/UX | Design SF dark cohérent, animations, responsive | ⬜ |
+| 11 — Polish & Deploy | PWA, offline, déploiement final Cloudflare | ⬜ |
 
 ---
 
 ## Architecture modulaire — Principe fondamental
 
-Chaque phase est **indépendante** et peut être développée dans n'importe quel ordre.
+Chaque phase est **indépendante** et développée avec données mockées.
+L'intégration se fait via les **stores Zustand partagés** sans modifier le code existant.
 
-### Pendant le développement d'une phase
-- Données **mockées localement** — aucune dépendance aux autres phases
-- Dossier propre dans `src/features/<phase>/`
-- Testable et déployable seule
-
-### Lors de l'intégration entre phases
-- Les phases se **branchent sur le store Zustand partagé** (`src/stores/`)
-- Aucune modification du code des phases existantes nécessaire
-- Non-destructif : intégrer une phase ne casse pas les autres
-
-### Stores partagés (pont entre phases)
+### Stores partagés
 ```
 src/stores/
-├── useCharacterStore.ts   ← Phase 1 écrit, Phases 3/4/5 lisent
-├── useDiceStore.ts        ← Phase 3 écrit, Phases 4/5 lisent
-├── useExplorationStore.ts ← Phase 2 écrit, Phase 6 lit
-├── useCombatStore.ts      ← Phase 5 écrit
-└── useNarrationStore.ts   ← Phase 6 écrit/lit
-```
-
-### Exemple de flux d'intégration
-```
-Phase 1 seule  → useCharacterStore (VIGOR, GRACE, HP...)
-Phase 3 rejoint → useDiceStore lit useCharacterStore → jets avec stats réelles
-Phase 5 rejoint → useCombatStore lit les deux stores → combat complet
+├── useMapStore.ts          ← Phase 1 écrit — position vaisseau, hexs explorés
+├── useExplorationStore.ts  ← Phase 2 écrit — cycles, rings, événements
+├── useOracleStore.ts       ← Phase 3 écrit — tables oracle, résultats
+├── useCharacterStore.ts    ← Phase 4 écrit — stats, origins, starship
+├── useDiceStore.ts         ← Phase 5 écrit — historique des rolls
+├── useCombatStore.ts       ← Phase 6 écrit — tours, initiative, dégâts
+├── useFactionStore.ts      ← Phase 7 écrit — favor, missions, rivalités
+└── useNarrationStore.ts    ← Phase 9 écrit/lit tous les stores
 ```
 
 ---
 
 ## Phase 0 — Fondations
 
-### Objectif
-Avoir un projet qui tourne, déployé, avec la bonne structure.
-
-### Étapes
 - [ ] `npm create vite@latest astroprisma-app -- --template react-ts`
-- [ ] Installer Tailwind CSS + config
-- [ ] Installer Zustand (state management)
-- [ ] Installer Gemini SDK (`@google/generative-ai`)
-- [ ] Créer structure de dossiers `src/`
-- [ ] Connecter GitHub → Cloudflare Pages (auto-deploy sur push)
+- [ ] Installer Tailwind CSS + Zustand + Gemini SDK
+- [ ] Structure de dossiers `src/features/<phase>/`
+- [ ] Connecter GitHub → Cloudflare Pages (auto-deploy)
+- [ ] `.env` pour clé Gemini (jamais commitée)
 - [ ] Page d'accueil placeholder déployée
-- [ ] `.env` pour la clé Gemini (jamais commitée)
 
-### Résultat attendu
-URL Cloudflare Pages fonctionnelle avec page d'accueil vide.
+**Résultat :** URL Cloudflare Pages fonctionnelle avec page vide.
 
 ---
 
-## Phase 1 — Feuille de personnage
+## Phase 1 — Star System Map
 
-### Objectif
-Créer un personnage complet et le sauvegarder localement.
+**Composant central de l'app.**
 
-### Contenu du chapitre 2 à implémenter
-- Création : choix d'origine (Background/Origin system)
-- Stats de base : VIGOR, GRACE, MIND, TECH *(noms exacts — Character Sheet 2.0)*
-- Ressources : HEALTH (20), ENERGY (20), ARMOR, EXP, HYPERDRIVE (jauge)
-- Status Conditions : STUN, BREACH, SHOCK, SILENCE, IMMUNITY, OVERHEAT
-- Map de compétences (Skills map)
-- Connexions (NPCs liés)
-- Équipage (Crewmembers)
-- Vaisseau (Starship stats)
+- Carte hexagonale interactive (3 anneaux : Outer, Middle, Inner)
+- Position du vaisseau du joueur sur la carte
+- Déplacement de 5 hexs par cycle
+- Marquage des hexs explorés / non explorés
+- Indicateur de l'anneau actuel
 
-### Composants à créer
+### Composants
 ```
-CharacterCreation.tsx   → wizard de création étape par étape
-CharacterSheet.tsx      → feuille principale consultable/modifiable
-StatBlock.tsx           → bloc de stats avec +/-
-OriginCard.tsx          → carte d'origine avec effets
-ConnectionList.tsx      → liste des connexions
+StarSystemMap.tsx    → carte hex principale
+HexCell.tsx          → cellule hex (état : vide / exploré / actuel)
+RingIndicator.tsx    → affichage de l'anneau actuel
+ShipMarker.tsx       → position du vaisseau
+```
+
+**Résultat :** Carte navigable, vaisseau déplaçable, hexs marqués.
+
+---
+
+## Phase 2 — Exploration System
+
+- Cycles d'exploration (5 tours)
+- Roll d6 selon l'anneau actuel → table d'événements correspondante
+- Affichage du résultat (lieu + événement)
+- Génération de planètes et satellites (tables p.73 & p.81)
+- Journal de campagne (log des événements)
+
+### Composants
+```
+ExplorationCycle.tsx   → gestion du cycle en cours
+RingRollTable.tsx      → table d'événements par anneau
+PlanetGenerator.tsx    → génération procédurale
+CampaignJournal.tsx    → log scrollable des événements
+```
+
+**Résultat :** Cycle complet jouable, planètes générées, journal tenu.
+
+---
+
+## Phase 3 — Oracle
+
+*(Contenu à définir après lecture des pages 7-8)*
+
+**Résultat :** Consultation de l'Oracle → résultat narratif automatique.
+
+---
+
+## Phase 4 — Personnage
+
+- Création : choix d'Origine (Origin system)
+- Stats : VIGOR, GRACE, MIND, TECH
+- Ressources : HEALTH, ENERGY, ARMOR, EXP, HYPERDRIVE
+- Status Conditions : STUN, BREACH, SHOCK, SILENCE, IMMUNITY, OVERHEAT
+- Connexions (NPCs) + Équipage (Crewmembers)
+- Starship stats
+
+### Composants
+```
+CharacterCreation.tsx   → wizard étape par étape
+CharacterSheet.tsx      → feuille consultable/modifiable
 StarshipPanel.tsx       → stats du vaisseau
 ```
 
-### Données JSON à extraire du PDF
-```json
-// data/origins.json
-{ "id": "soldier", "name": "Soldier", "bonuses": {...}, "ability": "..." }
-
-// data/stats.json
-{ "base_hp_formula": "...", "defense_formula": "..." }
-```
-
-### Store
-```typescript
-// stores/useCharacterStore.ts
-// Écrit par cette phase, lu par : Dés, Oracle, Combat, Narration
-```
-
-### Résultat attendu
-Wizard de création → feuille affichée → sauvegarde localStorage.
+**Résultat :** Personnage créé, sauvegardé en localStorage.
 
 ---
 
-## Phase 2 — Exploration
+## Phase 5 — Dés & Rencontres
 
-### Objectif
-Générer des mondes, rencontres et activités procéduralement.
+- Système de dés : d4, d6, d8, d10, d12, d20
+- Résultats automatiques selon le contexte (anneau, stats du perso)
+- Historique des rolls
+- Gestion des encounters (hostile, neutral)
 
-### Tables à implémenter (Chapitre 7)
-- Génération de planètes (type, atmosphère, population)
-- Satellites et anomalies
-- Colonies et activités disponibles
-- Ring Encounters (rencontres aléatoires)
-- Cybersphère (missions numériques)
-- Abyssal Scars (zones dangereuses)
-
-### Composants à créer
-```
-ExplorationHub.tsx       → hub principal d'exploration
-PlanetGenerator.tsx      → génération de planète
-PlanetCard.tsx           → affichage planète avec stats
-EncounterTable.tsx       → tables de rencontres
-ColonyView.tsx           → vue colonie + activités
-```
-
-### Store
-```typescript
-// stores/useExplorationStore.ts
-// Écrit par cette phase, lu par : Narration
-```
-
-### Résultat attendu
-Appuyer sur "Explorer" génère une planète avec événement aléatoire.
+**Résultat :** Roll → résultat interprété automatiquement.
 
 ---
 
-## Phase 3 — Dés
+## Phase 6 — Combat
 
-### Objectif
-Lancer des dés avec lecture automatique des résultats selon les stats du personnage.
-
-### Mécanique Astroprisma
-- Système de base : 2d6 + stat vs difficulté
-- Résultats : Succès Total / Succès / Succès Partiel / Échec / Échec Critique
-- Intégration avec useCharacterStore (stats réelles quand disponibles, mockées sinon)
-
-### Composants
-```
-DiceRoller.tsx       → interface de lancer visuelle
-DiceResult.tsx       → affichage résultat avec couleur
-DiceHistory.tsx      → historique scrollable
-```
-
-### Store
-```typescript
-// stores/useDiceStore.ts
-// Écrit par cette phase, lu par : Oracle, Combat
-```
-
-### Résultat attendu
-Lancer n'importe quel dé, voir le résultat avec interprétation automatique.
-
----
-
-## Phase 4 — Oracle
-
-### Objectif
-Consulter les tables Oracle pour générer narration et événements aléatoires.
-
-### Mécanique
-- Table de 36 entrées (2d6 × 2d6)
-- Lecture automatique du résultat
-- Intégration avec useDiceStore
-
-### Composants
-```
-OracleTable.tsx      → table Oracle interactive
-OracleResult.tsx     → affichage résultat narratif
-```
-
-### Résultat attendu
-Lancer l'Oracle → lire le résultat narratif automatiquement.
-
----
-
-## Phase 5 — Combat
-
-### Objectif
-Gérer un combat complet (phase par phase).
-
-### Mécaniques (Chapitres 3 & 6)
 - Initiative (dé + stat)
 - Tour : Attaque → jet → dégâts → application
-- Armes de mêlée vs portée (tables de dommages)
+- Armes de mêlée vs portée
 - Armures et réduction de dégâts
 - Combat spatial (vaisseaux, modules)
 
-### Composants
-```
-CombatSetup.tsx      → choisir ennemis + terrain
-CombatTracker.tsx    → timeline des tours
-WeaponSelector.tsx   → choisir arme + lancer
-EnemyCard.tsx        → PV ennemi + attaques
-SpaceBattleMode.tsx  → vue combat spatial
-```
-
-### Store
-```typescript
-// stores/useCombatStore.ts
-// Lit : useCharacterStore, useDiceStore
-```
-
-### Résultat attendu
-Combat tour-par-tour jouable jusqu'à victoire/défaite.
+**Résultat :** Combat tour-par-tour jusqu'à victoire/défaite.
 
 ---
 
-## Phase 6 — Narration
+## Phase 7 — Factions
 
-### Objectif
-Gemini raconte le jeu en temps réel.
+- Suivi du Favor avec les 5 factions
+- Missions disponibles par faction
+- Système Mark Rivals (factions en opposition directe)
+- Condition de victoire (faction dominante)
 
-### Intégration
-```typescript
-// lib/gemini.ts
-const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
-
-async function narrateAction(context: GameContext): Promise<string> {
-  const prompt = buildNarrativePrompt(context);
-  const result = await model.generateContent(prompt);
-  return result.response.text();
-}
-```
-
-### Contexte injecté dans chaque prompt
-- Nom + origine du personnage
-- Scène actuelle (lieu, situation)
-- Action tentée
-- Résultat du dé
-- Faction(s) présentes
-- Ambiance souhaitée (neutre / tendu / épique)
-
-### Store
-```typescript
-// stores/useNarrationStore.ts
-// Lit : useCharacterStore, useExplorationStore, useDiceStore
-```
-
-### Résultat attendu
-Chaque action joueur génère 2-3 phrases narratives. L'Oracle génère une description de situation.
+**Résultat :** Progression faction visible, missions jouables.
 
 ---
 
-## Phase 7 — Factions & Base de données
+## Phase 8 — Database
 
-### Objectif
-Suivre les relations avec les 5 factions, accéder aux missions et ennemis.
-
-### Factions (Chapitre 8)
-- W.A.R.G.
-- Intersolar Federation
-- Medusa Sector
-- Corsair Syndicate
-- Synth Arch
-
-### Base de données (Chapitre 9)
-- Ennemis avec stats complètes
+- Ennemis avec stats complètes (par faction)
 - Vaisseaux ennemis
 - Générateur de PNJ
-- Tables aléatoires contextuelles
+- Tables aléatoires contextuelles (d100)
+
+**Résultat :** Base de données consultable en jeu.
 
 ---
 
-## Phase 8 — UI/UX Design
+## Phase 9 — Narration IA
 
-### Objectif
-Appliquer un design cohérent SF dark sur toutes les phases.
+- Gemini génère 2-3 phrases narratives à chaque action
+- Contexte injecté : anneau actuel, événement, faction, résultat du dé
+- Mode Journaling : suggestions de notes pour le journal
 
-### Contenu
-- Dark theme SF cohérent (palette, typographie, icônes)
-- Animations dés (CSS)
-- Transitions entre vues
-- Composants UI réutilisables (boutons, cartes, modals)
+```typescript
+// lib/gemini.ts
+async function narrateAction(context: GameContext): Promise<string>
+```
+
+**Résultat :** Chaque action joueur génère une narration contextuelle.
+
+---
+
+## Phase 10 — UI/UX
+
+- Dark theme SF cohérent (palette, typographie)
+- Animations dés et déplacements
 - Responsive mobile 375px → desktop
-
-### Approche
-- Développable indépendamment via Storybook ou page de démo composants
-- S'applique par-dessus les phases existantes sans modifier leur logique
+- Composants réutilisables (boutons, cartes, modals)
 
 ---
 
-## Phase 9 — Polish & Déploiement
+## Phase 11 — Polish & Déploiement
 
-### PWA
-- `vite-plugin-pwa` → manifest + service worker
-- Icône app + splash screen
-- Mode offline (les données JSON sont en cache)
-
-### Déploiement final
-- `git push` → Cloudflare Pages build auto
-- Variables d'environnement Gemini dans le dashboard Cloudflare
+- PWA : manifest + service worker + mode offline
+- Variables Gemini dans le dashboard Cloudflare
+- `git push` → build automatique
 
 ---
 
 ## Règles de collaboration
 
-1. **On valide avant de coder** — chaque module discuté avant implémentation
-2. **Petits commits fréquents** — chaque fonctionnalité = 1 commit
-3. **Tests manuels d'abord** — lancer l'app dans le navigateur avant de passer à la suite
-4. **Les données viennent du PDF** — aucune règle inventée, tout extrait du Core Book
-5. **Pages = numérotation du LIVRE uniquement** — jamais la numérotation du fichier PDF. Aucun offset fixe. Toujours vérifier visuellement le numéro imprimé en bas de l'image générée.
-6. **Lecture PDF = image obligatoire** — toujours utiliser `pdf_to_image.py` pour convertir en PNG et lire visuellement. Jamais d'extraction texte brute. Toujours valider les données extraites avant intégration.
-7. **Phases indépendantes** — chaque phase se développe seule avec données mockées. L'intégration se fait via les stores Zustand partagés, sans modifier le code des phases existantes.
+1. On valide avant de coder — chaque module discuté avant implémentation
+2. Petits commits fréquents — chaque fonctionnalité = 1 commit
+3. Tests manuels d'abord — lancer l'app dans le navigateur avant de passer à la suite
+4. Les données viennent du PDF — aucune règle inventée, tout extrait du Core Book
+5. Pages = numérotation projet uniquement (p.1 = The World, offset PDF -3)
+6. Lecture PDF = image obligatoire via les PNG existants ou `pdf_to_image.py`
+7. Phases indépendantes — intégration via stores Zustand, sans modifier le code existant
 
 ---
 
 ## Prochaine étape immédiate
 
-> **Phase 0** : Initialiser le projet React + Vite + TypeScript et déployer sur Cloudflare Pages.
-
-Commande de départ :
-```bash
-cd C:\Users\PC-DELL\.claude\projects\astrogame-android
-npm create vite@latest astroprisma-app -- --template react-ts
-```
+> Attendre les instructions pour la suite de la mise à jour de `idee.md` et `plan.md`.
