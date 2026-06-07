@@ -70,13 +70,12 @@ Possible d'affronter plusieurs ennemis simultanément :
 
 ### Difficulty & EXP
 
-| Difficulté | EXP gagné | Loot |
-|---|---|---|
-| **Easy** | +10 EXP | Basic |
-| **Normal** | +25 EXP | Standard |
-| **Hard** | +50 EXP | Better |
-| **Very Hard** | +100 EXP | Good |
-| **Extreme** | (?) EXP | Best |
+| Difficulté | EXP gagné |
+|---|---|
+| **Easy** | +1 EXP |
+| **Medium** | +3 EXP |
+| **Hard** | +6 EXP |
+| **Boss** | +10 EXP |
 
 > Battre des ennemis de difficulté plus élevée → meilleur loot drop.
 
