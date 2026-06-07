@@ -143,14 +143,14 @@ Les dégâts des **Status Conditions** et des **DRONES** ne comptent **pas** com
 
 > Roll +d quand une arme de mêlée aléatoire est trouvée pour déterminer le modèle.
 
-| # | Arme | Dés + Stat | Prix (M) | Propriété |
+| # | Arme | Dés + Stat | Prix (Serum) | Propriété |
 |---|---|---|---|---|
-| 01 | **CARBON DAGGER** | d6 + BRA | 175 | — |
+| 01 | **CARBON DAGGER** | d6 + BRA | 25 | — |
 | 02 | **HELIX KNIFE** | d10 + VIG | 75 | — |
-| 03 | **HALO DISCUS** | d6 + BRA | 75 | — |
-| 04 | **ROCKET HAMMER** | d8 + VIG | 150 | — |
-| 05 | **PLASMA SHIELD** | d6 + VIG | 100 | **d8** while equipped |
-| 06 | **NEON BLADE** | d10 + VIG | 100 | — |
+| 03 | **HALO DISCUS** | d6 + BRA | 150 | — |
+| 04 | **ROCKET HAMMER** | d8 + VIG | 100 | — |
+| 05 | **PLASMA SHIELD** | d6 + VIG | 100 | **+1 Shield** while equipped |
+| 06 | **NEON BLADE** | d10 + VIG | 150 | — |
 
 ---
 
