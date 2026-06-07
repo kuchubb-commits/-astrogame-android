@@ -141,18 +141,16 @@ Les dégâts des **Status Conditions** et des **DRONES** ne comptent **pas** com
 
 ## 3.5 — MELEE WEAPONS (p.35)
 
-> FAQ : roll d6 quand une arme de mêlée est trouvée pour déterminer le mode.
+> Roll +d quand une arme de mêlée aléatoire est trouvée pour déterminer le modèle.
 
-| # | Arme | Dés | Prix | Propriété |
+| # | Arme | Dés + Stat | Prix (M) | Propriété |
 |---|---|---|---|---|
-| 01 | **CARBON DAGGER** | d6 + d4 | 12G | — |
-| 02 | **HELIX ROPE** | d4 + d4 | 75M | — |
-| 03 | **HALO DISCUS** | d4R + d4 | — | — |
-| 04 | **NEON BLADE** | d10 + d6 | 200M | — |
-| 05 | **ROCKET HAMMER** | d8 + V3 | 1500A | — |
-| 06 | **PLASMA SHIELD** | d6 + V3 | 500W | **+d4R** passif tant qu'équipé |
-
-> Unités monétaires (G, M, A, W) — à confirmer avec le glossaire économique
+| 01 | **CARBON DAGGER** | d6 + BRA | 175 | — |
+| 02 | **HELIX KNIFE** | d10 + VIG | 75 | — |
+| 03 | **HALO DISCUS** | d6 + BRA | 75 | — |
+| 04 | **ROCKET HAMMER** | d8 + VIG | 150 | — |
+| 05 | **PLASMA SHIELD** | d6 + VIG | 100 | **d8** while equipped |
+| 06 | **NEON BLADE** | d10 + VIG | 100 | — |
 
 ---
 
