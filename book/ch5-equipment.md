@@ -92,7 +92,7 @@
 |---|---|---|---|
 | 1 | **REINFORCED JACKET** | +4 | — |
 | 2 | **BULLETPROOF VEST** | +4 | Attaques à distance infligent **-1 damage** |
-| 3 | **NIGHTRUNNER CLOTHING** | +4 | Bonus sur Challenge Roll (?) |
+| 3 | **NIGHTRUNNER CLOTHING** | +4 | Fuir le combat ne nécessite pas de **Challenge Roll** |
 | 4 | **COMBAT EXOSKELETON** | +4 | Mêlée inflige **+1 damage** |
 | 5 | **EAGLESHOT VEST** | +4 | Armes à distance infligent **+1 damage** |
 | 6 | **ATHENA X ARMOR** | +4 | Immunisé à **SILENCE** |
