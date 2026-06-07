@@ -163,22 +163,22 @@ Niveaux de rareté/tier : **D1** (commun) → **D4** (rare). Max **2 mods** par 
 | Mod | Tier | Effet |
 |---|---|---|
 | **SILENCER** | D1 | Dégâts divisés par 2 (arrondi bas). Les attaques ne comptent pas comme Noisy ou Loud |
-| **REFLEX SIGHT** | D2 | Si AGI supérieure à l'ennemi → **+2 bonus damage** ou **+d4 damage** par attaque |
+| **REFLEX SIGHT** | D2 | Si AGI supérieure à l'ennemi → **+2 bonus damage** par attaque |
 | **AUTO RELOADER** | D2 | Attaquer et effectuer une **Blade Action** à la place d'un Reload |
 | **LASER ACCELERATOR** | D3 | Cette arme **ignore l'Armor ennemie** sur les dégâts |
-| **MALLEABLE INJECTION** | D3 | Roll base damage **4 ou 5** → **Stagger** l'ennemi. Si déjà Stunned → **+5 bonus damage** |
+| **MALWARE INJECTION** | D3 | Roll base damage **4 ou 5** → **Stagger** l'ennemi. Si déjà Stunned → **+5 bonus damage** |
 | **SMART AIM** | D4 | Roll les dégâts **deux fois**, garder le plus haut. **Ignore le couvert** |
 
 ### Melee Mods
 
 | Mod | Tier | Effet |
 |---|---|---|
-| **STEALTH EDGE** | D1 | Si premier dans l'ordre de tour : premier hit **+d4** bonus damage. Si en furtivité : **+d8** |
-| **IT BURNS!** | D2 | Cette arme inflige **+d4 damage** supplémentaires à chaque hit |
-| **MENTIA BLADE** | D3 | Restaure **2** à chaque attaque avec cette arme |
-| **THUNDER GUARD** | D3 | Réaction quand un ennemi adjacent attaque — infliger des dégâts en retour *(valeurs ?)* |
-| **IRON GRAPPLER** | D3 | Grapple l'ennemi à l'attaque — ennemi inflige moitié des dégâts s'il tente d'agir |
-| **BERSERKER STRIKE** | D4 | Inflige **+d4 damage** supplémentaires à l'attaque *(conditions exactes ?)* |
+| **STEALTH GRIP** | D1 | Si premier dans l'ordre de tour : premier hit **+d4** bonus damage. Si en furtivité : **+d8** |
+| **VIBRATING MOTOR** | D2 | Cette arme inflige **+d4 damage** supplémentaires à chaque hit |
+| **KINETIC ENGINE** | D3 | Restaure **2** à chaque attaque avec cette arme |
+| **COUNTER GUARD** | D3 | Dépenser **3 Energy** → réaction quand un ennemi adjacent attaque |
+| **HEAT CHAMBER** | D3 | Grapple l'ennemi à l'attaque — ennemi inflige moitié des dégâts s'il tente d'agir |
+| **CHARGE ATTACK** | D4 | Dépenser **3★** → attaque double damage *(Side Action)* |
 
 ---
 
