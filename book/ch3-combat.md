@@ -92,31 +92,31 @@ Possible d'affronter plusieurs ennemis simultanément :
 
 ### Status Conditions
 
-Effets qui durent sur un nombre défini de tours. Les durées se cumulent (**stack**).
+Effets qui prennent effet **le même tour** où ils sont appliqués. Disparaissent à la **fin du combat**. Les durées se cumulent (**stack**).
+
+> Exemple : ennemi Stunned 2 tours + Stun de 3 tours → dure maintenant 5 tours.
 
 | Condition | Effet |
 |---|---|
-| **OVERHEAT** | Inflige **2D damage** à l'action en cours, ignore Armor et Shields |
-| **STUN** | Skip un tour sur la roue d'initiative. Si 1 obtenu → déséquiper l'arme |
-| **HACK** | Chaque test HACK réussi → test supplémentaire (drone/item) |
+| **OVERHEAT** | Prend **d6 dégâts** au début de son tour, ignore Armor et Shields |
 | **SHOCK** | Perd temporairement **toute l'Armor** (mise à 0) |
-| **SILENCE** | Impossible d'utiliser **Communications** + effets additionnels bloqués |
-| **GRAVITY** | Aucun dégât reçu d'aucune source pendant la durée *(à vérifier)* |
-
-> **[CURED]** : après 2 tours → la condition dure maintenant 5 tours (Stymied).
+| **STUN** | Roll d6 au début du tour. Si résultat = **1** → tour skippé |
+| **SILENCE** | Ne peut pas utiliser **Cybertech**. Bonus de stats et abilities désactivés |
+| **BREACH** | Les HACKS ennemis sont **toujours réussis**. Ne peut plus contrôler ni utiliser les **DRONES** |
+| **IMMUNITY** | Ne reçoit **aucun dégât direct** (direct damage) |
 
 ### Direct Damage
 
-Les dégâts directs provenant d'actions infligeant des conditions ignorent **Armor et Shields**.
+Les dégâts directs = attaques d'armes, Cybertech, HACKS offensifs, grenades.
 
-Les dégâts des **Status Conditions** elles-mêmes ne comptent **pas** comme Direct Damage.
+Les dégâts des **Status Conditions** et des **DRONES** ne comptent **pas** comme Direct Damage.
 
 ### Weapon Mods — Règles générales (intro)
 
-- Chaque arme peut avoir jusqu'à **3 Weapon Mods uniques**
-- Swap libre entre armes pendant une pause (hors combat)
-- Swap en combat = coûte **1 Action**
-- Mods acquis dans les **WAR Stores**
+- Chaque arme peut avoir jusqu'à **2 Weapon Mods uniques**
+- Swap libre entre armes hors combat (gratuit)
+- Swap en combat = coûte **◆ Side Action**
+- Mods acquis aux **WARG Settlements**
 
 ---
 
