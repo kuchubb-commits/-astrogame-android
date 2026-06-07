@@ -22,7 +22,7 @@ Le combat est divisé en **tours**. Chaque tour est partagé entre tous les pers
 
 ### Turn Order
 
-Déterminé au début du combat. Tous les combattants roll **AGI + GRA**.
+Déterminé au début du combat. Tous les combattants roll **d10 + GRA**.
 
 - Le plus haut résultat agit en premier, puis les suivants dans l'ordre décroissant
 - En cas d'égalité : **GRA** la plus haute passe en premier
