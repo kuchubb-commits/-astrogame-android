@@ -174,10 +174,10 @@ Niveaux de rareté/tier : **D1** (commun) → **D4** (rare). Max **2 mods** par 
 | Mod | Tier | Effet |
 |---|---|---|
 | **STEALTH GRIP** | D1 | Si premier dans l'ordre de tour : premier hit **+d4** bonus damage. Si en furtivité : **+d8** |
-| **VIBRATING MOTOR** | D2 | Cette arme inflige **+d4 damage** supplémentaires à chaque hit |
-| **KINETIC ENGINE** | D3 | Restaure **2** à chaque attaque avec cette arme |
+| **VIBRATING MOTOR** | D3 | Si VIG supérieure à l'ennemi → **+2 damage** par attaque |
+| **KINETIC ENGINE** | D5 | Restaure **1** (ressource) à chaque attaque avec cette arme |
 | **COUNTER GUARD** | D3 | Dépenser **3 Energy** → réaction quand un ennemi adjacent attaque |
-| **HEAT CHAMBER** | D3 | Grapple l'ennemi à l'attaque — ennemi inflige moitié des dégâts s'il tente d'agir |
+| **HEAT CHAMBER** | D4 | Roll **1 ou 2** base damage → ennemi **Overheated** pour **2 tours** |
 | **CHARGE ATTACK** | D4 | Dépenser **3★** → attaque double damage *(Side Action)* |
 
 ---
