@@ -1,7 +1,7 @@
 # Chapitre 4 — Hacking & Drones (pages 38–44)
 
 > Extraction complète — agents Sonnet, lecture visuelle directe des PNG.
-> ⚠️ Certaines valeurs numériques partiellement illisibles sont signalées avec (?)
+> Révisé après relecture approfondie page par page.
 
 ---
 
@@ -9,10 +9,10 @@
 
 ### HACKING
 
-Les HACKS sont des abilities puissantes utilisant la stat **MEN** du personnage pour s'infiltrer dans les systèmes ennemis.
+Les HACKS sont des abilities puissantes utilisant la stat **MIN** (MIND) pour s'infiltrer dans les systèmes ennemis.
 
 **Résolution :**
-- Roll **MEN** contre l'ennemi
+- Roll **MIN** contre l'ennemi
 - **Succès** → le HACK est uploadé dans son interface virtuelle, l'effet s'applique
 - **Échec** → le HACK échoue, le personnage est infecté par un **Malware**
 
@@ -20,7 +20,7 @@ Les HACKS sont des abilities puissantes utilisant la stat **MEN** du personnage 
 
 Quand un personnage échoue un HACK, ses systèmes sont corrompus.
 
-- Roll un **D6** sur la table Malware pour déterminer l'effet
+- Roll un **D10** sur la table Malware pour déterminer l'effet
 - Les DRONES peuvent aussi être affectés par des Malwares
 
 ### DRONES
@@ -38,55 +38,55 @@ Robots et mechs avancés contrôlables à distance en combat.
 
 ### Règle de découverte
 
-Roll **d8** sur la table Hacks quand une Hack aléatoire est trouvée en exploration ou en loot.
+Roll **d10** sur la table Hacks quand une Hack aléatoire est trouvée en exploration ou en loot.
 
-La stat utilisée pour les effets des HACKS est **WIL** (via le mot-clé **Unshackled**).
+La stat utilisée pour les effets des HACKS est **MIN** (MIND).
 
 ### Les 10 Hacks
 
-| Hack | Coût | Type | Effet |
+| # | Hack | Coût | Effet |
 |---|---|---|---|
-| **JAVELIN** | 1♦ | Attaque | d6 + WIL damage (Unshackled) |
-| **TROJAN** | 1♦ | Attaque | Wreck slot + d6 tours |
-| **EMBER** | 1♦ | Attaque | d4 area damage, WIL tours |
-| **BLACKOUT** | 1♦ | Effet | Shut slot, WIL tours |
-| **SHADOW** | 2♦ | Passif | Ignore Stealth jusqu'à cast Shadow ou dégâts reçus, WIL tours |
-| **COUNTERSPELL** | 1♦ | Réaction | Annule un effet déjà déclenché, WIL tours |
-| **VOLT** | 2♦ | Attaque | d8 + WIL damage + **STUN** cible d6 tours |
-| **KRAKEN** | 2♦ | Effet | Zone d6 tiles — ralentit cible WIL tours |
-| **IGNITE** | 3♦ | Attaque | d6 + WIL damage (Unshackled) |
-| **HYDRA** | 3♦ | Attaque | d6 + WIL damage sur cible Unshackled |
+| 01 | **JAVELIN** | 1♦ | d12 + MIN damage. Les ennemis **Breached** subissent double damage |
+| 02 | **TROJAN** | 1♦ | **Breach** un ennemi pour MIN tours |
+| 03 | **EMBER** | 1♦ | **Overheat** un ennemi pour MIN tours |
+| 04 | **BLACKOUT** | 1♦ | **Shock** TOUS les ennemis pour TEC tours |
+| 05 | **SHADOW** | 2♦ | Devenir **Immune** jusqu'au prochain dégât direct infligé. Coûte 2♦/tour actif |
+| 06 | **COUNTERSPELL** | 1♦ | **Silence** TOUS les ennemis pour MIN tours + désactive leur passive skill |
+| 07 | **VOLT** | 2♦ | d10 + TEC damage + **Stun** ennemi 1 tour |
+| 08 | **KRAKEN** | 2♦ | **Stun** TOUS les ennemis 1 tour |
+| 09 | **IGNITE** | 3♦ | d12 + MIN damage + **Overheat** ennemi 2 tours |
+| 10 | **HYDRA** | 3♦ | d10 × MIN damage sur un ennemi **Breached** |
 
-### Table Malware (D6)
+### Table Malware (D10)
 
 | Roll | Effet |
 |---|---|
-| 0 | Nothing |
-| 1 | Lose 1 Energy |
-| 2 | Take 2 damage |
-| 3 | Lose 2h Energy |
-| 4 | Become **Stunned** for 1 turn |
-| 5 | Take 4 damage |
-| 6 | Become **Stunned** for 1 turn |
-| 7 | Lose 4h Energy |
-| 8 | Become **Silenced** for 1 turn |
-| 10 | Learn a random HACK |
+| 1 | Nothing |
+| 2 | Lose 1+ Energy |
+| 3 | Take 2 damage |
+| 4 | Lose 2+ Energy |
+| 5 | Become **Stunned** for 1 turn |
+| 6 | Take 4 damage |
+| 7 | Become **Shocked** for 1 turn |
+| 8 | Lose 3+ Energy |
+| 9 | Become **Silenced** for 1 turn |
+| 10 | Learn a random **HACK** |
 
 ### Achat de HACKS
 
-- HACKS achetés chez **Medusa NetComm** pour **21 CR**
-- **MASTER HACKS** : vendus pour **200 CR**, ne peuvent pas être achetés
+- HACKS achetés aux **Medusa Settlements** pour **150★**
+- **MASTER HACKS** : vendus pour **200★**, ne peuvent pas être achetés
 
-### Master Hacks (6)
+### Master Hacks (6) — coût 34⚡ chacun
 
-| Master Hack | Coût | Effet |
+| # | Master Hack | Effet |
 |---|---|---|
-| **MINDSTEAL** | 34 | Prend le MCA d'un ennemi pour 1d6 tours (max = valeur la plus basse entre MCA ennemi et Shady Score) |
-| **PARASITE** | 34 | Récupère 2d6 MCA d'un système ennemi pour 1d6 tours |
-| **SUPERNOVA** | 34 | Frappe aveuglante sur l'ennemi le plus proche + bonus Mind |
-| **RAGNAROK** | 34 | Frappe en cascade sur tous les systèmes de la zone — dégâts massifs |
-| **AEGIS** | 34 | Ajoute le statut Temporary pour 2d6 tours |
-| **ARCHANGEL** | 34 | Frappe puissante utilisable uniquement connecté à un allié |
+| 01 | **MINDSTEAL** | Set enemy MIN à 0 + gain X MIN pour 2 tours (X = MIN de base de l'ennemi) |
+| 02 | **PARASITE** | **Breach** TOUS les ennemis pour MIN tours + restore 2 Health par ennemi affecté |
+| 03 | **SUPERNOVA** | 3d6 damage à TOUS les ennemis + **Shock** pour MIN tours |
+| 04 | **RAGNAROK** | **Overheat** TOUS les ennemis pour TEC tours. Overheat inflige +MIN dégâts supplémentaires jusqu'à fin de combat |
+| 05 | **AEGIS** | Gagne TEC Armor temporaire pour MIN tours |
+| 06 | **ARCHANGEL** | Restore d10 × TEC Health à soi-même ou un allié |
 
 ---
 
@@ -99,8 +99,8 @@ La stat utilisée pour les effets des HACKS est **WIL** (via le mot-clé **Unsha
 | Move | Coût | Effet |
 |---|---|---|
 | **OCTOMORPHOSIS** | 1 | S'infiltre dans les espaces étroits |
-| **CARBON CLAW** | 1 | d8 + TEC damage |
-| **PARALYZING WEB** | 1 | d4 damage toutes les 6s + effet (?) |
+| **CARBON CLAW** | 1 | d6 + TEC damage |
+| **PARALYZING WEB** | 1 | d4 Kinetic damage + la cible **ne peut pas se déplacer** |
 
 ---
 
@@ -112,9 +112,9 @@ Trouvé dans : DRONES / Synth Settlements
 
 | Move | Coût | Effet |
 |---|---|---|
-| **CAMOUFLAGE** | — | Pilot effectue un check DRONES furtivité — drone devient invisible |
+| **CAMOUFLAGE** | 1 | Pilot effectue un check DRONES furtivité — drone devient invisible |
 | **FETCH** | 1 | (données partiellement illisibles) |
-| **BITE** | 1 | (données partiellement illisibles) |
+| **BITE** | 1 | d6 Kinetic damage |
 
 ---
 
@@ -125,9 +125,8 @@ Trouvé dans : DRONES / Synth Settlements
 | Move | Coût | Effet |
 |---|---|---|
 | **HP INJECTION** | — | Restore (?) HP chaque tour |
-| **SILENCE** | — | **SILENCE** toutes les 2 Rog turns |
-| **TASER SHOT** | (?) | Dégâts (?) |
-| **SHOCK** | — | **SHOCK** toutes les 2 Rog turns |
+| **TASER SHOT** | (?) | Dégâts (?) — applique **SHOCK** sur enemy Bot |
+| **SILENCE** | — | **SILENCE** sur enemy Bot (?) tours |
 
 ---
 
@@ -137,9 +136,9 @@ Trouvé dans : DRONES / Synth Settlements
 
 | Move | Coût | Effet |
 |---|---|---|
-| **AUTO-TURRET** | — | Dégâts automatiques chaque tour |
-| **DOUBLE MINIMUM** | (?) | (valeur ?) |
-| **MISSILE STROKE** | (?) | (valeur ?) + d? + TEC damage |
+| **AUTO-TURRET** | — | Dégâts automatiques chaque tour (valeur ?) |
+| **DOUBLE MINIMUM** | (?) | (données partiellement illisibles) |
+| **MISSILE STROKE** | (?) | (données partiellement illisibles) |
 
 ---
 
@@ -148,56 +147,58 @@ Trouvé dans : DRONES / Synth Settlements
 ### Règles générales
 
 - Roll pour trouver un Cybertech aléatoire en exploration
-- Acheter n'importe quel implant Cybertech au **CREDIT COST** listé dans les **Settlements**
+- Acheter n'importe quel implant Cybertech au coût listé dans les **Settlements**
+- Coûts : **3♦ + 100★** (tier 1) / **6♦ + 200★** (tier 2) / **9♦ + 300★** (tier 3)
 
 ### Fabricants & Implants
 
-#### SYNBIOS LABORATORIES
+#### 01 — SYNBIOS LABORATORIES
 
 | Implant | Effet | Coût |
 |---|---|---|
-| **DETOX SYSTEM** | Double le bonus de stun des Nanomedicines | (?) CR |
-| **CORTEX FIREWALL** | Bonus si Hinge HUD équipé (?) | (?) CR |
-| **HEALING NANOBOTS** | Restore (?) HP — utilise stat Medic (DR + Medic) | (?) CR |
+| **DETOX SYSTEM** | **+1 TEC** — Double le bonus de stat des **Narcobiotics** | 3♦ + 100★ |
+| **CORTEX FIREWALL** | Si MIN supérieure à l'ennemi → pas de **Malware** quand les HACKS échouent. **[+1 Memory Slot]** | 6♦ + 200★ |
+| **HEALING NANOBOTS** | Restore **2d8 + TEC** Health. **[3+][♦ Main]** | 9♦ + 300★ |
 
-#### VEDRSL INDUSTRIES
-
-| Implant | Effet | Coût |
-|---|---|---|
-| **CODE PROCESSOR** | Le premier HACK lancé dans un dé (?) | (?) CR |
-| **ZITTABYTE RAM** | Choisir un **MASTER HACK** à apprendre + Memory Slot | (?) CR |
-| **SECOND BRAIN** | (données partiellement illisibles) | (?) CR |
-
-#### FRONTERA CORP
+#### 02 — YEDRSL INDUSTRIES
 
 | Implant | Effet | Coût |
 |---|---|---|
-| **FORCELIST HAND** | Attaques mêlée +NEW jusqu'à (?) | (?) CR |
-| **MASTER SCYTHES** | +DUAL — multiplier résultat ×2 si tous les dés touchent | (?) CR |
+| **CODE PROCESSOR** | **+1 MIN** — Le premier HACK lancé lors du premier tour de combat coûte **0★** | 3♦ + 100★ |
+| **ZETTABYTE RAM** | **+1 MIN** — Choisir un **MASTER HACK** à apprendre. **[+1 Memory Slot]** | 6♦ + 200★ |
+| **SECOND BRAIN** | Peut lancer des HACKS via **◇ Side Action** en ajoutant **+3★** à leur coût | 9♦ + 300★ |
 
-#### ORBITAL DYNAMICS
-
-| Implant | Effet | Coût |
-|---|---|---|
-| **JET PROPULSORS** | Mouvement vers ennemi ou tuile sans allié — roll et garder meilleur résultat | (?) CR |
-| **CARBON FINGERS** | (données partiellement illisibles) | (?) CR |
-| **HYPER REFLEXES** | Équipe peut esquiver la prochaine attaque ennemie — coûte (+) dés par usage | (?) CR |
-
-#### EVO ROBOTICS
+#### 03 — FRONTERA CORP
 
 | Implant | Effet | Coût |
 |---|---|---|
-| **CHROMATIC** | Ajoute à Armor + VIS (?) | (?) CR |
-| **DUAL PROCESSOR** | Utiliser un MASTER HACK avec les deux mains — +Reduction [1×DUAL] | (?) CR |
-| **COMBAT HEART** | (données partiellement illisibles) | (?) CR |
+| **TITANIUM BONES** | **+1 VIG** — +1★ Armor | 3♦ + 100★ |
+| **FORCEBLAST HAND** | **+1 VIG** — Attaques mêlée infligent **+d6X** jusqu'à la fin du combat. **[2★][◇ Side]** | 6♦ + 200★ |
+| **MANTIS SCYTHES** | Deal **d8 × GRA**, multiplié ×2 si premier dans l'ordre de tour. **[5★][♦ Main]** | 9♦ + 300★ |
 
-#### RIP TEC
+#### 04 — ORBITAL DYNAMICS
 
 | Implant | Effet | Coût |
 |---|---|---|
-| **SILVER EYE** | Les yeux/détecteurs ne peuvent pas (?) | (?) CR |
-| **ATLAS HAND** | (données partiellement illisibles) | (?) CR |
-| **CHAINSAW ARMS** | +2 ×DUAL [+DUAL] (?) | (?) CR |
+| **JET PROPULSORS** | **+1 GRA** — Fuir le combat coûte seulement une **◇ Side Action**. Roll le dé joueur deux fois, garder le meilleur | 3♦ + 100★ |
+| **TRIGGER FINGERS** | **+1 GRA** — Attaques à distance infligent **+d6X** jusqu'à la fin du combat. **[2★][◇ Side]** | 6♦ + 200★ |
+| **HYPER REFLEXES** | Ralentir le temps pour esquiver la prochaine attaque ennemie. Coûte **+1★ par point d'Armor** possédé. **[3+][◇ Side]** | 9♦ + 300★ |
+
+#### 05 — EVO ROBOTICS
+
+| Implant | Effet | Coût |
+|---|---|---|
+| **CHROMEFIST** | Inflige **Armor × VIG** damage. Compte comme une attaque d'arme de mêlée. **[6★][♦ Main]** | 3♦ + 100★ |
+| **DUAL PROCESSOR** | Attaquer avec les **deux armes équipées** via une seule **♦ Main Action**. **[4★]** | 6♦ + 200★ |
+| **HEART ENGINE** | La première fois que l'on atteint **0 HP** dans un combat, restaurer la Health à **10 HP** | 9♦ + 300★ |
+
+#### 06 — RIP TEC
+
+| Implant | Effet | Coût |
+|---|---|---|
+| **SCANNER EYE** | **+1 TEC** — Une fois par rencontre, payer **2★** pour éviter le roll MIN lors d'un HACK. **[+1 Memory Slot]** | 3♦ + 100★ |
+| **ATLAS HANDS** | Si Armor supérieure à l'ennemi → ennemi **Stunned** pour VIG tours. **[4★][◇ Side]** | 6♦ + 200★ |
+| **CHAINSAW ARMS** | **d10 × VIG★**. **[5★][♦ Main]** | 9♦ + 300★ |
 
 ---
 
@@ -205,17 +206,20 @@ Trouvé dans : DRONES / Synth Settlements
 
 | Concept | Page |
 |---|---|
-| Hacking (MEN, succès/échec) | 38 |
-| Malware (D6 sur table) | 38 |
-| Drones (DEPLOY action, passive) | 38 |
-| 10 Hacks (JAVELIN→HYDRA, coûts ♦) | 39 |
-| Table Malware (0→10 effets) | 40 |
-| Achat HACKS — Medusa NetComm (21 CR) | 40 |
-| Master Hacks (×6, 200 CR, non-achetables) | 40 |
-| DRONE_Spider (CARBON CLAW d8+TEC) | 41 |
+| Hacking (MIN, succès/échec → Malware) | 38 |
+| Malware table D10 (1→10 effets) | 38 |
+| Drones (DEPLOY action, passive ability) | 38 |
+| 10 Hacks (roll d10, JAVELIN→HYDRA) | 39 |
+| Hacks achetés Medusa Settlements (150★) | 40 |
+| Master Hacks (×6, 34⚡, non-achetables) | 40 |
+| DRONE_Spider (CARBON CLAW d6+TEC) | 41 |
 | DRONE_Greyhound (CAMOUFLAGE, PRAXTON CORP) | 41 |
 | DRONE_Ladybug (EMP, HP INJECTION) | 42 |
 | DRONE_OwO (jailbreak, AUTO-TURRET) | 42 |
-| Cybertech — règles d'achat (Settlements) | 43 |
-| 6 fabricants Cybertech (18 implants) | 44 |
-| ZITTABYTE RAM → apprendre un Master Hack | 44 |
+| Cybertech — achat Settlements | 43 |
+| SYNBIOS : HEALING NANOBOTS (2d8+TEC) | 44 |
+| YEDRSL : ZETTABYTE RAM → Master Hack | 44 |
+| FRONTERA : MANTIS SCYTHES (d8×GRA) | 44 |
+| ORBITAL : HYPER REFLEXES (esquive) | 44 |
+| EVO : HEART ENGINE (résurrection 10HP) | 44 |
+| RIP TEC : CHAINSAW ARMS (d10×VIG) | 44 |
