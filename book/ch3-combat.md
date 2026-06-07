@@ -129,16 +129,14 @@ Les dégâts des **Status Conditions** elles-mêmes ne comptent **pas** comme Di
 
 | # | Arme | Dés + Stat | Portée |
 |---|---|---|---|
-| 01 | **REVOLVER** | d8 + VIG | < 25m |
-| 02 | **GAUSS GUN** | d8 + DRA* | < 25m |
-| 03 | **LASER BLASTER** | d8 + DRA* | < 75m |
-| 04 | **ION CARBINE** | d10 + DRA* | < 100m |
-| 05 | **GAMMA GUN** | d6 + TEC | + 75m |
+| 01 | **REVOLVER** | d6 + VIG | < 25m |
+| 02 | **GAUSS GUN** | d6 + GRA | < 25m |
+| 03 | **LASER BLASTER** | d8 + GRA | < 75m |
+| 04 | **ION CARBINE** | d10 + GRA | < 100m |
+| 05 | **GAMMA GUN** | d8 + TEC | + 75m |
 | 06 | **IGNITION SHOTGUN** | d10 + VIG | + 40m |
-| 07 | **PULSE RIFLE** | 2d6 + VIG | + 150m |
-| 08 | **GRAVITY RIFLE** | d12 + SPA* | + 150m |
-
-> *DRA = probablement GRACE (misread agent) — à vérifier / SPA = stat non identifiée — à confirmer
+| 07 | **PULSE RIFLE** | 2d8 + VIG | + 150m |
+| 08 | **GRAVITY RIFLE** | d12 + GRA | + 150m |
 
 ---
 
