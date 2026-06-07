@@ -19,9 +19,9 @@
 
 | Item | Effet | Coût |
 |---|---|---|
-| **Health Pack** | Restore **4d8 + VIT** Health | 20¤ |
+| **Health Pack** | Restore **4d8 + VIG** Health | 20¤ |
 | **Energy Cell** | Restore **4d6 + TEC** Energy | 20¤ |
-| **Nanobot Suit** | Auto-succès sur **VIT** ou **DNA Challenge Roll** | 50¤ |
+| **Nanobot Suit** | Auto-succès sur **VIG Challenge Roll** | 50¤ |
 | **Data Shard** | Auto-succès sur **MIN** ou **TEC Challenge Roll** | 50¤ |
 | **ReroFilter** | Remove **OVERHEAT** | 15¤ |
 | **ShieldDisc** | Remove **BREACH** | 15¤ |
@@ -35,8 +35,8 @@
 | **Flash Bomb** | Succès contre ennemi difficulté max → tous les ennemis **Beaconed** pour TEC tours | 40¤ |
 | **Holoskin Decoy** | Succès → **DNA** jusqu'au prochain cycle | 30¤ |
 | **Stasis Stimulant** | Succès → **TEC** jusqu'au prochain cycle | 30¤ |
-| **Timing Hormone** | +1 **VIT** jusqu'au prochain cycle | 30¤ |
-| **Blackthorn Capsule** | +1 **DNA** jusqu'au prochain cycle | 30¤ |
+| **Timing Hormone** | +1 **VIG** jusqu'au prochain cycle | 30¤ |
+| **Blackthorn Capsule** | +1 **BRA** jusqu'au prochain cycle | 30¤ |
 | **TruZite Tablet** | +1 à **toutes les stats** jusqu'au prochain cycle | 80¤ |
 | **Signature Matrix** | Succès → +1d6 à **n'importe quel roll** jusqu'au prochain cycle | 30¤ |
 | **NuScan** | Débloque 3 slots dans la **Cyberspace Memory Clock** | 30¤ |
@@ -112,27 +112,26 @@
 
 ### Règle Overdose
 
-En **OVERDOSE**, les effets supplémentaires deviennent permanents (négatifs) jusqu'au repos dans un Settlement.
+Consommer plus d'un narcobiotic par cycle = **OVERDOSE**. Chaque usage supplémentaire en état d'Overdose augmente le stage de 1. Effets négatifs permanents jusqu'au repos dans un Settlement.
 
 | Stage | Déclencheur | Effet |
 |---|---|---|
-| STAGE 0 | 1 use | 1 action pour administrer |
-| STAGE 1 | 3 uses | -1 to attack |
-| STAGE 2 | 5 uses | -1 dé maximum |
-| STAGE 3 | 5 uses | -1 dé + **Abysmal** Tour |
+| STAGE 0 | 1 use | No effect |
+| STAGE 1 | 2 uses | **-4 MAX HP** |
+| STAGE 2 | 3 uses | **-6 MAX HP** |
+| STAGE 3 | 4 uses | **-8 MAX HP** |
+| STAGE 4 | 5 uses | **Abyssal Scar** |
 
 ### Liste des Narcobiotics
 
-| # | Nom | Effet | Durée |
-|---|---|---|---|
-| B1 | **STRATOZEN HORMONES** | +4 MOV (?) | Prochain cycle |
-| B2 | **TOSTERONE HORMONES** | +3 MOV (?) | Prochain cycle |
-| B3 | **TRICILLIN SHOTS** | +3 STA (?) | Prochain cycle |
-| B4 | **VESTERONE CAPSULES** | +4 MOV (?) | Prochain cycle |
-| B5 | **ELECTRONYN CAPSULE** | +3 (stat ?) | Prochain cycle |
-| B6 | **SUPRANDOVA SHOTS** | +3 MOV (?) une fois | Prochain cycle |
-
-> ⚠️ Les stats "MOV" et "STA" ne correspondent pas aux stats connues (VIG/GRA/MIN/TEC) — probablement des misreads. À confirmer.
+| # | Nom | Stat boostée | Bonus | Durée |
+|---|---|---|---|---|
+| B1 | **STRATOGEN HORMONES** | **MIN** | +1 | Prochain cycle |
+| B2 | **VESTERONE STIMULANT** | **GRA** | +1 | Prochain cycle |
+| B3 | **TESTOGRE HORMONES** | **VIG** | +1 | Prochain cycle |
+| B4 | **ELECTROXYN CAPSULE** | **TEC** | +1 | Prochain cycle |
+| B5 | **TRICILLIN TABLET** | **Toutes les stats** | +1 | Prochain cycle |
+| B6 | **SUPRANOVA PHYSIC** | **Stat au choix** | +2 | Prochain cycle |
 
 ---
 
