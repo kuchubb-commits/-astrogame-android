@@ -134,7 +134,7 @@ Les dégâts des **Status Conditions** elles-mêmes ne comptent **pas** comme Di
 | 03 | **LASER BLASTER** | d8 + VIG | 75 |
 | 04 | **ION CARBINE** | d10 + GRA | 100 |
 | 05 | **GAMMA GUN** | d8 + TEC | 75 |
-| 06 | **IGNITION SHOTGUN** | d10 + VIG | (?) |
+| 06 | **IGNITION SHOTGUN** | d10 + VIG | 100 |
 | 07 | **PULSE RIFLE** | 2d6 + VIG | 150 |
 | 08 | **GRAVITY RIFLE** | d12 + GRA | 150 |
 
