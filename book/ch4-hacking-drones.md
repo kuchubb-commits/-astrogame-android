@@ -132,13 +132,13 @@ Trouvé dans : DRONES / Synth Settlements
 
 ### DRONE_OwO
 
-**Description :** Version jailbreakée et modifiée du DROGEN Mk II Mech Unit. L'UI militaire et le software ont été remplacés par l'IA d'un forum de virtual pets. Ancienne version.
+**Description :** Version jailbreakée et modifiée du **Berserk MKII** Mech Unit. L'UI militaire et le software ont été remplacés par l'IA d'un forum de virtual pets. Ancienne version.
 
 | Move | Coût | Effet |
 |---|---|---|
-| **AUTO-TURRET** | — | Dégâts automatiques chaque tour (valeur ?) |
-| **DOUBLE MINIMUM** | (?) | (données partiellement illisibles) |
-| **MISSILE STROKE** | (?) | (données partiellement illisibles) |
+| **AUTO-TURRET** | PASSIF | Deal **TEC** damage chaque tour |
+| **DOUBLE MINIGUN** | 4⚡ | Deal **2d6 + TEC** damage |
+| **MISSILE STRIKE** | 6⚡ | Deal **d8 × TEC** damage |
 
 ---
 
