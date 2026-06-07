@@ -99,7 +99,7 @@
 | 7 | **ORION II ARMOR** | +4 | Immunisé à **SHOCK** |
 | 8 | **MERCURIAN ARMOR** | +4 | Immunisé à **STUN** |
 | 9 | **HADES IV ARMOR** | +4 | Immunisé à **OVERHEAT** |
-| 10 | **COLOSSUS SUIT** | +4 | (données partiellement illisibles) |
+| 10 | **COLOSSUS SUIT** | +3 | — (300 Serum) |
 
 ---
 
