@@ -15,14 +15,23 @@ Fichiers présents : `idee.md`, `plan.md`, `toc.txt`, `pdf_to_image.py`, `conver
 
 ## Règles PDF — PERMANENTES
 
-### RÈGLE 1 — Numérotation : toujours la page du LIVRE
-Se référer uniquement aux numéros de pages imprimés dans le livre. Jamais aux numéros du fichier PDF. Il n'existe pas de décalage fixe — ne jamais inventer un offset.
+### RÈGLE 1 — Numérotation : système de pages du PROJET (pas le PDF)
+
+Le projet utilise sa **propre numérotation** — différente du fichier PDF.
+
+| Pages projet | Contenu | Pages PDF (livre) |
+|---|---|---|
+| 0.1 → 0.3 | Front matter (cover, blank, TOC) | 1 → 3 |
+| 1 → fin | Contenu du jeu (The World = p.1) | 4 → fin |
+
+**Offset : pages PDF − 3 = pages projet** (valable pour toutes les pages ≥ 4 du fichier PDF)
 
 Processus :
-1. L'utilisateur donne un numéro de page du livre
-2. Générer l'image avec `pdf_to_image.py`
-3. Lire le numéro imprimé en bas de l'image pour confirmer
-4. Si ce n'est pas la bonne page, ajuster et retester
+1. L'utilisateur donne un numéro de page **projet** (ex. p.9)
+2. Convertir en page PDF : p.9 + 3 = page 12 du fichier PDF
+3. Générer l'image avec `pdf_to_image.py <page_pdf>`
+4. Lire le numéro imprimé en bas de l'image pour confirmer
+5. Si ce n'est pas la bonne page, ajuster et retester
 
 ### RÈGLE 2 — Lecture : image obligatoire
 Ne jamais utiliser l'extraction texte brute. Toujours convertir en PNG via `pdf_to_image.py` puis lire visuellement. Le style RPG positionne les infos de façon non-linéaire — l'extraction texte mélange tout.
