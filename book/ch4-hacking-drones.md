@@ -120,13 +120,13 @@ Trouvé dans : DRONES / Synth Settlements
 
 ### DRONE_Ladybug
 
-**Description :** Drone compact guerre & rec construit par Filmic Industries. Spécialisé en cyber-défense, équipé d'un émetteur EMP capable de neutraliser l'électronique ennemie.
+**Description :** Drone compact 4cm×9cm construit par **Yihiro Industries**. Spécialisé en cyber-défense, équipé d'un émetteur EMP pour désactiver les systèmes et l'électronique ennemis.
 
 | Move | Coût | Effet |
 |---|---|---|
-| **HP INJECTION** | — | Restore (?) HP chaque tour |
-| **TASER SHOT** | (?) | Dégâts (?) — applique **SHOCK** sur enemy Bot |
-| **SILENCE** | — | **SILENCE** sur enemy Bot (?) tours |
+| **HP INJECTION** | PASSIF | Restore **TEC** Health chaque tour |
+| **EMP RELAY** | 2⚡ | **Silence** un ennemi pour **2 tours** |
+| **TASER SHOT** | 3⚡ | **Shock** un ennemi pour **2 tours** |
 
 ---
 
