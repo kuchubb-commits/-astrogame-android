@@ -6,12 +6,47 @@
 |---|---|---|
 | 0 — Fondations | Setup projet, structure, CI/CD | 1 session |
 | 1 — Personnage | Feuille de perso interactive | 2-3 sessions |
-| 2 — Dés & Oracle | Moteur de dés + tables | 1-2 sessions |
-| 3 — Combat | Système de combat complet | 2-3 sessions |
-| 4 — Narration | Narration contextuelle | 1-2 sessions |
-| 5 — Exploration | Génération de mondes | 2-3 sessions |
-| 6 — Factions & DB | Factions, ennemis, PNJ | 2 sessions |
-| 7 — Polish | UI, PWA, déploiement final | 1-2 sessions |
+| 2 — Exploration | Génération de mondes, planètes, rencontres | 2-3 sessions |
+| 3 — Dés | Moteur de dés, lancers, résultats | 1-2 sessions |
+| 4 — Oracle | Tables Oracle, narration aléatoire | 1-2 sessions |
+| 5 — Combat | Système de combat complet | 2-3 sessions |
+| 6 — Narration | Narration contextuelle Gemini | 1-2 sessions |
+| 7 — Factions & DB | Factions, ennemis, PNJ | 2 sessions |
+| 8 — UI/UX Design | Design cohérent, animations, thème SF | 1-2 sessions |
+| 9 — Polish | PWA, responsive, déploiement final | 1-2 sessions |
+
+---
+
+## Architecture modulaire — Principe fondamental
+
+Chaque phase est **indépendante** et peut être développée dans n'importe quel ordre.
+
+### Pendant le développement d'une phase
+- Données **mockées localement** — aucune dépendance aux autres phases
+- Dossier propre dans `src/features/<phase>/`
+- Testable et déployable seule
+
+### Lors de l'intégration entre phases
+- Les phases se **branchent sur le store Zustand partagé** (`src/stores/`)
+- Aucune modification du code des phases existantes nécessaire
+- Non-destructif : intégrer une phase ne casse pas les autres
+
+### Stores partagés (pont entre phases)
+```
+src/stores/
+├── useCharacterStore.ts   ← Phase 1 écrit, Phases 3/4/5 lisent
+├── useDiceStore.ts        ← Phase 3 écrit, Phases 4/5 lisent
+├── useExplorationStore.ts ← Phase 2 écrit, Phase 6 lit
+├── useCombatStore.ts      ← Phase 5 écrit
+└── useNarrationStore.ts   ← Phase 6 écrit/lit
+```
+
+### Exemple de flux d'intégration
+```
+Phase 1 seule  → useCharacterStore (VIGOR, GRACE, HP...)
+Phase 3 rejoint → useDiceStore lit useCharacterStore → jets avec stats réelles
+Phase 5 rejoint → useCombatStore lit les deux stores → combat complet
+```
 
 ---
 
@@ -69,35 +104,100 @@ StarshipPanel.tsx       → stats du vaisseau
 { "base_hp_formula": "...", "defense_formula": "..." }
 ```
 
+### Store
+```typescript
+// stores/useCharacterStore.ts
+// Écrit par cette phase, lu par : Dés, Oracle, Combat, Narration
+```
+
 ### Résultat attendu
 Wizard de création → feuille affichée → sauvegarde localStorage.
 
 ---
 
-## Phase 2 — Moteur de dés & Oracle
+## Phase 2 — Exploration
 
 ### Objectif
-Lancer des dés, lire les tables automatiquement.
+Générer des mondes, rencontres et activités procéduralement.
+
+### Tables à implémenter (Chapitre 7)
+- Génération de planètes (type, atmosphère, population)
+- Satellites et anomalies
+- Colonies et activités disponibles
+- Ring Encounters (rencontres aléatoires)
+- Cybersphère (missions numériques)
+- Abyssal Scars (zones dangereuses)
+
+### Composants à créer
+```
+ExplorationHub.tsx       → hub principal d'exploration
+PlanetGenerator.tsx      → génération de planète
+PlanetCard.tsx           → affichage planète avec stats
+EncounterTable.tsx       → tables de rencontres
+ColonyView.tsx           → vue colonie + activités
+```
+
+### Store
+```typescript
+// stores/useExplorationStore.ts
+// Écrit par cette phase, lu par : Narration
+```
+
+### Résultat attendu
+Appuyer sur "Explorer" génère une planète avec événement aléatoire.
+
+---
+
+## Phase 3 — Dés
+
+### Objectif
+Lancer des dés avec lecture automatique des résultats selon les stats du personnage.
 
 ### Mécanique Astroprisma
 - Système de base : 2d6 + stat vs difficulté
 - Résultats : Succès Total / Succès / Succès Partiel / Échec / Échec Critique
-- Oracle : table de 36 entrées (2d6 × 2d6) pour narration libre
+- Intégration avec useCharacterStore (stats réelles quand disponibles, mockées sinon)
 
 ### Composants
 ```
 DiceRoller.tsx       → interface de lancer visuelle
 DiceResult.tsx       → affichage résultat avec couleur
-OracleTable.tsx      → table Oracle cliquable
 DiceHistory.tsx      → historique scrollable
 ```
 
+### Store
+```typescript
+// stores/useDiceStore.ts
+// Écrit par cette phase, lu par : Oracle, Combat
+```
+
 ### Résultat attendu
-Lancer n'importe quel dé, voir le résultat narratif, consulter l'Oracle.
+Lancer n'importe quel dé, voir le résultat avec interprétation automatique.
 
 ---
 
-## Phase 3 — Combat
+## Phase 4 — Oracle
+
+### Objectif
+Consulter les tables Oracle pour générer narration et événements aléatoires.
+
+### Mécanique
+- Table de 36 entrées (2d6 × 2d6)
+- Lecture automatique du résultat
+- Intégration avec useDiceStore
+
+### Composants
+```
+OracleTable.tsx      → table Oracle interactive
+OracleResult.tsx     → affichage résultat narratif
+```
+
+### Résultat attendu
+Lancer l'Oracle → lire le résultat narratif automatiquement.
+
+---
+
+## Phase 5 — Combat
 
 ### Objectif
 Gérer un combat complet (phase par phase).
@@ -118,12 +218,18 @@ EnemyCard.tsx        → PV ennemi + attaques
 SpaceBattleMode.tsx  → vue combat spatial
 ```
 
+### Store
+```typescript
+// stores/useCombatStore.ts
+// Lit : useCharacterStore, useDiceStore
+```
+
 ### Résultat attendu
 Combat tour-par-tour jouable jusqu'à victoire/défaite.
 
 ---
 
-## Phase 4 — Narration
+## Phase 6 — Narration
 
 ### Objectif
 Gemini raconte le jeu en temps réel.
@@ -148,30 +254,18 @@ async function narrateAction(context: GameContext): Promise<string> {
 - Faction(s) présentes
 - Ambiance souhaitée (neutre / tendu / épique)
 
+### Store
+```typescript
+// stores/useNarrationStore.ts
+// Lit : useCharacterStore, useExplorationStore, useDiceStore
+```
+
 ### Résultat attendu
 Chaque action joueur génère 2-3 phrases narratives. L'Oracle génère une description de situation.
 
 ---
 
-## Phase 5 — Exploration
-
-### Objectif
-Générer des mondes, rencontres et activités procéduralement.
-
-### Tables à implémenter (Chapitre 7)
-- Génération de planètes (type, atmosphère, population)
-- Satellites et anomalies
-- Colonies et activités disponibles
-- Ring Encounters (rencontres aléatoires)
-- Cybersphère (missions numériques)
-- Abyssal Scars (zones dangereuses)
-
-### Résultat attendu
-Appuyer sur "Explorer" génère une planète avec description IA et événement aléatoire.
-
----
-
-## Phase 6 — Factions & Base de données
+## Phase 7 — Factions & Base de données
 
 ### Objectif
 Suivre les relations avec les 5 factions, accéder aux missions et ennemis.
@@ -191,17 +285,30 @@ Suivre les relations avec les 5 factions, accéder aux missions et ennemis.
 
 ---
 
-## Phase 7 — Polish & Déploiement
+## Phase 8 — UI/UX Design
+
+### Objectif
+Appliquer un design cohérent SF dark sur toutes les phases.
+
+### Contenu
+- Dark theme SF cohérent (palette, typographie, icônes)
+- Animations dés (CSS)
+- Transitions entre vues
+- Composants UI réutilisables (boutons, cartes, modals)
+- Responsive mobile 375px → desktop
+
+### Approche
+- Développable indépendamment via Storybook ou page de démo composants
+- S'applique par-dessus les phases existantes sans modifier leur logique
+
+---
+
+## Phase 9 — Polish & Déploiement
 
 ### PWA
 - `vite-plugin-pwa` → manifest + service worker
 - Icône app + splash screen
 - Mode offline (les données JSON sont en cache)
-
-### UI finale
-- Dark theme SF cohérent
-- Animations dés (CSS)
-- Responsive mobile 375px → desktop
 
 ### Déploiement final
 - `git push` → Cloudflare Pages build auto
@@ -215,6 +322,9 @@ Suivre les relations avec les 5 factions, accéder aux missions et ennemis.
 2. **Petits commits fréquents** — chaque fonctionnalité = 1 commit
 3. **Tests manuels d'abord** — lancer l'app dans le navigateur avant de passer à la suite
 4. **Les données viennent du PDF** — aucune règle inventée, tout extrait du Core Book
+5. **Pages = numérotation du LIVRE uniquement** — jamais la numérotation du fichier PDF. Aucun offset fixe. Toujours vérifier visuellement le numéro imprimé en bas de l'image générée.
+6. **Lecture PDF = image obligatoire** — toujours utiliser `pdf_to_image.py` pour convertir en PNG et lire visuellement. Jamais d'extraction texte brute. Toujours valider les données extraites avant intégration.
+7. **Phases indépendantes** — chaque phase se développe seule avec données mockées. L'intégration se fait via les stores Zustand partagés, sans modifier le code des phases existantes.
 
 ---
 

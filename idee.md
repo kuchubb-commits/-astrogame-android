@@ -2,7 +2,9 @@
 
 ## Concept central
 
-Remplacer le PDF physique par une **application web/mobile interactive** permettant de jouer à Astroprisma en solo (ou multi) sans jamais ouvrir le PDF. L'application intègre toutes les règles, tables, lore et mécaniques du jeu, enrichis par une narration IA (Gemini).
+Remplacer le PDF physique par une **application web/mobile interactive** permettant de jouer à Astroprisma en solo (ou multi) sans jamais ouvrir le PDF.
+
+> **Principe fondamental du jeu :** Astroprisma est un **arbre de décision en cascade piloté par des jets de dés successifs** — chaque lancer ouvre une branche, chaque branche mène à un nouveau lancer, jusqu'au texte narratif final. L'application intègre toutes les règles, tables, lore et mécaniques du jeu, enrichis par une narration IA (Gemini).
 
 ## Le jeu : Astroprisma en deux mots
 
