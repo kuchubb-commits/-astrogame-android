@@ -2,6 +2,7 @@ import { useGameStore } from './stores/gameStore'
 import CharacterCreation from './pages/CharacterCreation'
 import PlayerSheet from './pages/PlayerSheet'
 import StarshipSheet from './pages/StarshipSheet'
+import MapScreen from './pages/MapScreen'
 import BottomNav from './components/ui/BottomNav'
 
 function App() {
@@ -15,8 +16,9 @@ function App() {
 
   return (
     <>
-      {activeTab === 'player' && <PlayerSheet />}
+      {activeTab === 'player'   && <PlayerSheet />}
       {activeTab === 'starship' && <StarshipSheet />}
+      {activeTab === 'map'      && <MapScreen />}
       <BottomNav active={activeTab} onChange={setTab} />
     </>
   )

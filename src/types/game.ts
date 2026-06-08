@@ -22,4 +22,27 @@ export interface Starship {
   shields: number
 }
 
-export type PlayTab = 'player' | 'starship'
+export interface HexState {
+  id: string
+  ring: 'inner' | 'middle' | 'outer'
+  explored: boolean
+  discoveryType: string | null
+  discoveryText: string | null
+  hexColor: string | null
+}
+
+export interface CycleEntry {
+  id: number
+  hexId: string
+  type: string
+  text: string
+}
+
+export interface MapData {
+  hexes: Record<string, HexState>
+  playerHexId: string
+  cycleLog: CycleEntry[]
+  cycleCount: number
+}
+
+export type PlayTab = 'player' | 'starship' | 'map'

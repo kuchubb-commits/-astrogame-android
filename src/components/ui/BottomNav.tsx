@@ -7,7 +7,8 @@ interface NavItem {
 }
 
 const NAV_ITEMS: NavItem[] = [
-  { id: 'player', label: 'Personnage', icon: '◈' },
+  { id: 'player',   label: 'Perso',    icon: '◈' },
+  { id: 'map',      label: 'Carte',    icon: '⬡' },
   { id: 'starship', label: 'Vaisseau', icon: '◇' },
 ]
 
