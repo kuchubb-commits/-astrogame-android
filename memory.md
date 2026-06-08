@@ -21,9 +21,10 @@
 | ch6 — Starship Combat | p.51–56 | ✅ extrait + corrigé |
 | ch7 — Exploration | p.57–89 | ✅ extrait + corrigé |
 | ch8 — Factions & Quests | p.92–112 | ✅ extrait + corrigé |
-| ch9–10 | p.113+ | ⬜ à faire |
+| ch9 — Database Enemies | p.113–118 | ✅ extrait (20 ennemis) |
+| ch10 — Database Starships | p.119–124 | ✅ extrait (18 vaisseaux + tables Captains) |
 
-**Prochaine étape : extraire ch9–10 (p.113+)**
+**Extraction Core Book complète — ch1 à ch10 ✅**
 
 ### Fichiers book/
 
@@ -33,6 +34,8 @@ Tous les chapitres extraits sont dans `book/` :
 - `ch5-equipment.md`
 - `ch6-starship-combat.md`
 - `ch8-factions.md`
+- `ch9-enemies.md`
+- `ch10-starships.md`
 
 ### Mécanique importante découverte — ch6
 
