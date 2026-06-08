@@ -51,6 +51,34 @@ Points à vérifier avant implémentation. Chaque entrée indique la page source
 
 ---
 
+## CH2 — Rules
+
+### 9. Nom exact du stat GRACE
+- **Page** : p.15
+- **Doute** : La stat est nommée **GRACE** dans la plupart du document, mais notée **"DACE"** sur p.15 — faute de frappe dans le livre, ou nom alternatif ?
+- **Résolution** : zoom sur le label de la stat sur p.15
+
+---
+
+## CH4 — Hacking & Drones
+
+### 10. Ability FETCH du DRONE_Greyhound
+- **Page** : p.41
+- **Doute** : L'ability **FETCH** (coût 1) a ses données partiellement illisibles — l'effet est inconnu
+- **Résolution** : zoom sur la ligne FETCH dans la fiche DRONE_Greyhound (p.41)
+
+---
+
+## CH5 — Equipment
+
+### 11. Table de Loot p.48 — structure exacte
+- **Page** : p.48
+- **Doute** : La table de loot contient des colonnes pour les armes Ranged et Melee, mais les valeurs (Coût, Dégâts) sont toutes `(?)`. Probable table de tirage aléatoire (d6 pour quelle arme est trouvée). Il faut savoir si les colonnes sont : d6 roll / nom arme / coût / dégâts — ou autre structure.
+- **Note** : les stats des armes sont déjà dans ch3-combat.md — cette table sert probablement uniquement au loot aléatoire
+- **Résolution** : zoom sur la table p.48 pour confirmer la structure et les numéros de tirage (d6?)
+
+---
+
 ## À compléter au fil des sessions
 
 *(Ajouter ici tout nouveau doute découvert lors de l'extraction des chapitres suivants)*
