@@ -145,12 +145,12 @@ Les dégâts des **Status Conditions** et des **DRONES** ne comptent **pas** com
 
 | # | Arme | Dés + Stat | Prix (Serum) | Propriété |
 |---|---|---|---|---|
-| 01 | **CARBON DAGGER** | d6 + BRA | 25 | — |
-| 02 | **HELIX KNIFE** | d10 + VIG | 75 | — |
-| 03 | **HALO DISCUS** | d6 + BRA | 150 | — |
-| 04 | **ROCKET HAMMER** | d8 + VIG | 100 | — |
-| 05 | **PLASMA SHIELD** | d6 + VIG | 100 | **+1 Shield** while equipped |
-| 06 | **NEON BLADE** | d10 + VIG | 150 | — |
+| 01 | **CARBON DAGGER** | d6 + GRA | 25 | — |
+| 02 | **HELIX WIRE** | d8 + VIG | 75 | — |
+| 03 | **HALO DISCS** | 2d6 + GRA | 150 | — |
+| 04 | **ROCKET HAMMER** | d10 + VIG | 100 | — |
+| 05 | **PLASMA SHIELD** | d8 + VIG | 100 | **+1 Shield** while equipped |
+| 06 | **NEON BLADE** | d12 + VIG | 150 | — |
 
 ---
 
@@ -195,7 +195,7 @@ Niveaux de rareté/tier : **D1** (commun) → **D4** (rare). Max **2 mods** par 
 | Difficulty table (Easy→Extreme + EXP) | 31 |
 | Enemy Statblock (HP, ATK, DEF, ★) | 31 |
 | Status Conditions (6 types) | 32 |
-| OVERHEAT / STUN / HACK / SHOCK / SILENCE / GRAVITY | 32 |
+| OVERHEAT / SHOCK / STUN / SILENCE / BREACH / IMMUNITY | 32 |
 | Direct Damage (ignore Armor + Shields) | 32 |
 | Weapon Mods — règles générales (3 max, swap) | 32 |
 | Ranged Weapons (8 armes, dés + portées) | 33–34 |

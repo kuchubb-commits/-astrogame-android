@@ -293,7 +293,7 @@ Les Captains sont les ennemis du ch9 assignés à un vaisseau selon leur faction
 
 - **Hull 20** sur tous les vaisseaux — valeur fixe indépendante de la classe.
 - **X damage** = dégâts variables (formule à confirmer depuis ch6).
-- **Critical condition** = vaisseau à moitié de Hull ou moins (à confirmer).
+- **Critical condition** = vaisseau à **0 Hull ou moins** (confirmé ch6 p.52).
 - **Boarding** : quand le Captain enemy "boards", référer aux règles de combat terrestre du ch3.
 - Les **MODS** (modules) listés correspondent aux entrées de la Starship Sheet — leurs effets exacts sont dans ch6.
 - Classe B → A → S = progression en prix et en puissance des actions/skills.

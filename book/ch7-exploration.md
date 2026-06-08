@@ -112,8 +112,6 @@ The local network is represented by a circuit of 10 diamond tiles. Choose an **A
 - **Normal Tiles** — Roll d66 on the Cybersphere Encounters table [p.61].
 - **Access Ports** — Log in and out of the network circuit. You can't exit through the same port you entered from.
 
-> ⚠️ **Discordance** : p.59 indique le coût "3₵" et p.61 indique "5★". À vérifier par zoom.
-
 ---
 
 #### SCRAPYARD
@@ -290,7 +288,7 @@ You only have **12 moves** to explore the network. Mark 1 cell on the Memory Clo
 | 54 | HACK_Ragnarok `{CLOCK +4}` |
 | 55 | 2 NGHTMR Keys — or — 3 NetLinks `{CLOCK +2}` |
 | 56 | Memory chip containing **30 EXP** `{CLOCK +3}` |
-| 61 | Broken Tesseract *(? texte partiellement masqué)*, can be repaired with **100★** |
+| 61 | Broken Tesseract, can be repaired with **100★** |
 | 62 | HACK_Aegis `{CLOCK +4}` |
 | 63 | Counterfeit Trading License `{CLOCK +2}` |
 | 64 | Purple-colored Tesseract, it emits a prismatic glow |
@@ -771,29 +769,27 @@ A giant gold and sandstone temple in a dune valley. Find a **Neon Blade** on the
 
 #### CALORIAN Encounters (type 02)
 
-> ⚠️ Les entrées sont numérotées "1-x" dans le livre. Possible confusion avec Gaian (aussi "1-x"). À vérifier.
-
-**1-1 — ALPHA 2 OBSERVATORY**
+**2-1 — ALPHA 2 OBSERVATORY**
 A crystal sphere building with a **NetHacker** from the Medusa Sector who's been trying to log into the observatory server for months.
 - ✦ **DECRYPT THE CODE** (3 MIN Challenge Rolls, all required):
   - **Success** ▶ He reveals a Medusa Sector Settlement 2 tiles south. `[+1 Favor]`
   - **Failure** ▶ Lose **3 Energy**.
 
-**1-2 — GROUND FISSURE**
+**2-2 — GROUND FISSURE**
 A meteor crash causes seismic activity. A rock falls toward you.
 - ✦ **ROLL VIGOR** — **Success** ▶ Shove rock aside. `[+1#]` — **Failure** ▶ Lose **7 Health**. **-2 VIG** and **-2 GRA** until Health is restored to 100.
 
-**1-3 — SPOILS OF WAR**
+**2-3 — SPOILS OF WAR**
 Broken mechs and battle droids on a scorched battlefield. ▶ Find a **Gauss SMG** and a **Laser Accelerator** mod.
 
-**1-4 — ENDLESS SHIFT**
+**2-4 — ENDLESS SHIFT**
 EVO ROBOTICS factory. 3 **Automaton Bots** activated by motion sensors.
 - ✦ **ROLL TECH** — **Success** ▶ Deactivate one; fight the other two; loot a **Tesseract**. — **Failure** ▶ Lose **2 Energy**. All three attack.
 
-**1-5 — THE MARTIAN**
+**2-5 — THE MARTIAN**
 Night falls. Dead astronaut with broken helmet (gunshot). ▶ A **Laser Blaster** with a **Silencer** mod lies next to him.
 
-**1-6 — SKIRMISH AT METEOR KEEP**
+**2-6 — SKIRMISH AT METEOR KEEP**
 Rebels surround a fortified tower. 2 soldiers remain on the rooftop.
 - **Aid the soldiers** ▶ Fight 3 **Rebel Fighters**. Gain **250₵**. `[+2 Favor ISF][-1 Favor WARG]`
 - **Side with the rebels** ▶ Fight 2 **ISF Soldiers**. Gain **2 Health Packs**. `[+2 Favor WARG][-1 Favor ISF]`
@@ -878,7 +874,7 @@ Carnivorous three-headed plant grabs you.
 
 **S-5 — TREETOP PARKOUR**
 Steep cliff, only way forward is through the treetops.
-- ✦ **ROLL GRACE** — **Success** ▶ Leap with ease. Gain **+1 Hyperdrive** charge + restore **5 Energy**. *(? "S Energy" — probablement "5")* — **Failure** ▶ Fall. Lose **8 Health** and **3 Energy**.
+- ✦ **ROLL GRACE** — **Success** ▶ Leap with ease. Gain **+1 Hyperdrive** charge and restore **Energy**. — **Failure** ▶ Fall. Lose **8 Health** and **3 Energy**.
 
 **S-6 — ALIEN GROTTO**
 A hidden grotto with ripe fruit. A **Xhiraptera Predator** attacks.
@@ -1253,9 +1249,4 @@ If the result is **lower than 6**, your Player Character mysteriously avoids dea
 
 | Zone | Page | Description |
 |------|------|-------------|
-| Cybersphere cost | p.59 vs p.61 | "3₵" vs "5★" — discordance à résoudre |
-| Matrix Nodes ref | p.62 | Référence page coupée (bord droit) |
-| Cybersphere Encounters ref | p.62 | Référence page coupée (bord droit) |
-| Calorian encounters numbering | p.76 | Labellisé "1-x" comme Gaian (p.75) — possible erreur d'agent |
-| Treetop Parkour S-5 | p.79 | "S Energy" = probablement "5 Energy" |
 | Icônes inline | multiple | Petits symboles ◆/★/✦ dans crochets — valeurs certaines, icônes de faction/stat parfois incertaines |

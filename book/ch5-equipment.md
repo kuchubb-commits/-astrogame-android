@@ -36,7 +36,7 @@
 | **Holoskin Decoy** | Succès → **DNA** jusqu'au prochain cycle | 30¤ |
 | **Stasis Stimulant** | Succès → **TEC** jusqu'au prochain cycle | 30¤ |
 | **Timing Hormone** | +1 **VIG** jusqu'au prochain cycle | 30¤ |
-| **Blackthorn Capsule** | +1 **BRA** jusqu'au prochain cycle | 30¤ |
+| **Blackthorn Capsule** | +1 **GRA** jusqu'au prochain cycle | 30¤ |
 | **TruZite Tablet** | +1 à **toutes les stats** jusqu'au prochain cycle | 80¤ |
 | **Signature Matrix** | Succès → +1d6 à **n'importe quel roll** jusqu'au prochain cycle | 30¤ |
 | **NuScan** | Débloque 3 slots dans la **Cyberspace Memory Clock** | 30¤ |

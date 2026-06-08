@@ -54,7 +54,7 @@ Stats : VIGOR · GRACE · MIND · TECH
 
 Équipement :
 - Carbon Dagger (d6+1 / 1A)
-- Hard Clonket (version 8.4)
+- Hard Cloak (version 8.4)
 - Stealth Shroud (1 use)
 
 ---
@@ -64,7 +64,7 @@ Stats : VIGOR · GRACE · MIND · TECH
 > You grew up surrounded by circuits, building and repairing drones, mechs, and other machinery. You are one with the machine.
 
 Équipement :
-- Hello Wire (d6+1 / 2A)
+- Helix Wire (d6+1 / 2A)
 - Hotlink (passive)
 
 ---
@@ -85,7 +85,7 @@ Stats : VIGOR · **GRACE✦** · MIND · TECH
 > The ruthless in control of space outlaws and renegades of the far world. You act on instinct — a born survivor outside of the restraining grip of galactic law.
 
 Équipement :
-- Railer Blaster (D6+1 | 14)
+- Laser Blaster (D6+1 | 14)
 - Railer Sight (Weapon Mod)
 - Contraband Packages
 
@@ -127,7 +127,7 @@ Stats : **VIGOR✦** · GRACE · MIND · TECH
 | Stat | Domaines |
 |---|---|
 | **VIGOR** | Force, survie, action physique directe |
-| **GRACE** | Pilotage, esquive, furtivité, évasion, précision *(noté DACE sur p.15 — à vérifier)* |
+| **GRACE** | Pilotage, esquive, furtivité, évasion, précision |
 | **MIND** | Planification, hacking, raisonnement, connaissances, machines |
 | **TECH** | Fabrication, réparation, utilisation de technologie |
 
