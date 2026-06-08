@@ -42,34 +42,75 @@
 | **NuScan** | Débloque 3 slots dans la **Cyberspace Memory Clock** | 30¤ |
 | **Zero Clapper** | Gagne une action **Ride** supplémentaire au prochain tour | 20¤ |
 
-### Table de Loot (p.48)
+### Tables de Loot aléatoire (p.138)
 
-> ⚠️ La page 48 contient une table de loot aléatoire. Les valeurs lues par l'agent sont partiellement illisibles — à réviser.
+> Lancer le dé indiqué pour déterminer quelle arme est trouvée. Stats complètes → ch3.
 
-**Armes à distance (Ranged)**
+**Ranged Weapons d8**
 
-| Arme | Coût (?) | Dégâts (?) |
-|---|---|---|
-| Revolver | (?) | (?) |
-| Laser Blaster | (?) | (?) |
-| Gamma Gun | (?) | (?) |
-| Ignition Shotgun | (?) | (?) |
-| Ion Carbine | (?) | (?) |
-| Pulse Rifle | (?) | (?) |
-| Gravity Rifle | (?) | (?) |
+| d8 | Arme |
+|----|------|
+| 1 | Revolver |
+| 2 | Gauss SMG |
+| 3 | Laser Blaster |
+| 4 | Gamma Gun |
+| 5 | Ignition Shotgun |
+| 6 | Ion Carbine |
+| 7 | Pulse Rifle |
+| 8 | Gravity Rifle |
 
-**Armes de mêlée (Melee)**
+**Melee Weapons d6**
 
-| Arme | Coût (?) | Dégâts (?) |
-|---|---|---|
-| Carbon Dagger | (?) | (?) |
-| Helix Knife | (?) | (?) |
-| Halo Discus | (?) | (?) |
-| Plasma Shield | (?) | (?) |
-| Rocket Hammer | (?) | (?) |
-| Neon Blade | (?) | (?) |
+| d6 | Arme |
+|----|------|
+| 1 | Carbon Dagger |
+| 2 | Helix Wire |
+| 3 | Rocket Hammer |
+| 4 | Plasma Shield |
+| 5 | Halo Discs |
+| 6 | Neon Blade |
 
-> Note : les prix et dégâts exacts sont déjà connus depuis ch3. Cette table est probablement la table de loot aléatoire (d6 pour déterminer quelle arme est trouvée).
+**Ranged Weapon Mods d6**
+
+| d6 | Mod |
+|----|-----|
+| 1 | Silencer |
+| 2 | Laser Accelerator |
+| 3 | Reflex Sight |
+| 4 | Malware Injection |
+| 5 | Auto Reloader |
+| 6 | Smart Aim |
+
+**Melee Weapon Mods d6**
+
+| d6 | Mod |
+|----|-----|
+| 1 | Stealth Grip |
+| 2 | Counter Guard |
+| 3 | Vibrating Motor |
+| 4 | Heat Chamber |
+| 5 | Kinetic Engine |
+| 6 | Charge Attack |
+
+**Status Cures d10**
+
+| d10 | Item |
+|-----|------|
+| 1-2 | BurnPatch |
+| 3-4 | ShieldStim |
+| 5-6 | PowerGen |
+| 7-8 | AntiVirus |
+| 9-10 | AdrenaShot |
+
+**Grenades d10**
+
+| d10 | Item |
+|-----|------|
+| 1-2 | Frag Grenade |
+| 3-4 | Heat Bomb |
+| 5-6 | EMP Grenade |
+| 7-8 | Taser Shell |
+| 9-10 | Flash Round |
 
 **Quest Items**
 - Items de navigation permettant de voyager jusqu'à X locations
@@ -135,6 +176,44 @@ Consommer plus d'un narcobiotic par cycle = **OVERDOSE**. Chaque usage suppléme
 
 ---
 
+## 5.5 — LOOT & BOSS REWARDS (p.138)
+
+### LOOT REWARDS (d18)
+
+| d18 | Récompense |
+|-----|------------|
+| 01 | 25 Serum |
+| 02 | Health Pack |
+| 03 | Energy Cell |
+| 04 | Random Status Cure |
+| 05 | 30 Scraps |
+| 06 | Random Narcobiotic |
+| 07 | Random Ranged Weapon |
+| 08 | Random Melee Weapon |
+| 09 | 60 Scraps |
+| 10 | 75 Serum |
+| 11 | Random Hack |
+| 12 | Random Ranged Mod |
+| 13 | Random Melee Mod |
+| 14 | 150 Serum |
+| 15 | Random Armor Set |
+| 16 | Random Master Hack |
+| 17 | Random Cybertech |
+| 18 | 300 Serum |
+
+### BOSS REWARDS (d6)
+
+| d6 | Récompense |
+|----|------------|
+| 01 | 1× Hyperdrive |
+| 02 | 200 Scraps |
+| 03 | Random Armor Set |
+| 04 | Random Master Hack |
+| 05 | 350 Serum |
+| 06 | Random Cybertech |
+
+---
+
 ## Index rapide — Chapitre 5
 
 | Concept | Page |
@@ -142,7 +221,13 @@ Consommer plus d'un narcobiotic par cycle = **OVERDOSE**. Chaque usage suppléme
 | Items (22 types, Health Pack → Zero Clapper) | 47 |
 | Grenades (5 types, effet zone TEC tours) | 47 |
 | Status cures (ReroFilter, ShieldDisc, SonarEye, AmniViro, AdrenaShot) | 47 |
-| Loot table armes (ranged + melee) | 48 |
+| Loot table Ranged d8 (8 armes) | 138 |
+| Loot table Melee d6 (6 armes) | 138 |
+| Loot table Mods Ranged d6 + Melee d6 | 138 |
+| Status Cures d10 (5 entrées) | 138 |
+| Grenades d10 (5 entrées) | 138 |
+| LOOT REWARDS d18 (01-18) | 138 |
+| BOSS REWARDS d6 (01-06) | 138 |
 | Quest Items + Scraps | 48 |
 | Armor Tags (10 sets, tous +4 Armor) | 49 |
 | Armures immunités (ATHENA→HADES : Silence/Shock/Stun/Overheat) | 49 |

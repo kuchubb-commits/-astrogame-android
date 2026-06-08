@@ -385,3 +385,204 @@ Utiliser l'**Oracle** pour les rencontres sociales + **Challenge Roll** pour ré
 | Penalités Favor (non-hostiles) | 27 |
 | Stats PNJ génériques | 27 |
 | Conseils joueurs | 28 |
+
+---
+
+## ORACLE — Quick Reference (p.138)
+
+> Lancer un d6 pour obtenir la réponse (colonne) + lancer un d6 pour le thème narratif (ligne).
+
+| d6 thème | 1 — NO, AND… | 2 — NO | 3 — NO, BUT… | 4 — YES, BUT… | 5 — YES | 6 — YES, AND… |
+|----------|-------------|--------|-------------|--------------|---------|---------------|
+| 1 | Void | Suspicion | Survival | Nurturing | Compromise | Balance |
+| 2 | Treason | Regression | Sacrifice | Light | Prophecy | Wealth |
+| 3 | Chaos | Collision | Conflict | Noise | Evolution | Change |
+| 4 | Pain | Desire | Control | Healing | Guidance | Order |
+| 5 | Corruption | Vengeance | Electricity | Velocity | Growth | Truth |
+| 6 | Oppression | Occult | Subversion | Freedom | Nature | Time |
+
+---
+
+## STATS & SOCIAL ROLLS — Référence complète (p.139)
+
+| Stat | Usages combat / action | Usages sociaux |
+|------|------------------------|----------------|
+| **VIG** (Vigor) | Force, survie, athlétisme, attaques armes, force brute | Authority · Bravery · Intimidation |
+| **GRA** (Grace) | Pilotage, dodge, agilité, stealth, visée | Subterfuge · Street-smarts · Charm |
+| **MIN** (Mind) | Hacking, décryptage, raisonnement, connaissance | Philosophy · Diplomacy · Ideology |
+| **TEC** (Tech) | Réparation, interaction technologie, cybertech | Logic · Rhetoric · Debate |
+
+---
+
+## SERUM & SCRAPS — Définitions (p.139)
+
+| Ressource | Symbole | Usage |
+|-----------|---------|-------|
+| **Serum** | § | Monnaie principale — transactions entre personnages |
+| **Scraps** | ⚙ | Craft d'objets, réparation du vaisseau, trading |
+
+---
+
+## HYPERDRIVE — Effets (p.139)
+
+Dépenser 1 charge de Hyperdrive pour :
+- **Reroll** n'importe quel dé du jeu
+- **Infliger le maximum possible de dégâts** sur une attaque
+- **Utiliser une capacité sans payer son coût en Energy**
+
+---
+
+## ACHIEVEMENTS (p.136)
+
+| Achievement | Condition |
+|---|---|
+| **ASTROPRISMA** | Complete a standard game of ASTROPRISMA, exploring every hex in the system and achieving one of the faction final events. |
+| **ORIGIN STORY** | Complete a game with each of the 6 starting Origins. |
+| **SERUM ADDICT** | Amass a fortune of 9,999 Serum during a single playthrough. |
+| **CORE CONFLICT** | Complete a game in Campaign Mode with each of the 5 Factions. |
+| **LONE WOLF** | Complete a game in solo mode with no additional crewmembers other than your player character. |
+| **HARDCORE** | Complete a game in Campaign Mode without healing HP or Hull at Settlements, where all enemies have +20 HP, and starships +10 Hull. |
+| **IMMORTAL** | Complete a HARDCORE game without any of your player characters or crewmembers dying or suffering Abyssal Scars. |
+
+---
+
+## INDEX GÉNÉRAL (p.141)
+
+### MECHANICS
+
+| Concept | Page |
+|---------|------|
+| Abyssal Scars | 89 |
+| Achievements | 136 |
+| Armor | 15 |
+| Campaign Mode | 129 |
+| Challenge Rolls | 16 |
+| Character Sheets | 10 |
+| — Player Sheet | 14–15 |
+| — Starship Sheet | 25 |
+| — Star System Map | 17 |
+| Connections | 19 |
+| — Affinity | 19 |
+| — NPC Generator | 127 |
+| — NPC Interactions | 27 |
+| — NPC Requests | 128 |
+| Crewmembers | 21–23 |
+| Energy | 15 |
+| EXP | 46 |
+| Factions | 92 |
+| — W.A.R.G. | 93 |
+| — I.S.F. | 97 |
+| — Medusa Sector | 101 |
+| — Corsair Syndicate | 105 |
+| — Synth Arch | 109 |
+| Faction Strength | 17–129 |
+| Favor | 16–92 |
+| Health | 15 |
+| Hyperdrive | 15 |
+| Inventory | 14–22 |
+| Memory Slots | 14 |
+| Multiplayer | 13–133 |
+| Oracle | 7 |
+| Origins | 11 |
+| Overdose | 50 |
+| Player Advice | 28 |
+| Random Tables | 125 |
+| Scraps | 28–48 |
+| Serum | 16 |
+| Social Rolls | 19 |
+| Stats | 15 |
+| Travel Rules | 27 |
+
+### REGULAR COMBAT
+
+| Concept | Page |
+|---------|------|
+| Damage Bonuses | 31 |
+| Difficulty | 31 |
+| Direct Damage | 32 |
+| Enemy Database | 113 |
+| Escape | 30 |
+| Main & Side Actions | 30 |
+| Malware | 38–40 |
+| Multiple Enemies | 31 |
+| Status Conditions | 32 |
+| Turn Order | 30 |
+
+### SPACE COMBAT
+
+| Concept | Page |
+|---------|------|
+| Action Dice | 51 |
+| Boarding | 52 |
+| Boost Escape | 52 |
+| Critical Condition | 52 |
+| Shields | 52 |
+| Starship Database | 119 |
+| Starship Mods | 25 |
+| — Engines | 53 |
+| — Controls | 54 |
+| — Systems | 55 |
+| — Weapons | 56 |
+
+### EQUIPMENT
+
+| Concept | Page |
+|---------|------|
+| Armor Sets | 49 |
+| Cybertech | 44 |
+| Drones | 38–41 |
+| Grenades | 48 |
+| Hacks | 38–39 |
+| Items | 47 |
+| Loot | 45 |
+| Master Hacks | 40 |
+| Narcobotics | 50 |
+| Quest Items | 48 |
+| Status Cures | 48 |
+| Weapon Mods | 36 |
+| Weapons | 33–35 |
+
+### EXPLORATION
+
+| Concept | Page |
+|---------|------|
+| Cycles | 3 |
+| Cybersphere | 84 |
+| Exploration Rolls | 5 |
+| Faction Encounters | 92 |
+| — W.A.R.G. | 95 |
+| — I.S.F. | 99 |
+| — Medusa Sector | 103 |
+| — Corsair Syndicate | 107 |
+| — Synth Arch | 111 |
+| Directions | 18 |
+| Hexes & Locations | 17 |
+| Hostile Encounters | 69 |
+| Missions | 92 |
+| — W.A.R.G. | 94 |
+| — I.S.F. | 98 |
+| — Medusa Sector | 102 |
+| — Corsair Syndicate | 106 |
+| — Synth Arch | 110 |
+| Neutral Encounters | 71 |
+| Planets | 73 |
+| — Gaian | 75 |
+| — Calorian | 76 |
+| — Vaporian | 77 |
+| — Aquarian | 78 |
+| — Sylvanian | 79 |
+| — Ecumenopolis | 80 |
+| Rings | 8–63 |
+| — Outer Ring | 63 |
+| — Middle Ring | 65 |
+| — Inner Ring | 67 |
+| Satellites | 81 |
+| — Asteroid | 83 |
+| — Crater Moon | 84 |
+| — Nuclear Moon | 85 |
+| — Frost Moon | 86 |
+| — Volcanic Moon | 87 |
+| — Hollow Moon | 88 |
+| Settlements | 57 |
+| — Activities | 59 |
+| Sidequests | 60 |

@@ -23,8 +23,9 @@
 | ch8 — Factions & Quests | p.92–112 | ✅ extrait + corrigé |
 | ch9 — Database Enemies | p.113–118 | ✅ extrait (20 ennemis) |
 | ch10 — Database Starships | p.119–124 | ✅ extrait (18 vaisseaux + tables Captains) |
+| ch11 — Name Generator | p.125–128 | ✅ extrait (Character Tables, Exploration Tables, NPC Generator, NPC Requests d100) |
 
-**Extraction Core Book complète — ch1 à ch10 ✅**
+**Extraction Core Book complète — ch1 à ch11 ✅**
 
 ### Fichiers book/
 
@@ -36,6 +37,7 @@ Tous les chapitres extraits sont dans `book/` :
 - `ch8-factions.md`
 - `ch9-enemies.md`
 - `ch10-starships.md`
+- `ch11-name-generator.md`
 
 ### Mécanique importante découverte — ch6
 

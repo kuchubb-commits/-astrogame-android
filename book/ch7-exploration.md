@@ -1204,6 +1204,51 @@ If the result is **lower than 6**, your Player Character mysteriously avoids dea
 
 ---
 
+## EXPLORATION ROLL — Quick Reference (p.137)
+
+> Résumé visuel du tableau complet. Lancer un d6 sur l'Exploration Roll à chaque hex exploré.
+
+| d6 | Résultat | Détails |
+|----|----------|---------|
+| **1** | **SETTLEMENT** | Roll d10 → Faction en contrôle (1-2 Corsair / 3-4 WARG / 5-6 Medusa / 7-8 ISF / 9-10 Synth Arch) |
+| **2** | **RING EVENT** | Roll d6 : Outer → EVEN Pirate Hideout / ODD Asteroid Sea · Middle → EVEN Star Cruiser / ODD Research Outpost · Inner → EVEN Solar Flare / ODD Helios Farm |
+| **3** | **HOSTILE ENCOUNTER** | Roll d6 : 1 No Encounter / 2 Outlaws & Looters / 3 Space Pirates / 4 Mercenaries / 5 Spacefarers / 6 Faction Battles → puis roll d6 pour l'encounter spécifique |
+| **4** | **NEUTRAL ENCOUNTER** | Roll d6 : 1 No Encounter / 2 Derelict Ships / 3 Cargo Transport / 4 Civilian Transport / 5 Radio Signals / 6 Supranatural Events → puis roll d6 pour l'encounter spécifique |
+| **5** | **PLANET** | Roll d6 Planet Shape selon l'anneau (Outer p.83 / Middle p.65 / Inner p.87) · Roll d6 Planet Type (p.73) · Roll d6 Satellite type si applicable (p.84) |
+| **6** | **FACTION ENCOUNTER** | Roll d10 Faction. Si Favor ≥ 0 → Neutral Encounter (p.55-112). Si Favor ≤ -1 → Hostile Encounter → roll d6 spécifique |
+
+### Planet Shape par anneau (d6)
+
+| Anneau | 1-2 | 3-4 | 5-6 |
+|--------|-----|-----|-----|
+| **Outer** (p.83) | Two Moons | Ringed Planet | Giant Planet |
+| **Middle** (p.65) | One Moon | Two Moons | Medium Planet |
+| **Inner** (p.87) | Small Planet | One Moon | Void Planet |
+
+### Planet Type d6 (p.73)
+
+| d6 | Type |
+|----|------|
+| 1 | Gaian |
+| 2 | Calorian |
+| 3 | Vaporian |
+| 4 | Aquarian |
+| 5 | Sylvanian |
+| 6 | Ecumenopolis |
+
+### Satellite Type d6 (p.84)
+
+| d6 | Type |
+|----|------|
+| 1 | Asteroid |
+| 2 | Crater Moon |
+| 3 | Nuclear Moon |
+| 4 | Frost Moon |
+| 5 | Volcanic Moon |
+| 6 | Hollow Moon |
+
+---
+
 ## Notes & Zones à vérifier
 
 | Zone | Page | Description |

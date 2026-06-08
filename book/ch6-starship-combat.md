@@ -34,6 +34,7 @@ Principale différence avec le combat personnage-à-personnage :
 - Les Shields annulent **tous les dégâts** de la prochaine attaque entrante
 - Après avoir bloqué une attaque → le Shield disparaît
 - Les Shields se **cumulent** (stack) jusqu'à 8 maximum
+- Les Shields se **réinitialisent à 0** à la fin de chaque combat (p.140)
 
 ### Boarding Ships (p.52)
 
