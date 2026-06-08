@@ -10,6 +10,8 @@ export interface Character {
   weapons: (string | null)[]
   memorySlots: string[]
   resources: { exp: number; serum: number; scraps: number; favor: number }
+  installedCybertech: string[]
+  deployedDroneId: string | null
 }
 
 export interface Starship {
@@ -77,4 +79,4 @@ export interface CombatState {
   expReward: number
 }
 
-export type PlayTab = 'player' | 'map' | 'oracle' | 'starship'
+export type PlayTab = 'player' | 'map' | 'oracle' | 'arsenal' | 'starship'

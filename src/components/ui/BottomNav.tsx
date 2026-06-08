@@ -10,6 +10,7 @@ const NAV_ITEMS: NavItem[] = [
   { id: 'player',   label: 'Perso',   icon: '◈' },
   { id: 'map',      label: 'Carte',   icon: '⬡' },
   { id: 'oracle',   label: 'Oracle',  icon: '◉' },
+  { id: 'arsenal',  label: 'Arsenal', icon: '⊕' },
   { id: 'starship', label: 'Ship',    icon: '◇' },
 ]
 

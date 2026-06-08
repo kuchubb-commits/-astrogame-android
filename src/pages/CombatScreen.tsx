@@ -4,6 +4,7 @@ import Button from '../components/ui/Button'
 import ResourceBar from '../components/ui/ResourceBar'
 import { useGameStore } from '../stores/gameStore'
 import type { CombatLogEntry, ActiveStatus } from '../types/game'
+import { findHackByName, getHackResolution } from '../engine/hackResolver'
 import enemiesData from '../../data/enemies.json'
 
 const LOG_COLORS: Record<CombatLogEntry['type'], string> = {
@@ -65,6 +66,7 @@ export default function CombatScreen() {
   const character = useGameStore((s) => s.character)!
   const startCombat = useGameStore((s) => s.startCombat)
   const playerAttack = useGameStore((s) => s.playerAttack)
+  const playerUseHack = useGameStore((s) => s.playerUseHack)
   const playerEscape = useGameStore((s) => s.playerEscape)
   const endCombat = useGameStore((s) => s.endCombat)
 
@@ -85,6 +87,20 @@ export default function CombatScreen() {
   const weapons = character.weapons.filter(Boolean) as string[]
   const isPlayerTurn = phase === 'active' && combat.turn === 'player'
   const isOver = phase !== 'active'
+
+  // Hacks from memory slots
+  const activeHacks = character.memorySlots
+    .filter(Boolean)
+    .map((slot) => {
+      const hack = findHackByName(slot)
+      if (!hack) return null
+      const res = getHackResolution(hack.id)
+      if (!res) return null
+      const canAfford = character.hyperdrive.current >= (res.hyperCost ?? 0) && character.energy.current >= (res.energyCost ?? 0)
+      const costLabel = res.energyCost > 0 ? `${res.energyCost}E` : `${res.hyperCost}H`
+      return { hack, costLabel, canAfford }
+    })
+    .filter(Boolean) as { hack: { id: string; name: string }; costLabel: string; canAfford: boolean }[]
 
   return (
     <div className="min-h-screen bg-astro-black px-4 pt-4 pb-6 max-w-2xl mx-auto flex flex-col gap-3">
@@ -145,7 +161,26 @@ export default function CombatScreen() {
                   </Button>
                 )}
               </div>
-              <Button variant="ghost" onClick={playerEscape} className="w-full">
+              {activeHacks.length > 0 && (
+                <>
+                  <p className="font-mono text-[10px] uppercase tracking-widest text-off-white mt-3">Hacks :</p>
+                  <div className="space-y-2">
+                    {activeHacks.map(({ hack, costLabel, canAfford }) => (
+                      <Button
+                        key={hack.id}
+                        variant="secondary"
+                        onClick={() => playerUseHack(hack.id)}
+                        disabled={!canAfford}
+                        className="w-full text-left"
+                      >
+                        <span className="text-astro-yellow font-mono text-[9px] mr-2">[{costLabel}]</span>
+                        {hack.name}
+                      </Button>
+                    ))}
+                  </div>
+                </>
+              )}
+              <Button variant="ghost" onClick={playerEscape} className="w-full mt-2">
                 Fuir
               </Button>
             </>

@@ -1,5 +1,4 @@
 import Card from '../components/ui/Card'
-import StatBlock from '../components/ui/StatBlock'
 import ResourceBar from '../components/ui/ResourceBar'
 import { useGameStore } from '../stores/gameStore'
 import originsData from '../../data/origins.json'

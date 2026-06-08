@@ -3,42 +3,6 @@ import ResourceBar from '../components/ui/ResourceBar'
 import { useGameStore } from '../stores/gameStore'
 import starshipsData from '../../data/starships.json'
 
-function Counter({
-  label,
-  value,
-  onDec,
-  onInc,
-  accent,
-}: {
-  label: string
-  value: number
-  onDec: () => void
-  onInc: () => void
-  accent?: boolean
-}) {
-  return (
-    <div className="flex flex-col items-center gap-1">
-      <span className="font-mono text-[10px] uppercase tracking-widest text-off-white">{label}</span>
-      <div className="flex items-center gap-2">
-        <button
-          onClick={onDec}
-          className="w-7 h-7 rounded border-2 border-astro-ink bg-[#1a1025] font-mono font-bold text-bone hover:border-accent active:scale-95"
-        >
-          −
-        </button>
-        <span className={`font-display text-2xl w-8 text-center ${accent ? 'text-astro-yellow' : 'text-bone'}`}>
-          {value}
-        </span>
-        <button
-          onClick={onInc}
-          className="w-7 h-7 rounded border-2 border-astro-ink bg-[#1a1025] font-mono font-bold text-bone hover:border-accent active:scale-95"
-        >
-          +
-        </button>
-      </div>
-    </div>
-  )
-}
 
 export default function StarshipSheet() {
   const starship = useGameStore((s) => s.starship)!

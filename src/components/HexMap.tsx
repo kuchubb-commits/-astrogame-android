@@ -1,4 +1,4 @@
-import { ALL_HEXES, getNeighbors, getHexSize, HEX_MAP } from '../engine/hexMap'
+import { ALL_HEXES, getNeighbors, getHexSize } from '../engine/hexMap'
 import type { MapData } from '../types/game'
 
 function hexPolygon(cx: number, cy: number, r: number): string {

@@ -7,7 +7,9 @@ import {
   rollInitiative, resolveEnemyAction, applyDamage, tickStatuses,
   parseDamageFormula, extractWeaponFormula, hasStatus,
 } from '../engine/combat'
+import { resolveHack, getHackResolution } from '../engine/hackResolver'
 import enemiesData from '../../data/enemies.json'
+import cybertechData from '../../data/cybertech.json'
 
 function initMapData(): MapData {
   const hexes: Record<string, HexState> = {}
@@ -49,9 +51,18 @@ interface GameState {
   exploreCurrentHex: (result: ExploreResult) => void
   addLogEntry: (entry: Omit<CycleEntry, 'id'>) => void
 
+  // Cybertech
+  installCybertech: (id: string) => void
+  removeCybertech: (id: string) => void
+
+  // Drones
+  deployDrone: (id: string) => void
+  undeployDrone: () => void
+
   // Combat
   startCombat: (enemyId: string) => void
   playerAttack: (weaponStr: string) => void
+  playerUseHack: (hackId: string) => void
   enemyAct: () => void
   playerEscape: () => void
   endCombat: () => void
@@ -134,6 +145,56 @@ export const useGameStore = create<GameState>()(
           if (!s.starship) return s
           const cargo = [...s.starship.cargo]; cargo[index] = value
           return { starship: { ...s.starship, cargo } }
+        }),
+
+      installCybertech: (id) =>
+        set((s) => {
+          if (!s.character) return s
+          const cybertech = (cybertechData as any[]).find((c) => c.id === id)
+          if (!cybertech) return s
+          const boost = cybertech.statBoost ?? {}
+          const stats = { ...s.character.stats }
+          for (const k of Object.keys(boost) as Array<keyof typeof stats>) {
+            stats[k] = (stats[k] ?? 0) + (boost[k] ?? 0)
+          }
+          return {
+            character: {
+              ...s.character,
+              stats,
+              installedCybertech: [...(s.character.installedCybertech ?? []), id],
+            },
+          }
+        }),
+
+      removeCybertech: (id) =>
+        set((s) => {
+          if (!s.character) return s
+          const cybertech = (cybertechData as any[]).find((c) => c.id === id)
+          if (!cybertech) return s
+          const boost = cybertech.statBoost ?? {}
+          const stats = { ...s.character.stats }
+          for (const k of Object.keys(boost) as Array<keyof typeof stats>) {
+            stats[k] = Math.max(0, (stats[k] ?? 0) - (boost[k] ?? 0))
+          }
+          return {
+            character: {
+              ...s.character,
+              stats,
+              installedCybertech: (s.character.installedCybertech ?? []).filter((i) => i !== id),
+            },
+          }
+        }),
+
+      deployDrone: (id) =>
+        set((s) => {
+          if (!s.character) return s
+          return { character: { ...s.character, deployedDroneId: id } }
+        }),
+
+      undeployDrone: () =>
+        set((s) => {
+          if (!s.character) return s
+          return { character: { ...s.character, deployedDroneId: null } }
         }),
 
       movePlayer: (hexId) =>
@@ -233,6 +294,54 @@ export const useGameStore = create<GameState>()(
         }
 
         set({ combat: { ...combat, enemy: newEnemy, turn: 'enemy', log: [...combat.log, logEntry].slice(-20) } })
+        setTimeout(() => get().enemyAct(), 800)
+      },
+
+      playerUseHack: (hackId) => {
+        const state = get()
+        const { combat, character } = state
+        if (!combat || !character || combat.phase !== 'active' || combat.turn !== 'player') return
+
+        const result = resolveHack(hackId, combat.enemy, combat.player, character.stats)
+        if (!result) return
+
+        // Check cost
+        const res = getHackResolution(hackId)
+        if (!res) return
+
+        const hyperCost = res.hyperCost ?? 0
+        const energyCost = res.energyCost ?? 0
+        if (character.hyperdrive.current < hyperCost) return
+        if (character.energy.current < energyCost) return
+
+        // Deduct costs
+        const updatedChar = {
+          ...character,
+          hyperdrive: { ...character.hyperdrive, current: character.hyperdrive.current - hyperCost },
+          energy: { ...character.energy, current: character.energy.current - energyCost },
+        }
+
+        const logEntry = { text: result.log, type: 'attack' as const }
+        const newLog = [...combat.log, logEntry].slice(-20)
+
+        if (result.newEnemy.hp <= 0) {
+          set({
+            character: updatedChar,
+            combat: {
+              ...combat,
+              enemy: result.newEnemy,
+              player: result.newPlayer,
+              phase: 'victory',
+              log: [...newLog, { text: `✓ ${combat.enemyName} vaincu ! +${combat.expReward} EXP.`, type: 'victory' }],
+            },
+          })
+          return
+        }
+
+        set({
+          character: updatedChar,
+          combat: { ...combat, enemy: result.newEnemy, player: result.newPlayer, turn: 'enemy', log: newLog },
+        })
         setTimeout(() => get().enemyAct(), 800)
       },
 
