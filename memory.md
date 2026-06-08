@@ -7,9 +7,41 @@
 - **Stack** : React + Vite + TypeScript + Tailwind + Zustand + Gemini AI
 - **Skill** : dire "astrogame" charge le skill de projet
 
-## État actuel
+## État actuel — 2026-06-08
 
-Projet réinitialisé — base propre. Nouvelle vision en cours de définition.
+### Extraction Core Book — progression
+
+| Chapitre | Pages | Statut |
+|---|---|---|
+| ch1 — The World | p.1–15 | ✅ extrait |
+| ch2 — Characters | p.16–29 | ✅ extrait |
+| ch3 — Combat | p.30–36 | ✅ extrait + corrigé |
+| ch4 — Hacking & Drones | p.38–44 | ✅ extrait + corrigé |
+| ch5 — Equipment | p.46–50 | ✅ extrait + corrigé |
+| ch6 — Starship Combat | p.51–56 | ✅ extrait + corrigé |
+| ch7 — Exploration | p.57–89 | ⬜ à faire (33 pages) |
+| ch8–10 | p.90+ | ⬜ à faire |
+
+**Prochaine étape : extraire ch7 (p.57–89)**
+
+### Fichiers book/
+
+Tous les chapitres extraits sont dans `book/` :
+- `ch3-combat.md`
+- `ch4-hacking-drones.md`
+- `ch5-equipment.md`
+- `ch6-starship-combat.md`
+
+### Mécanique importante découverte — ch6
+
+Les modules SYSTEMS et WEAPONS s'activent selon le **résultat du dé Action** :
+- ex : `5-6 ▶` = il faut rouler 5 ou 6 sur un dé Action pour activer ce module
+- Tier 1–4 = 3⚡70★ / 5⚡125★ / 7⚡200★ / 9⚡350★
+
+### Skill zoom — intégré
+
+Règle active dans `CLAUDE.md` et `skills/astrogame/skill.md` :
+→ Si image illisible → crop + zoom ×3 (Pillow) → agent Sonnet relit la zone → jamais de (?) sans avoir tenté le zoom.
 
 Fichiers présents : `idee.md`, `plan.md`, `toc.txt`, `pdf_to_image.py`, `convert_all_pages.py`
 
