@@ -3,6 +3,7 @@ import CharacterCreation from './pages/CharacterCreation'
 import PlayerSheet from './pages/PlayerSheet'
 import StarshipSheet from './pages/StarshipSheet'
 import MapScreen from './pages/MapScreen'
+import OracleScreen from './pages/OracleScreen'
 import BottomNav from './components/ui/BottomNav'
 
 function App() {
@@ -17,8 +18,9 @@ function App() {
   return (
     <>
       {activeTab === 'player'   && <PlayerSheet />}
-      {activeTab === 'starship' && <StarshipSheet />}
       {activeTab === 'map'      && <MapScreen />}
+      {activeTab === 'oracle'   && <OracleScreen />}
+      {activeTab === 'starship' && <StarshipSheet />}
       <BottomNav active={activeTab} onChange={setTab} />
     </>
   )

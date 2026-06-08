@@ -7,9 +7,10 @@ interface NavItem {
 }
 
 const NAV_ITEMS: NavItem[] = [
-  { id: 'player',   label: 'Perso',    icon: '◈' },
-  { id: 'map',      label: 'Carte',    icon: '⬡' },
-  { id: 'starship', label: 'Vaisseau', icon: '◇' },
+  { id: 'player',   label: 'Perso',   icon: '◈' },
+  { id: 'map',      label: 'Carte',   icon: '⬡' },
+  { id: 'oracle',   label: 'Oracle',  icon: '◉' },
+  { id: 'starship', label: 'Ship',    icon: '◇' },
 ]
 
 interface BottomNavProps {
@@ -25,13 +26,13 @@ export default function BottomNav({ active, onChange }: BottomNavProps) {
           <button
             key={id}
             onClick={() => onChange(id)}
-            className={`relative flex-1 flex flex-col items-center gap-1 py-3 transition-colors
+            className={`relative flex-1 flex flex-col items-center gap-0.5 py-2.5 transition-colors
               ${active === id ? 'text-accent' : 'text-off-white hover:text-bone'}`}
           >
-            <span className="text-lg leading-none">{icon}</span>
-            <span className="font-mono text-[10px] uppercase tracking-widest">{label}</span>
+            <span className="text-base leading-none">{icon}</span>
+            <span className="font-mono text-[9px] uppercase tracking-wider">{label}</span>
             {active === id && (
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 w-12 bg-accent rounded-t-full" />
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 w-10 bg-accent rounded-t-full" />
             )}
           </button>
         ))}

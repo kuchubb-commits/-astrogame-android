@@ -45,4 +45,4 @@ export interface MapData {
   cycleCount: number
 }
 
-export type PlayTab = 'player' | 'starship' | 'map'
+export type PlayTab = 'player' | 'map' | 'oracle' | 'starship'
