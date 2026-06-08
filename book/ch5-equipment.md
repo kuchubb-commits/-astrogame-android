@@ -113,13 +113,49 @@
 | 9-10 | Flash Round |
 
 **Quest Items**
-- Items de navigation permettant de voyager jusqu'à X locations
-- Vendables au marché courant → jusqu'à **2 XP** par kit dans les ZIP Settlements
-- Bonus de **20¤** supplémentaires à la revente
+
+| Item | Effet |
+|---|---|
+| **Warp Drive** | Téléporte vers n'importe quelle tuile pour **6 Fuel**. Doit être dans le Cargo Hold. |
+| **Trading License** | Vend des items exclusifs dans les **ISF Settlements** (sauf Narcobiotics). +10 scrops à la vente. |
+| **Tesseract** | Restaure **3+** pour chaque implant **Cybertech** équipé. |
+| **Contraband Package** | Cargo illégal. Se vend uniquement dans les **Syndicate Settlements** pour 100 scrops. Perdu si vaisseau détruit en combat spatial. |
+| **NGHTMR Key** | **Breach** un ennemi pendant 5 tours OU force un vaisseau ennemi à passer son tour. |
+| **Terraform Seeds** | **+1 Hyperdrive** à la plantation. |
 
 **Scraps**
 - Petits fragments et pièces récupérables
 - Composants de craft et de trading
+
+---
+
+## 5.2b — WEAPON SHOP PRICES (p.48)
+
+> p.48 = liste d'achat à prix fixes (scrops). Pas de dé de tirage — achat direct en Settlement.
+
+### Ranged Weapons
+
+| Arme | Damage | Coût |
+|---|---|---|
+| Revolver | d6 + VIG | 25 scrops |
+| Gauss SMG | d6 + GRA | 25 scrops |
+| Laser Blaster | d8 + VIG | 75 scrops |
+| Gamma Gun | d8 + TEC | 75 scrops |
+| Ignition Shotgun | d10 + VIG | 100 scrops |
+| Ion Carbine | d10 + GRA | 100 scrops |
+| Pulse Rifle | 2d6 + VIG | 150 scrops |
+| Gravity Rifle | d12 + GRA | 150 scrops |
+
+### Melee Weapons
+
+| Arme | Damage | Coût |
+|---|---|---|
+| Carbon Dagger | d6 + GRA | 25 scrops |
+| Helix Wire | d8 + VIG | 75 scrops |
+| Plasma Shield | d8 + VIG | 100 scrops |
+| Rocket Hammer | d10 + VIG | 100 scrops |
+| Halo Discs | 2d6 + GRA | 150 scrops |
+| Neon Blade | d12 + VIG | 150 scrops |
 
 ---
 

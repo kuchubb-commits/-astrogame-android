@@ -113,7 +113,7 @@ Trouvé dans : DRONES / Synth Settlements
 | Move | Coût | Effet |
 |---|---|---|
 | **CAMOUFLAGE** | 1 | Pilot effectue un check DRONES furtivité — drone devient invisible |
-| **FETCH** | 1 | (données partiellement illisibles) |
+| **FETCH** | 3⚡ | Gain a random narco-biotic or grenade |
 | **BITE** | 1 | d6 Kinetic damage |
 
 ---
@@ -130,7 +130,7 @@ Trouvé dans : DRONES / Synth Settlements
 
 ---
 
-### DRONE_OwO
+### DRONE_ÔwÓ
 
 **Description :** Version jailbreakée et modifiée du **Berserk MKII** Mech Unit. L'UI militaire et le software ont été remplacés par l'IA d'un forum de virtual pets. Ancienne version.
 
@@ -215,7 +215,7 @@ Trouvé dans : DRONES / Synth Settlements
 | DRONE_Spider (CARBON CLAW d6+TEC) | 41 |
 | DRONE_Greyhound (CAMOUFLAGE, PRAXTON CORP) | 41 |
 | DRONE_Ladybug (EMP, HP INJECTION) | 42 |
-| DRONE_OwO (jailbreak, AUTO-TURRET) | 42 |
+| DRONE_ÔwÓ (jailbreak, AUTO-TURRET) | 42 |
 | Cybertech — achat Settlements | 43 |
 | SYNBIOS : HEALING NANOBOTS (2d8+TEC) | 44 |
 | YEDRSL : ZETTABYTE RAM → Master Hack | 44 |
