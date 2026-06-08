@@ -64,55 +64,59 @@ Principale différence avec le combat personnage-à-personnage :
 
 ### ENGINES (p.53)
 
-| Module | Action Dice | Effet spécial | Coût |
-|---|---|---|---|
-| **HOVER PROPULSORS** | 2d6 / tour | d6 Action Dice si Hull = 28 | (?) |
-| **OXYGEN JETS** | 2d6 / tour | d6 Action Dice constante | (?) |
-| **VELOCITY ROCKETS** | 2d6 / tour | — | (?) |
-| **QUAD REACTOR** | 2d6 / tour | — | (?) |
-| **AVE ACCELERATORS** | 2d6 / tour | d6 Action Dice si Hull = 28 | 18 000 |
-| **ION ENGINES** | 2d6 / tour | (données partiellement illisibles) | (?) |
-| **NUCLEAR PULSE JETS** | 3d6 / tour | Roll supplémentaire sur Hull | 19 000 |
-| **PARTICLE REACTOR** | 2d6 / tour | — | (?) |
+| Module | Tier | Action Dice | Effet spécial | Coût |
+|---|---|---|---|---|
+| **HOVER PROPULSORS** | 1 | 2d6 / tour | Reroll 1 Action Die par tour | 3⚡ 70★ |
+| **OXYGEN JETS** | 1 | 2d6 / tour | +1 Action Die lors du premier tour de combat | 3⚡ 70★ |
+| **VELOCITY ROCKETS** | 2 | 2d6 / tour | +2 Action Dice si Hull = 20 | 5⚡ 125★ |
+| **QUAD REACTOR** | 2 | 3d6 / tour | — | 5⚡ 125★ |
+| **AVE ACCELERATORS** | 3 | 3d6 / tour | Reroll 1 Action Die par tour | 7⚡ 200★ |
+| **ION ENGINES** | 3 | 3d6 / tour | +1 Action Die lors du premier tour de combat | 7⚡ 200★ |
+| **NUCLEAR PULSE JETS** | 4 | 3d6 / tour | +2 Action Dice si Hull = 20 | 9⚡ 350★ |
+| **PARTICLE REACTOR** | 4 | 4d6 / tour | — | 9⚡ 350★ |
 
 ### CONTROL (p.54)
 
-| Module | Effet (SKL) |
-|---|---|
-| **AURORA COCKPIT** | Si vaisseau en Critical Condition → roll toujours 1 dé supplémentaire |
-| **VECTOR COCKPIT** | Commencer le combat spatial avec un **Shield** |
-| **ORION COMMAND** | +1 Maneuver & Hull à chaque nouvel Oracle |
-| **STARDAGGER DECK** | +0 (?) dégâts supplémentaires aux vaisseaux en Critical Condition |
-| **APOLLO COCKPIT** | +1 Shield / +1 Disable / Gagner 1 Shield en combat spatial |
-| **ECLIPSE BRIDGE** | Toujours savoir si le vaisseau ennemi est en Critical Condition |
-| **FREIGHTER COMMAND** | Commencer le combat depuis une position avantageuse dans l'ordre de tour |
-| **DELTA CARGO BRIDGE** | La première fois que le vaisseau subit des Hull damage → Hull mis à 00 au lieu de 0. Gagner 1 Shield |
+| Module | Tier | Coût | Effet |
+|---|---|---|---|
+| **AURORA COCKPIT** | 1 | 3⚡ 70★ | Si vaisseau en Critical Condition → les attaques ennemies infligent **-2 dégâts** |
+| **VECTOR COCKPIT** | 1 | 3⚡ 70★ | Commencer le combat spatial avec **1 Shield** |
+| **ORION COMMAND** | 2 | 5⚡ 125★ | Restaure **1 Hull** chaque fois que l'on gagne un nouveau Shield |
+| **STARDAGGER DECK** | 2 | 5⚡ 125★ | Les attaques infligent **+2 dégâts** aux vaisseaux en Critical Condition |
+| **APOLLO COCKPIT** | 3 | 7⚡ 200★ | La première fois que l'on entre en Critical Condition → gagner **2 Shields** |
+| **ECLIPSE BRIDGE** | 3 | 7⚡ 200★ | Le vaisseau a **+1 Action Die** tant qu'il est en Critical Condition |
+| **FREIGHTER COMMAND** | 4 | 9⚡ 350★ | Commencer le combat avec **2 Shields** si on n'est pas premier dans l'ordre de tour |
+| **DELTA CARGO BRIDGE** | 4 | 9⚡ 350★ | La première fois que le vaisseau serait détruit → Hull mis à **10** et gagner **1 Shield** à la place |
 
 ### SYSTEMS (p.55)
 
-| Module | Coût | Effet |
-|---|---|---|
-| **REPAIR DRONES** | 2–4 | Reaction + Hull (restaure Hull) |
-| **SHIELD GENERATOR** | 4–6 | Génère un **Shield** |
-| **BREACH SYSTEM** | 0–1 | Tous les vaisseaux ennemis perdent **1 Action** lors de leur prochain tour |
-| **SOLAR PANELS** | 2–4 | Gagner une Action au début du prochain tour |
-| **TRACKING RADAR** | 0–1 | Prochaine attaque ignore les pénalités de Distance. *Une fois par Shield* |
-| **DISRUPTOR BEAMS** | 0 | Détruire **tous les Shields** ennemis |
-| **QUANTUM SYSTEM** | 0–0 | Téléporter 1 PC à bord d'un vaisseau ennemi |
-| **AEGIS GENERATOR** | 0–0 | +1 Shield [×2]. *Une fois par Shield* |
+> Les valeurs entre crochets (ex : `2-4 ▶`) = résultat de dé Action nécessaire pour activer le module.
+
+| Module | Tier | Coût | Activation | Effet |
+|---|---|---|---|---|
+| **REPAIR DRONES** | 1 | 3⚡ 70★ | `2-4 ▶` | Restaure **4 Hull** |
+| **SHIELD GENERATOR** | 1 | 3⚡ 70★ | `4-6 ▶` | Gagne **1 Shield** |
+| **BREACH SYSTEM** | 2 | 5⚡ 125★ | `1-2 ▶` | Tous les vaisseaux ennemis ont **-1 Action** lors de leur prochain tour |
+| **SOLAR PANELS** | 2 | 5⚡ 125★ | `1-2 ▶` | Gagne **+1d6 Action Die** supplémentaire au prochain tour |
+| **TRACKING RADAR** | 3 | 7⚡ 200★ | `2-4 ▶` | Prochaine attaque inflige **double dégâts**. *Une fois par tour* |
+| **DISRUPTOR BEAMS** | 3 | 7⚡ 200★ | `6 ▶` | Détruire **tous les Shields ennemis** |
+| **QUANTUM SYSTEM** | 4 | 9⚡ 350★ | `6 ▶` | Téléporter **1 PC** à bord d'un vaisseau ennemi |
+| **AEGIS GENERATOR** | 4 | 9⚡ 350★ | `5-6 ▶` | Gagner **3 Shields**. `[3+]` *Une fois par tour* |
 
 ### WEAPONS (p.56)
 
-| Module | Résultat | Effet |
-|---|---|---|
-| **SPARK MULTILASERS** | 3–6 | Deal **2 damage**. Lightning Broadside |
-| **O.E.R.S. MISSILES** | 1–6 | Deal **6 damage** |
-| **AUTO-TURRETS** | (×) | Deal × damage à **tous les vaisseaux ennemis** ce tour |
-| **PARTICLE CANNONS** | — | Prochaine attaque +**2 damage** (max 3 bonus attacks) |
-| **BERSERK TURRETS** | (×) | Deal × damage à **TOUS les vaisseaux** (alliés inclus). Ces vaisseaux attaquent ce tour |
-| **BLAVIS LASERS** | (×) | Deal **1 damage**. *Une fois par tour* |
-| **GRAVITY RAILBUG** | (×) | Deal **2 damage**. Applique condition sur vaisseau cible. *Une fois par tour* |
-| **HARPOON MISSILES** | (×) | Deal **10 damage**. *Une fois par tour* |
+> Les valeurs entre crochets = résultat de dé Action nécessaire pour activer le module.
+
+| Module | Tier | Coût | Activation | Effet |
+|---|---|---|---|---|
+| **SPARK MULTILASERS** | 1 | 3⚡ 70★ | `3-5 ▶` | Deal **3 damage**, ignore les Shields |
+| **O.G.R.E. MISSILES** | 1 | 3⚡ 70★ | `5-6 ▶` | Deal **6 damage** |
+| **AUTO-TURRETS** | 2 | 5⚡ 125★ | `1-2 ▶` | Deal **2 damage** à **tous les vaisseaux ennemis** |
+| **PARTICLE CANNONS** | 2 | 5⚡ 125★ | `3-5 ▶` | Deal **3 damage**. Prochaine attaque +1 damage supplémentaire **[stackable]** |
+| **BERSERK TURRETS** | 3 | 7⚡ 200★ | `X ▶` | Deal **X damage** à tous les vaisseaux ennemis. *Une fois par tour* |
+| **GLAIVE LASERS** | 3 | 7⚡ 200★ | `X ▶` | Deal **X damage**, ignore les Shields. *Une fois par tour* |
+| **GRAVITY RAILGUN** | 4 | 9⚡ 350★ | `6 ▶` | Deal **3 damage** + **+3 dégâts** par Shield actif. *Une fois par tour* |
+| **HARPOON MISSILES** | 4 | 9⚡ 350★ | `5-6 ▶` | Deal **10 damage**. *Une fois par tour* |
 
 ---
 
