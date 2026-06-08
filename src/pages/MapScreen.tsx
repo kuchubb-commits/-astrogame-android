@@ -7,6 +7,8 @@ import { getNeighbors, HEX_MAP } from '../engine/hexMap'
 import { rollExploration } from '../engine/exploration'
 import type { Ring } from '../engine/hexMap'
 
+const HOSTILE_TYPES = ['HOSTILE ENCOUNTER', 'FACTION ENCOUNTER']
+
 function RingLabel({ ring }: { ring: Ring }) {
   const labels: Record<Ring, string> = {
     inner: 'Anneau intérieur',
@@ -27,6 +29,8 @@ export default function MapScreen() {
   const starship = useGameStore((s) => s.starship)!
   const movePlayer = useGameStore((s) => s.movePlayer)
   const exploreCurrentHex = useGameStore((s) => s.exploreCurrentHex)
+  const startCombat = useGameStore((s) => s.startCombat)
+  const setTab = useGameStore((s) => s.setTab)
 
   if (!mapData) {
     ensureMap()
@@ -134,6 +138,18 @@ export default function MapScreen() {
                 <p className="font-mono text-[11px] text-bone leading-relaxed line-clamp-3">
                   {currentHexState.discoveryText}
                 </p>
+                {HOSTILE_TYPES.includes(currentHexState.discoveryType ?? '') && (
+                  <Button
+                    variant="primary"
+                    className="mt-2 w-full"
+                    onClick={() => {
+                      startCombat('space-pirate')
+                      setTab('player')
+                    }}
+                  >
+                    ⚔ Engager le combat
+                  </Button>
+                )}
               </div>
             </div>
           </Card>

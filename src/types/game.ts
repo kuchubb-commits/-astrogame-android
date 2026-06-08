@@ -45,4 +45,36 @@ export interface MapData {
   cycleCount: number
 }
 
+export interface ActiveStatus {
+  id: string
+  name: string
+  turnsLeft: number | null
+}
+
+export interface CombatantState {
+  hp: number
+  maxHp: number
+  armor: number
+  baseArmor: number
+  statuses: ActiveStatus[]
+}
+
+export interface CombatLogEntry {
+  text: string
+  type: 'attack' | 'enemy' | 'status' | 'system' | 'victory' | 'defeat'
+}
+
+export interface CombatState {
+  enemyId: string
+  enemyName: string
+  enemyStats: { vigor: number; grace: number; mind: number; tech: number }
+  enemy: CombatantState
+  player: CombatantState
+  turn: 'player' | 'enemy'
+  phase: 'active' | 'victory' | 'defeat' | 'escaped'
+  log: CombatLogEntry[]
+  round: number
+  expReward: number
+}
+
 export type PlayTab = 'player' | 'map' | 'oracle' | 'starship'
