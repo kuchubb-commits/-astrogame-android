@@ -1,0 +1,8 @@
+[
+  { "roll": 1, "result": "Android transplant", "effect": "You wake up in a surgical room. Androids transplant your brain onto the body of an android. Set TEC to 3 and all other stats to 0. You have a new random cybertech module installed." },
+  { "roll": 2, "result": "Glitch electrocution", "effect": "A glitch electrocutes you. All HACKS, cybertech, or any abilities that consume Energy now cost 1x more." },
+  { "roll": 3, "result": "Alien symbiote", "effect": "An alien symbiote enters your system. Parts of your body mutate into viscous black fibers. -1 to all stats (can't go below 0). You can no longer escape combat encounters." },
+  { "roll": 4, "result": "Time stop", "effect": "Time stops. You see the entirety of human existence. You are 10 years younger. Lose all your cybertech and EXP." },
+  { "roll": 5, "result": "Strange silhouette", "effect": "A strange silhouette tends to your wounds. You survive, but in pain. Take 1 damage every time you lose a Challenge Roll (ignoring Armor)." },
+  { "roll": 6, "result": "Game Over", "effect": "The void swallows your lifeless body. A thousand pale white tentacles pull you into a vortex of crimson light and dark matter. Your character dies." }
+]

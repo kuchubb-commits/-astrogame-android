@@ -1,0 +1,149 @@
+{
+  "headquarters": {
+    "rule": "Roll a d10 when entering a new Settlement to find the controlling faction. If a faction already has a Settlement, reroll until all 5 factions have one. You can't enter a Settlement with negative Favor with the ruling faction. Pay off bounty: 75 Serum per negative point.",
+    "factionTable": [
+      { "roll": "1-2", "faction": "Corsair" },
+      { "roll": "3-4", "faction": "W.A.R.G." },
+      { "roll": "5-6", "faction": "Medusa" },
+      { "roll": "7-8", "faction": "ISF" },
+      { "roll": "9-10", "faction": "Synth Arch" }
+    ]
+  },
+  "facilities": {
+    "hangar": "Hull fully restored on entering a Settlement. Buy pre-built ships, ship modules, or sell modules for half their Scrap cost. Refuel: 3 Serum per unit of Fuel.",
+    "wiredoc": "Health fully restored on entering a Settlement. Install/purchase cybertech, or sell cybertech for half its original cost.",
+    "tradingHub": "Sell items/equipment for their marked cost (rounding up). Buy from the Trade Post table. Some items are exclusive to specific faction Settlements."
+  },
+  "activities": [
+    { "id": "test-flight", "name": "Test Flight", "cost": "3 Serum (once per cycle)", "effect": "Speed Race - ROLL GRACE: if you succeed, your ship moves 1 extra tile for the next 2 battles. Combat Drill - if you succeed, +1 Action Die per turn during your next space battle." },
+    { "id": "cybersphere", "name": "Cybersphere", "cost": "5 Hyperdrive (once per cycle)", "effect": "Log into a sector of the Cybersphere. Circuit of 10 diamond tiles. Reach Matrix Nodes, collect rewards, escape through a different Access Port before memory runs out. 12 moves." },
+    { "id": "scrapyard", "name": "Scrapyard", "cost": "Scraps", "effect": "Craft any weapon, Mod, Armor, Drone, or Hack item by spending Scraps equal to its Serum cost. First craft gives 1 EXP. Dismantle items for Scraps equal to half the Serum cost (rounding up)." },
+    { "id": "combat-sim", "name": "Combat Sim", "cost": "once per cycle", "effect": "Simulate a fight with an enemy of your choice. Win: gain EXP based on difficulty and +2 VIT until your next fight with that enemy. No loot. Items consumed. Can't die. Reset HP & Energy after." },
+    { "id": "home-pods", "name": "Home Pods", "cost": "fees", "effect": "Meet NPCs via the NPC Generator. Hire Crewmembers for your starship." }
+  ],
+  "cybersphere": {
+    "networkMap": "Roll a d8 to determine the network layout (8 maps, 10-tile diamond grids). Move one tile at a time to diagonally adjacent tiles. Defeat in combat: logged out, lose 10 Hyperdrive instead of dying.",
+    "tiles": ["Access Port", "Normal Tile", "Matrix Node"],
+    "memoryClockMax": 12,
+    "memoryClockRule": "12 moves to explore. Mark 1 cell every time you move to a new tile or when {CLOCK +1}. When limit reached, suffer an Abyssal Scar.",
+    "encounterTable": [
+      { "roll": 11, "effect": "You are blinded by a flurry of pop-up ads {CLOCK +1}" },
+      { "roll": 12, "effect": "Frames from an Old World movie flash above you" },
+      { "roll": 13, "effect": "The glitched consciousness of a Drone Operator" },
+      { "roll": 14, "effect": "ROLL MIND - Failure: Malware infects you {CLOCK +1}" },
+      { "roll": 15, "effect": "The website of a mass consumption online marketplace" },
+      { "roll": 16, "effect": "Security Automaton Bot, who thinks you are a virus" },
+      { "roll": 21, "effect": "Information gate, CLOCK +1 if your MIN is lower than 2" },
+      { "roll": 22, "effect": "Old World political forum for conspiracy theories" },
+      { "roll": 23, "effect": "2 NetHackers, trying to steal password data" },
+      { "roll": 24, "effect": "Never-ending Terms & Conditions document {CLOCK +1}" },
+      { "roll": 25, "effect": "Dark web drug store - You may buy any narcobiotic" },
+      { "roll": 26, "effect": "Android Synth, searching for derelict robot software" },
+      { "roll": 31, "effect": "ROLL TECH - Failure: Your system glitches {-4 Serum}" },
+      { "roll": 32, "effect": "Hacked CryptoSerum broker - Gain d100 Serum" },
+      { "roll": 33, "effect": "3 Scientists, conducting an illegal experiment" },
+      { "roll": 34, "effect": "Fairy Song Online server, your username is token" },
+      { "roll": 35, "effect": "Fashion marketplace - You may buy any armor set" },
+      { "roll": 36, "effect": "NetHacker and 2 Drone Operators, blocking your path" },
+      { "roll": 41, "effect": "WARG comms with the coordinates of their next attack" },
+      { "roll": 42, "effect": "Coordinates string (hexadecimal easter egg)" },
+      { "roll": 43, "effect": "Android Titan, protecting the network from outsiders" },
+      { "roll": 44, "effect": "ROLL VIGOR - Failure: You are electrocuted {-4 HP}" },
+      { "roll": 45, "effect": "Illegal weapon trader - You may buy any weapon mod" },
+      { "roll": 46, "effect": "Medusa Cyber-Terrorist, uploading a virus {-1 Hyperdrive}" },
+      { "roll": 51, "effect": "You see a hologram clip of your future death" },
+      { "roll": 52, "effect": "Security codes of an underwater prison facility" },
+      { "roll": 53, "effect": "2 ISF Sentinels, protecting company data {-1 Action}" },
+      { "roll": 54, "effect": "Massive wire worm bot triggers your entomophobia" },
+      { "roll": 55, "effect": "Coordinates of a Medusa Settlement, 3 tiles north" },
+      { "roll": 56, "effect": "Cyber-Terrorist and NetHacker, with +15 HP each" },
+      { "roll": 61, "effect": "ROLL GRACE - Failure: NetPolice detects you {CLOCK +1}" },
+      { "roll": 62, "effect": "Album of an underground breakpunk band {CLOCK -1}" },
+      { "roll": 63, "effect": "Synth Apostle, spreading Arch sympathy online {-1 Hyperdrive}" },
+      { "roll": 64, "effect": "Ghost server outside of NetPolice reach {CLOCK -1}" },
+      { "roll": 65, "effect": "Lost copy of the Old World's greatest roleplaying game" },
+      { "roll": 66, "effect": "Rogue Medusa MasterHacker, leaking Sector data {+1 Hyperdrive}" }
+    ],
+    "rewardTable": [
+      { "roll": 11, "reward": "HACK_Javelin - or - HACK_Trojan" },
+      { "roll": 12, "reward": "Gain +2 MIN for the next 5 cycles" },
+      { "roll": 13, "reward": "1 Data Shard - or - 2 Energy Cells" },
+      { "roll": 14, "reward": "HACK_Ember - or - HACK_Blackout" },
+      { "roll": 15, "reward": "X Energy Cells, where X is your TEC stat" },
+      { "roll": 16, "reward": "Gain +2 TEC for the next 5 cycles" },
+      { "roll": 21, "reward": "HACK_Shadow - or - HACK_Counterspell" },
+      { "roll": 22, "reward": "Digital Serum vault, containing 50 Serum {CLOCK +1}" },
+      { "roll": 23, "reward": "2 Flash Rounds - or - 2 EMP Grenades" },
+      { "roll": 24, "reward": "HACK_Volt - or - HACK_Kraken" },
+      { "roll": 25, "reward": "2 EMP Grenades - or - 2 Taser Shells" },
+      { "roll": 26, "reward": "Memory chip containing 10 EXP {CLOCK +1}" },
+      { "roll": 31, "reward": "HACK_Ignite - or - HACK_Hydra" },
+      { "roll": 32, "reward": "3 PowerGen - or - 3 ShieldStim" },
+      { "roll": 33, "reward": "X Data Shards, where X is your MIN stat {CLOCK +1}" },
+      { "roll": 34, "reward": "HACK_Mindsteal {CLOCK +4}" },
+      { "roll": 35, "reward": "Digital Serum vault, containing 75 Serum {CLOCK +2}" },
+      { "roll": 36, "reward": "2 Energy Cells - or - 3 AntiVirus" },
+      { "roll": 41, "reward": "DRONE_Spider {CLOCK +1}" },
+      { "roll": 42, "reward": "HACK_Parasite {CLOCK +4}" },
+      { "roll": 43, "reward": "2 NetLinks {CLOCK +3}" },
+      { "roll": 44, "reward": "Memory chip containing 20 EXP {CLOCK +2}" },
+      { "roll": 45, "reward": "DRONE_Greyhound {CLOCK +1}" },
+      { "roll": 46, "reward": "HACK_Supernova {CLOCK +4}" },
+      { "roll": 51, "reward": "3 NGHTMR Keys {CLOCK +2}" },
+      { "roll": 52, "reward": "Digital Serum vault, containing 100 Serum {CLOCK +3}" },
+      { "roll": 53, "reward": "DRONE_Ladybug {CLOCK +2}" },
+      { "roll": 54, "reward": "HACK_Ragnarok {CLOCK +4}" },
+      { "roll": 55, "reward": "2 NGHTMR Keys - or - 3 NetLinks {CLOCK +2}" },
+      { "roll": 56, "reward": "Memory chip containing 30 EXP {CLOCK +3}" },
+      { "roll": 61, "reward": "Broken Tesseract, can be repaired with 100 Serum" },
+      { "roll": 62, "reward": "HACK_Aegis {CLOCK +4}" },
+      { "roll": 63, "reward": "Counterfeit Trading License {CLOCK +2}" },
+      { "roll": 64, "reward": "Purple-colored Tesseract, it emits a prismatic glow" },
+      { "roll": 65, "reward": "DRONE_OwO {CLOCK +4}" },
+      { "roll": 66, "reward": "HACK_Archangel {CLOCK +4}" }
+    ]
+  },
+  "sidequests": {
+    "rule": "Sidequests grant +1 Favor with the controlling faction. Available if you have between 0 and 3 Favor with the ruling faction and no previous uncompleted sidequests.",
+    "warg": [
+      "Defeat an ISF A-1 Voyager approaching the Settlement, 1 tile north.",
+      "Recapture a WARG outpost 2 tiles south, recently taken by an Android Synth.",
+      "Travel to the nearest satellite and ambush a patrol of 2 ISF Soldiers.",
+      "Provide combat support by defeating a Mercenary on the nearest planet.",
+      "Craft 5 Frog Grenades at the Scrapyard. You can keep them after the sidequest.",
+      "Train your combat abilities by defeating an ISF Sentinel in the Combat Sim."
+    ],
+    "isf": [
+      "Gain a Terraform Seed and plant it on the nearest planet.",
+      "Defeat 2 Rebel Fighters hiding on the nearest satellite.",
+      "Deliver a cargo container to an ISF Checkpoint, 3 tiles southeast.",
+      "Help repair the Settlement's broken water chip by providing 100 Scraps.",
+      "Complete a successful Speed Race at the Settlement's Test Flight facility.",
+      "Defeat 2 Smuggler Speeders, 1 tile north and 1 tile south, respectively."
+    ],
+    "medusa": [
+      "Steal a NGHTMR Key from an ISF Beluga Transporter, 2 tiles northeast.",
+      "Destroy a net jammer located 4 tiles southeast, protected by an Automaton Bot.",
+      "Defeat 2 Android Synths who have destroyed an antenna, 1 tile southwest.",
+      "Log in, reach a Matrix Node, and log off the Cybersphere in 5 moves or less.",
+      "Successfully reach 2 Matrix Nodes in the same run while surfing the Cybersphere.",
+      "Defeat any 2 enemies while inside the Cybersphere."
+    ],
+    "corsair": [
+      "Steal a Tesseract guarded by a Cyborg on the nearest satellite.",
+      "Gain a random melee mod by defeating a WARG Vector-7 Montis, 1 tile south.",
+      "Attack an ISF Beluga Transporter 2 tiles north and steal 60 Serum from it.",
+      "Gain a Contraband Package and smuggle it into another faction's Settlement.",
+      "Travel to a Pirate Hideout at the nearest unexplored Outer Ring tile.",
+      "Complete a successful Combat Drill at the Settlement's Test Flight facility."
+    ],
+    "synthArch": [
+      "Retrieve a Tesseract from a Helios Farm and offer it to the Settlement's prophet.",
+      "Destroy a spy drone 1 tile north, defended by a Medusa Orion Moth.",
+      "Defeat 2 Looters that have raided a synth factory on the nearest planet.",
+      "Gain 60 Scraps by dismantling items and equipment, and offer them to the Arch.",
+      "Craft a DRONE of any type at the Scrapyard. You can keep it after the sidequest.",
+      "Gain 3 EXP by crafting 3 items at the Scrapyard for the first time."
+    ]
+  }
+}

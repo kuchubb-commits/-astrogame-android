@@ -1,0 +1,251 @@
+{
+  "explorationRoll": [
+    { "roll": 1, "type": "SETTLEMENT" },
+    { "roll": 2, "type": "RING EVENT" },
+    { "roll": 3, "type": "HOSTILE ENCOUNTER" },
+    { "roll": 4, "type": "NEUTRAL ENCOUNTER" },
+    { "roll": 5, "type": "PLANET" },
+    { "roll": 6, "type": "FACTION ENCOUNTER" }
+  ],
+  "outer": {
+    "planetShapes": [
+      { "roll": "1-2", "type": "Two Moons", "description": "Medium-sized planet with two satellites orbiting around its gravitational core." },
+      { "roll": "3-4", "type": "Ringed Planet", "description": "Large planet that features a series of asteroid or ice rings orbiting around it." },
+      { "roll": "5-6", "type": "Giant Planet", "description": "These planets are of unusually large size and mass, and lack satellites of any kind." }
+    ],
+    "table": [
+      { "roll": 1, "type": "SETTLEMENT" },
+      { "roll": 2, "type": "OUTER RING EVENT" },
+      { "roll": 3, "type": "HOSTILE ENCOUNTER" },
+      { "roll": 4, "type": "NEUTRAL ENCOUNTER" },
+      { "roll": 5, "type": "PLANET" },
+      { "roll": 6, "type": "FACTION ENCOUNTER" }
+    ],
+    "events": {
+      "odd": {
+        "name": "PIRATE HIDEOUT",
+        "table": [
+          { "roll": 1, "text": "Followed by an Epsilon Interceptor. Surrender 3 items (+1 Favor Corsair) or Attack (gain 2 Contraband Packages)." },
+          { "roll": 2, "text": "Stopped by a pirate Starpredator. Buy freedom for 120 Serum or Confront (gain 3 Contraband Packages if you win; {+2 Favor} deliver 1 Contraband Package to another Hideout for +1 Favor Corsair and a random melee weapon mod)." },
+          { "roll": 3, "text": "A Smuggler Speeder. Attack: take 40 Scraps, a random ranged weapon, and a Contraband Package. Items to ISF Settlement = +1 Favor ISF." },
+          { "roll": 4, "text": "Pirate crew aboard a Snowstorm Delta. Confront (find 50 Scraps) or Flee to adjacent Middle Ring hex (lose 3 Fuel)." },
+          { "roll": 5, "text": "Veteran pilot in a Vector-7 Mantis. Escape through asteroid field (lose 3 Fuel) or Fight (gain 2 Frog Grenades)." },
+          { "roll": 6, "text": "Old World pirate military base with a first-gen A-1 Voyager in perfect condition. Replace your ship or take any of its modules." }
+        ]
+      },
+      "even": {
+        "name": "ASTEROID SEA",
+        "table": [
+          { "roll": 1, "text": "Fast asteroids. ROLL GRACE - Success: dodge all {+1}. Failure: lose 5 Hull." },
+          { "roll": 2, "text": "Cosmic debris field. Scavenge: 60 Scraps, an EMP Grenade, and a Taser Shell." },
+          { "roll": 3, "text": "WARG cell in a secret base; a rebel Duskwing. Fight (random ranged weapon mod {+1 Serum}) or Explain you're an ally (reveal a WARG Settlement 2 tiles southeast)." },
+          { "roll": 4, "text": "Corsair outlaws racing. Buy Zero-G Liquor and Stardust Soda. Starship Race: 15 pts = random Master Hack, 12 pts = random weapon mod, 9 pts = random narcobiotic." },
+          { "roll": 5, "text": "Synth Arch space station behind artificial asteroids. {+3 Favor} Deliver a Tesseract to a Synth Arch Settlement 3 tiles northwest." },
+          { "roll": 6, "text": "Hidden smuggler stash. Find: 3 Testogre Hormones and 2 Tricillin Tablets." }
+        ]
+      }
+    }
+  },
+  "middle": {
+    "planetShapes": [
+      { "roll": "1-2", "type": "One Moon", "description": "Medium-sized planet that has a single observable satellite in orbit." },
+      { "roll": "3-4", "type": "Two Moons", "description": "Small-sized planet with two satellites orbiting around its gravitational core." },
+      { "roll": "5-6", "type": "Medium Planet", "description": "Medium planet with no satellites, commonly found in the Circumstellar Habitable Zone." }
+    ],
+    "table": [
+      { "roll": 1, "type": "SETTLEMENT" },
+      { "roll": 2, "type": "MIDDLE RING EVENT" },
+      { "roll": 3, "type": "HOSTILE ENCOUNTER" },
+      { "roll": 4, "type": "NEUTRAL ENCOUNTER" },
+      { "roll": 5, "type": "PLANET" },
+      { "roll": 6, "type": "FACTION ENCOUNTER" }
+    ],
+    "events": {
+      "odd": {
+        "name": "STAR CRUISER",
+        "table": [
+          { "roll": 1, "text": "ISF terraformer starship with Terraforming Seeds; planet 2 tiles south. Plant seeds on desert planet. {+1 Favor ISF}" },
+          { "roll": 2, "text": "Luxury staryacht needs 3 BurnPatches. Pay 50 Serum each." },
+          { "roll": 3, "text": "Rotating colony ship, 80 people in cryo-pods, 7 months fuel. Wake them up (warn them) or Leave them (lose 7 Fuel {+2})." },
+          { "roll": 4, "text": "Abandoned cyber-laboratory ship with a survivor. Take her to a Settlement; she gives a random HACK. {+1 Favor}" },
+          { "roll": 5, "text": "Tarrasque Titan ghost ship with 2 Looters. Bargain (pay 100 Serum) or Fight (find a Contraband Package)." },
+          { "roll": 6, "text": "A 125-year-old generation ship. Buy any items or Armor Sets." }
+        ]
+      },
+      "even": {
+        "name": "RESEARCH OUTPOST",
+        "table": [
+          { "roll": 1, "text": "Beluga Transporter used as a WARG explosive factory. Provide support (Pulse Rifle {+1 Favor WARG}) or Infiltrate (5 Frag grenades {-2 Favor})." },
+          { "roll": 2, "text": "ISF checkpoint with ISF Soldiers. Everything in order (continue), Reveal cargo (all Contraband/narcobiotics taken {-1 Favor}), or Bribe with a Contraband Package (win an ISF Patron {-2 Favor})." },
+          { "roll": 3, "text": "Research station with an escaped alien specimen. Help the scientist: fight the Deepworm. Gain a random HACK." },
+          { "roll": 4, "text": "Synth Arch space station with a Synth Apostle. Yes (random cybertech {+1 Favor}) or No (synth attacks {-1 Favor})." },
+          { "roll": 5, "text": "Computational research station, 3 NetHackers cracking NGHTMR. Help (ROLL MIND - gain 1 NGHTMR Key {+1 Favor}) or Fight (destroy station {-1 Favor})." },
+          { "roll": 6, "text": "Fortified building, ATLAS PROJECT dossier. Spend 10 Energy for one implant: Titanium Bones, Forceblast Hand, or Trigger Fingers." }
+        ]
+      }
+    }
+  },
+  "inner": {
+    "planetShapes": [
+      { "roll": "1-2", "type": "Small Planet", "description": "Small-sized planet with no orbiting moons, commonly found near the system's star." },
+      { "roll": "3-4", "type": "One Moon", "description": "Medium-sized planet that has a single observable satellite in orbit." },
+      { "roll": "5-6", "type": "Void Planet", "description": "Surface partly corrupted by void, from a supernatural event or human experiment." }
+    ],
+    "table": [
+      { "roll": 1, "type": "SETTLEMENT" },
+      { "roll": 2, "type": "INNER RING EVENT" },
+      { "roll": 3, "type": "HOSTILE ENCOUNTER" },
+      { "roll": 4, "type": "NEUTRAL ENCOUNTER" },
+      { "roll": 5, "type": "PLANET" },
+      { "roll": 6, "type": "FACTION ENCOUNTER" }
+    ],
+    "events": {
+      "odd": {
+        "name": "SOLAR FLARE",
+        "table": [
+          { "roll": 1, "text": "Temperature peaks. ROLL VIGOR - Success: escape {+1}. Failure: lose 6 Hull." },
+          { "roll": 2, "text": "Fire columns from the star. ROLL GRACE - Success: evade {+1}. Failure: lose 3 Fuel and 4 Hull." },
+          { "roll": 3, "text": "Ship compartment fire. ROLL TECH - Success: trigger airlock {+1}. Failure: lose 6 Health." },
+          { "roll": 4, "text": "Solar radiation wave. ROLL MIND - Success: run anti-radiation {+1}. Failure: lose 5 Health and 4 Hull." },
+          { "roll": 5, "text": "Massive solar flare. Take the hit (lose 8 Hull) or Spend fuel (lose 5 Fuel)." },
+          { "roll": 6, "text": "Distress signal from a Twinrotor Hauler 3 tiles northeast. Repair (gain 100 Serum) or Transport crew (2 Vesterone Stimulants and a Supranova Physic)." }
+        ]
+      },
+      "even": {
+        "name": "HELIOS FARM",
+        "table": [
+          { "roll": 1, "text": "Corsair Syndicate offers smuggled Fuel. Wait in line (restore Fuel to 20, lose 5 Energy) or Pay (4 Serum per unit of Fuel)." },
+          { "roll": 2, "text": "Field of spherical energy receptors. Restore Energy by connecting." },
+          { "roll": 3, "text": "Unfinished Dyson sphere ring. Restore 8 Energy and 6 Fuel." },
+          { "roll": 4, "text": "RED SOL STATION fuel station. Refuel (3 Serum per Fuel) or Enter bar (buy Zero-G Liquor, Stardust Soda, narcobiotics)." },
+          { "roll": 5, "text": "Medusa Stingray Frontier with 3 Vector Ace Fighters. Fight ambush (cargo ship refuels to 20 Fuel {+1 Favor}) or Join attack (7 Fuel + random melee weapon {+1 Favor})." },
+          { "roll": 6, "text": "Crescent solar farm, damaged terminal. ROLL TECH - Success: restore 10 Fuel. ROLL MIND - Success: restore 10 Energy." }
+        ]
+      }
+    }
+  },
+  "ringEvents": {
+    "note": "Ring Events are the result 2 on the Exploration Roll. Outer -> ODD Pirate Hideout / EVEN Asteroid Sea. Middle -> ODD Star Cruiser / EVEN Research Outpost. Inner -> ODD Solar Flare / EVEN Helios Farm. Roll d6 on the matching table (result 1 leaves tile blank in events; see ring-specific tables above).",
+    "rings": ["outer", "middle", "inner"]
+  },
+  "hostile": {
+    "note": "Roll a d8 - Result 1 = no encounter (leave tile blank, re-roll next visit). Results 2-6 then roll d6 below.",
+    "categories": [
+      {
+        "roll": 2, "name": "OUTLAWS & LOOTERS",
+        "table": [
+          { "d6": 1, "ship": "Smuggler Speeder", "notes": "Gain 1 Contraband Package after defeating" },
+          { "d6": 2, "ship": "Belug Transporter", "notes": "No identification - contraband cargo ship" },
+          { "d6": 3, "ship": "Twinrotor Hauler", "notes": "Overloaded stolen ship with laser cuts on hatch" },
+          { "d6": 4, "ship": "Orion Moth", "notes": "Mistook you for an ISF Trade Patrol" },
+          { "d6": 5, "ship": "Shell-4 Transporter", "notes": "Covert cargo stealth transport" },
+          { "d6": 6, "ship": "Edgechaser W", "notes": "Building secret contraband trade hub" }
+        ]
+      },
+      {
+        "roll": 3, "name": "SPACE PIRATES",
+        "table": [
+          { "d6": 1, "ship": "Duskwing", "notes": "Warps in front of you, attacks immediately" },
+          { "d6": 2, "ship": "Vector-7 Montis", "notes": "Patchwork ship from scavenged parts" },
+          { "d6": 3, "ship": "Snowstorm Delta", "notes": "Disguised as a space trader" },
+          { "d6": 4, "ship": "Epsilon Interceptor", "notes": "Gain 1 Zero-G Liquor after defeating" },
+          { "d6": 5, "ship": "Starpredator", "notes": "Ship was a hologram decoy" },
+          { "d6": 6, "ship": "Tarrasque Titan", "notes": "Crown jewel of the largest pirate fleet" }
+        ]
+      },
+      {
+        "roll": 4, "name": "MERCENARIES",
+        "table": [
+          { "d6": 1, "ship": "Vector Ace Fighter", "notes": "Modified, static-appearing, ambush" },
+          { "d6": 2, "ship": "Snowstorm Delta", "notes": "Mistook you for ISF patrol" },
+          { "d6": 3, "ship": "Vector-7 Montis", "notes": "'Who do you work for?' - no answer" },
+          { "d6": 4, "ship": "Orion Moth", "notes": "Bounty hunter; gain Combat Exoskeleton after defeating" },
+          { "d6": 5, "ship": "Starpredator", "notes": "Agent G034H07, bounty contract from [REDACTED]" },
+          { "d6": 6, "ship": "Edgechaser W", "notes": "Old World marvel, attacks immediately" }
+        ]
+      },
+      {
+        "roll": 5, "name": "SPACEFARERS",
+        "table": [
+          { "d6": 1, "ship": "Scarab Interceptor", "notes": "Xenobiologist fleeing with alien specimen" },
+          { "d6": 2, "ship": "Twinrotor Hauler", "notes": "Scavengers; gain Tesseract when defeated" },
+          { "d6": 3, "ship": "Belug Transporter", "notes": "Automaton crew with damaged code" },
+          { "d6": 4, "ship": "A-1 Voyager", "notes": "Malfunctioning auto-pilot AI" },
+          { "d6": 5, "ship": "Eclipse Warden", "notes": "Heretic androids from destroyed Synth Arch base" },
+          { "d6": 6, "ship": "Stingray Frontier", "notes": "Cyborg with damaged judgment" }
+        ]
+      },
+      {
+        "roll": 6, "name": "FACTION BATTLES",
+        "table": [
+          { "d6": 1, "text": "WARG Vector Ace Fighter + Vector-7 Mantis attack ISF Shell-4 Transporter. Fight the two fighters {+2 Favor}{-1} or Destroy the transporter {+1 Favor}{-1}." },
+          { "d6": 2, "text": "Two Corsair Snowstorm Delta attack Medusa Stingray Frontier. Ambush the Stingray {+1 Favor}{-1} or Attack the Corsairs {+2 Favor}{-1}." },
+          { "d6": 3, "text": "WARG Starpredator attacks Synth Arch Twinrotor Hauler. Destroy the Starpredator {+1 Favor}{-1} or Attack the Twinrotor {+1 Favor}{-1}." },
+          { "d6": 4, "text": "Medusa Orion Moth fights Synth Arch Eclipse Warden. Fight the Eclipse Warden {+1 Favor}{-1} or Attack the Orion Moth {+1 Favor}{-1}." },
+          { "d6": 5, "text": "ISF support request. 2 A-1 Voyagers battle a The Claw mothership. Attack the mothership {+1 Favor}{-1} or Destroy the two ISF ships {+2 Favor}{-1}." },
+          { "d6": 6, "text": "Two Synth Arch Epsilon Interceptors attack ISF Tarrasque Titan. Attack the Tarrasque Titan {+1 Favor}{-1} or Fight the Interceptors {+2 Favor}{-1}." }
+        ]
+      }
+    ]
+  },
+  "neutral": {
+    "note": "Roll a d8 - Result 1 = no encounter. Results 2-6 then roll d6 below.",
+    "categories": [
+      {
+        "roll": 2, "name": "DERELICT SHIPS",
+        "table": [
+          { "d6": 1, "text": "Pre-war fighter with skeleton pilot. Find: Ion Carbine + random ranged weapon mod." },
+          { "d6": 2, "text": "Transport ship covered in ice. Find: 2 Health Packs." },
+          { "d6": 3, "text": "Asteroid drilling ship. Find: 50 Serum in a locker." },
+          { "d6": 4, "text": "Starship carrier split in half; defense turret activates. ROLL VIGOR - Success: destroy turret {+1}. Failure: lose 2d4 Health." },
+          { "d6": 5, "text": "Two crashed interceptors. Salvage: 60 Scraps." },
+          { "d6": 6, "text": "Contraband ship, 2 dead pirates. Find: 2 random narcobiotics + 100 Serum hidden stash." }
+        ]
+      },
+      {
+        "roll": 3, "name": "CARGO TRANSPORT",
+        "table": [
+          { "d6": 1, "text": "Belug Transporter with artisan gunsmith. Buy any weapon or weapon mod." },
+          { "d6": 2, "text": "Distress signal from a Belug Transporter. ROLL SKILL - Success: 30 Scraps and 70 Serum." },
+          { "d6": 3, "text": "Wandering trader in a Twinrotor Hauler: lose 4 Health -> gain 80 Serum (up to 5 times)." },
+          { "d6": 4, "text": "Twinrotor Hauler at checkpoint. Buy any item or Armor Set." },
+          { "d6": 5, "text": "Shell-4 Transporter, dead crew, empty cargo. Salvage: Disruptor Beams ship module." },
+          { "d6": 6, "text": "Shell-4 Transporter with android clone crew. Buy any cybertech for Serum cost + 10 Energy (no EXP cost)." }
+        ]
+      },
+      {
+        "roll": 4, "name": "CIVILIAN TRANSPORT",
+        "table": [
+          { "d6": 1, "text": "Scarab Interceptor with survivors. Give 100 Serum -> +1 Favor Medusa." },
+          { "d6": 2, "text": "WARG revolutionaries in Vector-7 Mantis. Reveal a WARG Settlement location -> +1 Favor WARG." },
+          { "d6": 3, "text": "Snowstorm Delta with refugees. Aid with 40 Scraps -> reveal Sylvanian planet 2 tiles north." },
+          { "d6": 4, "text": "A-4 Voyager with 3 Voidcrawlers aboard. Reward if you help: 100 Serum + 50 Scraps." },
+          { "d6": 5, "text": "Orion Moth drifts. Trade 5 Fuel -> receive a DRONE_Ladybug." },
+          { "d6": 6, "text": "Edgecharger W ISF hospital ship. Donate 2 Health Packs -> +1 Favor ISF." }
+        ]
+      },
+      {
+        "roll": 5, "name": "RADIO SIGNALS",
+        "table": [
+          { "d6": 1, "text": "Nuclear warhead counting down toward a lunar colony. ROLL TECH - Success: save ship systems (+1 Favor). Failure: lose 8 Hull." },
+          { "d6": 2, "text": "'The Quiet' EMP zone. Roll for a Hostile Encounter on the next unexplored hex." },
+          { "d6": 3, "text": "Deep space resonance damages ship. ROLL TECH - Success: save systems (+1 Favor). Failure: lose 8 Hull." },
+          { "d6": 4, "text": "Emergency signal: Synth Settlement 1 tile southwest taken by WARG." },
+          { "d6": 5, "text": "Morse code in hexadecimal. ROLL MIND - Success: mark a Medusa Settlement 3 tiles northeast." },
+          { "d6": 6, "text": "Low frequency signal playing 20th-century Old World music from a pirate radio station." }
+        ]
+      },
+      {
+        "roll": 6, "name": "SUPRANATURAL EVENTS",
+        "table": [
+          { "d6": 1, "text": "Comet approaches. Gain 10 EXP and restore Health and Energy to 20." },
+          { "d6": 2, "text": "Voidcrawler breaks into fuel reserves. Attack/Fight/Let it feed -> creature teleports away. Lose 4 Fuel." },
+          { "d6": 3, "text": "Navigation controls vibrate. Wake up 06 years younger." },
+          { "d6": 4, "text": "Eclipse Warden ship speaks: 'WHAT LIGHT GUIDES YOUR PATH? MAY YOU FIND THE EMBRACE OF THE PROPHET BEFORE THE END.'" },
+          { "d6": 5, "text": "A pink crystal prism floats in the void. Touch it -> Gain a permanent +1 to a stat of your choice." },
+          { "d6": 6, "text": "Strange electromagnetic field - ship transported to any hex of your choice." }
+        ]
+      }
+    ]
+  }
+}

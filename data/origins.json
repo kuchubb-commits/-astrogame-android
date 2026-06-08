@@ -1,0 +1,50 @@
+[
+  {
+    "id": "esoterorist",
+    "name": "Esoterorist",
+    "stats": { "vigor": 0, "grace": 0, "mind": 0, "tech": 0 },
+    "startingGear": ["Bulletproof Vest (1R)", "Frag Grenades x2"],
+    "startingWeapon": "Pulse Rifle (d8+1 / 2A)",
+    "description": "History is written by the winners, unless you were born on the losing side. Whether you were a child soldier or a warden from the wrong part of town, you've decided to take justice into your own hands."
+  },
+  {
+    "id": "glitchblade",
+    "name": "Glitchblade",
+    "stats": { "vigor": 0, "grace": 0, "mind": 0, "tech": 0 },
+    "startingGear": ["Hard Cloak (version 8.4)", "Stealth Shroud (1 use)"],
+    "startingWeapon": "Carbon Dagger (d6+1 / 1A)",
+    "description": "A rogue cyber agent with both an experimental tech-blade and advanced skills in evasion, stealth, and survival. You've gone off-grid after being burned by your handler."
+  },
+  {
+    "id": "wirehead",
+    "name": "Wirehead",
+    "stats": { "vigor": 0, "grace": 0, "mind": 0, "tech": 0 },
+    "startingGear": ["Hotlink (passive)"],
+    "startingWeapon": "Helix Wire (d6+1 / 2A)",
+    "description": "You grew up surrounded by circuits, building and repairing drones, mechs, and other machinery. You are one with the machine."
+  },
+  {
+    "id": "astromancer",
+    "name": "Astromancer",
+    "stats": { "vigor": 0, "grace": 0, "mind": 1, "tech": 0 },
+    "startingGear": ["data_Goggles (+1)", "data_Tracker (+1)", "Datajack Hardwire"],
+    "startingWeapon": "",
+    "description": "You spent your whole life logged into cyberspace. Your knowledge in code and megabytes allows you to manipulate the digital forces of the Network. (MIND focus)"
+  },
+  {
+    "id": "desperado",
+    "name": "Desperado",
+    "stats": { "vigor": 0, "grace": 1, "mind": 0, "tech": 0 },
+    "startingGear": ["Railer Sight (Weapon Mod)", "Contraband Packages"],
+    "startingWeapon": "Laser Blaster (d6+1)",
+    "description": "The ruthless in control of space outlaws and renegades of the far world. You act on instinct — a born survivor outside of the restraining grip of galactic law. (GRACE focus)"
+  },
+  {
+    "id": "chromeskin",
+    "name": "Chromeskin",
+    "stats": { "vigor": 1, "grace": 0, "mind": 0, "tech": 0 },
+    "startingGear": ["Reinforced Jacket (4)", "Reinforced Implant (4)"],
+    "startingWeapon": "Cyberfist (d6+2)",
+    "description": "The majority of your body has been replaced with synthetic DNI. Hardwired and enhanced implants provide an edge over the standard soldier. You are the pinnacle of cybernetics. (VIGOR focus)"
+  }
+]

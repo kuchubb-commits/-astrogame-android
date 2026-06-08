@@ -1,0 +1,32 @@
+{
+  "hacks": [
+    { "id": "javelin", "name": "Javelin", "effect": "d12 + MIN damage. Breached enemies take double damage. Cost: 1 Hyperdrive.", "stat": "MIND", "isMaster": false },
+    { "id": "trojan", "name": "Trojan", "effect": "Breach an enemy for MIN turns. Cost: 1 Hyperdrive.", "stat": "MIND", "isMaster": false },
+    { "id": "ember", "name": "Ember", "effect": "Overheat an enemy for MIN turns. Cost: 1 Hyperdrive.", "stat": "MIND", "isMaster": false },
+    { "id": "blackout", "name": "Blackout", "effect": "Shock ALL enemies for TEC turns. Cost: 1 Hyperdrive.", "stat": "TECH", "isMaster": false },
+    { "id": "shadow", "name": "Shadow", "effect": "Become Immune until you deal the next direct damage. Costs 2 Hyperdrive per active turn. Cost: 2 Hyperdrive.", "stat": "MIND", "isMaster": false },
+    { "id": "counterspell", "name": "Counterspell", "effect": "Silence ALL enemies for MIN turns + disable their passive skill. Cost: 1 Hyperdrive.", "stat": "MIND", "isMaster": false },
+    { "id": "volt", "name": "Volt", "effect": "d10 + TEC damage + Stun enemy 1 turn. Cost: 2 Hyperdrive.", "stat": "TECH", "isMaster": false },
+    { "id": "kraken", "name": "Kraken", "effect": "Stun ALL enemies 1 turn. Cost: 2 Hyperdrive.", "stat": "MIND", "isMaster": false },
+    { "id": "ignite", "name": "Ignite", "effect": "d12 + MIN damage + Overheat enemy 2 turns. Cost: 3 Hyperdrive.", "stat": "MIND", "isMaster": false },
+    { "id": "hydra", "name": "Hydra", "effect": "d10 x MIN damage on a Breached enemy. Cost: 3 Hyperdrive.", "stat": "MIND", "isMaster": false },
+    { "id": "mindsteal", "name": "Mindsteal", "effect": "Set enemy MIN to 0 + gain X MIN for 2 turns (X = enemy base MIN). Cost: 34 Energy.", "stat": "MIND", "isMaster": true },
+    { "id": "parasite", "name": "Parasite", "effect": "Breach ALL enemies for MIN turns + restore 2 Health per affected enemy. Cost: 34 Energy.", "stat": "MIND", "isMaster": true },
+    { "id": "supernova", "name": "Supernova", "effect": "3d6 damage to ALL enemies + Shock for MIN turns. Cost: 34 Energy.", "stat": "MIND", "isMaster": true },
+    { "id": "ragnarok", "name": "Ragnarok", "effect": "Overheat ALL enemies for TEC turns. Overheat deals +MIN extra damage until end of combat. Cost: 34 Energy.", "stat": "TECH", "isMaster": true },
+    { "id": "aegis", "name": "Aegis", "effect": "Gain TEC temporary Armor for MIN turns. Cost: 34 Energy.", "stat": "TECH", "isMaster": true },
+    { "id": "archangel", "name": "Archangel", "effect": "Restore d10 x TEC Health to self or an ally. Cost: 34 Energy.", "stat": "TECH", "isMaster": true }
+  ],
+  "malware": [
+    { "roll": 1, "effect": "Nothing" },
+    { "roll": 2, "effect": "Lose 1+ Energy" },
+    { "roll": 3, "effect": "Take 2 damage" },
+    { "roll": 4, "effect": "Lose 2+ Energy" },
+    { "roll": 5, "effect": "Become Stunned for 1 turn" },
+    { "roll": 6, "effect": "Take 4 damage" },
+    { "roll": 7, "effect": "Become Shocked for 1 turn" },
+    { "roll": 8, "effect": "Lose 3+ Energy" },
+    { "roll": 9, "effect": "Become Silenced for 1 turn" },
+    { "roll": 10, "effect": "Learn a random HACK" }
+  ]
+}

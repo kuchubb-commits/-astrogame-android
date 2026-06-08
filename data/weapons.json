@@ -1,0 +1,16 @@
+[
+  { "id": "revolver", "name": "Revolver", "type": "ranged", "damage": "d6 + VIG", "range": "", "cost": 25, "special": "" },
+  { "id": "gauss-gun", "name": "Gauss Gun", "type": "ranged", "damage": "d6 + GRA", "range": "", "cost": 25, "special": "Also listed as Gauss SMG" },
+  { "id": "laser-blaster", "name": "Laser Blaster", "type": "ranged", "damage": "d8 + VIG", "range": "", "cost": 75, "special": "" },
+  { "id": "ion-carbine", "name": "Ion Carbine", "type": "ranged", "damage": "d10 + GRA", "range": "", "cost": 100, "special": "" },
+  { "id": "gamma-gun", "name": "Gamma Gun", "type": "ranged", "damage": "d8 + TEC", "range": "", "cost": 75, "special": "" },
+  { "id": "ignition-shotgun", "name": "Ignition Shotgun", "type": "ranged", "damage": "d10 + VIG", "range": "", "cost": 100, "special": "" },
+  { "id": "pulse-rifle", "name": "Pulse Rifle", "type": "ranged", "damage": "2d6 + VIG", "range": "", "cost": 150, "special": "" },
+  { "id": "gravity-rifle", "name": "Gravity Rifle", "type": "ranged", "damage": "d12 + GRA", "range": "", "cost": 150, "special": "" },
+  { "id": "carbon-dagger", "name": "Carbon Dagger", "type": "melee", "damage": "d6 + GRA", "range": "", "cost": 25, "special": "" },
+  { "id": "helix-wire", "name": "Helix Wire", "type": "melee", "damage": "d8 + VIG", "range": "", "cost": 75, "special": "" },
+  { "id": "halo-discs", "name": "Halo Discs", "type": "melee", "damage": "2d6 + GRA", "range": "", "cost": 150, "special": "" },
+  { "id": "rocket-hammer", "name": "Rocket Hammer", "type": "melee", "damage": "d10 + VIG", "range": "", "cost": 100, "special": "" },
+  { "id": "plasma-shield", "name": "Plasma Shield", "type": "melee", "damage": "d8 + VIG", "range": "", "cost": 100, "special": "+1 Shield while equipped" },
+  { "id": "neon-blade", "name": "Neon Blade", "type": "melee", "damage": "d12 + VIG", "range": "", "cost": 150, "special": "" }
+]

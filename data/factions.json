@@ -1,0 +1,167 @@
+[
+  {
+    "id": "warg",
+    "name": "W.A.R.G.",
+    "fullName": "West Anchor Revolutionary Guerrillas",
+    "description": "An insurgent group formed by workers of factory worlds and rebel groups hailing from the core world system of West Anchor. Goal: Revolution - to overthrow both the previous imperial authority and current post-apocalyptic power structures. Three ideological currents: Universalists (decentralize power), Intensos (build a strong central system), and Orbitals (planetary governing structures).",
+    "favorEvents": {
+      "2": "A RUSH OF ADRENALINE - Prove your worth 2 tiles south. A young woman hands you a Gravity Rifle and 3 Frag Grenades, points to an ISF outpost guarded by 2 ISF Soldiers. [-1 Favor]",
+      "5": "THE WOLF'S BANE - Blow up a weapons shipment 4 tiles north. Destroy a Starpredator, infiltrate the freighter, fight 2 Mercenary guards. Take your commander's place as Guerrilla Commander. Gain a Mercurian Armor.",
+      "10": "GALACTIC REVOLUTION - Choose an ending."
+    },
+    "endings": [
+      "Battle of Skull - Travel to an ISF Settlement and defeat 2 Vector Fighters. The ISF Settlement is destroyed. W.A.R.G. gains control of all ISF tiles. [-10 Favor]",
+      "No Gods, No Masters - Travel to a Synth Settlement and fight 2 Synth Apostles. The Synth Settlement comes under your control. If no cybernetic implants, gain +5 VIG and +5 GRA. [-6 Favor]",
+      "United Uprising - Travel to a poverty-stricken planet and fight the Outer Ring Crime Boss and 2 Mercenaries. Effect: Gain +4 EXP every time you gain an Affinity point. Recruited crewmembers start with 2 Active Skills unlocked."
+    ],
+    "missionType": "REVOLT MISSIONS",
+    "troops": [
+      { "d6": 1, "composition": "2 Rebel Fighters" },
+      { "d6": 2, "composition": "Rebel Fighter & Bounty Hunters" },
+      { "d6": 3, "composition": "4 Rebel Fighters" },
+      { "d6": 4, "composition": "Guerrilla Commander & 2 Rebel Fighters" },
+      { "d6": 5, "composition": "3 Guerrilla Commanders" },
+      { "d6": 6, "composition": "W.A.R.G. Major General" }
+    ],
+    "ships": [
+      { "d6": 1, "ship": "Duskwing" },
+      { "d6": 2, "ship": "Vector-7 Mantis" },
+      { "d6": 3, "ship": "Snowstorm Delta" },
+      { "d6": 4, "ship": "Epsilon Interceptor" },
+      { "d6": 5, "ship": "Starpredator" },
+      { "d6": 6, "ship": "Tarrosque Titan" }
+    ]
+  },
+  {
+    "id": "isf",
+    "name": "Intersolar Federation",
+    "fullName": "Intersolar Federation (ISF)",
+    "description": "Built from the last remnants of the galactic empires that ruled the universe before the apocalypse, the Intersolar Federation is the de facto trade authority. Goal: Fight piracy and establish a moderate consensus-based order to inter-system relations through a democratically elected universal council.",
+    "favorEvents": {
+      "2": "INTERSOLAR TRADING LICENSE - A Terracque Titan approaches. An ISF Sentinel named Area welcomes you. Receive an Ion Carbine and a Trading License.",
+      "5": "WARDEN PROTOCOL - Promoted to official ISF Sentinel. Protect a Beluga Transporter carrying secret data from tile 25 to tile 36. Roll D8 on each new tile; on a 1, roll for a random hostile faction encounter. Gain an Athena X armor set.",
+      "10": "CODE OF GALACTIC LAW - Choose an ending."
+    },
+    "endings": [
+      "Law and Order - Fight a The Claw mothership and 2 Vector-7 Mantis ships. All Pirate Hideouts destroyed. On every new tile before entering a hostile ship, if result is 4+, avoid the encounter. [-10 Favor]",
+      "Counter-Terrorism - Travel to a W.A.R.G. Settlement and fight a W.A.R.G. Major General and 2 Guerrilla Commanders. ISF gains control of all W.A.R.G. tiles. [-10 Favor]",
+      "Astrobiology - Fight 2 Terragon Soldiers and plant Terraform Seeds on every planet. When you encounter an alien creature, perform a Social Roll to tame it and add it to your crew (1 alien companion max)."
+    ],
+    "missionType": "TRANSPORT MISSIONS",
+    "troops": [
+      { "d6": 1, "composition": "2 ISF Soldiers" },
+      { "d6": 2, "composition": "ISF Soldier & 2 Merchants" },
+      { "d6": 3, "composition": "ISF Sentinel & 2 ISF Soldiers" },
+      { "d6": 4, "composition": "2 ISF Sentinels" },
+      { "d6": 5, "composition": "2 ISF Sentinels & 2 ISF Soldiers" },
+      { "d6": 6, "composition": "ISF Trade Baron" }
+    ],
+    "ships": [
+      { "d6": 1, "ship": "Vector Ace Fighter" },
+      { "d6": 2, "ship": "Beluga Transporter" },
+      { "d6": 3, "ship": "Twinrotor Hauler" },
+      { "d6": 4, "ship": "A-1 Voyager" },
+      { "d6": 5, "ship": "Shell-4 Transporter" },
+      { "d6": 6, "ship": "Edgecrawler" }
+    ]
+  },
+  {
+    "id": "medusa",
+    "name": "Medusa Sector",
+    "fullName": "Medusa Sector",
+    "description": "An anonymous and decentralized organization of hackers and cyber-terrorists, united under the goal of uncovering the secrets lost in the deepest layers of the Cybersphere. Goal: Restore the Cybersphere to its former glory - a hyper-realistic virtual simulation and information network that once spanned the entire galaxy.",
+    "favorEvents": {
+      "2": "NETWORK LOGIN - A Medusa MasterHacker installs new code in your cerebral system. Choose a HACK to download in one of your memory slots.",
+      "5": "INTERSYSTEM DATA HIGHWAY - Go to a Medusa Settlement, load the deep space data emitter, travel to any Inner Ring planet to deploy it. Defeat an Eclipse Warden ship. Receive a random MASTER HACK. [-4 Favor]",
+      "10": "TOTAL SYSTEM RESET - Choose an ending."
+    },
+    "endings": [
+      "Security Breach - Attack an ISF Settlement, defeat 2 ISF Sentinels and an ISF Surveillance effect. Medusa gains control of all ISF tiles. [-10 Favor]",
+      "Cyber-Warfare - Infiltrate a Synth Arch Settlement, defeat a Synth Apostle and 2 Android Titans. Gain 3 Cyberbench implants at no EXP or Serum cost. [-10 Favor]",
+      "The Simulation - Install an Edgecleaner and a Shell's Transporter to access a Helios Farm power plant and power a quantum simulation. Effect: +3 MIN as long as you have 20 Energy. Gain 4x NIGHTMR Keys."
+    ],
+    "missionType": "CYBERSPHERE MISSIONS",
+    "troops": [
+      { "d6": 1, "composition": "2 NetHackers" },
+      { "d6": 2, "composition": "NetHacker & 2 Drone Operators" },
+      { "d6": 3, "composition": "NetHacker & 3 Scientists" },
+      { "d6": 4, "composition": "2 Cyber-Terrorists" },
+      { "d6": 5, "composition": "Cyber-Terrorist & 2 NetHackers" },
+      { "d6": 6, "composition": "Medusa MasterHacker" }
+    ],
+    "ships": [
+      { "d6": 1, "ship": "Scarab Interceptor" },
+      { "d6": 2, "ship": "Twinrotor Hauler" },
+      { "d6": 3, "ship": "Snowstorm Delta" },
+      { "d6": 4, "ship": "Orion Moth" },
+      { "d6": 5, "ship": "Eclipse Warden" },
+      { "d6": 6, "ship": "Stingray Frontier" }
+    ]
+  },
+  {
+    "id": "corsair",
+    "name": "Corsair Syndicate",
+    "fullName": "Corsair Syndicate",
+    "description": "A rogue federation of outlaws, smugglers, and bounty hunters. Their ruthless practices and network of contraband hubs have turned them into one of the strongest groups in the new lawless space. Goal: A faction of self-serving individualists united only through survival - bounty hunters, mercenaries, space pirates, and other outlaws.",
+    "favorEvents": {
+      "2": "WELCOME TO THE UNDERWORLD - Travel to a Pirate Hideout or Corsair Settlement. A woman with a scar puts 100M on the table (half your pay). Roll for a Bounty Mission.",
+      "5": "THE ANDROMEDA JOB - Ambush the Shell-4 Transporter 'Andromeda' in an Asteroid Sea. Bring it to 10 Hull; then 8 Vector Ace Fighters join to defend. Earn 350M.",
+      "10": "CAPTAIN OF UNTAMED SPACE - Choose an ending."
+    },
+    "endings": [
+      "The Dark Web - Fight a Stingray Frontier and 2 Scarab Infiltrators. You can now trade Contraband Packages for 1 NIGHTMR Key or 1 MASTER HACK at Corsair Settlements. [-10 Favor]",
+      "Contract Killer - Travel to an Inner Ring planet and kill a W.A.R.G. Major General and 3 Rebel Fighters. Gain 1000M. [-10 Favor]",
+      "The 7 Seas - Destroy 2 Corsair Starbases and defeat 3 Fleets directed by a Tarrasque Titan. You can now sell Contraband Packages at any Settlement for an extra 200M. [-10 Favor]"
+    ],
+    "missionType": "BOUNTY MISSIONS",
+    "troops": [
+      { "d6": 1, "composition": "2 Mercenaries" },
+      { "d6": 2, "composition": "Mercenary & 2 Looters" },
+      { "d6": 3, "composition": "Space Pirate & 2 Mercenaries" },
+      { "d6": 4, "composition": "2 Bounty Hunters" },
+      { "d6": 5, "composition": "Bounty Hunter & 2 Mercenaries" },
+      { "d6": 6, "composition": "Outer Ring Crime Boss" }
+    ],
+    "ships": [
+      { "d6": 1, "ship": "Smuggler Speeder" },
+      { "d6": 2, "ship": "Vector-7 Mantis" },
+      { "d6": 3, "ship": "Twinrotor Hauler" },
+      { "d6": 4, "ship": "Epsilon Interceptor" },
+      { "d6": 5, "ship": "Starpredator" },
+      { "d6": 6, "ship": "The Claw" }
+    ]
+  },
+  {
+    "id": "synth-arch",
+    "name": "Synth Arch",
+    "fullName": "Synth Arch",
+    "description": "A quasi-religious organization made up of androids and transhumanists seeking to surpass their limitations and reach a higher understanding of the universe, humanity, and the future. Goal: Liberate androids and transcend human and robotic limitations. Synth Apostles developed a new code of morals to jailbreak the factory limitations of other androids.",
+    "favorEvents": {
+      "2": "ANDROID BAPTISM - Travel to a Synth Settlement. 2 Android Titans guard the baptism chamber. Choose one cybertech implant to install: Detox System, Code Processor, Titanium Bones, Jet Propulsors, Chromefist, or Scanner Eye.",
+      "5": "THE TRANSHUMANIST CREED - Choose one cybertech implant to install: Cortex Firewall, Zettabyte RAM, Forceblast Hand, Trigger Fingers, Dual Processors, or Atlas Hands. Then fight 2 Cyber-Terrorists and destroy their Orion Moth starship.",
+      "10": "A NEW GENESIS - Choose an ending."
+    },
+    "endings": [
+      "Scrapyard Skirmish - Travel to a Corsair Settlement and fight 2 'The Claw' extremists. Synth Arch gains control of all Corsair tiles. [-5 Favor]",
+      "War of Clones - Travel to a Medusa Settlement and fight a Medusa MasterHacker and 3 Networked Artifacts. Gain a random MASTER HACK for each unique DRONE in your memory slots. [-5 Favor]",
+      "Beyond Humanity - Travel to a Research Outpost and fight 3 Android Titans. Effect: Once you have a Cybertech implant installed, gain Armor equal to half your TEC (rounding down) and restore 5 Energy at the start of each turn during regular combat."
+    ],
+    "missionType": "CRUSADE MISSIONS",
+    "troops": [
+      { "d6": 1, "composition": "2 Android Synths" },
+      { "d6": 2, "composition": "Android Synth & 2 Automaton Bots" },
+      { "d6": 3, "composition": "Cyborg & 2 Android Synths" },
+      { "d6": 4, "composition": "2 Android Titans" },
+      { "d6": 5, "composition": "Android Titan & 2 Cyborgs" },
+      { "d6": 6, "composition": "Synth Apostle" }
+    ],
+    "ships": [
+      { "d6": 1, "ship": "Scarab Interceptor" },
+      { "d6": 2, "ship": "Beluga Transporter" },
+      { "d6": 3, "ship": "A-1 Voyager" },
+      { "d6": 4, "ship": "Orion Moth" },
+      { "d6": 5, "ship": "Eclipse Warden" },
+      { "d6": 6, "ship": "Edgecharger W" }
+    ]
+  }
+]

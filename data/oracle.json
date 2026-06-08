@@ -1,0 +1,29 @@
+{
+  "yesNo": [
+    { "roll": "1", "result": "No, And", "description": "Negative + complication" },
+    { "roll": "2", "result": "No", "description": "Negative answer" },
+    { "roll": "3", "result": "No, But", "description": "Negative + bonus" },
+    { "roll": "4", "result": "Yes, But", "description": "Positive + complication" },
+    { "roll": "5", "result": "Yes", "description": "Positive answer" },
+    { "roll": "6", "result": "Yes, And", "description": "Positive + bonus" }
+  ],
+  "keywordsTable": {
+    "description": "Roll a d6 for the answer column and a d6 for the narrative theme row (p.138).",
+    "columns": ["NO, AND", "NO", "NO, BUT", "YES, BUT", "YES", "YES, AND"],
+    "rows": [
+      { "theme": 1, "noAnd": "Void", "no": "Suspicion", "noBut": "Survival", "yesBut": "Nurturing", "yes": "Compromise", "yesAnd": "Balance" },
+      { "theme": 2, "noAnd": "Treason", "no": "Regression", "noBut": "Sacrifice", "yesBut": "Light", "yes": "Prophecy", "yesAnd": "Wealth" },
+      { "theme": 3, "noAnd": "Chaos", "no": "Collision", "noBut": "Conflict", "yesBut": "Noise", "yes": "Evolution", "yesAnd": "Change" },
+      { "theme": 4, "noAnd": "Pain", "no": "Desire", "noBut": "Control", "yesBut": "Healing", "yes": "Guidance", "yesAnd": "Order" },
+      { "theme": 5, "noAnd": "Corruption", "no": "Vengeance", "noBut": "Electricity", "yesBut": "Velocity", "yes": "Growth", "yesAnd": "Truth" },
+      { "theme": 6, "noAnd": "Oppression", "no": "Occult", "noBut": "Subversion", "yesBut": "Freedom", "yes": "Nature", "yesAnd": "Time" }
+    ]
+  },
+  "keywords": {
+    "groupA": ["Submission", "Regression", "Collision", "Control", "Electronics", "Occult"],
+    "groupB": ["Survival", "Resilience", "Conflict", "Contact", "Subterfuge", "Emergence"],
+    "yesBut": ["Nurturing", "Light", "Noise", "Unifying", "Malaise", "Finesse"],
+    "yes": ["Compromise", "Propriety", "Evolution", "Guidance", "Growth", "Nature"],
+    "yesAnd": ["Balance", "Wealth", "Change", "Freedom", "Harmony", "Truth"]
+  }
+}

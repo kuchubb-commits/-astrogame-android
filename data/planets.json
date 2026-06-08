@@ -1,0 +1,122 @@
+[
+  {
+    "id": "gaian", "name": "Gaian", "type": "01",
+    "description": "Dry and rocky, with sand deserts. Extensively settled due to precious jewels below surface. Many were terraformed with water and plant life.",
+    "landingSpots": [
+      "A sea of dunes expands beyond the horizon. A distant rattle can be heard.",
+      "Oasis hidden among a mesa valley. Its indigo-colored water is hallucinogenic.",
+      "A crack in a cliff reveals an underground city carved into the rock.",
+      "Abandoned nomad camp, now occupied by small alien creatures seeking shelter.",
+      "Carcass of a giant worm-like alien creature. Its shadow provides cover from the sun.",
+      "Mineral refinery and ironworks facility. Six large robotic drills remain active."
+    ],
+    "encounters": [
+      { "roll": 1, "name": "SINKING INTO QUICKSAND", "text": "ROLL GRACE - Success: jump to safety [+1]. Failure: lose 5 Health and 3 Energy." },
+      { "roll": 2, "name": "THE WANDERER", "text": "A robed Android Synth gives directions to a Synth Arch Settlement, 4 tiles southwest." },
+      { "roll": 3, "name": "WINGED NIGHTMARE", "text": "Cave shelter disturbed by 2 Dust Wasps. After defeating: Helix Wire + 60 Serum." },
+      { "roll": 4, "name": "JEWEL LOOTERS", "text": "2 Space Pirates. After defeating: 1 Contraband Package (ISF Settlement +1 Favor or sell at Corsair for 200 Serum)." },
+      { "roll": 5, "name": "LOST IN THE MIRAGE", "text": "ROLL MIND - Success: +2 MIN for 3 cycles. Failure: lose 6 Energy." },
+      { "roll": 6, "name": "THE DESERT TEMPLE", "text": "Find a Neon Blade on the altar -> floor collapses -> fight a Glyphmoth Queen." }
+    ]
+  },
+  {
+    "id": "calorian", "name": "Calorian", "type": "02",
+    "description": "Rocky and barren. Regular earthquakes, seismic activity, high temperatures. Surface often red/maroon from iron oxide dust.",
+    "landingSpots": [
+      "Five concrete columns sustain an oil platform several hundred meters above the ground.",
+      "A field of hundreds of antennas, emitting an indecipherable cacophony of radio signals.",
+      "Canyon formed by a now-extinct river, layers of red, amber, and violet-colored soil.",
+      "Iron mine operated by automatons. Control room damaged, causing malfunctions.",
+      "The land bends, revealing a giant ravine that splits the terrain in two.",
+      "Remote-controlled rover vehicle. Unknown who still operates it and from where."
+    ],
+    "encounters": [
+      { "roll": 1, "name": "ALPHA 2 OBSERVATORY", "text": "A NetHacker from Medusa. DECRYPT THE CODE (3 MIN Challenge Rolls): Success reveals a Medusa Settlement 2 tiles south [+1 Favor]. Failure: lose 3 Energy." },
+      { "roll": 2, "name": "GROUND FISSURE", "text": "ROLL VIGOR - Success: shove rock aside [+1]. Failure: lose 7 Health. -2 VIG and -2 GRA until Health restored to 100." },
+      { "roll": 3, "name": "SPOILS OF WAR", "text": "Find a Gauss SMG and a Laser Accelerator mod." },
+      { "roll": 4, "name": "ENDLESS SHIFT", "text": "EVO ROBOTICS factory, 3 Automaton Bots. ROLL TECH - Success: deactivate one, fight two, loot a Tesseract. Failure: lose 2 Energy, all three attack." },
+      { "roll": 5, "name": "THE MARTIAN", "text": "Dead astronaut. A Laser Blaster with a Silencer mod lies next to him." },
+      { "roll": 6, "name": "SKIRMISH AT METEOR KEEP", "text": "Aid the soldiers: fight 3 Rebel Fighters, gain 250 Serum [+2 Favor ISF][-1 Favor WARG]. Side with rebels: fight 2 ISF Soldiers, gain 2 Health Packs [+2 Favor WARG][-1 Favor ISF]." }
+    ]
+  },
+  {
+    "id": "vaporian", "name": "Vaporian", "type": "03",
+    "description": "Hydrogen, Helium, and chemical elements form layers of gases. Landing on the surface is impossible due to colossal storms of toxic gas and vapor.",
+    "landingSpots": [
+      "Rotating space station, used as a luxury holiday resort during the Old World.",
+      "Vapor refinery in low orbit. Processes gases extracted from the planet.",
+      "Modified asteroid used as a trade hub and refuelling station.",
+      "Small terraformed moon used as a clandestine club for hunting rare alien creatures.",
+      "Ring-shaped megastructure that encircles the planet. Used to be a space city-state.",
+      "Secret hideout of contraband cargo, hidden in the upper layer of atmosphere."
+    ],
+    "encounters": [
+      { "roll": 1, "name": "IN THE EYE OF THE STORM", "text": "ROLL GRACE - Success: escape [+1]. Failure: lose 4 Fuel and 6 Health." },
+      { "roll": 2, "name": "ORBITAL RELAY", "text": "Hidden capsule 3 tiles northeast: DRONE_Spider + 300 Serum." },
+      { "roll": 3, "name": "SERUM DISTILLERY", "text": "Confront the looters: attack 2 Vector Ace Fighters, loot 500 Serum from each. Avoid: lose 2 Fuel." },
+      { "roll": 4, "name": "SEA OF VAPOR", "text": "ROLL TECH - Success: fix [+1]. Failure: lose 5 Hull. Only 1 Action Die per ship combat until Hull restored to 100." },
+      { "roll": 5, "name": "THE ODD MERCHANT", "text": "Refuel at 20 Serum per point of Fuel." },
+      { "roll": 6, "name": "DEAD OR ALIVE", "text": "Aid bounty hunter: fight the NetHacker, gain 150 Serum [+1 Favor Corsair][-1 Favor Medusa]. Help runaway: fight the Bounty Hunter, gain a random HACK [+1 Favor Medusa][-1 Favor Corsair]." }
+    ]
+  },
+  {
+    "id": "aquarian", "name": "Aquarian", "type": "04",
+    "description": "High amount of water in their hydrosphere. Oceans cover most of the surface. Some have islands or archipelagos, others are completely submerged.",
+    "landingSpots": [
+      "Small rocky isles covered in algae, surrounding a shipwrecked vessel.",
+      "Alien marine life research outpost in the diameter of an immense oceanic trench.",
+      "Floating city connected by water canals and moving platforms. Appears abandoned.",
+      "Transport elevator to an underwater secret facility. Water has flooded most of it.",
+      "Archipelago of virgin islands. Their plant life bears strange and colorful fruit.",
+      "Beautiful coral reef the size of a continent. Its jewel-like shapes shine during the night."
+    ],
+    "encounters": [
+      { "roll": 1, "name": "WAVE AFTER WAVE", "text": "ROLL VIGOR - Success: swim against current [+1]. Failure: lose 4 Health and 4 Energy." },
+      { "roll": 2, "name": "NAUTILUS", "text": "Find 2 Energy Cells + Electroxyn Capsule." },
+      { "roll": 3, "name": "FACILITY TEL 22", "text": "REPAIR POWER GENERATOR (3 TEC Challenge Rolls): Success: Orion II Armor + Tricillin Tablet. Failure: lose 5 Energy, attract 2 Voidcrawlers." },
+      { "roll": 4, "name": "THE STRANDING", "text": "Xenobiologist reveals a Research Outpost 5 tiles northeast." },
+      { "roll": 5, "name": "DEPTHS MONSTER", "text": "A gigantic Deepworm ready to attack." },
+      { "roll": 6, "name": "UNDERWATER PRISON", "text": "Aid guards: fight 4 Guerrilla Commander + Rebel Fighter, gain random cybertech [+1 Favor ISF][-1 Favor WARG]. Join revolt: fight 3 Android Synths, gain 2 Testogate Hormones + transport inmates to WARG Settlement for 70 Serum [+1 Favor WARG][-1 Favor ISF]." }
+    ]
+  },
+  {
+    "id": "sylvanian", "name": "Sylvanian", "type": "05",
+    "description": "Biodiverse, high humidity, rich flora and fauna. Lush rainforests and jungles. High density of predatory alien life.",
+    "landingSpots": [
+      "Grotto that serves as the lair of an alien beast. There's no sign of the creature. For now.",
+      "Atop a formation of interlocking branches and tree trunks, 100m above ground level.",
+      "Shrouded in mist from giant waterfalls rising over a quiet lagoon.",
+      "Among the vast fields of elephant grass of a savanna, surrounded by a meandering river.",
+      "Swamplands, next to a small empty hut inside a hollow mangrove tree.",
+      "Ancient stone temple covered in moss and vines, overlooking the tropical forest."
+    ],
+    "encounters": [
+      { "roll": 1, "name": "RAVAGED COLONY", "text": "Find an Electroxyn Capsule + Data Shard." },
+      { "roll": 2, "name": "IN ENEMY TERRITORY", "text": "Taken to a secret WARG base. [+1 Favor WARG]: freed + Health/Energy to 100 + WARG Settlement location 2 tiles northeast. [0 Favor]: set free. [-1 Favor WARG]: pay 150 Serum or fight the Commander without weapons." },
+      { "roll": 3, "name": "HOSTILE CHLOROPHYLL", "text": "ROLL VIGOR - Success: cut vine and run [+1]. Failure: lose 7 Health. -2 VIG and -2 GRA until Health restored to 100." },
+      { "roll": 4, "name": "THE FOREST CHASE", "text": "Side with rebels: fight 2 Mercenaries, gain a ranged weapon mod [+1 Favor WARG][-1 Favor Corsair]. Help mercenaries: gain Combat Exoskeleton + 2 random grenades [+1 Favor Corsair][-1 Favor WARG]." },
+      { "roll": 5, "name": "TREETOP PARKOUR", "text": "ROLL GRACE - Success: +1 Hyperdrive charge and restore Energy. Failure: lose 8 Health and 3 Energy." },
+      { "roll": 6, "name": "ALIEN GROTTO", "text": "A Xhiraptera Predator attacks. After defeating: restore Health and Energy to 100. Find 3 random status cures." }
+    ]
+  },
+  {
+    "id": "ecumenopolis", "name": "Ecumenopolis", "type": "06",
+    "description": "Entire surface consumed by urban sprawl. All natural life destroyed in favor of megacity expansion. Now deserted ghost towns.",
+    "landingSpots": [
+      "Legislative district of the city. The senate is partly destroyed and surrounded by tanks.",
+      "Legions of skyscrapers as far as the eye can see, now taken over by overgrown plantlife.",
+      "A labyrinth of narrow streets, illuminated by glitching holographic adverts.",
+      "Landfill waste processing megacomplex, over-saturated with mountains of junk.",
+      "Polygonal-shaped tower with 'Galactic Armada Sector V' painted on its walls.",
+      "Space elevator. Rust and lack of maintenance have rendered it inoperative."
+    ],
+    "encounters": [
+      { "roll": 1, "name": "CITY PARK", "text": "Find 2 Energy Cells + Data Shard next to a fallen security robot." },
+      { "roll": 2, "name": "ISF TRADE PATROL", "text": "2 ISF Soldiers + ISF Sentinel reveal an ISF Settlement 2 tiles southwest." },
+      { "roll": 3, "name": "PRIMAL INSTINCT", "text": "Fight the Cyborg. At 10 Health or lower: ROLL TECH - Success: reset her systems, take to Synth Settlement (+1 Favor Synth Arch). Failure: she dies, extract a random cybertech implant." },
+      { "roll": 4, "name": "MK-2 SX COMBAT MECH", "text": "An intact model of DRONE_OwO mech system behind a motorized arm." },
+      { "roll": 5, "name": "TRAPPED IN THE SEWERS", "text": "ROLL GRACE - Success: flee and close gates [+1 Favor]. Failure: fight a Xhiroptera Predator." },
+      { "roll": 6, "name": "DATA BREACH", "text": "Aid the hacker: fight the Android Titan, gain a random HACK [+1 Favor Medusa]. Side with the android: fight the NetHacker, gain random EVO Robotics cybertech [+1 Favor Synth Arch]." }
+    ]
+  }
+]

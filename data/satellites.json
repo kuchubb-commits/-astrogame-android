@@ -1,0 +1,122 @@
+[
+  {
+    "id": "asteroid", "name": "Asteroid", "type": "01",
+    "description": "Minor planets of varying sizes composed of rocks, metals, and even ice. Hundreds of thousands unexplored - perfect for illegal activity. Space Pirate hideouts commonly located here.",
+    "landingSpots": [
+      "Military laser turret hidden in a small rocky asteroid. Power has run out.",
+      "Dense ring of asteroids surrounding a planet. Land on a small group.",
+      "Two medium asteroids joined together by six titanium pillars and metal cables.",
+      "Artificial asteroid with radar equipment. Tower hit by another asteroid.",
+      "Large asteroid, cracked in half, revealing tunnels dug by alien insects.",
+      "Ice asteroid, surface completely frozen and covered with sharp icicles."
+    ],
+    "encounters": [
+      { "roll": 1, "name": "CRASH SITE 125-B", "text": "A-1 Voyager cockpit with a Warp Drive. ROLL TECH - Success: salvage the Drive. Failure: lose 3 Energy." },
+      { "roll": 2, "name": "ASTEROID CANTINA", "text": "Buy Stardust Soda or Zero-G Liquor. If -2 Favor Corsair: a Space Pirate confronts you. Play dice: bet any amount, roll two d10, 10 = double, two 10s = triple, no 10 = lose all." },
+      { "roll": 3, "name": "THE OBELISK", "text": "An obsidian obelisk. Relive a memory of your past. [+2 EXP]" },
+      { "roll": 4, "name": "STORAGE SILO", "text": "Find a set of Ion Engines." },
+      { "roll": 5, "name": "SPEEDER CHASE", "text": "3 Edge-Worlders rob you. Lose first 2 items and half your Serum (rounding up). Chase them (ROLL GRACE on each attack while driving)." },
+      { "roll": 6, "name": "SMUGGLER'S PALACE", "text": "Owner imprisoned on an Aquarian planet 2 tiles north. Hidden safe: 100 Serum + 2 random narcobiotics." }
+    ]
+  },
+  {
+    "id": "crater-moon", "name": "Crater Moon", "type": "02",
+    "description": "Most common type of moon. Rocky celestial bodies with thin atmosphere. Barren surface covered with large craters and impacts.",
+    "landingSpots": [
+      "Giant crater, more than a hundred kilometers in diameter.",
+      "Ship docking and launch platform. Stairs covered in rust and debris.",
+      "Valley with a small lunar colony - spherical buildings connected by tunnels.",
+      "Terrain elevation with flags planted on top. Flags are unrecognizable.",
+      "A group of large geoglyphs, carved into the barren surface.",
+      "Underground entrance leading to a big room with blocks of computer servers."
+    ],
+    "encounters": [
+      { "roll": 1, "name": "ANTI-AIR DEFENSES", "text": "ROLL GRACE - Success: dodge with split S maneuver [+1]. Failure: lose 6 Hull." },
+      { "roll": 2, "name": "ASTRAL CARTOGRAPH", "text": "Discover the location of a new planet - select unexplored hex, roll for planet type. It has two orbiting satellites." },
+      { "roll": 3, "name": "METEOR FALL", "text": "Your character makes a wish. [+2]" },
+      { "roll": 4, "name": "KNOWLEDGE IS POWER", "text": "Medusa surveillance facility with a MASTER HACK. +3 Favor Medusa: request access. Fight guards: a Cyber-Terrorist + 2 Automaton Bots [-1 Favor Medusa]. Infiltrate: ROLL GRACE vs the Cyber-Terrorist. Obtain MASTER HACK + Data Shard." },
+      { "roll": 5, "name": "COLONY POD", "text": "Find 1 Health Pack + 2 Terraforming Seeds." },
+      { "roll": 6, "name": "LAST BREATH", "text": "An Android Synth dying beyond repair. Aid: give 8 Energy [+1]. Let them die: take 2 Energy Cells." }
+    ]
+  },
+  {
+    "id": "nuclear-moon", "name": "Nuclear Moon", "type": "03",
+    "description": "High levels of radiation from failed terraforming or nuclear weapons. Toxic and threatening ecosystems with dangerous mutated alien life.",
+    "landingSpots": [
+      "Impact crater. An unexploded nuclear warhead lies at its center.",
+      "Green mist engulfs a swamp. Creatures climb trees to avoid toxic water.",
+      "Dead forest next to a small lunar colony. All plants are wilted or rotten.",
+      "Immense cavern, walls decorated with strange mushrooms of different colors.",
+      "Destroyed nuclear plant. One reactor collapsed, core exposed.",
+      "Lake of strange purple and green oil next to an abandoned mineral refinery."
+    ],
+    "encounters": [
+      { "roll": 1, "name": "RED FOREST", "text": "A mutated Dust Wasp attacks. Nuclear mutations give it +15 Max HP." },
+      { "roll": 2, "name": "NUCLEAR INCURSION", "text": "Facility NR-L3-0618. 15 minutes. Enter: fight a Deepworm in 3 turns or roll for Abyssal Scar. Explore with a drone: lose 5 Energy. Find: 3 Power Cells + random HACK + 2 Data Shards." },
+      { "roll": 3, "name": "ACID RAIN", "text": "ROLL GRACE - Success: sprint to shelter [+1]. Failure: lose 6 Health." },
+      { "roll": 4, "name": "LUNAR GRAVEYARD", "text": "Find BurnPatch + ShieldStim." },
+      { "roll": 5, "name": "ABANDONED SHIP", "text": "Abandoned Twinrotor Hauler. Retrieve 2 Health Packs." },
+      { "roll": 6, "name": "THE HUNT", "text": "Join the hunt: a Mutated Chimaera appears (+10 Max HP). Hunter deals d12 per turn. If not defeated in 5 turns, beast kills the hunter. Loot a Gravity Rifle from his body." }
+    ]
+  },
+  {
+    "id": "frost-moon", "name": "Frost Moon", "type": "04",
+    "description": "Composed of ice and water. Most common celestial bodies containing water. Hard to traverse due to cold temperatures and geysers. Some have subsurface oceans of liquid water.",
+    "landingSpots": [
+      "Peak of the tallest mountain in the valley. Northern lights visible at night.",
+      "Frozen skeleton of a giant alien animal. Small creatures use it as shelter.",
+      "Lone village in the tundra, on the shore of a frozen chemically active lake.",
+      "Giant mechanical crawler vehicle, abandoned over a snowy battlefield.",
+      "Ceramic shrine carved into a mountain sierra. Stone path leading to it is frozen.",
+      "Old military base, hidden in the mountainside. Large metal doors are stuck."
+    ],
+    "encounters": [
+      { "roll": 1, "name": "SNOWFALL", "text": "ROLL VIGOR - Success: grab onto a tree, avoid snowfall [+1]. Failure: lose 7 Health." },
+      { "roll": 2, "name": "ALONE IN THE ARCTIC", "text": "Ruins rebuilt by 3 Edge-Worlders. Spend the night and restore Health and Energy to 20." },
+      { "roll": 3, "name": "OPEN YOUR MIND", "text": "A Synth Apostle. +3 Favor Synth Arch: gain a random MASTER HACK [+1 Favor Synth Arch]. Accept: gain a random HACK [+1 Favor Synth Arch]. Reject: fight the robot [-1 Favor Synth Arch]." },
+      { "roll": 4, "name": "BLIZZARD", "text": "Find shelter in a cave. A Deepworm attacks." },
+      { "roll": 5, "name": "ON THIN ICE", "text": "Find a broken underwater robot. Take 2 Energy Cells." },
+      { "roll": 6, "name": "FROSTPEAK BASE", "text": "Rebel column to military base MO-S-926. -2 Favor WARG: a Guerrilla Commander attacks with 2 Rebel Soldiers. Join the expedition (less daunting). Go alone: ROLL VIGOR (+4 if with rebels). If you make it: gain random cybertech implant. If alone: also gain 75 Serum + random ranged weapon mod." }
+    ]
+  },
+  {
+    "id": "volcanic-moon", "name": "Volcanic Moon", "type": "05",
+    "description": "Extreme volcanic geologic activity and high temperatures. Hundreds of active volcanoes. Rivers of lava flow through the surface, sometimes forming oceans of molten rock, iron, and sulfur.",
+    "landingSpots": [
+      "Ash clouds cover the sky. Darkness broken by glowing lava lakes.",
+      "Geothermal energy plant, explosions damaged the roof of its power processor.",
+      "Lava waterfall rushing over the gorge of a mountain valley.",
+      "River of magma turned solid. Feel the ground move as you walk over it.",
+      "Crater of an inactive volcano. Center covered in metallic dust.",
+      "Shores of basalt columns surrounding a massive yellow lake of sulfur and molten rock."
+    ],
+    "encounters": [
+      { "roll": 1, "name": "VOLCANIC ERUPTION", "text": "ROLL GRACE - Success: dodge falling rocks and flames [+1]. Failure: lose 7 Hull." },
+      { "roll": 2, "name": "DOME OF LIFE", "text": "Take the batteries: steal 3 Energy Cells, plants die. Grab the seeds: take 2 Terraforming Seeds." },
+      { "roll": 3, "name": "THERMAL HALLUCINATION", "text": "-1 to every stat until you reach a Settlement or consume a Health Pack." },
+      { "roll": 4, "name": "CASKET OF ASH", "text": "Find 2 Flash Rounds + 1 bottle Zero-G Liquor." },
+      { "roll": 5, "name": "MELTED MINDS", "text": "Destroy the robots: fight 3 Android Synths, gain 95 Serum [+1 Favor ISF][-1 Favor Synth Arch]. Finish off patrol: fight 3 ISF Soldiers, gain random cybertech [+1 Favor Synth Arch][-1 Favor ISF]." },
+      { "roll": 6, "name": "INFERNO SHELTER", "text": "Find Hades IV armor set inside." }
+    ]
+  },
+  {
+    "id": "hollow-moon", "name": "Hollow Moon", "type": "06",
+    "description": "Man-made orbiting megastructures with an outer metallic surface layer and a hollow core. Interior often housed population centers or entertainment facilities, with breathable air and large gardens.",
+    "landingSpots": [
+      "Small transparent moon. Rotation engine malfunctioning, nullifying all gravity inside.",
+      "Mecha building factory, an unfinished armored suit prototype sits in the mechanics bay.",
+      "Suburban neighborhood with thousands of identical housing compartments.",
+      "Cybertech company mega-store. Interior looted and ransacked.",
+      "Theme park featuring an interminable roller coaster circling the whole moon.",
+      "Hyperspeed racing track for hover vehicles. Three have crashed into the last curve."
+    ],
+    "encounters": [
+      { "roll": 1, "name": "FAIRY SONG ONLINE", "text": "Find a random HACK in a PC terminal." },
+      { "roll": 2, "name": "ANDROID FACTORY", "text": "Defend the factory: fight a Cyber-Terrorist and a Nethacker, gain random cybertech [+1 Favor Synth Arch][-1 Favor Medusa]. Kill the androids: fight the Synth Apostle, gain random MASTER HACK [+1 Favor Medusa][-1 Favor Synth Arch]." },
+      { "roll": 3, "name": "GAME OVER", "text": "ROLL MIND - Success: delete the malware. Failure: lose 6 Fuel and 5 Energy." },
+      { "roll": 4, "name": "THE SLUMS", "text": "Scavenge 2 random status cures from an empty home." },
+      { "roll": 5, "name": "URBAN TRIBE", "text": "May buy any melee weapons or melee weapon mods from Edge-Worlders." },
+      { "roll": 6, "name": "STARDUST INC.", "text": "Side with nomads: fight 2 Space Pirates. Side with pirates: fight a Looter + 2 Edge-Worlders. Win: get d6 bottles of Stardust Soda, sell for 100 Serum each or consume." }
+    ]
+  }
+]

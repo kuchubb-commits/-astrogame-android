@@ -2,83 +2,65 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Project
-
-Astroprisma Digital Companion — a React PWA that replaces the Astroprisma RPG PDF, allowing solo play without opening the book. All game data comes exclusively from the Core Book; nothing is invented.
-
-## Commands
-
-All commands run inside `astroprisma-app/`:
+## Commandes
 
 ```bash
-npm run dev        # dev server with HMR
-npm run build      # tsc -b && vite build → dist/
-npm run lint       # eslint on all .ts/.tsx
-npm run preview    # serve dist/ locally
+npm run dev       # serveur de développement (Vite, port 5173)
+npm run build     # build production (tsc -b && vite build)
+npm run preview   # prévisualiser le build
+npx tsc --noEmit  # vérification TypeScript sans compilation
 ```
 
-Deployment is automatic: `git push` → Cloudflare Pages builds and deploys `astroprisma-app/dist/`.
+Pas de tests automatisés à ce stade — validation manuelle dans le navigateur.
 
 ## Architecture
 
-### Repository layout
+### Vue d'ensemble
+
+App React mobile-first pour jouer au jeu de rôle solo **Astroprisma** sans le livre physique. Stack : Vite + React 18 + TypeScript + Tailwind + Zustand + Gemini AI (à venir).
+
+### Structure `src/`
 
 ```
-astrogame-android/
-├── astroprisma-app/        ← Vite + React + TS app (source of truth for code)
-│   └── src/
-│       ├── features/       ← one folder per game phase (character, combat, dice…)
-│       ├── stores/         ← Zustand stores shared across features
-│       └── data/           ← JSON game data consumed by the app
-├── book/                   ← extracted game rules (ch1–ch11 markdown, authoritative)
-├── pdf_to_image.py         ← converts a single PDF page to PNG
-└── convert_all_pages.py    ← converts all pages at once
+src/
+├── engine/        ← logique de jeu pure (pas de React)
+│   └── dice.ts    ← moteur de dés : roll(DiceFormula) → RollResult
+├── components/
+│   └── ui/        ← design system Astroprisma (Card, Button, StatBlock, DiceButton, ResourceBar, Badge)
+├── pages/         ← écrans complets (Styleguide, à terme CharacterSheet, Map, Combat…)
+├── stores/        ← état Zustand (à venir Phase 1)
+├── ai/            ← intégration Gemini (à venir Phase 3)
+└── App.tsx        ← point d'entrée (actuellement → Styleguide)
 ```
 
-### Feature isolation pattern
+### `data/` — Source unique de vérité
 
-Each feature is **independent**: it reads/writes only its own Zustand store plus shared stores. Features never import from each other. Integration happens through stores, not direct calls.
+23 fichiers JSON extraits du Core Book officiel (jamais de valeurs inventées) :
+`origins`, `weapons`, `weapon-mods`, `armor`, `items`, `hacks`, `cybertech`, `drones`, `enemies`, `starships`, `starship-modules`, `factions`, `oracle`, `exploration-tables`, `planets`, `satellites`, `settlements`, `missions`, `npcs`, `names`, `loot-tables`, `status-conditions`, `abyssal-scars`.
 
-```
-src/features/<feature>/
-    ├── components/   ← React UI
-    ├── hooks/        ← feature-specific logic
-    └── index.ts      ← public surface (store + main component)
-```
+La logique de jeu dans `engine/` lit ces JSON — elle ne hardcode aucune valeur.
 
-### Zustand stores
+### Design system (`src/components/ui/`)
 
-Stores live in `src/stores/` and are the **only** cross-feature communication layer. Each phase owns one store; the narration store (`useNarrationStore`) reads all of them to build AI context.
+Palette Tailwind custom définie dans `tailwind.config.js` :
+- Fond : `bg-astro-black` (`#130d1c`)
+- Texte : `text-bone` (`#f0eee8`)
+- Accent interactif : `bg-accent` (`#ef476e`) / `bg-accent-deep` (`#d50059`)
+- Factions : `bg-warg`, `bg-medusa`, `bg-wire`, `bg-intersolar`, `bg-synth`
 
-### Game data pipeline
+Polices : `font-mono` (Space Mono), `font-display` (Anton), `font-serif` (Instrument Serif italic).
 
-`book/ch*.md` → JSON files in `src/data/` → consumed by stores/components. Never hardcode game values inline; always source from these JSON files.
+Tous les nouveaux écrans doivent utiliser les composants `ui/` — ne pas re-créer des styles ad hoc.
 
-## PDF extraction rules
+### Moteur de dés (`src/engine/dice.ts`)
 
-These rules are permanent — never bypass them.
+Fonction centrale : `roll(formula: DiceFormula): RollResult`. Couvre d4–d20, 2d6, d66, dN+mod, d6×stat. `DiceButton` en est le wrapper React. Pour ajouter une mécanique de résolution, utiliser `roll()` directement dans `engine/` — pas dans les composants.
 
-- **Always use PNG images** via `pdf_to_image.py <page_number>`. Never use raw text extraction.
-- **Page offset**: ch1–ch6 use offset +3 (PDF page = book page + 3). Ch7 onwards: offset = 0.
-- **Zoom before `(?)`**: if a zone is illegible, crop + zoom ×3 with Pillow before marking anything uncertain.
-- **Validate before integrating**: extracted data must be confirmed before writing to `book/` or `src/data/`.
+## Règles projet
 
-## Game data reference
-
-Canonical game rules are in `book/`. Key symbols used throughout:
-
-| Symbol | Meaning |
-|--------|---------|
-| `★` | Serum (currency) |
-| `⚡` | Energy |
-| `⚙` | Scraps |
-| `◎` | Hyperdrive |
-| `♡` | Armor |
-| `✳` | Serum (astérisque 6 branches) |
-| `◆` | Challenge Roll |
-
-Stats: **VIGOR / GRACE / MIND / TECH**. Status conditions: OVERHEAT, SHOCK, STUN, SILENCE, BREACH, IMMUNITY.
-
-## Gemini API
-
-Key stored in `.env` as `VITE_GEMINI_API_KEY` — never committed. Narration calls go through `src/lib/gemini.ts`.
+- **Valider avant de coder** : chaque module discuté avant implémentation.
+- **Données = `book/` uniquement** : toute valeur de règle vient des fichiers `book/*.md` ou des JSON `data/`. Rien d'inventé.
+- **Pas de valeur hardcodée** dans la logique : toujours lire depuis `data/*.json`.
+- **UI en français**, code/identifiants/JSON en anglais.
+- Référence design : `design.md` (palette, composants, ambiance rétro sci-fi).
+- Référence gameplay : `idee.md` + `plan.md` (phases, mécaniques, roadmap).

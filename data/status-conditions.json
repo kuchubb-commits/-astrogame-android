@@ -1,0 +1,11 @@
+[
+  { "id": "overheat", "name": "Overheat", "effect": "Takes d6 damage at the start of its turn, ignoring Armor and Shields.", "duration": "until end of combat / set turns", "stackable": true },
+  { "id": "shock", "name": "Shock", "effect": "Temporarily loses all Armor (set to 0).", "duration": "set turns", "stackable": true },
+  { "id": "stun", "name": "Stun", "effect": "Roll d6 at the start of the turn. If result = 1 -> turn skipped.", "duration": "set turns", "stackable": true },
+  { "id": "silence", "name": "Silence", "effect": "Cannot use Cybertech. Stat bonuses and abilities disabled.", "duration": "set turns", "stackable": true },
+  { "id": "breach", "name": "Breach", "effect": "Enemy HACKS always succeed. Can no longer control or use DRONES.", "duration": "set turns", "stackable": true },
+  { "id": "immunity", "name": "Immunity", "effect": "Receives no direct damage.", "duration": "until next direct damage / set turns", "stackable": true },
+  { "id": "blinded", "name": "Blinded", "effect": "Applied by Tear Shell grenade vs highest-difficulty enemy for TEC turns.", "duration": "TEC turns", "stackable": true },
+  { "id": "beaconed", "name": "Beaconed", "effect": "Applied by Flash Bomb grenade vs highest-difficulty enemy for TEC turns.", "duration": "TEC turns", "stackable": true },
+  { "id": "toxins", "name": "Toxins", "effect": "Enemy takes 1 damage per turn (ignoring Armor) for the rest of combat. This effect stacks. (Applied by Dust Wasp Poisonous Stinger.)", "duration": "rest of combat", "stackable": true }
+]

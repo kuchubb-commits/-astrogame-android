@@ -1,0 +1,78 @@
+{
+  "general": [
+    { "roll": 1, "reward": "25 Serum" },
+    { "roll": 2, "reward": "Health Pack" },
+    { "roll": 3, "reward": "Energy Cell" },
+    { "roll": 4, "reward": "Random Status Cure" },
+    { "roll": 5, "reward": "30 Scraps" },
+    { "roll": 6, "reward": "Random Narcobiotic" },
+    { "roll": 7, "reward": "Random Ranged Weapon" },
+    { "roll": 8, "reward": "Random Melee Weapon" },
+    { "roll": 9, "reward": "60 Scraps" },
+    { "roll": 10, "reward": "75 Serum" },
+    { "roll": 11, "reward": "Random Hack" },
+    { "roll": 12, "reward": "Random Ranged Mod" },
+    { "roll": 13, "reward": "Random Melee Mod" },
+    { "roll": 14, "reward": "150 Serum" },
+    { "roll": 15, "reward": "Random Armor Set" },
+    { "roll": 16, "reward": "Random Master Hack" },
+    { "roll": 17, "reward": "Random Cybertech" },
+    { "roll": 18, "reward": "300 Serum" }
+  ],
+  "boss": [
+    { "roll": 1, "reward": "1x Hyperdrive" },
+    { "roll": 2, "reward": "200 Scraps" },
+    { "roll": 3, "reward": "Random Armor Set" },
+    { "roll": 4, "reward": "Random Master Hack" },
+    { "roll": 5, "reward": "350 Serum" },
+    { "roll": 6, "reward": "Random Cybertech" }
+  ],
+  "rangedWeaponD8": [
+    { "roll": 1, "weapon": "Revolver" },
+    { "roll": 2, "weapon": "Gauss SMG" },
+    { "roll": 3, "weapon": "Laser Blaster" },
+    { "roll": 4, "weapon": "Gamma Gun" },
+    { "roll": 5, "weapon": "Ignition Shotgun" },
+    { "roll": 6, "weapon": "Ion Carbine" },
+    { "roll": 7, "weapon": "Pulse Rifle" },
+    { "roll": 8, "weapon": "Gravity Rifle" }
+  ],
+  "meleeWeaponD6": [
+    { "roll": 1, "weapon": "Carbon Dagger" },
+    { "roll": 2, "weapon": "Helix Wire" },
+    { "roll": 3, "weapon": "Rocket Hammer" },
+    { "roll": 4, "weapon": "Plasma Shield" },
+    { "roll": 5, "weapon": "Halo Discs" },
+    { "roll": 6, "weapon": "Neon Blade" }
+  ],
+  "rangedModD6": [
+    { "roll": 1, "mod": "Silencer" },
+    { "roll": 2, "mod": "Laser Accelerator" },
+    { "roll": 3, "mod": "Reflex Sight" },
+    { "roll": 4, "mod": "Malware Injection" },
+    { "roll": 5, "mod": "Auto Reloader" },
+    { "roll": 6, "mod": "Smart Aim" }
+  ],
+  "meleeModD6": [
+    { "roll": 1, "mod": "Stealth Grip" },
+    { "roll": 2, "mod": "Counter Guard" },
+    { "roll": 3, "mod": "Vibrating Motor" },
+    { "roll": 4, "mod": "Heat Chamber" },
+    { "roll": 5, "mod": "Kinetic Engine" },
+    { "roll": 6, "mod": "Charge Attack" }
+  ],
+  "statusCuresD10": [
+    { "roll": "1-2", "item": "BurnPatch" },
+    { "roll": "3-4", "item": "ShieldStim" },
+    { "roll": "5-6", "item": "PowerGen" },
+    { "roll": "7-8", "item": "AntiVirus" },
+    { "roll": "9-10", "item": "AdrenaShot" }
+  ],
+  "grenadesD10": [
+    { "roll": "1-2", "item": "Frag Grenade" },
+    { "roll": "3-4", "item": "Heat Bomb" },
+    { "roll": "5-6", "item": "EMP Grenade" },
+    { "roll": "7-8", "item": "Taser Shell" },
+    { "roll": "9-10", "item": "Flash Round" }
+  ]
+}

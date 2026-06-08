@@ -1,0 +1,22 @@
+{
+  "character": {
+    "feminine": ["Aoi", "Aurora", "Blossom", "Belle", "Cammy", "Cherry", "Diane", "Eve", "Felicia", "Gaia", "Harmony", "Iris", "Jeanne", "Julieta", "Lily", "Love", "Magnolia", "Maria", "Miorine", "Nyx", "Nanako", "Olivia", "Ophelia", "Penelope", "Pearl", "Rose", "Sirena", "Suletta", "Tiara", "Ursula", "Valérie", "Valkyrie", "Willow", "Xia", "Yuna", "Zahara"],
+    "neutral": ["Aloe", "Addison", "Bay", "Billie", "Cinnamon", "Clay", "Celeste", "Eden", "Flare", "Gray", "Hunter", "Honey", "Indigo", "Ink", "Jade", "Lavender", "Lyric", "Maple", "Mercury", "Moon", "Natural", "Nieve", "Opal", "Plume", "Quinn", "Rain", "Rune", "Silver", "Shiver", "Thyme", "Uriel", "Volt", "Winter", "Xenon", "Yuri", "Zephyr"],
+    "masculine": ["Adam", "Ares", "Byron", "Cassius", "Comet", "Dante", "Davos", "Everest", "Elio", "Enzo", "Falcon", "Ganymede", "Gideon", "Helio", "Horus", "Hyacinth", "Jager", "Junco", "Lance", "Lirio", "Merlin", "Nile", "Orion", "Perseus", "Reaper", "Salem", "Silas", "Thiago", "Triton", "Ulrich", "Valor", "Vein", "Wave", "Xavier", "Yukio", "Zen"]
+  },
+  "starship": {
+    "names": ["Behemoth", "Siren", "Legacy", "Sword", "Infinity", "Warlock", "Manticore", "Orpheus", "Unity", "Sisterhood", "Century", "Vision", "Watcher", "Halo", "Nomad", "Trident", "Europa", "Republic", "Odyssey", "Icarus", "Voidgate", "Messiah", "Pioneer", "Serpent", "Liberty", "Future", "Pyramid", "Endeavor", "Runner", "Atmosphere", "Starfall", "Nova", "Gazelle", "Pacific", "Excalibur", "Vulcan"],
+    "classes": ["Speeder", "Fighter", "Interceptor", "Carrier", "Transporter", "Freighter", "Voyager", "Explorer", "Warden", "Destroyer", "Yacht", "Dreadnought"]
+  },
+  "planet": ["Atlantis", "Apollo", "Arcadia", "Antigua", "Boeetia", "Bahr", "Beherit", "Bismuth", "Camelot", "Cerberus", "Corinth", "Chryse", "Dion", "Dinamo", "Delos", "Danae", "Eirene", "Echo", "Euboea", "Eos", "Faith", "Fate", "Freyja", "Feather", "Galapagos", "Ganymede", "Galatea", "Gjöll", "Helios", "Hypnos", "Hosyk", "Heim", "Ionia", "Iris", "Ithaca", "Icarus", "Ichor", "Jasmine", "June", "Jewel", "Kharjet", "Kiff", "Kronos", "Knidos", "Lluvia", "Leon", "Lagoon", "Letho", "Myrrha", "Megara", "Manek", "Melos", "Nirvana", "Nieve", "Nysa", "Nymph", "Oebalus", "Orcus", "Olympus", "Oleo", "Paladia", "Pallas", "Paros", "Primavera", "Qooz", "Qassim", "Qiron", "Quetzal", "Rabia", "Rhodes", "Regia", "Rota", "Styx", "Sicyon", "Scylla", "Sierra", "Tiryns", "Tartesso", "Thera", "Tomb", "Ultra", "Uva", "Ulcer", "Ulisses", "Vortex", "Violeta", "Valley", "Valhalla", "War", "Willow", "Wendigo", "Ximena", "Xieu", "Xyz", "Yakh", "Yggdrasil", "Yvel", "Ziggurat", "Zoco", "Zeht"],
+  "satellite": {
+    "note": "Roll 2d20 - combine Prefix (first d20) + Suffix (second d20). Example: 3 + 11 = Gamma Shield.",
+    "prefix": ["Alpha", "Beta", "Gamma", "Delta", "Epsilon", "Zeta", "Eta", "Tetho", "Iota", "Lambda", "Nu", "Xi", "Omicron", "Pi", "Rho", "Sigma", "Tau", "Upsilon", "Psi", "Omega"],
+    "suffix": ["Falcon", "Venture", "Rotor", "Phase", "Isle", "Star", "Tick", "Ghost", "Wand", "Omen", "Shield", "Plate", "Hope", "Window", "Light", "Call", "Node", "Child", "Eden", "Unit"]
+  },
+  "settlement": {
+    "note": "Roll 2d20 - combine Prefix (first d20) + Suffix (second d20). Example: 5 + 14 = Leo Beacon.",
+    "prefix": ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpius", "Sagittarius", "Capricorn", "Aquarius", "Pisces", "Andromeda", "Ursa", "Ophiuchus", "Lyra", "Hercules", "Crater", "Aquila", "Pegasus"],
+    "suffix": ["Arc", "Cocoon", "Dome", "Gorgon", "Heart", "Mother", "Noble", "Oath", "Palace", "Scarab", "Titan", "Valiant", "Trail", "Beacon", "Cage", "Moth", "Fortress", "Light", "Field", "Dungeon"]
+  }
+}

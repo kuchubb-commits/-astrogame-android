@@ -1,0 +1,336 @@
+[
+  {
+    "id": "looter", "name": "Looter", "hp": 10, "armor": 0,
+    "stats": { "vigor": 1, "grace": 1, "mind": 0, "tech": 1 }, "difficulty": "",
+    "actions": [
+      { "roll": "1-5", "name": "Revolver", "effect": "d6+VIG damage" },
+      { "roll": "6-9", "name": "Flash Round", "effect": "ROLL VIGOR vs an enemy. On success, all enemies Stunned for TEC turns." },
+      { "roll": "10", "name": "Steal", "effect": "Take 50 Serum from an enemy (recovered when defeated)." }
+    ],
+    "skills": [], "loot": "", "isBoss": false
+  },
+  {
+    "id": "space-pirate", "name": "Space Pirate", "hp": 15, "armor": 1,
+    "stats": { "vigor": 2, "grace": 2, "mind": 0, "tech": 1 }, "difficulty": "",
+    "actions": [
+      { "roll": "1", "name": "ShieldStim", "effect": "Remove Shock" },
+      { "roll": "2-6", "name": "Ignition Shotgun", "effect": "d10+VIG damage" },
+      { "roll": "7-9", "name": "Heat Bomb", "effect": "ROLL VIGOR vs an enemy. On success, all enemies Overheated for TEC turns." },
+      { "roll": "10", "name": "Zero-G Liquor", "effect": "Move twice next turn" }
+    ],
+    "skills": [], "loot": "", "isBoss": false
+  },
+  {
+    "id": "mercenary", "name": "Mercenary", "hp": 20, "armor": 2,
+    "stats": { "vigor": 3, "grace": 2, "mind": 0, "tech": 1 }, "difficulty": "",
+    "actions": [
+      { "roll": "1", "name": "BurnPatch", "effect": "Remove Overheat" },
+      { "roll": "2-6", "name": "Ion Carbine", "effect": "d10+GRA damage" },
+      { "roll": "7-9", "name": "Flash Round", "effect": "ROLL VIGOR vs an enemy. On success, all enemies Stunned for TEC turns." },
+      { "roll": "10", "name": "Tricillin Tablet", "effect": "+1 to all stats" }
+    ],
+    "skills": [], "loot": "", "isBoss": false
+  },
+  {
+    "id": "bounty-hunter", "name": "Bounty Hunter", "hp": 25, "armor": 3,
+    "stats": { "vigor": 3, "grace": 3, "mind": 0, "tech": 2 }, "difficulty": "",
+    "actions": [
+      { "roll": "1-2", "name": "Helix Wire", "effect": "d8+VIG damage" },
+      { "roll": "3-5", "name": "Pulse Rifle", "effect": "2d6+VIG damage" },
+      { "roll": "6-7", "name": "EMP Grenade", "effect": "ROLL VIGOR vs an enemy. On success, all enemies Silenced for TEC turns." },
+      { "roll": "8-9", "name": "Flash Round", "effect": "ROLL VIGOR vs an enemy. On success, all enemies Stunned for TEC turns." },
+      { "roll": "10", "name": "Tricillin Tablet", "effect": "+1 to all stats" }
+    ],
+    "skills": [], "loot": "", "isBoss": false
+  },
+  {
+    "id": "outer-ring-crime-boss", "name": "Outer Ring Crime Boss", "hp": 90, "armor": 4,
+    "stats": { "vigor": 5, "grace": 2, "mind": 1, "tech": 2 }, "difficulty": "Boss",
+    "actions": [
+      { "roll": "1-4", "name": "Laser Blaster + Laser Accelerator", "effect": "d8+VIG damage, ignores enemy Armor." },
+      { "roll": "5-6", "name": "Flash Round", "effect": "ROLL VIGOR vs an enemy. On success, all enemies Stunned for TEC turns." },
+      { "roll": "7-8", "name": "Frag Grenade", "effect": "ROLL VIGOR vs an enemy. On success, all enemies take 3d6 damage." },
+      { "roll": "9", "name": "Zero-G Liquor", "effect": "Move twice next turn" },
+      { "roll": "10", "name": "Tricillin Tablet", "effect": "+1 to all stats" }
+    ],
+    "skills": ["Can't be Stunned."], "loot": "", "isBoss": true
+  },
+  {
+    "id": "edge-worlder", "name": "Edge-Worlder", "hp": 15, "armor": 0,
+    "stats": { "vigor": 1, "grace": 0, "mind": 0, "tech": 2 }, "difficulty": "",
+    "actions": [
+      { "roll": "1-2", "name": "Bandage Wounds", "effect": "+d10 HP" },
+      { "roll": "3-6", "name": "Rocket Hammer", "effect": "d10+VIG damage" },
+      { "roll": "7-9", "name": "EMP Grenade", "effect": "ROLL VIGOR vs an enemy. On success, all enemies Silenced for TEC turns." },
+      { "roll": "10", "name": "Scrap Mallet", "effect": "The next Rocket Hammer deals +3 extra damage." }
+    ],
+    "skills": [], "loot": "", "isBoss": false
+  },
+  {
+    "id": "bullseye-hunter", "name": "Bullseye Hunter", "hp": 20, "armor": 1,
+    "stats": { "vigor": 0, "grace": 2, "mind": 1, "tech": 2 }, "difficulty": "",
+    "actions": [
+      { "roll": "1-3", "name": "Bandage Wounds", "effect": "+d10 HP" },
+      { "roll": "4-6", "name": "Gravity Rifle", "effect": "d12+GRA damage" },
+      { "roll": "7-9", "name": "Tracking Shot", "effect": "Deal d12 damage. The enemy has -2 GRA for the rest of combat." },
+      { "roll": "10", "name": "Precision Shot", "effect": "The next Gravity Rifle is rolled twice, keep the highest." }
+    ],
+    "skills": [], "loot": "", "isBoss": false
+  },
+  {
+    "id": "rebel-fighter", "name": "Rebel Fighter", "hp": 20, "armor": 2,
+    "stats": { "vigor": 2, "grace": 3, "mind": 0, "tech": 1 }, "difficulty": "",
+    "actions": [
+      { "roll": "1-4", "name": "Carbon Dagger", "effect": "d6+GRA damage" },
+      { "roll": "5-9", "name": "Gauss SMG + Reflex Sight", "effect": "d6+GRA damage. If GRA > enemy, +2 damage." },
+      { "roll": "10", "name": "Frag Grenade", "effect": "ROLL VIGOR vs an enemy. On success, all enemies take 3d6 damage." }
+    ],
+    "skills": [], "loot": "", "isBoss": false
+  },
+  {
+    "id": "guerrilla-commander", "name": "Guerrilla Commander", "hp": 30, "armor": 3,
+    "stats": { "vigor": 2, "grace": 4, "mind": 0, "tech": 2 }, "difficulty": "",
+    "actions": [
+      { "roll": "1-3", "name": "Revolver + Laser Accelerator", "effect": "d6+VIG damage, ignores enemy Armor." },
+      { "roll": "4-7", "name": "Pulse Rifle + Reflex Sight", "effect": "d10+VIG damage. If GRA > enemy, +2 damage." },
+      { "roll": "8-9", "name": "Heat Bomb", "effect": "ROLL VIGOR vs an enemy. On success, all enemies Overheated for TEC turns." },
+      { "roll": "10", "name": "Frag Grenade", "effect": "ROLL VIGOR vs an enemy. On success, all enemies take 3d6 damage." }
+    ],
+    "skills": [], "loot": "", "isBoss": false
+  },
+  {
+    "id": "warg-major-general", "name": "WARG Major General", "hp": 80, "armor": 5,
+    "stats": { "vigor": 5, "grace": 3, "mind": 2, "tech": 1 }, "difficulty": "Boss",
+    "actions": [
+      { "roll": "1-4", "name": "Neon Blade + Vibrating Motor", "effect": "d12+VIG damage. If VIG > enemy, +2 damage." },
+      { "roll": "5-7", "name": "CYBER_Mantis Scythes", "effect": "Deal d6 x GRA damage. x2 if first in initiative order." },
+      { "roll": "8-9", "name": "HACK_Ignite", "effect": "Deal d10 + MIN damage and Overheat an enemy for 2 turns." },
+      { "roll": "10", "name": "Frag Grenade", "effect": "ROLL VIGOR vs an enemy. On success, all enemies take 3d6 damage." }
+    ],
+    "skills": ["Can't be Shocked."], "loot": "", "isBoss": true
+  },
+  {
+    "id": "scientist", "name": "Scientist", "hp": 10, "armor": 0,
+    "stats": { "vigor": 0, "grace": 0, "mind": 2, "tech": 2 }, "difficulty": "",
+    "actions": [
+      { "roll": "1-4", "name": "Treat Wounds", "effect": "+d10 HP" },
+      { "roll": "5-7", "name": "Gamma Gun", "effect": "d8+TEC damage" },
+      { "roll": "8-9", "name": "HACK_Kraken", "effect": "Stun all enemies for 1 turn." },
+      { "roll": "10", "name": "Electroxyn Capsule", "effect": "+1 TEC" }
+    ],
+    "skills": [], "loot": "", "isBoss": false
+  },
+  {
+    "id": "drone-operator", "name": "Drone Operator", "hp": 15, "armor": 1,
+    "stats": { "vigor": 0, "grace": 0, "mind": 2, "tech": 3 }, "difficulty": "",
+    "actions": [
+      { "roll": "1-3", "name": "Mechanical Wrench", "effect": "d6+TEC damage" },
+      { "roll": "4-6", "name": "EMP Relay", "effect": "Silence an enemy for 2 turns." },
+      { "roll": "7-9", "name": "Nano-Taser", "effect": "Shock an enemy for 2 turns." },
+      { "roll": "10", "name": "Electroxyn Capsule", "effect": "+1 TEC" }
+    ],
+    "skills": ["HP Injection - Restore TEC Health each turn."], "loot": "", "isBoss": false
+  },
+  {
+    "id": "nethacker", "name": "NetHacker", "hp": 20, "armor": 0,
+    "stats": { "vigor": 0, "grace": 1, "mind": 3, "tech": 2 }, "difficulty": "",
+    "actions": [
+      { "roll": "1-2", "name": "Gauss SMG", "effect": "d6+GRA damage" },
+      { "roll": "3-5", "name": "HACK_Trojan", "effect": "Breach an enemy for MIN turns." },
+      { "roll": "6-9", "name": "HACK_Ignite", "effect": "Deal d12 + MIN damage and Overheat an enemy for 2 turns." },
+      { "roll": "10", "name": "Stratogen Hormones", "effect": "+1 MIN" }
+    ],
+    "skills": [], "loot": "", "isBoss": false
+  },
+  {
+    "id": "cyber-terrorist", "name": "Cyber-Terrorist", "hp": 35, "armor": 1,
+    "stats": { "vigor": 0, "grace": 2, "mind": 4, "tech": 2 }, "difficulty": "",
+    "actions": [
+      { "roll": "1-2", "name": "Carbon Dagger", "effect": "d6+GRA damage" },
+      { "roll": "3-5", "name": "HACK_Trojan", "effect": "Breach an enemy for MIN turns." },
+      { "roll": "6-7", "name": "HACK_Counterspell", "effect": "Silence all enemies for MIN turns." },
+      { "roll": "8-9", "name": "HACK_Hydra", "effect": "Deal d10 x MIN damage to a Breached enemy." },
+      { "roll": "10", "name": "HACK_Shadow", "effect": "Become Immune until dealing direct damage." }
+    ],
+    "skills": [], "loot": "", "isBoss": false
+  },
+  {
+    "id": "medusa-masterhacker", "name": "Medusa MasterHacker", "hp": 95, "armor": 3,
+    "stats": { "vigor": 0, "grace": 2, "mind": 5, "tech": 3 }, "difficulty": "Boss",
+    "actions": [
+      { "roll": "1-3", "name": "HACK_Parasite", "effect": "Breach all enemies for MIN turns. Restore 2 HP per affected enemy." },
+      { "roll": "4-5", "name": "HACK_Supernova", "effect": "Deal 3d6 to all enemies + Shock for MIN turns." },
+      { "roll": "6-7", "name": "HACK_Hydra", "effect": "Deal d10 x MIN damage to a Breached enemy." },
+      { "roll": "8-9", "name": "HACK_Mindsteal", "effect": "Set an enemy's MIN to 0. Gain X MIN for 2 turns (X = enemy base MIN)." },
+      { "roll": "10", "name": "HACK_Shadow", "effect": "Become Immune until dealing direct damage." }
+    ],
+    "skills": ["Can't be Breached."], "loot": "", "isBoss": true
+  },
+  {
+    "id": "automaton-bot", "name": "Automaton Bot", "hp": 8, "armor": 5,
+    "stats": { "vigor": 1, "grace": 0, "mind": 0, "tech": 2 }, "difficulty": "",
+    "actions": [
+      { "roll": "1-2", "name": "Self-Repair", "effect": "+d6 HP" },
+      { "roll": "3-7", "name": "Claw Grip", "effect": "d6 damage" },
+      { "roll": "8-9", "name": "Taser Shell", "effect": "ROLL VIGOR vs an enemy. On success, all enemies Shocked for TEC turns." },
+      { "roll": "10", "name": "Defense Protocol", "effect": "+1 Armor" }
+    ],
+    "skills": [], "loot": "", "isBoss": false
+  },
+  {
+    "id": "android-titan", "name": "Android Titan", "hp": 35, "armor": 3,
+    "stats": { "vigor": 3, "grace": 0, "mind": 2, "tech": 3 }, "difficulty": "",
+    "actions": [
+      { "roll": "1-2", "name": "Self-Repair", "effect": "+d6 HP" },
+      { "roll": "3-5", "name": "Shoulder Turrets", "effect": "d6+TEC damage" },
+      { "roll": "6-7", "name": "HACK_Volt", "effect": "Deal d10 + TEC damage and Stun an enemy for 1 turn." },
+      { "roll": "8-9", "name": "CYBER_Chromefist", "effect": "Deal damage equal to Armor x VIG." },
+      { "roll": "10", "name": "Defense Protocol", "effect": "+1 Armor" }
+    ],
+    "skills": [], "loot": "", "isBoss": false
+  },
+  {
+    "id": "android-synth", "name": "Android Synth", "hp": 15, "armor": 4,
+    "stats": { "vigor": 1, "grace": 0, "mind": 1, "tech": 3 }, "difficulty": "",
+    "actions": [
+      { "roll": "1-2", "name": "Self-Repair", "effect": "+d6 HP" },
+      { "roll": "3-7", "name": "Gamma Gun", "effect": "d8+TEC damage" },
+      { "roll": "8-9", "name": "HACK_Blackout", "effect": "Shock all enemies for TEC turns." },
+      { "roll": "10", "name": "Machine Learning", "effect": "+1 TEC" }
+    ],
+    "skills": [], "loot": "", "isBoss": false
+  },
+  {
+    "id": "synth-apostle", "name": "Synth Apostle", "hp": 70, "armor": 7,
+    "stats": { "vigor": 0, "grace": 2, "mind": 5, "tech": 3 }, "difficulty": "Boss",
+    "actions": [
+      { "roll": "1", "name": "System Reset", "effect": "Remove all status conditions." },
+      { "roll": "2-3", "name": "HACK_Archangel", "effect": "Restore d10 x TEC Health." },
+      { "roll": "4-5", "name": "HACK_Volt", "effect": "Deal d10 + TEC damage and Stun an enemy for 1 turn." },
+      { "roll": "6-7", "name": "CYBER_Mantis Scythes", "effect": "Deal d6 x GRA damage. x2 if first in initiative order." },
+      { "roll": "8-9", "name": "HACK_Aegis", "effect": "Gain TEC temporary Armor for MIN turns." },
+      { "roll": "10", "name": "Machine Learning", "effect": "+1 TEC & +1 GRA" }
+    ],
+    "skills": [], "loot": "", "isBoss": true
+  },
+  {
+    "id": "cyborg", "name": "Cyborg", "hp": 20, "armor": 4,
+    "stats": { "vigor": 2, "grace": 2, "mind": 0, "tech": 2 }, "difficulty": "",
+    "actions": [
+      { "roll": "1", "name": "Cybermalfunction", "effect": "Implants glitch, incapacitated this turn." },
+      { "roll": "2-3", "name": "Metallic Strike", "effect": "d6+TEC damage" },
+      { "roll": "4-7", "name": "CYBER_Atlas Hands", "effect": "If Armor > enemy, the enemy is Stunned for VIG turns." },
+      { "roll": "8-9", "name": "CYBER_Chainsaw Arms", "effect": "Deal d10 x VIG damage." },
+      { "roll": "10", "name": "Testogre Hormones", "effect": "+1 VIG" }
+    ],
+    "skills": [], "loot": "", "isBoss": false
+  },
+  {
+    "id": "merchant", "name": "Merchant", "hp": 10, "armor": 0,
+    "stats": { "vigor": 0, "grace": 0, "mind": 2, "tech": 2 }, "difficulty": "",
+    "actions": [
+      { "roll": "1-3", "name": "Carbon Dagger", "effect": "d6+GRA damage" },
+      { "roll": "4-9", "name": "HACK_Ember", "effect": "Overheat an enemy for MIN turns." },
+      { "roll": "10", "name": "HACK_Ignite", "effect": "Deal d12 + MIN damage and Overheat an enemy for 2 turns." }
+    ],
+    "skills": [], "loot": "", "isBoss": false
+  },
+  {
+    "id": "isf-soldier", "name": "ISF Soldier", "hp": 15, "armor": 3,
+    "stats": { "vigor": 2, "grace": 0, "mind": 2, "tech": 0 }, "difficulty": "",
+    "actions": [
+      { "roll": "1-2", "name": "Shock Shackles", "effect": "Stun an enemy for MIN turns." },
+      { "roll": "3-6", "name": "Plasma Shield", "effect": "d8+VIG damage" },
+      { "roll": "7-9", "name": "HACK_Counterspell", "effect": "Silence all enemies for MIN turns." },
+      { "roll": "10", "name": "Visor Scan", "effect": "+1 MIN" }
+    ],
+    "skills": [], "loot": "", "isBoss": false
+  },
+  {
+    "id": "isf-sentinel", "name": "ISF Sentinel", "hp": 35, "armor": 2,
+    "stats": { "vigor": 2, "grace": 1, "mind": 2, "tech": 1 }, "difficulty": "",
+    "actions": [
+      { "roll": "1-2", "name": "Shock Shackles", "effect": "Stun an enemy for MIN turns." },
+      { "roll": "3-5", "name": "Pulse Rifle", "effect": "2d6+VIG damage" },
+      { "roll": "6-9", "name": "HACK_Ignite", "effect": "Deal d12 + MIN damage and Overheat an enemy for 2 turns." },
+      { "roll": "10", "name": "Reinforcements", "effect": "Roll d6. On a 6, an ISF Soldier joins the combat." }
+    ],
+    "skills": [], "loot": "", "isBoss": false
+  },
+  {
+    "id": "isf-trade-baron", "name": "ISF Trade Baron", "hp": 99, "armor": 3,
+    "stats": { "vigor": 3, "grace": 2, "mind": 3, "tech": 2 }, "difficulty": "Boss",
+    "actions": [
+      { "roll": "1-2", "name": "Shock Shackles", "effect": "Stun an enemy for MIN turns." },
+      { "roll": "3-5", "name": "Gravity Rifle + Smart Aim", "effect": "d12+VIG damage. Roll damage twice, keep the highest." },
+      { "roll": "6-9", "name": "HACK_Ragnarok", "effect": "Overheat all enemies for TEC turns. Overheat deals +MIN extra damage until end of combat." },
+      { "roll": "10", "name": "Reinforcements", "effect": "Roll d6. On a 6, an ISF Soldier joins the combat." }
+    ],
+    "skills": [], "loot": "", "isBoss": true
+  },
+  {
+    "id": "mutated-chimaera", "name": "Mutated Chimaera", "hp": 55, "armor": 0,
+    "stats": { "vigor": 5, "grace": 4, "mind": 0, "tech": 0 }, "difficulty": "Boss",
+    "actions": [
+      { "roll": "1-2", "name": "Hardening Skin", "effect": "+1 Armor" },
+      { "roll": "3-4", "name": "Straining Tail", "effect": "ROLL VIGOR vs an enemy. On success, all enemies Stunned for 2 turns." },
+      { "roll": "5-7", "name": "Gargantuan Bite", "effect": "d8+VIG damage" },
+      { "roll": "8-9", "name": "Corrosive Spit", "effect": "Overheat an enemy for GRA turns." },
+      { "roll": "10", "name": "Feral Rage", "effect": "+1 VIG & +1 GRA" }
+    ],
+    "skills": ["Immune to HACKS."], "loot": "", "isBoss": true
+  },
+  {
+    "id": "void-crawler", "name": "Void Crawler", "hp": 20, "armor": 0,
+    "stats": { "vigor": 1, "grace": 2, "mind": 0, "tech": 0 }, "difficulty": "",
+    "actions": [
+      { "roll": "1-5", "name": "Fuel Secretion", "effect": "Enemies deal -3 damage next turn." },
+      { "roll": "6-9", "name": "Retractable Mandibles", "effect": "d6+GRA damage" },
+      { "roll": "10", "name": "Teleport", "effect": "Roll d6. On a 6, becomes Immune for 1 turn." }
+    ],
+    "skills": ["Immune to HACKS."], "loot": "", "isBoss": false
+  },
+  {
+    "id": "dust-wasp", "name": "Dust Wasp", "hp": 15, "armor": 0,
+    "stats": { "vigor": 2, "grace": 3, "mind": 0, "tech": 0 }, "difficulty": "",
+    "actions": [
+      { "roll": "1-4", "name": "Diptera Wings", "effect": "+1 GRA" },
+      { "roll": "5-9", "name": "Poisonous Stinger", "effect": "d6+GRA damage. Toxins: enemy takes 1 damage per turn (ignoring Armor) for the rest of combat. Stacks." },
+      { "roll": "10", "name": "Swarm", "effect": "Roll d6. On a 6, an additional Dust Wasp joins the combat." }
+    ],
+    "skills": ["Immune to HACKS."], "loot": "", "isBoss": false
+  },
+  {
+    "id": "deepworm", "name": "Deepworm", "hp": 30, "armor": 0,
+    "stats": { "vigor": 4, "grace": 1, "mind": 2, "tech": 0 }, "difficulty": "",
+    "actions": [
+      { "roll": "1-4", "name": "Body Press", "effect": "ROLL VIGOR vs an enemy. On success, Stunned for 2 turns." },
+      { "roll": "5-9", "name": "Abyssal Maw", "effect": "d8+VIG damage. Void Grip: Silence an enemy for 2 turns." },
+      { "roll": "10", "name": "Hardening Skin", "effect": "+1 Armor" }
+    ],
+    "skills": ["Immune to HACKS."], "loot": "", "isBoss": false
+  },
+  {
+    "id": "glyphmoth-queen", "name": "Glyphmoth Queen", "hp": 70, "armor": 0,
+    "stats": { "vigor": 2, "grace": 4, "mind": 3, "tech": 0 }, "difficulty": "Boss",
+    "actions": [
+      { "roll": "1-2", "name": "Chrysalis Shield", "effect": "+2 Armor" },
+      { "roll": "3-5", "name": "Hypnosis", "effect": "Breach and Silence an enemy for MIN turns." },
+      { "roll": "6-7", "name": "Telepathic Strain", "effect": "Deal d6 x MIN damage to a Breached enemy." },
+      { "roll": "8-9", "name": "Penetrating Gaze", "effect": "Deal d8 + MIN damage. Breached enemies take double damage." },
+      { "roll": "10", "name": "Mental Shock", "effect": "ROLL MIND vs an enemy. On success, all enemies Shocked and Breached for 3 turns." }
+    ],
+    "skills": ["Immune to HACKS."], "loot": "", "isBoss": true
+  },
+  {
+    "id": "xhiroptera-predator", "name": "Xhiroptera Predator", "hp": 65, "armor": 0,
+    "stats": { "vigor": 4, "grace": 4, "mind": 2, "tech": 0 }, "difficulty": "Boss",
+    "actions": [
+      { "roll": "1-3", "name": "Echolocation", "effect": "All enemies have -3 GRA next turn." },
+      { "roll": "4-6", "name": "Curved Fangs", "effect": "d8+GRA damage. Ignores enemy Armor." },
+      { "roll": "7-9", "name": "Vampiric Bite", "effect": "d10+VIG damage. Restore HP equal to half the damage dealt (rounded down)." },
+      { "roll": "10", "name": "Fast Claw", "effect": "2d6 damage. If GRA > enemy, the enemy is Stunned for 1 turn." }
+    ],
+    "skills": ["Immune to HACKS."], "loot": "", "isBoss": true
+  }
+]

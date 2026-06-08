@@ -1,0 +1,12 @@
+[
+  { "id": "reinforced-jacket", "name": "Reinforced Jacket", "armor": 4, "immunities": [], "cost": null, "special": "" },
+  { "id": "bulletproof-vest", "name": "Bulletproof Vest", "armor": 4, "immunities": [], "cost": null, "special": "Ranged attacks deal -1 damage." },
+  { "id": "nightrunner-clothing", "name": "Nightrunner Clothing", "armor": 4, "immunities": [], "cost": null, "special": "Escaping combat does not require a Challenge Roll." },
+  { "id": "combat-exoskeleton", "name": "Combat Exoskeleton", "armor": 4, "immunities": [], "cost": null, "special": "Melee deals +1 damage." },
+  { "id": "eagleshot-vest", "name": "Eagleshot Vest", "armor": 4, "immunities": [], "cost": null, "special": "Ranged weapons deal +1 damage." },
+  { "id": "athena-x-armor", "name": "Athena X Armor", "armor": 4, "immunities": ["Silence"], "cost": null, "special": "Immune to Silence." },
+  { "id": "orion-ii-armor", "name": "Orion II Armor", "armor": 4, "immunities": ["Shock"], "cost": null, "special": "Immune to Shock." },
+  { "id": "mercurian-armor", "name": "Mercurian Armor", "armor": 4, "immunities": ["Stun"], "cost": null, "special": "Immune to Stun." },
+  { "id": "hades-iv-armor", "name": "Hades IV Armor", "armor": 4, "immunities": ["Overheat"], "cost": null, "special": "Immune to Overheat." },
+  { "id": "colossus-suit", "name": "Colossus Suit", "armor": 3, "immunities": [], "cost": 300, "special": "" }
+]

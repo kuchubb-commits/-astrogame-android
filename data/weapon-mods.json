@@ -1,0 +1,14 @@
+[
+  { "id": "silencer", "name": "Silencer", "type": "ranged", "tier": 1, "effect": "Damage halved (rounded down). Attacks do not count as Noisy or Loud.", "cost": null },
+  { "id": "reflex-sight", "name": "Reflex Sight", "type": "ranged", "tier": 2, "effect": "If AGI/GRA higher than the enemy, +2 bonus damage per attack.", "cost": null },
+  { "id": "auto-reloader", "name": "Auto Reloader", "type": "ranged", "tier": 2, "effect": "Attack and perform a Blade Action in place of a Reload.", "cost": null },
+  { "id": "laser-accelerator", "name": "Laser Accelerator", "type": "ranged", "tier": 3, "effect": "This weapon ignores enemy Armor on damage.", "cost": null },
+  { "id": "malware-injection", "name": "Malware Injection", "type": "ranged", "tier": 3, "effect": "Roll base damage 4 or 5 -> Stagger the enemy. If already Stunned -> +5 bonus damage.", "cost": null },
+  { "id": "smart-aim", "name": "Smart Aim", "type": "ranged", "tier": 4, "effect": "Roll damage twice, keep the highest. Ignores cover.", "cost": null },
+  { "id": "stealth-grip", "name": "Stealth Grip", "type": "melee", "tier": 1, "effect": "If first in turn order: first hit +d4 bonus damage. If in stealth: +d8.", "cost": null },
+  { "id": "vibrating-motor", "name": "Vibrating Motor", "type": "melee", "tier": 3, "effect": "If VIG higher than the enemy, +2 damage per attack.", "cost": null },
+  { "id": "kinetic-engine", "name": "Kinetic Engine", "type": "melee", "tier": 5, "effect": "Restore 1 (resource) on each attack with this weapon.", "cost": null },
+  { "id": "counter-guard", "name": "Counter Guard", "type": "melee", "tier": 3, "effect": "Spend 3 Energy -> reaction when an adjacent enemy attacks.", "cost": null },
+  { "id": "heat-chamber", "name": "Heat Chamber", "type": "melee", "tier": 4, "effect": "Roll 1 or 2 base damage -> enemy Overheated for 2 turns.", "cost": null },
+  { "id": "charge-attack", "name": "Charge Attack", "type": "melee", "tier": 4, "effect": "Spend 3 (Hyperdrive) -> double damage attack (Side Action).", "cost": null }
+]

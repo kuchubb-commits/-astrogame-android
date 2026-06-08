@@ -1,0 +1,90 @@
+{
+  "trade": [
+    { "roll": 1, "value": "Refugee" }, { "roll": 2, "value": "Criminal" }, { "roll": 3, "value": "Smuggler" }, { "roll": 4, "value": "Narcobiotic Addict" }, { "roll": 5, "value": "Street Fighter" }, { "roll": 6, "value": "Factory Worker" }, { "roll": 7, "value": "Scavenger" }, { "roll": 8, "value": "War Veteran" }, { "roll": 9, "value": "First Settler" }, { "roll": 10, "value": "Space Trucker" },
+    { "roll": 11, "value": "Starship Mechanic" }, { "roll": 12, "value": "Union Steward" }, { "roll": 13, "value": "Artist" }, { "roll": 14, "value": "Weaponsmith" }, { "roll": 15, "value": "Security Officer" }, { "roll": 16, "value": "Astral Cartographer" }, { "roll": 17, "value": "Doctor" }, { "roll": 18, "value": "Xenobiologist" }, { "roll": 19, "value": "Entrepreneur" }, { "roll": 20, "value": "Politician" }
+  ],
+  "emotion": [
+    { "roll": 1, "value": "Lonely" }, { "roll": 2, "value": "Powerless" }, { "roll": 3, "value": "Vengeful" }, { "roll": 4, "value": "Sharp" }, { "roll": 5, "value": "Proud" }, { "roll": 6, "value": "Sociable" }, { "roll": 7, "value": "Distant" }, { "roll": 8, "value": "Strict" }, { "roll": 9, "value": "Caring" }, { "roll": 10, "value": "Selfish" },
+    { "roll": 11, "value": "Polite" }, { "roll": 12, "value": "Creepy" }, { "roll": 13, "value": "Eccentric" }, { "roll": 14, "value": "Shy" }, { "roll": 15, "value": "Attractive" }, { "roll": 16, "value": "Successful" }, { "roll": 17, "value": "Impulsive" }, { "roll": 18, "value": "Charismatic" }, { "roll": 19, "value": "Stoic" }, { "roll": 20, "value": "Adventurous" }
+  ],
+  "look": [
+    { "roll": 1, "value": "Combat garments" }, { "roll": 2, "value": "Space suit" }, { "roll": 3, "value": "Tool belts" }, { "roll": 4, "value": "Old World clothes" }, { "roll": 5, "value": "Plain clothes" }, { "roll": 6, "value": "Silk robe" }, { "roll": 7, "value": "Prismatic dress" }, { "roll": 8, "value": "Worn tracksuit" }, { "roll": 9, "value": "Blood-stained shirt" }, { "roll": 10, "value": "Elegant suit" },
+    { "roll": 11, "value": "Shirtless" }, { "roll": 12, "value": "Intricate Tattoos" }, { "roll": 13, "value": "Alien bite marks" }, { "roll": 14, "value": "Lab coat" }, { "roll": 15, "value": "Camo jacket" }, { "roll": 16, "value": "Aviators" }, { "roll": 17, "value": "VR headset" }, { "roll": 18, "value": "Jet pilot helmet" }, { "roll": 19, "value": "Tribal attire" }, { "roll": 20, "value": "Serum jewelry" }
+  ],
+  "style": [
+    { "roll": "1-2", "value": "Masculine" }, { "roll": "3-4", "value": "Androgynous" }, { "roll": "5-6", "value": "Feminine" }
+  ],
+  "reaction": [
+    { "roll": 1, "value": "Violent" }, { "roll": 2, "value": "Aggressive" }, { "roll": 3, "value": "Threatening" }, { "roll": 4, "value": "Suspicious" }, { "roll": 5, "value": "Wary" }, { "roll": 6, "value": "Passive" }, { "roll": 7, "value": "Peaceful" }, { "roll": 8, "value": "Curious" }, { "roll": 9, "value": "Welcoming" }, { "roll": 10, "value": "Friendly" }, { "roll": 11, "value": "Helpful" }, { "roll": 12, "value": "Generous" }
+  ],
+  "faction": [
+    { "roll": 1, "value": "W.A.R.G." }, { "roll": 2, "value": "Intersolar Federation" }, { "roll": 3, "value": "Medusa Sector" }, { "roll": 4, "value": "Corsair Syndicate" }, { "roll": 5, "value": "Synth Arch" }, { "roll": 6, "value": "Non-Aligned" }
+  ],
+  "apocalypseTheory": [
+    { "roll": 1, "value": "Universal warfare brought its demise" },
+    { "roll": 2, "value": "It was the result of a failed popular uprising" },
+    { "roll": 3, "value": "It was caused by an omnipotent divine being" },
+    { "roll": 4, "value": "A machine hive mind almost replaced humanity" },
+    { "roll": 5, "value": "Greed and inequality destroyed society" },
+    { "roll": 6, "value": "A supernatural event caused by the void" },
+    { "roll": 7, "value": "A failed experimental technology caused it" },
+    { "roll": 8, "value": "It was done on purpose to stop overpopulation" },
+    { "roll": 9, "value": "The Old World is a lie created by the government" },
+    { "roll": 10, "value": "Humanity was attacked by an alien civilization" }
+  ],
+  "goal": [
+    { "roll": 1, "value": "Find someone to love" }, { "roll": 2, "value": "Forgiveness" }, { "roll": 3, "value": "Acquire knowledge" }, { "roll": 4, "value": "Find purpose" }, { "roll": 5, "value": "Escape from the past" }, { "roll": 6, "value": "Find true freedom" }, { "roll": 7, "value": "Redemption" }, { "roll": 8, "value": "Find a home" }, { "roll": 9, "value": "Vengeance" }, { "roll": 10, "value": "Explore the galaxy" }
+  ],
+  "requests": [
+    { "roll": "01-02", "request": "Transport to a Star Cruiser. They are one of its crew." },
+    { "roll": "03-04", "request": "PowerGen, as a backup in case their cybertech is compromised." },
+    { "roll": "05-06", "request": "To repair their starship after colliding with a cluster of space debris." },
+    { "roll": "07-08", "request": "2 Health Packs, to cure a wounded family member." },
+    { "roll": "09-10", "request": "AntiVirus, to protect their mental interface from enemy attacks." },
+    { "roll": "11-12", "request": "Transport to an Ecumenopolis, from which they fled years ago." },
+    { "roll": "13-14", "request": "2 BurnPatches, to help cure burns during their trips to Volcanic Moons." },
+    { "roll": "15-16", "request": "50 Serum, to buy their loved one a gift." },
+    { "roll": "17-18", "request": "2 Energy Cells, to restore energy in case something goes wrong." },
+    { "roll": "19-20", "request": "EMP Grenade, to neutralize enemy hackers during their next mission." },
+    { "roll": "21-22", "request": "Transport to a Helios Farm. They need to stock up on cheap energy." },
+    { "roll": "23-24", "request": "Taser Shell, for protection against thieves and looters." },
+    { "roll": "25-26", "request": "75 Serum, to fix their speeder bike back on their home planet." },
+    { "roll": "27-28", "request": "2 Frog Grenades, to attack a group of unsuspecting enemy soldiers." },
+    { "roll": "29-30", "request": "Tricillin Tablet, to sharpen their senses during their next mission." },
+    { "roll": "31-32", "request": "Transport to a Pirate Hideout. They have business left to attend there." },
+    { "roll": "33-34", "request": "Supranovo Physic, to use as a combat stimulant during a raid mission." },
+    { "roll": "35-36", "request": "75 Serum, to buy a travel ticket back to their home planet." },
+    { "roll": "37-38", "request": "Data Shard, to decrypt a powerful computer terminal." },
+    { "roll": "39-40", "request": "A bottle of Stardust Soda, to taste the spirit of the Old World one last time." },
+    { "roll": "41-42", "request": "Transport to a Sylvanian Planet, to experience the wild fauna." },
+    { "roll": "43-44", "request": "A bottle of Zero-G Liquor, to drown their sorrows in alcohol." },
+    { "roll": "45-46", "request": "100 Serum, to repair their damaged cybertech implant." },
+    { "roll": "47-48", "request": "Contraband Package, carrying items deemed illegal in the Settlement." },
+    { "roll": "49-50", "request": "Terraform Seed, to repair chemical damage done to their home planet." },
+    { "roll": "51-52", "request": "Transport to an Asteroid Sea. There's a hidden stash waiting for them there." },
+    { "roll": "53-54", "request": "HACK_Shadow, to sneak past the cameras and security system in their next heist." },
+    { "roll": "55-56", "request": "100 Serum, they need to pay off debt to a space pirate mafia group." },
+    { "roll": "57-58", "request": "Bulletproof Vest. They need protection against enemy bullets." },
+    { "roll": "59-60", "request": "Kinetic Engine, to upgrade their old Neon Blade." },
+    { "roll": "61-62", "request": "Transport to a Research Station. They are part of an ongoing experiment." },
+    { "roll": "63-64", "request": "NGHTMR Key. They need it to corrupt an enemy's computer terminal." },
+    { "roll": "65-66", "request": "200 Serum, to build their dream robot. They give you 2 NetLinks in exchange." },
+    { "roll": "67-68", "request": "Smart Aim mod, to help them use their pistol after suffering injuries in war." },
+    { "roll": "69-70", "request": "DRONE_Spider, to help them perform their tasks at work." },
+    { "roll": "71-72", "request": "Transport to a Corsair Settlement. They have a Contraband Package to deliver." },
+    { "roll": "73-74", "request": "Gravity Rifle. They need a new weapon to go back to the front lines." },
+    { "roll": "75-76", "request": "200 Serum, to set up a store in the Settlement. Regular items are 5 Serum cheaper there." },
+    { "roll": "77-78", "request": "Hades IV Armor, its heat protection will be useful for their next job." },
+    { "roll": "79-80", "request": "DRONE_Ladybug, to spy enemies with ease." },
+    { "roll": "81-82", "request": "Transport to a Nuclear Moon. They want to investigate radiation samples." },
+    { "roll": "83-84", "request": "Silenced Revolver. They need the weapon to carry out a bounty contract." },
+    { "roll": "85-86", "request": "HACK_Trojan, to be able to infiltrate enemy systems." },
+    { "roll": "87-88", "request": "Tesseract. They are not willing to disclose what they need it for." },
+    { "roll": "89-90", "request": "Scanner Eye implant, to replace their missing eye." },
+    { "roll": "91-92", "request": "Transport to a Hollow Moon. They want to explore its inner layer." },
+    { "roll": "93-94", "request": "Shield Generator module. Their current one got damaged in a recent battle." },
+    { "roll": "95-96", "request": "Warp Drive, for their staryacht. They offer a random Master Hack in exchange." },
+    { "roll": "97-98", "request": "A new Engines Module for their ship. Their current one is broken beyond repair." },
+    { "roll": "99-00", "request": "Chromefist implant, to replace the arm they lost in a previous fight." }
+  ]
+}

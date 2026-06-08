@@ -1,216 +1,184 @@
-# Plan de développement — Astroprisma App
+# plan.md — Astroprisma App
 
-## Vue d'ensemble
-
-| Phase | Contenu | Priorité |
-|---|---|---|
-| 0 — Fondations | Setup projet, structure, CI/CD | ⬜ |
-| 1 — Star System Map | Carte hexagonale interactive, 3 anneaux, position vaisseau | ⬜ |
-| 2 — Exploration System | Cycles d'exploration, rolls par anneau, tables d'événements | ⬜ |
-| 3 — Oracle | Système Oracle, tables aléatoires, narration procédurale | ⬜ |
-| 4 — Personnage | Feuille de perso, stats, origins, starship | ⬜ |
-| 5 — Dés & Rencontres | Moteur de dés, résultats automatiques, encounters | ⬜ |
-| 6 — Combat | Combat au sol + spatial (vaisseaux) | ⬜ |
-| 7 — Factions | Favor system, missions, rivalités, victoire | ⬜ |
-| 8 — Database | Ennemis, vaisseaux, PNJ, random tables | ⬜ |
-| 9 — Narration IA | Gemini contextuel sur chaque action | ⬜ |
-| 10 — UI/UX | Design SF dark cohérent, animations, responsive | ⬜ |
-| 11 — Polish & Deploy | PWA, offline, déploiement final Cloudflare | ⬜ |
-
----
-
-## Architecture modulaire — Principe fondamental
-
-Chaque phase est **indépendante** et développée avec données mockées.
-L'intégration se fait via les **stores Zustand partagés** sans modifier le code existant.
-
-### Stores partagés
-```
-src/stores/
-├── useMapStore.ts          ← Phase 1 écrit — position vaisseau, hexs explorés
-├── useExplorationStore.ts  ← Phase 2 écrit — cycles, rings, événements
-├── useOracleStore.ts       ← Phase 3 écrit — tables oracle, résultats
-├── useCharacterStore.ts    ← Phase 4 écrit — stats, origins, starship
-├── useDiceStore.ts         ← Phase 5 écrit — historique des rolls
-├── useCombatStore.ts       ← Phase 6 écrit — tours, initiative, dégâts
-├── useFactionStore.ts      ← Phase 7 écrit — favor, missions, rivalités
-└── useNarrationStore.ts    ← Phase 9 écrit/lit tous les stores
-```
-
----
-
-## Phase 0 — Fondations
-
-- [ ] `npm create vite@latest astroprisma-app -- --template react-ts`
-- [ ] Installer Tailwind CSS + Zustand + Gemini SDK
-- [ ] Structure de dossiers `src/features/<phase>/`
-- [ ] Connecter GitHub → Cloudflare Pages (auto-deploy)
-- [ ] `.env` pour clé Gemini (jamais commitée)
-- [ ] Page d'accueil placeholder déployée
-
-**Résultat :** URL Cloudflare Pages fonctionnelle avec page vide.
-
----
-
-## Phase 1 — Star System Map
-
-**Composant central de l'app.**
-
-- Carte hexagonale interactive (3 anneaux : Outer, Middle, Inner)
-- Position du vaisseau du joueur sur la carte
-- Déplacement de 5 hexs par cycle
-- Marquage des hexs explorés / non explorés
-- Indicateur de l'anneau actuel
-
-### Composants
-```
-StarSystemMap.tsx    → carte hex principale
-HexCell.tsx          → cellule hex (état : vide / exploré / actuel)
-RingIndicator.tsx    → affichage de l'anneau actuel
-ShipMarker.tsx       → position du vaisseau
-```
-
-**Résultat :** Carte navigable, vaisseau déplaçable, hexs marqués.
-
----
-
-## Phase 2 — Exploration System
-
-- Cycles d'exploration (5 tours)
-- Roll d6 selon l'anneau actuel → table d'événements correspondante
-- Affichage du résultat (lieu + événement)
-- Génération de planètes et satellites (tables p.73 & p.81)
-- Journal de campagne (log des événements)
-
-### Composants
-```
-ExplorationCycle.tsx   → gestion du cycle en cours
-RingRollTable.tsx      → table d'événements par anneau
-PlanetGenerator.tsx    → génération procédurale
-CampaignJournal.tsx    → log scrollable des événements
-```
-
-**Résultat :** Cycle complet jouable, planètes générées, journal tenu.
-
----
-
-## Phase 3 — Oracle
-
-*(Contenu à définir après lecture des pages 7-8)*
-
-**Résultat :** Consultation de l'Oracle → résultat narratif automatique.
-
----
-
-## Phase 4 — Personnage
-
-- Création : choix d'Origine (Origin system)
-- Stats : VIGOR, GRACE, MIND, TECH
-- Ressources : HEALTH, ENERGY, ARMOR, EXP, HYPERDRIVE
-- Status Conditions : STUN, BREACH, SHOCK, SILENCE, IMMUNITY, OVERHEAT
-- Connexions (NPCs) + Équipage (Crewmembers)
-- Starship stats
-
-### Composants
-```
-CharacterCreation.tsx   → wizard étape par étape
-CharacterSheet.tsx      → feuille consultable/modifiable
-StarshipPanel.tsx       → stats du vaisseau
-```
-
-**Résultat :** Personnage créé, sauvegardé en localStorage.
-
----
-
-## Phase 5 — Dés & Rencontres
-
-- Système de dés : d4, d6, d8, d10, d12, d20
-- Résultats automatiques selon le contexte (anneau, stats du perso)
-- Historique des rolls
-- Gestion des encounters (hostile, neutral)
-
-**Résultat :** Roll → résultat interprété automatiquement.
-
----
-
-## Phase 6 — Combat
-
-- Initiative (dé + stat)
-- Tour : Attaque → jet → dégâts → application
-- Armes de mêlée vs portée
-- Armures et réduction de dégâts
-- Combat spatial (vaisseaux, modules)
-
-**Résultat :** Combat tour-par-tour jusqu'à victoire/défaite.
-
----
-
-## Phase 7 — Factions
-
-- Suivi du Favor avec les 5 factions
-- Missions disponibles par faction
-- Système Mark Rivals (factions en opposition directe)
-- Condition de victoire (faction dominante)
-
-**Résultat :** Progression faction visible, missions jouables.
-
----
-
-## Phase 8 — Database
-
-- Ennemis avec stats complètes (par faction)
-- Vaisseaux ennemis
-- Générateur de PNJ
-- Tables aléatoires contextuelles (d100)
-
-**Résultat :** Base de données consultable en jeu.
-
----
-
-## Phase 9 — Narration IA
-
-- Gemini génère 2-3 phrases narratives à chaque action
-- Contexte injecté : anneau actuel, événement, faction, résultat du dé
-- Mode Journaling : suggestions de notes pour le journal
-
-```typescript
-// lib/gemini.ts
-async function narrateAction(context: GameContext): Promise<string>
-```
-
-**Résultat :** Chaque action joueur génère une narration contextuelle.
-
----
-
-## Phase 10 — UI/UX
-
-- Dark theme SF cohérent (palette, typographie)
-- Animations dés et déplacements
-- Responsive mobile 375px → desktop
-- Composants réutilisables (boutons, cartes, modals)
-
----
-
-## Phase 11 — Polish & Déploiement
-
-- PWA : manifest + service worker + mode offline
-- Variables Gemini dans le dashboard Cloudflare
-- `git push` → build automatique
+> Roadmap de développement, ordonnée du minimum jouable vers l'app complète.
+> Stack : React + Vite + TypeScript + Tailwind + Zustand + Gemini AI.
+> Source de toutes les données : `book/` (extraction Core Book complète).
 
 ---
 
 ## Règles de collaboration
 
-1. On valide avant de coder — chaque module discuté avant implémentation
-2. Petits commits fréquents — chaque fonctionnalité = 1 commit
-3. Tests manuels d'abord — lancer l'app dans le navigateur avant de passer à la suite
-4. Les données viennent du PDF — aucune règle inventée, tout extrait du Core Book
-5. Pages = numérotation projet uniquement (p.1 = The World, offset PDF -3)
-6. Lecture PDF = image obligatoire via les PNG existants ou `pdf_to_image.py`
-7. Phases indépendantes — intégration via stores Zustand, sans modifier le code existant
+- **Valider avant de coder** : on discute du périmètre d'une phase / d'une fonctionnalité avant l'implémentation. Pas de gold-plating.
+- **Petits commits** : un commit = une fonctionnalité ou un correctif clair. Messages explicites.
+- **Tests manuels** : chaque fonctionnalité est testée à la main dans l'app avant de passer à la suivante. On vérifie que les règles correspondent au livre.
+- **Données = PDF uniquement** : toutes les valeurs (stats, dés, coûts, tables) viennent des fichiers `book/`. **Aucune règle inventée.** En cas de doute, on relit le chapitre concerné.
+- **Données en JSON** : le contenu du livre est extrait dans des fichiers `data/*.json` séparés de la logique. La logique de jeu ne hardcode pas les valeurs.
+- **Langue** : UI en français, code/chemins/identifiants en anglais.
+- **Validation de phase** : une phase est close uniquement quand son critère « c'est fini quand… » est rempli et testé.
 
 ---
 
-## Prochaine étape immédiate
+## Phase 0 — Fondations techniques ⬜
 
-> Attendre les instructions pour la suite de la mise à jour de `idee.md` et `plan.md`.
+**Objectif** : projet qui démarre, structure claire, données prêtes à l'emploi.
+
+- Init Vite + React + TS + Tailwind + Zustand.
+- Arborescence : `src/`, `data/`, `components/`, `stores/`, `engine/`, `ai/`.
+- Extraire le Core Book en JSON : `origins.json`, `weapons.json`, `armor.json`, `items.json`, `hacks.json`, `cybertech.json`, `drones.json`, `enemies.json`, `starships.json`, `modules.json`, `factions.json`, `oracle.json`, `exploration-tables.json`, `planets.json`, `satellites.json`, `npcs.json`, `names.json`.
+- Composant de jet de dés central (d4–d20, d66, 2d6, d6×stat, dé+mod).
+
+**C'est fini quand** : l'app démarre, les JSON sont chargeables, et un lanceur de dés générique fonctionne.
+
+---
+
+## Phase Design — Système visuel & composants de base ⬜
+
+**Objectif** : poser l'identité visuelle Astroprisma dans l'app avant de construire les écrans, pour que toutes les phases suivantes réutilisent les mêmes briques. Référence : `design.md`.
+
+- **Palette Tailwind custom** : étendre `tailwind.config` avec les couleurs du jeu — `indigo-black #130d1c`, `bone-white #f0eee8`, `off-white #e0dfdb`, accent `#ef476e` / `#d50059`, gradient `yellow #ffbd5c` / `orange #ff603e` / `magenta #d50059` / `indigo`, et les couleurs de factions (WARG Red, Medusa Green, Wire Teal, Intersolar Blue — échantillonner/valider les hex manquants sur le Core Book).
+- **Typographie** : intégrer les polices (corps `Space Mono`, titres `Anton`/POWERR, italique `Instrument Serif`) ; définir l'échelle de tailles.
+- **Composants de base** : `Card` (bordure noire épaisse, fond surface), `Button` (primaire/secondaire/disabled + état pressé `#d50059`), `StatBlock` (label mono + valeur), `DiceButton` (déclenche le lanceur central de la Phase 0), `ResourceBar` (jauge Health/Energy/Hull/Fuel avec états danger/warning), `Badge` (pastille de faction colorée).
+- **Grille mobile & breakpoints** : base 4 px (4/8/12/16/24/32), arrondis (`rounded-lg`/`xl`), bordures noires 2-3 px ; breakpoints Tailwind mobile-first (`sm`/`md`/`lg`), layout pensé pour portrait.
+- **Dark mode par défaut** : fond `#130d1c`, texte `#f0eee8` ; overlay halftone/grain subtil optionnel.
+- **États standardisés** : actif / inactif / danger / succès / warning (voir tableau des états dans `design.md`).
+
+**C'est fini quand** : une page de démo (`/styleguide`) affiche tous les composants de base (Card, Button, StatBlock, DiceButton, ResourceBar, Badge) dans le style Astroprisma, en dark mode, avec la palette et les polices appliquées.
+
+---
+
+## Phase 1 — Personnage & feuilles (jouer « à vide ») ⬜
+
+**Objectif** : créer un personnage et consulter/éditer ses fiches.
+
+- Création de personnage : choix d'Origin (stats + équipement de départ), nom (manuel ou générateur).
+- Player Sheet : stats, Health/Energy/Armor/Hyperdrive, inventaire 8 slots, 3 armes, Memory Slots, ressources (EXP/Serum/Scraps/Favor).
+- Starship Sheet : Hull 20, Fuel, Cargo 6, 6 slots modules ; choix d'un vaisseau de départ.
+- Persistance Zustand (sauvegarde locale d'une partie).
+
+**C'est fini quand** : on crée un Spaceborne complet, ses fiches sont éditables et survivent à un rechargement.
+
+---
+
+## Phase 2 — Carte & cycle d'exploration minimal ⬜
+
+**Objectif** : jouer le premier cycle d'exploration de bout en bout (hors combat détaillé).
+
+- Carte hexagonale 36 hexes, 3 anneaux, étoile centrale, position du token.
+- MOVE (−1 Fuel) + EXPLORE (d6 Exploration Roll de l'anneau) + MARK (découverte sur la carte).
+- Résolution en cascade des résultats simples (Settlement / Ring Event / Planet / Neutral) via les tables.
+- Journal de cycle (log des événements).
+
+**C'est fini quand** : on peut enchaîner plusieurs cycles, la carte se remplit, le Journal s'écrit, et le Fuel se décompte.
+
+---
+
+## Phase 3 — Oracle & IA narrative ⬜
+
+**Objectif** : transformer les résultats de tables en récit.
+
+- Moteur Oracle (Yes/No double d6 + mots-clés, questions ouvertes).
+- Intégration Gemini : prompt construit à partir du résultat de table + contexte (lieu, anneau, faction, état du personnage) → texte narratif.
+- Affichage narratif dans le Journal, mode Quick vs Journaling.
+
+**C'est fini quand** : une rencontre tirée au sort produit un paragraphe narratif cohérent, et l'Oracle répond aux questions Yes/No et ouvertes.
+
+---
+
+## Phase 4 — Combat terrestre ⬜
+
+**Objectif** : résoudre un combat contre les ennemis de la base de données.
+
+- Moteur de tours : initiative (d10+GRA), Main/Side Action, ordre de jeu.
+- Actions WEAPON / HACK / CYBERTECH / ESCAPE, calcul des dégâts ordonné.
+- Status conditions (Overheat, Shock, Stun, Silence, Breach, Immunity + variantes) avec stack et expiration.
+- Statblocks ennemis (20) jouables : actions par jet, skills, loot, gain d'EXP par difficulté.
+- Multi-ennemis, bosses.
+
+**C'est fini quand** : on lance un combat contre un ou plusieurs ennemis, on gagne/perd correctement, et le loot/EXP est attribué.
+
+---
+
+## Phase 5 — Hacking, Drones, Cybertech, Équipement ⬜
+
+**Objectif** : compléter l'arsenal du personnage.
+
+- HACKS (10) + Malware (d10) + Master Hacks (6).
+- Drones (4) déployables avec abilities.
+- Cybertech (18 implants) : achat/retrait, effets passifs/actifs.
+- Items, grenades, status cures, Armor Sets (10), Narcobiotics + Overdose, quest items.
+- Tables de loot (d18, boss d6), craft (Scrapyard).
+
+**C'est fini quand** : le personnage peut acquérir, équiper et utiliser hacks, drones, implants et équipement, avec leurs effets en combat.
+
+---
+
+## Phase 6 — Combat spatial ⬜
+
+**Objectif** : résoudre un affrontement de vaisseaux.
+
+- Action Dice (d6 selon Engines), Shields (stack 8), Hull, Critical Condition.
+- Modules (Engines/Control/Systems/Weapons, 8×4) avec seuils d'activation.
+- Boarding, Escape, Boost Escape.
+- 18 vaisseaux pré-construits + Captains.
+
+**C'est fini quand** : on mène un combat spatial complet contre un vaisseau ennemi, modules et shields fonctionnent, le boarding bascule vers le combat terrestre.
+
+---
+
+## Phase 7 — Settlements & activités ⬜
+
+**Objectif** : disposer des hubs de jeu.
+
+- Settlement : faction au contrôle (d10), refuel, full heal Hull/Health, Bounty payoff.
+- Trade Post / Trading Hub (achat/vente, items exclusifs par faction).
+- Activités : Test Flight, Scrapyard (craft/dismantle), Combat Sim, Home Pods (PNJ + recrutement).
+- **Cybersphere** : mini-jeu réseau (d8 layout, 10 tuiles, Memory Clock 12, tables d66 encounters/rewards, Abyssal Scar).
+- Sidequests par faction.
+
+**C'est fini quand** : on peut entrer dans un Settlement, se soigner, ravitailler, commercer, crafter, recruter, et jouer une partie de Cybersphere.
+
+---
+
+## Phase 8 — Factions & narration longue ⬜
+
+**Objectif** : donner un but à la campagne.
+
+- Système de Favor (-X → +10), seuils 2/5/10, expulsion.
+- Faction Events (rejoindre / mission majeure / 3 fins).
+- Missions répétables par faction (tables d10 objectif+lieu+complication+récompense).
+- Encounters neutres/hostiles par faction, troupes, vaisseaux.
+- Faction Strength sur la carte.
+
+**C'est fini quand** : on peut monter en Favor, rejoindre une faction, enchaîner ses missions et déclencher une fin de faction.
+
+---
+
+## Phase 9 — Crew, Connections & PNJ ⬜
+
+**Objectif** : enrichir l'équipage et le social.
+
+- Connections (Affinity 5 → recrutement), Social Stats/Rolls.
+- Crewmembers (max 4, rôles, passive + 3 active skills, inventaire), actions d'équipage.
+- Générateur de PNJ complet (trade/emotion/look/reaction/goal/requests d100).
+
+**C'est fini quand** : on recrute des crewmembers et des connections, ils agissent en jeu, et le générateur de PNJ produit des rencontres exploitables par l'IA.
+
+---
+
+## Phase 10 — Abyssal Scars, Campagne, Multijoueur, Polish ⬜
+
+**Objectif** : finaliser l'expérience longue.
+
+- Abyssal Scars (quasi-mort d6, séquelles permanentes).
+- Mode Campagne (3 systèmes enchaînés, difficulté croissante).
+- Achievements.
+- Export du journal de campagne.
+- Polish UI/UX mobile, modes Quick/Journaling, sauvegardes multiples.
+
+**C'est fini quand** : une campagne complète est jouable du premier cycle à une fin, avec gestion de la mort et un journal exportable.
+
+---
+
+## Note de priorisation
+
+La Phase 0 et la Phase Design forment les **fondations** (technique + système visuel) ; les phases 0→3 forment le **MVP jouable** (créer un perso, explorer, narrer). Les phases 4→6 ajoutent les systèmes de résolution lourds (combats, arsenal). Les phases 7→10 apportent la profondeur de campagne. On ne démarre une phase qu'après validation de la précédente.

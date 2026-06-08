@@ -1,0 +1,126 @@
+{
+  "rule": "Once you join a faction, gain a new Mission by visiting their Settlement Headquarters. Completing a Mission gives +1 Favor, 3 EXP, and a random reward. Roll a d10 for each element of the Mission table.",
+  "warg": {
+    "type": "REVOLT MISSIONS",
+    "objectives": [
+      { "roll": 1, "objective": "Spread sympathy for the cause. Hang propaganda posters and install a radio antenna for W.A.R.G. broadcasts.", "location": "3 Tiles North" },
+      { "roll": 2, "objective": "Attack a Shell-4 Transporter carrying supplies for an ISF outpost. [-1 Favor]", "location": "3 Tiles Northwest" },
+      { "roll": 3, "objective": "Destroy an outlaw Epsilon Interceptor ship looting and terrorizing defenseless civilian vessels.", "location": "3 Tiles Northeast" },
+      { "roll": 4, "objective": "Strike back at a Medusa Sector base storing stolen W.A.R.G. data. Fight 2 Nettheckers. [-1 Favor]", "location": "3 Tiles South" },
+      { "roll": 5, "objective": "Infiltrate a large industrial weapon manufacturing facility and steal weapons and resources for the cause.", "location": "3 Tiles Southwest" },
+      { "roll": 6, "objective": "Fabricate explosives with materials from a secret stash. Gain random grenades in your TEC slot.", "location": "3 Tiles Southeast" },
+      { "roll": 7, "objective": "Take over a crucial ISF outpost at a key strategic spot. Fight an ISF Sentinel. [-1 Favor]", "location": "Sylvanidon Planet" },
+      { "roll": 8, "objective": "Help workers protect their starship from a bounty hunter. Destroy a Starspreader. [+1 Favor]", "location": "Crater Moon" },
+      { "roll": 9, "objective": "Attack a renowned mercenary group hired to fight against W.A.R.G. Eliminate 2 Mercenaries.", "location": "Frost Moon" },
+      { "roll": 10, "objective": "Plant a powerful explosive at an oil refinery station and escape without a trace.", "location": "Settlement" }
+    ]
+  },
+  "isf": {
+    "type": "TRANSPORT MISSIONS",
+    "cargo": [
+      { "roll": 1, "cargo": "Fugitive from a high-security prison, cuffed and restrained. Must be transferred to ISF forces.", "destination": "5 Tiles Southwest" },
+      { "roll": 2, "cargo": "Expensive aged liquor predating the Old World, fragile.", "destination": "5 Tiles Northeast" },
+      { "roll": 3, "cargo": "Cylindrical orange container with radioactive materials from a Nucleus Moon.", "destination": "5 Tiles South" },
+      { "roll": 4, "cargo": "Large boxes of soil from a terraformed planet for geological study.", "destination": "Asteroid Sea" },
+      { "roll": 5, "cargo": "A repaired satellite ready to be set in orbit again.", "destination": "4 Tiles Northwest" },
+      { "roll": 6, "cargo": "Food and supplies for an ISF counter-terrorism squadron.", "destination": "Helloc Farm" },
+      { "roll": 7, "cargo": "Heavy metallic boxes with powerful computer terminals from a derelict space station.", "destination": "4 Tiles North" },
+      { "roll": 8, "cargo": "Metal safe with thousands of digital Serum codes for Trade Authority contractors.", "destination": "Research Outpost" },
+      { "roll": 9, "cargo": "Newly manufactured weapons and armor for mercenary recruits.", "destination": "4 Tiles Southeast" },
+      { "roll": 10, "cargo": "Crew of an ISF cargo ship rescued from space pirates. Gain +1 Action Die during space combat until mission ends.", "destination": "Settlement" }
+    ],
+    "complications": [
+      { "roll": 1, "complication": "A Starpredator fires missiles at your vessel.", "reward": "75 Serum" },
+      { "roll": 2, "complication": "ROLL VIGOR - Failure = Lose 5 Energy. Cargo damaged.", "reward": "Repair Drones" },
+      { "roll": 3, "complication": "2 Dust Wasps attack in the cargo bay.", "reward": "120 Serum" },
+      { "roll": 4, "complication": "Navigation glitch. ROLL MIND - Failure = Lose 5 Hull. Cargo damaged.", "reward": "Solar Panels" },
+      { "roll": 5, "complication": "3 Vector Ace Fighters attack - coordinated W.A.R.G. attack.", "reward": "Quad Reactor" },
+      { "roll": 6, "complication": "A nest of space flies in the cargo hold.", "reward": "Orion Command" },
+      { "roll": 7, "complication": "Explosive found in cargo. ROLL TECH - Failure = Lose 8 Health. Cargo damaged.", "reward": "200 Serum" },
+      { "roll": 8, "complication": "A Snowstorm Delta bounty hunter attacks to steal cargo.", "reward": "Warp Drive" },
+      { "roll": 9, "complication": "Asteroid field crossing. ROLL GRACE - Failure = Lose 5 Hull. Cargo damaged.", "reward": "Apollo Cockpit" },
+      { "roll": 10, "complication": "3 Looters infiltrate and attack from inside.", "reward": "Ion Engines" }
+    ]
+  },
+  "medusa": {
+    "type": "CYBERSPHERE MISSIONS",
+    "data": [
+      { "roll": 1, "objective": "Install coordinate tracking software on an ISF terminal to track all enemy ships.", "location": "Asteroid Sea" },
+      { "roll": 2, "objective": "Upload a replicating worm virus to a low-orbit satellite to reveal a hidden planet.", "location": "Pirate Hideout" },
+      { "roll": 3, "objective": "Enter an abandoned cloud computer terminal and backup all data to a Medusa server.", "location": "Helios Farm" },
+      { "roll": 4, "objective": "Infiltrate a cybertech harvesting plant and install a virus on the power generator.", "location": "Research Outpost" },
+      { "roll": 5, "objective": "Install a trojan on a starship's auto-pilot to gain complete navigation control.", "location": "Ecumenopolis Planet" },
+      { "roll": 6, "objective": "Find a relay signal emitter used by smugglers and install an ISF tracking device on it.", "location": "Calarian Planet" },
+      { "roll": 7, "objective": "Use a digital key to decrypt a message in a criminal's quantum computer.", "location": "Asteroid Satellite" },
+      { "roll": 8, "objective": "Transport a data shard with cryptovirology research and upload it to a safe terminal.", "location": "Crater Moon" },
+      { "roll": 9, "objective": "Install a logic bomb virus on a terminal used to trade stolen starship parts.", "location": "Hollow Moon" },
+      { "roll": 10, "objective": "Download terminal data containing the location of a hidden W.A.R.G. Settlement (2 tiles south).", "location": "Settlement" }
+    ],
+    "complications": [
+      { "roll": 1, "complication": "A paranoid Scientist tries to stab you.", "reward": "3 Energy Cells" },
+      { "roll": 2, "complication": "Encrypted terminal. ROLL MIND - Failure = Lose 3 Energy. Terminal inaccessible.", "reward": "3 Data Shards" },
+      { "roll": 3, "complication": "Synth Arch Android Titan guards the terminal. [-1 Favor]", "reward": "NIGHTMR Key" },
+      { "roll": 4, "complication": "Power malfunction. ROLL TECH - Failure = Lose 4 Energy. Terminal inaccessible.", "reward": "Random HACK" },
+      { "roll": 5, "complication": "Security alarm triggers; 2 Automaton Bots attack.", "reward": "DRONE_Ladybug" },
+      { "roll": 6, "complication": "Outlaw Ranger attacks in Ambush.", "reward": "Breach System" },
+      { "roll": 7, "complication": "Antivirus must be deactivated. ROLL MIND - Failure = Lose 4 Energy. Terminal inaccessible.", "reward": "DRONE_Greyhound" },
+      { "roll": 8, "complication": "Alien creature has turned the computer room into its lair. Eliminate a Deepworm.", "reward": "Random HACK" },
+      { "roll": 9, "complication": "Motherboard glitches. ROLL TECH - Failure = Lose 3 Energy. Terminal inaccessible.", "reward": "Disruptor Beams" },
+      { "roll": 10, "complication": "Surrounded by 3 ISF Soldiers with a warrant for your arrest. Fight or abandon the mission.", "reward": "Random MASTER HACK" }
+    ]
+  },
+  "corsair": {
+    "type": "BOUNTY MISSIONS",
+    "target": [
+      { "roll": 1, "target": "An ISF Trade Baron who established a trade route through pirate territory. [-2 Favor]", "location": "Pirate Hideout" },
+      { "roll": 2, "target": "A Calosian general accused of unspecified war crimes.", "location": "Calosian Planet" },
+      { "roll": 3, "target": "An Android Titan attacking a W.A.R.G. recon group. [-2 Favor]", "location": "Aquarian Planet" },
+      { "roll": 4, "target": "A Synth Apostle accused of manipulation and selling Synth Arch secrets.", "location": "Vaparian Planet" },
+      { "roll": 5, "target": "A gifted Memory Hacker cracking a restricted cyberspace sector with illegal trades.", "location": "Research Outpost" },
+      { "roll": 6, "target": "A Cyborg with stolen cybertech implants - the owner wants them repossessed.", "location": "Crater Moon" },
+      { "roll": 7, "target": "A Cyber-Terrorist who left dozens of civilians crippled through cyberattacks.", "location": "Nucleus Moon" },
+      { "roll": 8, "target": "A Bounty Hunter - kill them and return your Bounty Mark to your client.", "location": "Frost Moon" },
+      { "roll": 9, "target": "An Outer Ring Crime Boss in the drug trafficking business.", "location": "Volcanic Moon" },
+      { "roll": 10, "target": "A W.A.R.G. Major General. [-2 Favor]", "location": "Settlement" }
+    ],
+    "complications": [
+      { "roll": 1, "complication": "Target calls for reinforcements - a Bullseye Hunter appears.", "reward": "Supranovo Physic" },
+      { "roll": 2, "complication": "Target wrestles you down. ROLL VIGOR - Failure = Take 8d+GRA damage, ignoring Armor.", "reward": "Contraband Package" },
+      { "roll": 3, "complication": "A Voidcrawler is startled by the fight and turns hostile. Fight both simultaneously.", "reward": "3 Zero-G Liquor" },
+      { "roll": 4, "complication": "Target tries to inject a NOFTML Key. ROLL MIND - Failure = MIN set to 0 for the rest of the fight.", "reward": "100 Serum" },
+      { "roll": 5, "complication": "Target uses a hidden Health Pack, restoring d10+TEC Health.", "reward": "2 Contraband Packages" },
+      { "roll": 6, "complication": "Target injects stim-boosters: +1d10+TEC to every stat for the encounter.", "reward": "200 Serum" },
+      { "roll": 7, "complication": "Target tries to deactivate your cybertech. ROLL TECH - Failure = No Cybertech for the rest of the fight.", "reward": "Random Ranged Mod" },
+      { "roll": 8, "complication": "Target sharpens their senses. They deal +4 extra damage for the rest of the fight.", "reward": "50 Serum" },
+      { "roll": 9, "complication": "Target tries to push you down. ROLL GRACE - Failure = Prone for 2 turns.", "reward": "Random Melee Mod" },
+      { "roll": 10, "complication": "Target offers 300M to let them go. Accepting breaks your contract. [-2 Favor]", "reward": "100 Serum" }
+    ]
+  },
+  "synthArch": {
+    "type": "CRUSADE MISSIONS",
+    "goal": [
+      { "roll": 1, "goal": "Set up a hologram projector in orbit displaying cryptic messages to encourage androids to join the Synth Arch.", "location": "3 Tiles Northwest" },
+      { "roll": 2, "goal": "Repair the cybertech implants of an allied Cyborg whose system is failing. ROLL HIGH Failure: Cyborg turns hostile.", "location": "3 Tiles Southeast" },
+      { "roll": 3, "goal": "Retrieve a Tesseract stolen by space pirates. Fight 8 Space Pirates.", "location": "Helios Farm" },
+      { "roll": 4, "goal": "Locate a communications satellite and retrieve a NORTH KEY from a hidden message.", "location": "Star Cruiser" },
+      { "roll": 5, "goal": "Transport a Tesseract to ALTAR 4 satellite station and activate its hibernation protocols.", "location": "Research Outpost" },
+      { "roll": 6, "goal": "Break into an ISF trade warehouse and steal confiscated cybertech implants. [-2 Favor]", "location": "Gaian Planet" },
+      { "roll": 7, "goal": "Hack 4 Android Synths to delete their factory limitations. ROLL HIGH Failure: 2 turn hostile.", "location": "Ecumenopolis Planet" },
+      { "roll": 8, "goal": "Infiltrate an automated industrial space station and steal cybertech enhancement blueprints.", "location": "Asteroid Satellite" },
+      { "roll": 9, "goal": "Liberate an AI from an Old World computer and bring it to a Synth Arch bunker. Fight 3 Automaton Bots.", "location": "Hollow Moon" },
+      { "roll": 10, "goal": "Destroy a computer terminal used by Medusa to track Synth locations. Fight a Cyber Terrorist. [-2 Favor]", "location": "Settlement" }
+    ],
+    "complications": [
+      { "roll": 1, "complication": "Elite Medusa operative tracked you. Fight 5 Cytronic Warriors.", "reward": "80 Scraps" },
+      { "roll": 2, "complication": "Power blackout. ROLL HIGH Failure = Lose 5 Hull and 6 Health.", "reward": "DRONE_Spider" },
+      { "roll": 3, "complication": "3 Looters try to strip you for cybertech parts. Find 1 Contraband Package in their equipment.", "reward": "2 Random Grenades" },
+      { "roll": 4, "complication": "Dormant Medusa virus triggers. ROLL HIGH Failure = All abilities cost +2 Energy until next cycle.", "reward": "100 Serum" },
+      { "roll": 5, "complication": "2 Rebel Fighters with orders to attack Synth Arch members.", "reward": "DRONE_Greyhound" },
+      { "roll": 6, "complication": "A cybertech-addicted Cyborg pounces on you.", "reward": "Eclipse Bridge" },
+      { "roll": 7, "complication": "Oxygen supply issue. ROLL HIGH Failure = Lose 5 Hull and 6 Health.", "reward": "DRONE_Ladybug" },
+      { "roll": 8, "complication": "A Rhizoptera Predator uses echolocation to strike.", "reward": "PSM" },
+      { "roll": 9, "complication": "ISF radar. ROLL SKILL Failure = 2 Sentinel units intercept you.", "reward": "DRONE_Owl" },
+      { "roll": 10, "complication": "A swarm of alien insects. 2 Dust Wasps attack.", "reward": "Random Cybertech" }
+    ]
+  }
+}

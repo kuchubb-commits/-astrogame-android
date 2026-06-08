@@ -7,95 +7,64 @@
 - **Stack** : React + Vite + TypeScript + Tailwind + Zustand + Gemini AI
 - **Skill** : dire "astrogame" charge le skill de projet
 
-## État actuel — 2026-06-08
+## État actuel
 
-### Extraction Core Book — progression
+### Extraction Core Book — TERMINÉE ✅
 
-| Chapitre | Pages | Statut |
-|---|---|---|
-| ch1 — The World | p.1–15 | ✅ extrait |
-| ch2 — Characters | p.16–29 | ✅ extrait |
-| ch3 — Combat | p.30–36 | ✅ extrait + corrigé |
-| ch4 — Hacking & Drones | p.38–44 | ✅ extrait + corrigé |
-| ch5 — Equipment | p.46–50 | ✅ extrait + corrigé |
-| ch6 — Starship Combat | p.51–56 | ✅ extrait + corrigé |
-| ch7 — Exploration | p.57–89 | ✅ extrait + corrigé |
-| ch8 — Factions & Quests | p.92–112 | ✅ extrait + corrigé |
-| ch9 — Database Enemies | p.113–118 | ✅ extrait (20 ennemis) |
-| ch10 — Database Starships | p.119–124 | ✅ extrait (18 vaisseaux + tables Captains) |
-| ch11 — Name Generator | p.125–128 | ✅ extrait (Character Tables, Exploration Tables, NPC Generator, NPC Requests d100) |
+L'intégralité du Core Book (ch1 à ch11) est extraite et disponible dans `book/` :
 
-**Extraction Core Book complète — ch1 à ch11 ✅**
+| Fichier | Contenu |
+|---|---|
+| `ch1-introduction.md` | The World, The Game, Exploration, Oracle |
+| `ch2-rules.md` | Création perso, Origins, Stats, Connections, Crew, Starship Sheet, Travel |
+| `ch3-combat.md` | Combat terrestre, armes, weapon mods |
+| `ch4-hacking-drones.md` | Hacks, Malware, Master Hacks, Drones, Cybertech |
+| `ch5-equipment.md` | Items, grenades, armures, narcobiotics, loot tables |
+| `ch6-starship-combat.md` | Combat spatial, modules (Engines/Control/Systems/Weapons) |
+| `ch7-exploration.md` | Settlements, Cybersphere, rencontres par anneau, planètes, satellites, Abyssal Scars |
+| `ch8-factions.md` | 5 factions, Favor, Faction Events, missions, encounters |
+| `ch9-enemies.md` | 20 ennemis (statblocks complets) |
+| `ch10-starships.md` | 18 vaisseaux + tables de Captains |
+| `ch11-name-generator.md` | Tables de noms, exploration, générateur de PNJ |
 
-### Fichiers book/
+Toutes les données du jeu viennent de ces fichiers. Aucune règle inventée.
 
-Tous les chapitres extraits sont dans `book/` :
-- `ch3-combat.md`
-- `ch4-hacking-drones.md`
-- `ch5-equipment.md`
-- `ch6-starship-combat.md`
-- `ch8-factions.md`
-- `ch9-enemies.md`
-- `ch10-starships.md`
-- `ch11-name-generator.md`
+### Documents de référence
 
-### Mécanique importante découverte — ch6
+- `idee.md` — vision, concept, mécaniques à couvrir, ce que l'app remplace.
+- `plan.md` — roadmap par phases (toutes ⬜ à faire), du MVP jouable à l'app complète.
+- `book/` — extraction complète du Core Book.
 
-Les modules SYSTEMS et WEAPONS s'activent selon le **résultat du dé Action** :
-- ex : `5-6 ▶` = il faut rouler 5 ou 6 sur un dé Action pour activer ce module
-- Tier 1–4 = 3⚡70★ / 5⚡125★ / 7⚡200★ / 9⚡350★
+### Prochaine étape
 
-### Skill zoom — intégré
-
-Règle active dans `CLAUDE.md` et `skills/astrogame/skill.md` :
-→ Si image illisible → crop + zoom ×3 (Pillow) → agent Sonnet relit la zone → jamais de (?) sans avoir tenté le zoom.
-
-Fichiers présents : `idee.md`, `plan.md`, `toc.txt`, `pdf_to_image.py`, `convert_all_pages.py`
-
-### Offset PDF — RÈGLE CORRIGÉE
-
-L'offset **+3** (PDF page = livre page + 3) s'applique uniquement pour ch1–ch6.
-
-À partir de ch7 (p.57+) : **offset = 0** (page_057.png = livre page 57).
-
-Des pages d'illustration et de section insérées entre ch6 et ch7 ont absorbé l'offset.
-
-## Règles PDF — PERMANENTES
-
-### RÈGLE 1 — Numérotation : système de pages du PROJET (pas le PDF)
-
-Le projet utilise sa **propre numérotation** — différente du fichier PDF.
-
-| Pages projet | Contenu | Pages PDF (livre) |
-|---|---|---|
-| 0.1 → 0.3 | Front matter (cover, blank, TOC) | 1 → 3 |
-| 1 → fin | Contenu du jeu (The World = p.1) | 4 → fin |
-
-**Offset : pages PDF − 3 = pages projet** (valable pour toutes les pages ≥ 4 du fichier PDF)
-
-Processus :
-1. L'utilisateur donne un numéro de page **projet** (ex. p.9)
-2. Convertir en page PDF : p.9 + 3 = page 12 du fichier PDF
-3. Générer l'image avec `pdf_to_image.py <page_pdf>`
-4. Lire le numéro imprimé en bas de l'image pour confirmer
-5. Si ce n'est pas la bonne page, ajuster et retester
-
-### RÈGLE 2 — Lecture : image obligatoire
-Ne jamais utiliser l'extraction texte brute. Toujours convertir en PNG via `pdf_to_image.py` puis lire visuellement. Le style RPG positionne les infos de façon non-linéaire — l'extraction texte mélange tout.
-
-### RÈGLE 3 — Validation systématique
-Après lecture image, soumettre les données extraites à l'utilisateur avant tout usage.
-
-### RÈGLE 4 — PDF trop lourd
-Si le PDF échoue à la lecture, le dire immédiatement. Ne jamais continuer avec des données inventées ou partielles. Proposer un agent ciblé sur la page exacte nécessaire.
+Démarrer la **Phase 0** du `plan.md` (fondations techniques + extraction JSON), après validation du périmètre.
 
 ## Concept central du jeu
 
-> Astroprisma est un **arbre de décision en cascade piloté par des jets de dés successifs** — chaque lancer ouvre une branche, chaque branche mène à un nouveau lancer, jusqu'au texte narratif final.
+> Astroprisma est un **arbre de décision en cascade piloté par des jets de dés successifs** — chaque lancer ouvre une branche, chaque branche mène à un nouveau lancer, jusqu'au texte narratif final (généré par l'IA Gemini à partir du résultat de table + contexte).
+
+Boucle : MOVE (−1 Fuel) → EXPLORE (d6 par anneau) → MARK (carte + journal). But : explorer les 36 hexes d'un système et mener une faction à l'une de ses fins.
 
 ## Règles de collaboration
 
-1. On valide avant de coder — chaque module discuté avant implémentation
-2. Petits commits fréquents — chaque fonctionnalité = 1 commit
-3. Tests manuels d'abord — lancer l'app dans le navigateur avant de passer à la suite
-4. Les données viennent du PDF — aucune règle inventée, tout extrait du Core Book
+1. **Valider avant de coder** — chaque module discuté avant implémentation. Pas de gold-plating.
+2. **Petits commits fréquents** — chaque fonctionnalité = 1 commit, message clair.
+3. **Tests manuels d'abord** — lancer l'app et vérifier le comportement avant de passer à la suite.
+4. **Données = Core Book uniquement** — tout vient de `book/`. Aucune règle inventée. En cas de doute, relire le chapitre.
+5. **Langue** — UI en français, code/chemins/identifiants en anglais.
+
+## Règle zoom images (Pillow ×3)
+
+Si une zone d'image est trop peu lisible pour extraire une info avec certitude :
+1. Ne jamais inventer ni mettre `(?)` sans avoir tenté le zoom.
+2. Identifier la zone illisible (coordonnées approximatives).
+3. Agent Sonnet → crop + zoom ×3 avec Pillow :
+   ```python
+   from PIL import Image
+   img = Image.open("fichier.png")
+   zone = img.crop((x1, y1, x2, y2))
+   zone.resize((zone.width * 3, zone.height * 3), Image.LANCZOS).save("zoom_temp.png")
+   ```
+4. L'agent lit `zoom_temp.png` et extrait l'info.
+5. Supprimer `zoom_temp.png` immédiatement — jamais committer les fichiers temp.
+6. `(?)` uniquement si le zoom reste illisible → demander à l'utilisateur.

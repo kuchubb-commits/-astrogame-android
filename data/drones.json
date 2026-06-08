@@ -1,0 +1,40 @@
+[
+  {
+    "id": "drone-spider",
+    "name": "DRONE_Spider",
+    "passiveAbility": "",
+    "activeAbilities": [
+      { "name": "Octomorphosis", "cost": "1", "effect": "Infiltrate narrow spaces." },
+      { "name": "Carbon Claw", "cost": "1", "effect": "d6 + TEC damage." },
+      { "name": "Paralyzing Web", "cost": "1", "effect": "d4 Kinetic damage + target cannot move." }
+    ]
+  },
+  {
+    "id": "drone-greyhound",
+    "name": "DRONE_Greyhound",
+    "passiveAbility": "",
+    "activeAbilities": [
+      { "name": "Camouflage", "cost": "1", "effect": "Pilot makes a DRONES stealth check - drone becomes invisible." },
+      { "name": "Fetch", "cost": "3 Energy", "effect": "Gain a random narco-biotic or grenade." },
+      { "name": "Bite", "cost": "1", "effect": "d6 Kinetic damage." }
+    ]
+  },
+  {
+    "id": "drone-ladybug",
+    "name": "DRONE_Ladybug",
+    "passiveAbility": "HP Injection - Restore TEC Health each turn.",
+    "activeAbilities": [
+      { "name": "EMP Relay", "cost": "2 Energy", "effect": "Silence an enemy for 2 turns." },
+      { "name": "Taser Shot", "cost": "3 Energy", "effect": "Shock an enemy for 2 turns." }
+    ]
+  },
+  {
+    "id": "drone-owo",
+    "name": "DRONE_OwO",
+    "passiveAbility": "Auto-Turret - Deal TEC damage each turn.",
+    "activeAbilities": [
+      { "name": "Double Minigun", "cost": "4 Energy", "effect": "Deal 2d6 + TEC damage." },
+      { "name": "Missile Strike", "cost": "6 Energy", "effect": "Deal d8 x TEC damage." }
+    ]
+  }
+]
