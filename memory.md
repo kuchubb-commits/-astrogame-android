@@ -19,10 +19,10 @@
 | ch4 — Hacking & Drones | p.38–44 | ✅ extrait + corrigé |
 | ch5 — Equipment | p.46–50 | ✅ extrait + corrigé |
 | ch6 — Starship Combat | p.51–56 | ✅ extrait + corrigé |
-| ch7 — Exploration | p.57–89 | ⬜ à faire (33 pages) |
+| ch7 — Exploration | p.57–89 | ✅ extrait + corrigé |
 | ch8–10 | p.90+ | ⬜ à faire |
 
-**Prochaine étape : extraire ch7 (p.57–89)**
+**Prochaine étape : extraire ch8–10 (p.90+)**
 
 ### Fichiers book/
 
@@ -44,6 +44,14 @@ Règle active dans `CLAUDE.md` et `skills/astrogame/skill.md` :
 → Si image illisible → crop + zoom ×3 (Pillow) → agent Sonnet relit la zone → jamais de (?) sans avoir tenté le zoom.
 
 Fichiers présents : `idee.md`, `plan.md`, `toc.txt`, `pdf_to_image.py`, `convert_all_pages.py`
+
+### Offset PDF — RÈGLE CORRIGÉE
+
+L'offset **+3** (PDF page = livre page + 3) s'applique uniquement pour ch1–ch6.
+
+À partir de ch7 (p.57+) : **offset = 0** (page_057.png = livre page 57).
+
+Des pages d'illustration et de section insérées entre ch6 et ch7 ont absorbé l'offset.
 
 ## Règles PDF — PERMANENTES
 
