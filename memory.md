@@ -20,9 +20,10 @@
 | ch5 — Equipment | p.46–50 | ✅ extrait + corrigé |
 | ch6 — Starship Combat | p.51–56 | ✅ extrait + corrigé |
 | ch7 — Exploration | p.57–89 | ✅ extrait + corrigé |
-| ch8–10 | p.90+ | ⬜ à faire |
+| ch8 — Factions & Quests | p.92–112 | ✅ extrait + corrigé |
+| ch9–10 | p.113+ | ⬜ à faire |
 
-**Prochaine étape : extraire ch8–10 (p.90+)**
+**Prochaine étape : extraire ch9–10 (p.113+)**
 
 ### Fichiers book/
 
@@ -31,6 +32,7 @@ Tous les chapitres extraits sont dans `book/` :
 - `ch4-hacking-drones.md`
 - `ch5-equipment.md`
 - `ch6-starship-combat.md`
+- `ch8-factions.md`
 
 ### Mécanique importante découverte — ch6
 
