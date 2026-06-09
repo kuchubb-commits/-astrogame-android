@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import type { Character, Starship, PlayTab, MapData, HexState, CycleEntry, CombatState, CombatantState, OracleEntry, StarshipCombatState } from '../types/game'
+import type { Character, Starship, PlayTab, MapData, HexState, CycleEntry, CombatState, CombatantState, OracleEntry, StarshipCombatState, SettlementState, GeneratedNpc } from '../types/game'
 import { ALL_HEXES, STARTING_HEX } from '../engine/hexMap'
 import type { ExploreResult } from '../engine/exploration'
 import {
@@ -14,8 +14,11 @@ import {
   getStarshipData, calcStartingShields,
 } from '../engine/starshipCombat'
 import type { BattleCtx } from '../engine/starshipCombat'
+import { rollD66, generateNetwork, getEncounter, getReward, extractClockDelta } from '../engine/cybersphere'
 import enemiesData from '../../data/enemies.json'
 import cybertechData from '../../data/cybertech.json'
+import itemsData from '../../data/items.json'
+import npcsData from '../../data/npcs.json'
 
 function initMapData(): MapData {
   const hexes: Record<string, HexState> = {}
@@ -31,6 +34,7 @@ interface GameState {
   mapData: MapData | null
   combat: CombatState | null
   shipCombat: StarshipCombatState | null
+  settlement: SettlementState | null
   oracleLog: OracleEntry[]
   activeTab: PlayTab
 
@@ -72,8 +76,22 @@ interface GameState {
   deployDrone: (id: string) => void
   undeployDrone: () => void
 
+  // Settlement
+  enterSettlement: () => void
+  exitSettlement: () => void
+  refuelShip: (units: number) => void
+  buyItem: (itemId: string) => void
+  craftItem: (itemId: string) => void
+  dismantleSlot: (index: number) => void
+  useTestFlight: (type: 'race' | 'drill') => void
+  startCybersphere: () => void
+  cybersphereAdvance: () => void
+  cybersphereCollectReward: () => void
+  exitCybersphere: () => void
+  generateNpc: () => void
+
   // Combat terrestre
-  startCombat: (enemyId: string) => void
+  startCombat: (enemyId: string, isSim?: boolean) => void
   playerAttack: (weaponStr: string) => void
   playerUseHack: (hackId: string) => void
   enemyAct: () => void
@@ -98,15 +116,16 @@ export const useGameStore = create<GameState>()(
       mapData: null,
       combat: null,
       shipCombat: null,
+      settlement: null,
       oracleLog: [],
       activeTab: 'player',
 
       startGame: (character, starship) =>
-        set({ character, starship, mapData: initMapData(), combat: null, shipCombat: null, oracleLog: [], activeTab: 'player' }),
+        set({ character, starship, mapData: initMapData(), combat: null, shipCombat: null, settlement: null, oracleLog: [], activeTab: 'player' }),
 
       ensureMap: () => set((s) => s.mapData ? s : { mapData: initMapData() }),
 
-      resetGame: () => set({ character: null, starship: null, mapData: null, combat: null, shipCombat: null, activeTab: 'player' }),
+      resetGame: () => set({ character: null, starship: null, mapData: null, combat: null, shipCombat: null, settlement: null, activeTab: 'player' }),
 
       setTab: (tab) => set({ activeTab: tab }),
 
@@ -262,7 +281,7 @@ export const useGameStore = create<GameState>()(
 
       // ── COMBAT ──────────────────────────────────────────────────────────────
 
-      startCombat: (enemyId) => {
+      startCombat: (enemyId, isSim = false) => {
         const { character } = get()
         if (!character) return
         const enemyData = (enemiesData as any[]).find((e) => e.id === enemyId)
@@ -295,9 +314,15 @@ export const useGameStore = create<GameState>()(
           player: playerCombatant,
           turn: firstTurn,
           phase: 'active',
-          log: [{ text: `⚔ Combat contre ${enemyData.name} (HP ${enemyData.hp}, Armor ${enemyData.armor})`, type: 'system' }, { text: initText, type: 'system' }],
+          log: [
+            { text: isSim ? `🎮 Simulation de combat contre ${enemyData.name} (HP ${enemyData.hp}, Armor ${enemyData.armor})` : `⚔ Combat contre ${enemyData.name} (HP ${enemyData.hp}, Armor ${enemyData.armor})`, type: 'system' },
+            { text: initText, type: 'system' },
+          ],
           round: 1,
           expReward: Math.ceil(enemyData.hp / 5),
+          isSim,
+          preSimHp: isSim ? character.health.current : undefined,
+          preSimEnergy: isSim ? character.energy.current : undefined,
         }
         set({ combat })
 
@@ -424,6 +449,13 @@ export const useGameStore = create<GameState>()(
         const newLog = [...combat.log, ...logs].slice(-20)
 
         if (currentPlayer.hp <= 0) {
+          if (combat.isSim) {
+            // Sim mode: can't die — force HP to 1 and continue
+            currentPlayer = { ...currentPlayer, hp: 1 }
+            const simLog = [...newLog, { text: `[SIM] HP à 0 → maintenu à 1 (simulation).`, type: 'status' as const }]
+            set({ combat: { ...combat, enemy: currentEnemy, player: currentPlayer, turn: 'player', round: combat.round + 1, log: simLog } })
+            return
+          }
           set({ combat: { ...combat, enemy: currentEnemy, player: currentPlayer, phase: 'defeat', log: [...newLog, { text: '✗ Vous êtes à 0 HP. Défaite.', type: 'defeat' }] } })
           return
         }
@@ -449,6 +481,20 @@ export const useGameStore = create<GameState>()(
       endCombat: () => {
         const { combat, character } = get()
         if (!combat || !character) return
+        if (combat.isSim) {
+          // Restore HP/Energy to pre-sim values, grant EXP on victory
+          const restoredHp = combat.preSimHp ?? character.health.current
+          const restoredEnergy = combat.preSimEnergy ?? character.energy.current
+          const expGain = combat.phase === 'victory' ? combat.expReward : 0
+          const updatedChar = {
+            ...character,
+            health: { ...character.health, current: restoredHp },
+            energy: { ...character.energy, current: restoredEnergy },
+            resources: { ...character.resources, exp: character.resources.exp + expGain },
+          }
+          set({ combat: null, character: updatedChar })
+          return
+        }
         const updatedChar = combat.phase === 'victory'
           ? { ...character, health: { ...character.health, current: combat.player.hp }, resources: { ...character.resources, exp: character.resources.exp + combat.expReward } }
           : { ...character, health: { ...character.health, current: Math.max(1, combat.player.hp) } }
@@ -661,6 +707,263 @@ export const useGameStore = create<GameState>()(
           : character
         set({ shipCombat: null, starship: updatedStarship, character: updatedChar })
       },
+
+      // ── SETTLEMENT ───────────────────────────────────────────────────────────
+
+      enterSettlement: () => {
+        const { character, starship } = get()
+        if (!character || !starship) return
+        // Roll d10 for controlling faction
+        const roll = Math.ceil(Math.random() * 10)
+        const factionTable = [
+          { range: [1, 2], id: 'corsair', name: 'Corsair Syndicate' },
+          { range: [3, 4], id: 'warg', name: 'W.A.R.G.' },
+          { range: [5, 6], id: 'medusa', name: 'Medusa Sector' },
+          { range: [7, 8], id: 'isf', name: 'Intersolar Federation' },
+          { range: [9, 10], id: 'synth-arch', name: 'Synth Arch' },
+        ]
+        const entry = factionTable.find((f) => roll >= f.range[0] && roll <= f.range[1])!
+        // Full heal Hull + Health on entry
+        const updatedStarship = { ...starship, hull: { ...starship.hull, current: starship.hull.max } }
+        const updatedChar = { ...character, health: { ...character.health, current: character.health.max } }
+        const settlement: SettlementState = {
+          factionId: entry.id,
+          factionName: entry.name,
+          activitiesUsed: [],
+          cybersphere: null,
+          lastNpc: null,
+          testFlightResult: null,
+        }
+        set({ settlement, starship: updatedStarship, character: updatedChar })
+      },
+
+      exitSettlement: () => set({ settlement: null }),
+
+      refuelShip: (units) =>
+        set((s) => {
+          if (!s.character || !s.starship) return s
+          const cost = units * 3
+          if (s.character.resources.serum < cost) return s
+          const newFuel = Math.min(s.starship.fuel.max, s.starship.fuel.current + units)
+          return {
+            starship: { ...s.starship, fuel: { ...s.starship.fuel, current: newFuel } },
+            character: { ...s.character, resources: { ...s.character.resources, serum: s.character.resources.serum - cost } },
+          }
+        }),
+
+      buyItem: (itemId) =>
+        set((s) => {
+          if (!s.character) return s
+          const item = (itemsData.items as any[]).find((i) => i.id === itemId)
+          if (!item || item.cost == null) return s
+          if (s.character.resources.serum < item.cost) return s
+          const emptySlot = s.character.inventory.findIndex((slot) => slot === null)
+          if (emptySlot === -1) return s
+          const inventory = [...s.character.inventory]
+          inventory[emptySlot] = item.name
+          return {
+            character: {
+              ...s.character,
+              inventory,
+              resources: { ...s.character.resources, serum: s.character.resources.serum - item.cost },
+            },
+          }
+        }),
+
+      craftItem: (itemId) =>
+        set((s) => {
+          if (!s.character) return s
+          const item = (itemsData.items as any[]).find((i) => i.id === itemId)
+          if (!item || item.cost == null) return s
+          const scrapCost = item.cost
+          if (s.character.resources.scraps < scrapCost) return s
+          const emptySlot = s.character.inventory.findIndex((slot) => slot === null)
+          if (emptySlot === -1) return s
+          const inventory = [...s.character.inventory]
+          inventory[emptySlot] = item.name
+          return {
+            character: {
+              ...s.character,
+              inventory,
+              resources: { ...s.character.resources, scraps: s.character.resources.scraps - scrapCost },
+            },
+          }
+        }),
+
+      dismantleSlot: (index) =>
+        set((s) => {
+          if (!s.character) return s
+          const slotValue = s.character.inventory[index]
+          if (!slotValue) return s
+          const item = (itemsData.items as any[]).find((i) => i.name === slotValue)
+          const scrapGain = item?.cost != null ? Math.ceil(item.cost / 2) : 10
+          const inventory = [...s.character.inventory]
+          inventory[index] = null
+          return {
+            character: {
+              ...s.character,
+              inventory,
+              resources: { ...s.character.resources, scraps: s.character.resources.scraps + scrapGain },
+            },
+          }
+        }),
+
+      useTestFlight: (type) =>
+        set((s) => {
+          if (!s.character || !s.settlement) return s
+          if (s.character.resources.serum < 3) return s
+          if (s.settlement.activitiesUsed.includes('test-flight')) return s
+          const statValue = s.character.stats.grace
+          const roll = Math.ceil(Math.random() * 10)
+          const total = roll + statValue
+          const success = total >= 6
+          const effects = {
+            race: 'Votre vaisseau se déplace 1 tuile supplémentaire pour les 2 prochaines batailles.',
+            drill: '+1 Dé d\'Action par tour lors de votre prochaine bataille spatiale.',
+          }
+          const result = { type, roll: total, success, effect: success ? effects[type] : 'Échec — aucun bonus.' }
+          return {
+            character: { ...s.character, resources: { ...s.character.resources, serum: s.character.resources.serum - 3 } },
+            settlement: {
+              ...s.settlement,
+              activitiesUsed: [...s.settlement.activitiesUsed, 'test-flight'],
+              testFlightResult: result,
+            },
+          }
+        }),
+
+      startCybersphere: () =>
+        set((s) => {
+          if (!s.character || !s.settlement) return s
+          if (s.character.hyperdrive.current < 5) return s
+          if (s.settlement.activitiesUsed.includes('cybersphere')) return s
+          const tiles = generateNetwork()
+          const cyber = {
+            tiles,
+            position: 0,
+            memoryClock: 0,
+            matrixNodesReached: 0,
+            log: [{ text: 'Connexion au réseau Cybersphere établie. Mémoire : 12 mouvements.', type: 'system' as const }],
+            phase: 'active' as const,
+            pendingReward: false,
+          }
+          return {
+            character: { ...s.character, hyperdrive: { ...s.character.hyperdrive, current: s.character.hyperdrive.current - 5 } },
+            settlement: {
+              ...s.settlement,
+              activitiesUsed: [...s.settlement.activitiesUsed, 'cybersphere'],
+              cybersphere: cyber,
+            },
+          }
+        }),
+
+      cybersphereAdvance: () =>
+        set((s) => {
+          if (!s.character || !s.settlement?.cybersphere) return s
+          const cyber = s.settlement.cybersphere
+          if (cyber.phase !== 'active') return s
+          const nextPos = cyber.position + 1
+          if (nextPos >= cyber.tiles.length) return s
+          const tileType = cyber.tiles[nextPos]
+          const roll = rollD66()
+          const encounterText = getEncounter(roll)
+          const clockDelta = extractClockDelta(encounterText)
+          let newClock = Math.max(0, cyber.memoryClock + 1 + clockDelta)
+          const logs = [
+            ...cyber.log,
+            { text: `[Tuile ${nextPos}/9 — ${tileType}] d66=${roll} : ${encounterText}`, type: 'encounter' as const },
+          ]
+          const pendingReward = tileType === 'matrix-node'
+          if (tileType === 'matrix-node') {
+            logs.push({ text: `✦ Nœud matriciel atteint ! Collectez votre récompense.`, type: 'system' as const })
+          }
+          if (newClock >= 12) {
+            const scarRoll = Math.ceil(Math.random() * 6)
+            logs.push({ text: `⚠ MÉMOIRE SATURÉE (${newClock}/12) — Abyssal Scar d6=${scarRoll}. Déconnexion forcée.`, type: 'warning' as const })
+            return {
+              settlement: {
+                ...s.settlement,
+                cybersphere: { ...cyber, position: nextPos, memoryClock: 12, log: logs, phase: 'abyssal', pendingReward },
+              },
+            }
+          }
+          return {
+            settlement: {
+              ...s.settlement,
+              cybersphere: { ...cyber, position: nextPos, memoryClock: newClock, log: logs, pendingReward },
+            },
+          }
+        }),
+
+      cybersphereCollectReward: () =>
+        set((s) => {
+          if (!s.settlement?.cybersphere) return s
+          const cyber = s.settlement.cybersphere
+          if (!cyber.pendingReward || cyber.phase !== 'active') return s
+          const roll = rollD66()
+          const rewardText = getReward(roll)
+          const clockDelta = extractClockDelta(rewardText)
+          const newClock = Math.max(0, cyber.memoryClock + clockDelta)
+          const logs = [
+            ...cyber.log,
+            { text: `★ Récompense Nœud — d66=${roll} : ${rewardText}`, type: 'reward' as const },
+          ]
+          if (newClock >= 12) {
+            logs.push({ text: `⚠ MÉMOIRE SATURÉE après récompense — Abyssal Scar. Déconnexion forcée.`, type: 'warning' as const })
+            return {
+              settlement: {
+                ...s.settlement,
+                cybersphere: { ...cyber, memoryClock: 12, matrixNodesReached: cyber.matrixNodesReached + 1, log: logs, phase: 'abyssal', pendingReward: false },
+              },
+            }
+          }
+          return {
+            settlement: {
+              ...s.settlement,
+              cybersphere: { ...cyber, memoryClock: newClock, matrixNodesReached: cyber.matrixNodesReached + 1, log: logs, pendingReward: false },
+            },
+          }
+        }),
+
+      exitCybersphere: () =>
+        set((s) => {
+          if (!s.settlement?.cybersphere) return s
+          const cyber = s.settlement.cybersphere
+          const logs = [...cyber.log, { text: `Déconnexion. Nœuds collectés : ${cyber.matrixNodesReached}/3. Mémoire utilisée : ${cyber.memoryClock}/12.`, type: 'system' as const }]
+          return {
+            settlement: {
+              ...s.settlement,
+              cybersphere: { ...cyber, phase: 'escaped', log: logs },
+            },
+          }
+        }),
+
+      generateNpc: () =>
+        set((s) => {
+          if (!s.settlement) return s
+          const pick = <T extends { roll: number; value: string }>(table: T[], max?: number) => {
+            const n = max ?? table.length
+            const roll = Math.ceil(Math.random() * n)
+            return table.find((e) => {
+              const r = e.roll
+              if (typeof r === 'string') {
+                const [lo, hi] = (r as string).split('-').map(Number)
+                return roll >= lo && roll <= (hi ?? lo)
+              }
+              return r === roll
+            })?.value ?? '—'
+          }
+          const npc: GeneratedNpc = {
+            trade: pick((npcsData as any).trade, 20),
+            emotion: pick((npcsData as any).emotion, 20),
+            look: pick((npcsData as any).look, 20),
+            style: pick((npcsData as any).style, 6),
+            reaction: pick((npcsData as any).reaction, 12),
+            faction: pick((npcsData as any).faction, 6),
+            goal: pick((npcsData as any).goal, 10),
+          }
+          return { settlement: { ...s.settlement, lastNpc: npc } }
+        }),
     }),
     { name: 'astroprisma-save' }
   )

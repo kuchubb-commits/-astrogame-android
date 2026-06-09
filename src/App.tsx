@@ -7,12 +7,14 @@ import OracleScreen from './pages/OracleScreen'
 import CombatScreen from './pages/CombatScreen'
 import ArsenalScreen from './pages/ArsenalScreen'
 import StarshipCombatScreen from './pages/StarshipCombatScreen'
+import SettlementScreen from './pages/SettlementScreen'
 import BottomNav from './components/ui/BottomNav'
 
 function App() {
   const character = useGameStore((s) => s.character)
   const combat = useGameStore((s) => s.combat)
   const shipCombat = useGameStore((s) => s.shipCombat)
+  const settlement = useGameStore((s) => s.settlement)
   const activeTab = useGameStore((s) => s.activeTab)
   const setTab = useGameStore((s) => s.setTab)
 
@@ -21,6 +23,7 @@ function App() {
   // Les combats prennent tout l'écran (pas de BottomNav)
   if (combat) return <CombatScreen />
   if (shipCombat) return <StarshipCombatScreen />
+  if (settlement) return <SettlementScreen />
 
   return (
     <>

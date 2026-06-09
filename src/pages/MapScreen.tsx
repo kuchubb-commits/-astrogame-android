@@ -30,6 +30,7 @@ export default function MapScreen() {
   const movePlayer = useGameStore((s) => s.movePlayer)
   const exploreCurrentHex = useGameStore((s) => s.exploreCurrentHex)
   const startCombat = useGameStore((s) => s.startCombat)
+  const enterSettlement = useGameStore((s) => s.enterSettlement)
   const setTab = useGameStore((s) => s.setTab)
 
   if (!mapData) {
@@ -90,9 +91,15 @@ export default function MapScreen() {
             </span>
           </p>
         </div>
-        <div className="text-right">
+        <div className="flex flex-col items-end gap-1">
           <RingLabel ring={playerHex.ring} />
           <p className="font-display text-lg text-accent">{playerHexId}</p>
+          <button
+            onClick={enterSettlement}
+            className="font-mono text-[9px] px-2 py-1 rounded border border-astro-ink bg-[#1a1025] text-off-white hover:border-accent hover:text-bone active:scale-95 transition-all"
+          >
+            ⬡ Settlement
+          </button>
         </div>
       </div>
 

@@ -77,6 +77,9 @@ export interface CombatState {
   log: CombatLogEntry[]
   round: number
   expReward: number
+  isSim?: boolean
+  preSimHp?: number
+  preSimEnergy?: number
 }
 
 export interface OracleEntry {
@@ -89,6 +92,40 @@ export interface OracleEntry {
 }
 
 export type PlayTab = 'player' | 'map' | 'oracle' | 'arsenal' | 'starship'
+
+export interface GeneratedNpc {
+  trade: string
+  emotion: string
+  look: string
+  style: string
+  reaction: string
+  faction: string
+  goal: string
+}
+
+export interface CybersphereLogEntry {
+  text: string
+  type: 'encounter' | 'reward' | 'system' | 'warning'
+}
+
+export interface CybersphereState {
+  tiles: ('access-port' | 'normal' | 'matrix-node')[]
+  position: number
+  memoryClock: number
+  matrixNodesReached: number
+  log: CybersphereLogEntry[]
+  phase: 'active' | 'escaped' | 'abyssal'
+  pendingReward: boolean
+}
+
+export interface SettlementState {
+  factionId: string
+  factionName: string
+  activitiesUsed: string[]
+  cybersphere: CybersphereState | null
+  lastNpc: GeneratedNpc | null
+  testFlightResult: { type: string; roll: number; success: boolean; effect: string } | null
+}
 
 export interface StarshipCombatState {
   enemyShipId: string
