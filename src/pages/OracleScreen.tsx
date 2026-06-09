@@ -6,16 +6,12 @@ import type { OracleResult } from '../engine/oracle'
 import { generateNarration, getApiKey, setApiKey } from '../ai/gemini'
 import { useGameStore } from '../stores/gameStore'
 
-interface OracleEntry {
-  id: number
-  question: string
-  result: OracleResult
-  narration: string | null
-}
-
 export default function OracleScreen() {
   const character = useGameStore((s) => s.character)
   const mapData = useGameStore((s) => s.mapData)
+  const oracleLog = useGameStore((s) => s.oracleLog)
+  const addOracleEntry = useGameStore((s) => s.addOracleEntry)
+
   const playerHexId = mapData?.playerHexId ?? 'I1'
   const currentHex = mapData?.hexes[playerHexId]
 
@@ -23,7 +19,6 @@ export default function OracleScreen() {
   const [current, setCurrent] = useState<OracleResult | null>(null)
   const [narration, setNarration] = useState<string | null>(null)
   const [narrating, setNarrating] = useState(false)
-  const [history, setHistory] = useState<OracleEntry[]>([])
   const [apiKey, setApiKeyState] = useState(getApiKey)
   const [showKeyInput, setShowKeyInput] = useState(false)
   const [apiError, setApiError] = useState<string | null>(null)
@@ -55,11 +50,6 @@ export default function OracleScreen() {
       }
       const text = await generateNarration(ctx)
       setNarration(text)
-      // Save to history
-      setHistory((prev) => [
-        { id: Date.now(), question, result: current, narration: text },
-        ...prev,
-      ].slice(0, 10))
     } catch (e: unknown) {
       const msg = e instanceof Error ? e.message : String(e)
       if (msg === 'no-key') {
@@ -73,12 +63,9 @@ export default function OracleScreen() {
     }
   }
 
-  function confirmRollAndSave() {
+  function confirmAndSave() {
     if (!current) return
-    setHistory((prev) => [
-      { id: Date.now(), question, result: current, narration },
-      ...prev,
-    ].slice(0, 10))
+    addOracleEntry({ question, result: current.result, keyword: current.keyword, isYes: current.isYes, narration })
     setCurrent(null)
     setNarration(null)
     setQuestion('')
@@ -100,16 +87,17 @@ export default function OracleScreen() {
           <h1 className="font-display text-3xl text-bone uppercase tracking-wider">Oracle</h1>
           <p className="font-serif italic text-off-white text-sm">Consulter le destin</p>
         </div>
-        <button
-          onClick={() => setShowKeyInput((v) => !v)}
-          className={`font-mono text-[10px] uppercase px-2 py-1 rounded border active:scale-95
-            ${hasKey ? 'border-medusa text-medusa' : 'border-astro-orange text-astro-orange'}`}
-        >
-          {hasKey ? 'IA ✓' : 'IA ?'}
-        </button>
+        {hasKey && (
+          <button
+            onClick={() => setShowKeyInput((v) => !v)}
+            className="font-mono text-[10px] uppercase px-2 py-1 rounded border border-medusa text-medusa active:scale-95"
+          >
+            IA ✓
+          </button>
+        )}
       </div>
 
-      {/* API key input */}
+      {/* API key input (only when explicitly opened) */}
       {showKeyInput && (
         <Card className="mb-4">
           <p className="font-mono text-[10px] uppercase tracking-widest text-off-white mb-2">Clé API Gemini</p>
@@ -160,7 +148,6 @@ export default function OracleScreen() {
       {/* Result */}
       {current && (
         <div className="mb-4">
-          {/* Yes/No result */}
           <div
             className="rounded-lg border-2 p-5 mb-3 text-center"
             style={{ borderColor: color, backgroundColor: color + '15' }}
@@ -168,10 +155,7 @@ export default function OracleScreen() {
             <p className="font-mono text-[10px] uppercase tracking-widest text-off-white mb-1">
               d6 = {current.roll} · {current.description}
             </p>
-            <p
-              className="font-display text-5xl uppercase mb-2"
-              style={{ color }}
-            >
+            <p className="font-display text-5xl uppercase mb-2" style={{ color }}>
               {current.result}
             </p>
             <div className="inline-block px-3 py-1 rounded-full border font-mono text-xs uppercase tracking-widest" style={{ borderColor: color, color }}>
@@ -179,7 +163,6 @@ export default function OracleScreen() {
             </div>
           </div>
 
-          {/* Narration */}
           {narration && (
             <Card variant="inset" className="mb-3">
               <p className="font-mono text-[10px] uppercase tracking-widest text-off-white mb-2">Narration IA</p>
@@ -191,19 +174,13 @@ export default function OracleScreen() {
             <p className="font-mono text-[10px] text-astro-orange mb-3">{apiError}</p>
           )}
 
-          {/* Actions */}
           <div className="flex gap-2">
             {hasKey && !narration && (
-              <Button
-                variant="secondary"
-                onClick={handleNarrate}
-                disabled={narrating}
-                className="flex-1"
-              >
+              <Button variant="secondary" onClick={handleNarrate} disabled={narrating} className="flex-1">
                 {narrating ? 'Génération…' : 'Narrer avec IA'}
               </Button>
             )}
-            <Button variant="ghost" onClick={confirmRollAndSave} className="flex-1">
+            <Button variant="ghost" onClick={confirmAndSave} className="flex-1">
               Suivant
             </Button>
           </div>
@@ -211,20 +188,20 @@ export default function OracleScreen() {
       )}
 
       {/* History */}
-      {history.length > 0 && (
+      {oracleLog.length > 0 && (
         <div className="mt-6">
           <p className="font-mono text-[10px] uppercase tracking-widest text-off-white mb-3">Historique</p>
           <div className="space-y-2">
-            {history.map((entry) => {
-              const c = RESULT_COLOR[entry.result.result] ?? '#f0eee8'
+            {oracleLog.map((entry) => {
+              const c = RESULT_COLOR[entry.result] ?? '#f0eee8'
               return (
                 <div key={entry.id} className="rounded-lg border border-astro-ink px-3 py-2 bg-[#1a1025]">
                   <div className="flex items-center gap-2 mb-1">
                     <span className="font-display text-sm uppercase" style={{ color: c }}>
-                      {entry.result.result}
+                      {entry.result}
                     </span>
                     <span className="font-mono text-[9px] px-1.5 py-0.5 rounded-full border" style={{ color: c, borderColor: c }}>
-                      {entry.result.keyword}
+                      {entry.keyword}
                     </span>
                     {entry.question && (
                       <span className="font-mono text-[9px] text-off-white opacity-50 truncate">{entry.question}</span>

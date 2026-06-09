@@ -79,4 +79,13 @@ export interface CombatState {
   expReward: number
 }
 
+export interface OracleEntry {
+  id: number
+  question: string
+  result: string
+  keyword: string
+  isYes: boolean
+  narration: string | null
+}
+
 export type PlayTab = 'player' | 'map' | 'oracle' | 'arsenal' | 'starship'

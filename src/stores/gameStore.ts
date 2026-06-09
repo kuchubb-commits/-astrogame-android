@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import type { Character, Starship, PlayTab, MapData, HexState, CycleEntry, CombatState, CombatantState } from '../types/game'
+import type { Character, Starship, PlayTab, MapData, HexState, CycleEntry, CombatState, CombatantState, OracleEntry } from '../types/game'
 import { ALL_HEXES, STARTING_HEX } from '../engine/hexMap'
 import type { ExploreResult } from '../engine/exploration'
 import {
@@ -24,6 +24,7 @@ interface GameState {
   starship: Starship | null
   mapData: MapData | null
   combat: CombatState | null
+  oracleLog: OracleEntry[]
   activeTab: PlayTab
 
   startGame: (character: Character, starship: Starship) => void
@@ -51,6 +52,9 @@ interface GameState {
   exploreCurrentHex: (result: ExploreResult) => void
   addLogEntry: (entry: Omit<CycleEntry, 'id'>) => void
 
+  // Oracle
+  addOracleEntry: (entry: Omit<OracleEntry, 'id'>) => void
+
   // Cybertech
   installCybertech: (id: string) => void
   removeCybertech: (id: string) => void
@@ -75,10 +79,11 @@ export const useGameStore = create<GameState>()(
       starship: null,
       mapData: null,
       combat: null,
+      oracleLog: [],
       activeTab: 'player',
 
       startGame: (character, starship) =>
-        set({ character, starship, mapData: initMapData(), combat: null, activeTab: 'player' }),
+        set({ character, starship, mapData: initMapData(), combat: null, oracleLog: [], activeTab: 'player' }),
 
       ensureMap: () => set((s) => s.mapData ? s : { mapData: initMapData() }),
 
@@ -221,6 +226,9 @@ export const useGameStore = create<GameState>()(
           if (!s.mapData) return s
           return { mapData: { ...s.mapData, cycleLog: [{ ...entry, id: Date.now() }, ...s.mapData.cycleLog].slice(0, 50) } }
         }),
+
+      addOracleEntry: (entry) =>
+        set((s) => ({ oracleLog: [{ ...entry, id: Date.now() }, ...s.oracleLog].slice(0, 30) })),
 
       // ── COMBAT ──────────────────────────────────────────────────────────────
 
