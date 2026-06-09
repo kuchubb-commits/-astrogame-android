@@ -107,7 +107,9 @@ export default function CombatScreen() {
       {/* Round indicator */}
       <div className="flex items-center justify-between">
         <h1 className="font-display text-2xl text-bone uppercase">⚔ {enemyName}</h1>
-        <span className="font-mono text-[10px] text-off-white uppercase">Round {round} · {isPlayerTurn ? 'Votre tour' : 'Tour ennemi…'}</span>
+        <span className="font-mono text-[10px] text-off-white uppercase">
+          Round {round}{isOver ? '' : ` · ${isPlayerTurn ? 'Votre tour' : 'Tour ennemi…'}`}
+        </span>
       </div>
 
       {/* Enemy */}

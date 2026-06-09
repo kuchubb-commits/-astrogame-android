@@ -16,15 +16,14 @@
 | Phase 0 | Vite + React + TS + Tailwind + Zustand + 23 JSON | ✅ |
 | Phase Design | Palette Tailwind, polices Google, 6 composants UI, Styleguide | ✅ |
 | Phase 1 | CharacterCreation, PlayerSheet, StarshipSheet, Zustand persist | ✅ |
+| Phase 2 | Carte hex SVG 36 cases, MOVE/EXPLORE/MARK, journal de cycle persisté | ✅ |
+| Phase 3 | Oracle Yes/No d6×d6 + mots-clés, historique Zustand (Gemini reporté) | ✅ |
 
 ### Prochaine étape
 
-**Phase 2 — Carte & cycle d'exploration** :
-- Grille hex SVG 36 cases (3 anneaux + étoile centrale)
-- MOVE (−1 Fuel) → EXPLORE (d6 par anneau) → MARK (carte + journal)
-- Résolution via `data/exploration-tables.json`
-- Journal de cycle persisté
-- 3ème onglet "Carte" dans BottomNav
+**Phase 4 — Combat terrestre** (déjà partiellement codé, à vérifier) :
+- `engine/combat.ts` + `engine/hackResolver.ts` + `pages/CombatScreen.tsx` existent
+- Lancer l'app, tester un combat complet et corriger les bugs trouvés
 
 ### Architecture actuelle (`src/`)
 
