@@ -6,8 +6,17 @@ import { useGameStore } from '../stores/gameStore'
 import { getNeighbors, HEX_MAP } from '../engine/hexMap'
 import { rollExploration } from '../engine/exploration'
 import type { Ring } from '../engine/hexMap'
+import factionsData from '../../data/factions.json'
 
 const HOSTILE_TYPES = ['HOSTILE ENCOUNTER', 'FACTION ENCOUNTER']
+
+const FACTION_TEXT: Record<string, string> = {
+  warg:         'text-warg',
+  isf:          'text-intersolar',
+  medusa:       'text-medusa',
+  corsair:      'text-astro-yellow',
+  'synth-arch': 'text-synth',
+}
 
 function RingLabel({ ring }: { ring: Ring }) {
   const labels: Record<Ring, string> = {
@@ -27,6 +36,7 @@ export default function MapScreen() {
   const mapData = useGameStore((s) => s.mapData)
   const ensureMap = useGameStore((s) => s.ensureMap)
   const starship = useGameStore((s) => s.starship)!
+  const character = useGameStore((s) => s.character)!
   const movePlayer = useGameStore((s) => s.movePlayer)
   const exploreCurrentHex = useGameStore((s) => s.exploreCurrentHex)
   const startCombat = useGameStore((s) => s.startCombat)
@@ -94,6 +104,15 @@ export default function MapScreen() {
         <div className="flex flex-col items-end gap-1">
           <RingLabel ring={playerHex.ring} />
           <p className="font-display text-lg text-accent">{playerHexId}</p>
+          {character.joinedFactionId && (() => {
+            const fDef = (factionsData as any[]).find((f: any) => f.id === character.joinedFactionId)
+            const fColor = FACTION_TEXT[character.joinedFactionId] ?? 'text-bone'
+            return fDef ? (
+              <p className={`font-mono text-[8px] ${fColor}`}>
+                ⚑ {fDef.name} · Favor {character.resources.favor}/10
+              </p>
+            ) : null
+          })()}
           <button
             onClick={enterSettlement}
             className="font-mono text-[9px] px-2 py-1 rounded border border-astro-ink bg-[#1a1025] text-off-white hover:border-accent hover:text-bone active:scale-95 transition-all"

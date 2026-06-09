@@ -40,6 +40,8 @@ function buildCharacter(origin: Origin, name: string): Character {
     resources: { exp: 0, serum: 3, scraps: 0, favor: 0 },
     installedCybertech: [],
     deployedDroneId: null,
+    joinedFactionId: null,
+    currentMission: null,
   }
 }
 

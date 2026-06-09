@@ -5,6 +5,7 @@ import ResourceBar from '../components/ui/ResourceBar'
 import { useGameStore } from '../stores/gameStore'
 import enemiesData from '../../data/enemies.json'
 import itemsData from '../../data/items.json'
+import factionsData from '../../data/factions.json'
 
 // ── Faction colours ─────────────────────────────────────────────────────────
 const FACTION_STYLE: Record<string, { badge: string; text: string }> = {
@@ -15,7 +16,7 @@ const FACTION_STYLE: Record<string, { badge: string; text: string }> = {
   'synth-arch': { badge: 'bg-synth text-bone border-synth',             text: 'text-synth' },
 }
 
-type Tab = 'hangar' | 'wiredoc' | 'commerce' | 'activites'
+type Tab = 'hangar' | 'wiredoc' | 'commerce' | 'activites' | 'faction'
 type ActivityView = null | 'test-flight' | 'scrapyard' | 'combat-sim' | 'cybersphere' | 'home-pods'
 
 // ── Cybersphere sub-screen ──────────────────────────────────────────────────
@@ -174,6 +175,12 @@ export default function SettlementScreen() {
   const startCybersphere = useGameStore((s) => s.startCybersphere)
   const startCombat    = useGameStore((s) => s.startCombat)
   const generateNpc    = useGameStore((s) => s.generateNpc)
+  const joinFaction    = useGameStore((s) => s.joinFaction)
+  const leaveFaction   = useGameStore((s) => s.leaveFaction)
+  const generateFactionMission = useGameStore((s) => s.generateFactionMission)
+  const completeFactionMission = useGameStore((s) => s.completeFactionMission)
+  const failFactionMission     = useGameStore((s) => s.failFactionMission)
+  const gainFavor      = useGameStore((s) => s.gainFavor)
 
   const [tab, setTab] = useState<Tab>('hangar')
   const [actView, setActView] = useState<ActivityView>(null)
@@ -576,12 +583,273 @@ export default function SettlementScreen() {
     )
   }
 
+  const renderFaction = () => {
+    const factionDef = (factionsData as any[]).find((f) => f.id === settlement.factionId)
+    const joinedDef  = character.joinedFactionId
+      ? (factionsData as any[]).find((f) => f.id === character.joinedFactionId)
+      : null
+    const fStyle2 = FACTION_STYLE[settlement.factionId] ?? FACTION_STYLE.isf
+    const joinedStyle = character.joinedFactionId
+      ? (FACTION_STYLE[character.joinedFactionId] ?? FACTION_STYLE.isf)
+      : null
+    const favor = character.resources.favor
+    const mission = character.currentMission ?? null
+    const isMember = character.joinedFactionId === settlement.factionId
+    const hasDifferentFaction = character.joinedFactionId && character.joinedFactionId !== settlement.factionId
+
+    const FAVOR_EVENTS: { threshold: number; key: '2' | '5' | '10' }[] = [
+      { threshold: 2, key: '2' },
+      { threshold: 5, key: '5' },
+      { threshold: 10, key: '10' },
+    ]
+
+    const [encounterRoll, setEncounterRoll] = useState<{ type: 'troop' | 'ship'; result: string } | null>(null)
+
+    const rollEncounter = (type: 'troop' | 'ship') => {
+      if (!factionDef) return
+      const roll = Math.ceil(Math.random() * 6)
+      const table = type === 'troop' ? factionDef.troops : factionDef.ships
+      const entry = table.find((e: any) => e.d6 === roll) ?? table[0]
+      setEncounterRoll({ type, result: type === 'troop' ? `d6=${roll} → ${entry.composition}` : `d6=${roll} → ${entry.ship}` })
+    }
+
+    return (
+      <div className="space-y-4">
+        {/* Settlement faction header */}
+        <Card>
+          <div className="flex items-start gap-3">
+            <div className="flex-1">
+              <p className="font-mono text-[9px] uppercase tracking-widest text-off-white mb-1">Faction du settlement</p>
+              <span className={`font-mono text-[9px] px-1.5 py-0.5 rounded border ${fStyle2.badge}`}>
+                {settlement.factionName}
+              </span>
+              {factionDef && (
+                <p className="font-mono text-[9px] text-off-white opacity-60 leading-relaxed mt-2">
+                  {factionDef.missionType}
+                </p>
+              )}
+            </div>
+          </div>
+        </Card>
+
+        {/* Membership section */}
+        {!character.joinedFactionId && (
+          <Card>
+            <p className="font-mono text-[9px] uppercase tracking-widest text-off-white mb-2">Rejoindre une faction</p>
+            <p className="font-mono text-[9px] text-off-white opacity-60 leading-relaxed mb-3">
+              Rejoindre {settlement.factionName} vous donne accès à des missions répétables (+1 Favor, +3 EXP), des événements narratifs et trois fins possibles.
+            </p>
+            <Button variant="primary" onClick={() => joinFaction(settlement.factionId)} className="w-full">
+              + Rejoindre {settlement.factionName}
+            </Button>
+          </Card>
+        )}
+
+        {hasDifferentFaction && joinedDef && joinedStyle && (
+          <Card>
+            <p className="font-mono text-[9px] uppercase tracking-widest text-off-white mb-2">Membership actuel</p>
+            <div className="flex items-center gap-2 mb-3">
+              <span className={`font-mono text-[9px] px-1.5 py-0.5 rounded border ${joinedStyle.badge}`}>
+                {joinedDef.name}
+              </span>
+              <span className="font-mono text-[9px] text-bone">Favor : {favor}/10</span>
+            </div>
+            <p className="font-mono text-[9px] text-off-white opacity-60 mb-3">
+              Visitez un Settlement {joinedDef.name} pour accéder à vos missions de faction.
+            </p>
+            <button
+              onClick={leaveFaction}
+              className="w-full font-mono text-[9px] px-3 py-1.5 rounded border border-astro-orange text-astro-orange hover:bg-astro-orange/10 active:scale-95 transition-all"
+            >
+              Quitter {joinedDef.name} (Favor → 0)
+            </button>
+          </Card>
+        )}
+
+        {isMember && (
+          <>
+            {/* Favor bar */}
+            <Card>
+              <div className="flex items-center justify-between mb-2">
+                <p className="font-mono text-[9px] uppercase tracking-widest text-off-white">Favor</p>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => gainFavor(-1)}
+                    className="w-6 h-6 rounded border border-astro-ink bg-[#130d1c] font-mono text-[10px] text-bone hover:border-accent active:scale-95"
+                  >−</button>
+                  <span className={`font-mono text-sm font-bold ${fStyle2.text}`}>{favor}/10</span>
+                  <button
+                    onClick={() => gainFavor(+1)}
+                    className="w-6 h-6 rounded border border-astro-ink bg-[#130d1c] font-mono text-[10px] text-bone hover:border-accent active:scale-95"
+                  >+</button>
+                </div>
+              </div>
+              <div className="flex gap-0.5">
+                {Array.from({ length: 10 }).map((_, i) => (
+                  <div
+                    key={i}
+                    className={`flex-1 h-2 rounded-full ${i < favor ? `bg-current ${fStyle2.text}` : 'bg-[#130d1c] border border-astro-ink'}`}
+                    style={{ backgroundColor: i < favor ? undefined : undefined }}
+                  />
+                ))}
+              </div>
+              <div className="flex gap-0.5 mt-0.5">
+                {[2, 5, 10].map((t) => (
+                  <div
+                    key={t}
+                    className={`font-mono text-[7px] ${favor >= t ? fStyle2.text : 'text-astro-ink'}`}
+                    style={{ marginLeft: t === 2 ? `calc(${((t-1)/10)*100}%)` : t === 5 ? `calc(${((t-3)/10)*100}%)` : 'auto' }}
+                  >
+                    {t}▲
+                  </div>
+                ))}
+              </div>
+            </Card>
+
+            {/* Favor events */}
+            <Card>
+              <p className="font-mono text-[9px] uppercase tracking-widest text-off-white mb-2">Événements de Favor</p>
+              <div className="space-y-2">
+                {FAVOR_EVENTS.map(({ threshold, key }) => {
+                  const eventText = factionDef?.favorEvents?.[key]
+                  const unlocked = favor >= threshold
+                  return (
+                    <div
+                      key={key}
+                      className={`rounded border px-3 py-2 ${unlocked ? 'border-current' : 'border-astro-ink'} ${unlocked ? fStyle2.text.replace('text-', 'border-') : ''}`}
+                      style={{ borderColor: unlocked ? undefined : undefined }}
+                    >
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className={`font-mono text-[9px] font-bold ${unlocked ? fStyle2.text : 'text-off-white opacity-40'}`}>
+                          {threshold === 10 ? '★' : '◈'} FAVOR {threshold}
+                        </span>
+                        {!unlocked && <span className="font-mono text-[8px] text-astro-ink">🔒 {favor}/{threshold}</span>}
+                        {unlocked && <span className="font-mono text-[8px] text-medusa">✓ Débloqué</span>}
+                      </div>
+                      {unlocked && eventText && (
+                        <p className="font-mono text-[9px] text-bone leading-relaxed">{eventText}</p>
+                      )}
+                      {threshold === 10 && unlocked && factionDef?.endings && (
+                        <div className="mt-2 space-y-1.5">
+                          <p className="font-mono text-[9px] text-off-white opacity-60 uppercase tracking-widest">3 fins disponibles :</p>
+                          {factionDef.endings.map((ending: string, i: number) => (
+                            <div key={i} className="rounded border border-astro-ink bg-[#130d1c] px-2 py-1.5">
+                              <p className="font-mono text-[9px] text-bone leading-relaxed">{ending}</p>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  )
+                })}
+              </div>
+            </Card>
+
+            {/* Mission */}
+            <Card>
+              <p className="font-mono text-[9px] uppercase tracking-widest text-off-white mb-2">Mission de Faction</p>
+              {!mission || mission.status !== 'active' ? (
+                <>
+                  {mission && mission.status !== 'active' && (
+                    <div className={`rounded border px-2 py-1.5 mb-2 ${mission.status === 'completed' ? 'border-medusa bg-medusa/10' : 'border-astro-orange bg-astro-orange/10'}`}>
+                      <p className="font-mono text-[9px] text-bone">
+                        {mission.status === 'completed' ? '✓ Mission accomplie (+1 Favor, +3 EXP)' : '✗ Mission abandonnée (-1 Favor)'}
+                      </p>
+                    </div>
+                  )}
+                  <Button variant="primary" onClick={generateFactionMission} className="w-full">
+                    🎲 Générer une mission (d10)
+                  </Button>
+                </>
+              ) : (
+                <div className="space-y-2">
+                  <div className="rounded border border-astro-ink bg-[#130d1c] px-3 py-2 space-y-1.5">
+                    <div>
+                      <p className="font-mono text-[8px] text-off-white uppercase opacity-60">Objectif</p>
+                      <p className="font-mono text-[10px] text-bone leading-relaxed">{mission.objectiveText}</p>
+                    </div>
+                    <div>
+                      <p className="font-mono text-[8px] text-off-white uppercase opacity-60">Lieu</p>
+                      <p className="font-mono text-[10px] text-astro-yellow">{mission.locationText}</p>
+                    </div>
+                    {mission.complicationText && (
+                      <div>
+                        <p className="font-mono text-[8px] text-off-white uppercase opacity-60">Complication (d10)</p>
+                        <p className="font-mono text-[10px] text-astro-orange leading-relaxed">{mission.complicationText}</p>
+                      </div>
+                    )}
+                    {mission.rewardText && (
+                      <div>
+                        <p className="font-mono text-[8px] text-off-white uppercase opacity-60">Récompense</p>
+                        <p className="font-mono text-[10px] text-medusa">{mission.rewardText}</p>
+                      </div>
+                    )}
+                  </div>
+                  <div className="flex gap-2">
+                    <Button variant="primary" onClick={completeFactionMission} className="flex-1 text-[10px]">
+                      ✓ Accomplie
+                    </Button>
+                    <button
+                      onClick={failFactionMission}
+                      className="flex-1 font-mono text-[10px] px-3 py-2 rounded border border-astro-orange text-astro-orange hover:bg-astro-orange/10 active:scale-95 transition-all"
+                    >
+                      ✗ Abandonner
+                    </button>
+                  </div>
+                </div>
+              )}
+            </Card>
+
+            {/* Encounter roller */}
+            <Card>
+              <p className="font-mono text-[9px] uppercase tracking-widest text-off-white mb-2">Rencontres faction (d6)</p>
+              <div className="flex gap-2 mb-2">
+                <Button variant="ghost" onClick={() => rollEncounter('troop')} className="flex-1 text-[10px]">
+                  🎲 Troupes
+                </Button>
+                <Button variant="ghost" onClick={() => rollEncounter('ship')} className="flex-1 text-[10px]">
+                  🎲 Vaisseaux
+                </Button>
+              </div>
+              {encounterRoll && (
+                <div className="rounded border border-astro-ink bg-[#130d1c] px-2 py-1.5">
+                  <p className="font-mono text-[9px] text-off-white uppercase opacity-60">
+                    {encounterRoll.type === 'troop' ? 'Composition des troupes' : 'Vaisseau ennemi'}
+                  </p>
+                  <p className="font-mono text-[10px] text-bone">{encounterRoll.result}</p>
+                </div>
+              )}
+              {factionDef && (
+                <div className="mt-2 space-y-1">
+                  <p className="font-mono text-[8px] text-off-white opacity-40 uppercase">Table complète :</p>
+                  {factionDef.troops.map((t: any) => (
+                    <p key={t.d6} className="font-mono text-[8px] text-off-white opacity-50">
+                      d6={t.d6} : {t.composition}
+                    </p>
+                  ))}
+                </div>
+              )}
+            </Card>
+
+            <button
+              onClick={leaveFaction}
+              className="w-full font-mono text-[9px] px-3 py-1.5 rounded border border-astro-ink text-off-white hover:border-astro-orange hover:text-astro-orange active:scale-95 transition-all"
+            >
+              Quitter {settlement.factionName} (Favor → 0)
+            </button>
+          </>
+        )}
+      </div>
+    )
+  }
+
   // ── Render ─────────────────────────────────────────────────────────────────
   const TABS: { id: Tab; label: string; icon: string }[] = [
-    { id: 'hangar',    label: 'Hangar',   icon: '◇' },
-    { id: 'wiredoc',   label: 'WireDoc',  icon: '⊕' },
-    { id: 'commerce',  label: 'Commerce', icon: '◈' },
-    { id: 'activites', label: 'Activités', icon: '⚙' },
+    { id: 'hangar',    label: 'Hangar',  icon: '◇' },
+    { id: 'wiredoc',   label: 'WireDoc', icon: '⊕' },
+    { id: 'commerce',  label: 'Marché',  icon: '◈' },
+    { id: 'activites', label: 'Activ.',  icon: '⚙' },
+    { id: 'faction',   label: 'Faction', icon: '⚑' },
   ]
 
   return (
@@ -630,6 +898,7 @@ export default function SettlementScreen() {
         {tab === 'wiredoc'   && renderWireDoc()}
         {tab === 'commerce'  && renderCommerce()}
         {tab === 'activites' && renderActivities()}
+        {tab === 'faction'   && renderFaction()}
       </div>
     </div>
   )

@@ -21,13 +21,16 @@
 | Phase 4 | Combat terrestre : initiative, armes, hacks, statuts, victoire/défaite | ✅ |
 | Phase 5 | Arsenal : équiper hacks, coût EXP cybertech, noms drones | ✅ |
 | Phase 6 | Combat spatial : Action Dice, modules, Shields, Critical, victoire/défaite | ✅ |
+| Phase 7 | Settlements : Hangar, WireDoc, Commerce, Scrapyard, Cybersphere, Combat Sim, NPC Generator | ✅ |
 
 ### Prochaine étape
 
-**Phase 7 — Settlements & activités** :
-- Settlement : faction, refuel, heal, Bounty
-- Trade Post, Scrapyard, Combat Sim, Home Pods
-- Cybersphere (mini-jeu réseau)
+**Phase 8 — Factions & narration longue** :
+- Favor (-X → +10), seuils 2/5/10, expulsion
+- Faction Events (rejoindre / mission majeure / 3 fins)
+- Missions répétables par faction
+- Encounters neutres/hostiles, troupes, vaisseaux
+- Faction Strength sur la carte
 
 ### Architecture actuelle (`src/`)
 

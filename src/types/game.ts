@@ -12,6 +12,8 @@ export interface Character {
   resources: { exp: number; serum: number; scraps: number; favor: number }
   installedCybertech: string[]
   deployedDroneId: string | null
+  joinedFactionId: string | null
+  currentMission: FactionMission | null
 }
 
 export interface Starship {
@@ -125,6 +127,15 @@ export interface SettlementState {
   cybersphere: CybersphereState | null
   lastNpc: GeneratedNpc | null
   testFlightResult: { type: string; roll: number; success: boolean; effect: string } | null
+}
+
+export interface FactionMission {
+  factionId: string
+  objectiveText: string
+  locationText: string
+  complicationText: string | null
+  rewardText: string | null
+  status: 'active' | 'completed' | 'failed'
 }
 
 export interface StarshipCombatState {

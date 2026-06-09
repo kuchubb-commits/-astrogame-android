@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import type { Character, Starship, PlayTab, MapData, HexState, CycleEntry, CombatState, CombatantState, OracleEntry, StarshipCombatState, SettlementState, GeneratedNpc } from '../types/game'
+import type { Character, Starship, PlayTab, MapData, HexState, CycleEntry, CombatState, CombatantState, OracleEntry, StarshipCombatState, SettlementState, GeneratedNpc, FactionMission } from '../types/game'
 import { ALL_HEXES, STARTING_HEX } from '../engine/hexMap'
 import type { ExploreResult } from '../engine/exploration'
 import {
@@ -19,6 +19,7 @@ import enemiesData from '../../data/enemies.json'
 import cybertechData from '../../data/cybertech.json'
 import itemsData from '../../data/items.json'
 import npcsData from '../../data/npcs.json'
+import missionsData from '../../data/missions.json'
 
 function initMapData(): MapData {
   const hexes: Record<string, HexState> = {}
@@ -89,6 +90,14 @@ interface GameState {
   cybersphereCollectReward: () => void
   exitCybersphere: () => void
   generateNpc: () => void
+
+  // Factions
+  joinFaction: (factionId: string) => void
+  leaveFaction: () => void
+  generateFactionMission: () => void
+  completeFactionMission: () => void
+  failFactionMission: () => void
+  gainFavor: (delta: number) => void
 
   // Combat terrestre
   startCombat: (enemyId: string, isSim?: boolean) => void
@@ -937,6 +946,151 @@ export const useGameStore = create<GameState>()(
             },
           }
         }),
+
+      // ── FACTIONS ─────────────────────────────────────────────────────────────
+
+      joinFaction: (factionId) =>
+        set((s) => {
+          if (!s.character) return s
+          return {
+            character: {
+              ...s.character,
+              joinedFactionId: factionId,
+              currentMission: null,
+              resources: { ...s.character.resources, favor: 0 },
+            },
+          }
+        }),
+
+      leaveFaction: () =>
+        set((s) => {
+          if (!s.character) return s
+          return {
+            character: {
+              ...s.character,
+              joinedFactionId: null,
+              currentMission: null,
+              resources: { ...s.character.resources, favor: 0 },
+            },
+          }
+        }),
+
+      gainFavor: (delta) =>
+        set((s) => {
+          if (!s.character) return s
+          const newFavor = s.character.resources.favor + delta
+          if (newFavor < 0) {
+            return {
+              character: {
+                ...s.character,
+                joinedFactionId: null,
+                currentMission: null,
+                resources: { ...s.character.resources, favor: 0 },
+              },
+            }
+          }
+          return {
+            character: {
+              ...s.character,
+              resources: { ...s.character.resources, favor: Math.min(10, newFavor) },
+            },
+          }
+        }),
+
+      generateFactionMission: () =>
+        set((s) => {
+          if (!s.character) return s
+          const factionId = s.character.joinedFactionId ?? null
+          if (!factionId) return s
+          if (s.character.currentMission?.status === 'active') return s
+          const roll = Math.ceil(Math.random() * 10)
+          const roll2 = Math.ceil(Math.random() * 10)
+          const mKey = factionId === 'synth-arch' ? 'synthArch' : factionId
+          const mData = (missionsData as any)[mKey]
+          if (!mData) return s
+          let objectiveText = ''
+          let locationText = ''
+          let complicationText: string | null = null
+          let rewardText: string | null = null
+          const pickByRoll = (arr: any[], r: number) =>
+            arr.find((e: any) => e.roll === r) ?? arr[0]
+          if (factionId === 'warg') {
+            const obj = pickByRoll(mData.objectives, roll)
+            objectiveText = obj.objective
+            locationText = obj.location
+          } else if (factionId === 'isf') {
+            const cargo = pickByRoll(mData.cargo, roll)
+            const compl = pickByRoll(mData.complications, roll2)
+            objectiveText = `Transporter : ${cargo.cargo}`
+            locationText = cargo.destination
+            complicationText = compl.complication
+            rewardText = compl.reward
+          } else if (factionId === 'medusa') {
+            const obj = pickByRoll(mData.data, roll)
+            const compl = pickByRoll(mData.complications, roll2)
+            objectiveText = obj.objective
+            locationText = obj.location
+            complicationText = compl.complication
+            rewardText = compl.reward
+          } else if (factionId === 'corsair') {
+            const target = pickByRoll(mData.target, roll)
+            const compl = pickByRoll(mData.complications, roll2)
+            objectiveText = `Cible : ${target.target}`
+            locationText = target.location
+            complicationText = compl.complication
+            rewardText = compl.reward
+          } else if (factionId === 'synth-arch') {
+            const goal = pickByRoll(mData.goal, roll)
+            const compl = pickByRoll(mData.complications, roll2)
+            objectiveText = goal.goal
+            locationText = goal.location
+            complicationText = compl.complication
+            rewardText = compl.reward
+          }
+          const mission: FactionMission = { factionId, objectiveText, locationText, complicationText, rewardText, status: 'active' }
+          return { character: { ...s.character, currentMission: mission } }
+        }),
+
+      completeFactionMission: () =>
+        set((s) => {
+          if (!s.character?.currentMission || s.character.currentMission.status !== 'active') return s
+          const newFavor = Math.min(10, s.character.resources.favor + 1)
+          const newExp = s.character.resources.exp + 3
+          return {
+            character: {
+              ...s.character,
+              currentMission: { ...s.character.currentMission, status: 'completed' },
+              resources: { ...s.character.resources, favor: newFavor, exp: newExp },
+            },
+          }
+        }),
+
+      failFactionMission: () => {
+        const { character } = get()
+        if (!character?.currentMission || character.currentMission.status !== 'active') return
+        const newFavor = character.resources.favor - 1
+        if (newFavor < 0) {
+          set({
+            character: {
+              ...character,
+              joinedFactionId: null,
+              currentMission: null,
+              resources: { ...character.resources, favor: 0 },
+            },
+          })
+          return
+        }
+        set((s) => {
+          if (!s.character?.currentMission) return s
+          return {
+            character: {
+              ...s.character,
+              currentMission: { ...s.character.currentMission, status: 'failed' },
+              resources: { ...s.character.resources, favor: newFavor },
+            },
+          }
+        })
+      },
 
       generateNpc: () =>
         set((s) => {
