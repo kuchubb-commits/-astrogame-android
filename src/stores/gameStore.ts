@@ -52,6 +52,8 @@ interface GameState {
   exploreCurrentHex: (result: ExploreResult) => void
   addLogEntry: (entry: Omit<CycleEntry, 'id'>) => void
 
+  equipHack: (hackName: string, slotIndex: number) => void
+
   // Oracle
   addOracleEntry: (entry: Omit<OracleEntry, 'id'>) => void
 
@@ -157,6 +159,8 @@ export const useGameStore = create<GameState>()(
           if (!s.character) return s
           const cybertech = (cybertechData as any[]).find((c) => c.id === id)
           if (!cybertech) return s
+          const cost = cybertech.cost ?? 0
+          if (s.character.resources.exp < cost) return s
           const boost = cybertech.statBoost ?? {}
           const stats = { ...s.character.stats }
           for (const k of Object.keys(boost) as Array<keyof typeof stats>) {
@@ -166,6 +170,7 @@ export const useGameStore = create<GameState>()(
             character: {
               ...s.character,
               stats,
+              resources: { ...s.character.resources, exp: s.character.resources.exp - cost },
               installedCybertech: [...(s.character.installedCybertech ?? []), id],
             },
           }
@@ -225,6 +230,14 @@ export const useGameStore = create<GameState>()(
         set((s) => {
           if (!s.mapData) return s
           return { mapData: { ...s.mapData, cycleLog: [{ ...entry, id: Date.now() }, ...s.mapData.cycleLog].slice(0, 50) } }
+        }),
+
+      equipHack: (hackName, slotIndex) =>
+        set((s) => {
+          if (!s.character) return s
+          const memorySlots = [...s.character.memorySlots]
+          memorySlots[slotIndex] = hackName
+          return { character: { ...s.character, memorySlots } }
         }),
 
       addOracleEntry: (entry) =>

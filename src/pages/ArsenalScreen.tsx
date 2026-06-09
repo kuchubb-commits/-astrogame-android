@@ -20,46 +20,94 @@ type Drone = typeof dronesData[number]
 
 function HacksSection() {
   const character = useGameStore((s) => s.character)!
+  const equipHack = useGameStore((s) => s.equipHack)
+  const [pickingSlot, setPickingSlot] = useState<string | null>(null)
+
+  const loadedIds = new Set(
+    character.memorySlots.filter(Boolean).map((s) => findHackByName(s)?.id)
+  )
+
+  function handleEquip(hackName: string) {
+    const emptySlot = character.memorySlots.findIndex((s) => !s)
+    if (emptySlot !== -1) {
+      equipHack(hackName, emptySlot)
+    } else {
+      setPickingSlot(hackName)
+    }
+  }
+
+  function handleReplaceSlot(slotIndex: number) {
+    if (!pickingSlot) return
+    equipHack(pickingSlot, slotIndex)
+    setPickingSlot(null)
+  }
 
   const activeHacks = character.memorySlots
-    .filter(Boolean)
-    .map((slot) => {
+    .map((slot, i) => {
+      if (!slot) return null
       const hack = findHackByName(slot)
-      return hack ? { slot, hack } : null
+      return hack ? { slot, hack, slotIndex: i } : null
     })
-    .filter(Boolean) as { slot: string; hack: typeof hacksData.hacks[number] }[]
+    .filter(Boolean) as { slot: string; hack: typeof hacksData.hacks[number]; slotIndex: number }[]
 
   return (
     <div className="space-y-3">
+      {/* Slot picker overlay */}
+      {pickingSlot && (
+        <div className="rounded-lg border border-accent bg-accent/10 px-3 py-3 mb-2">
+          <p className="font-mono text-[10px] uppercase tracking-widest text-accent mb-2">
+            Slots pleins — remplacer lequel ?
+          </p>
+          <div className="space-y-1">
+            {character.memorySlots.map((slot, i) => (
+              <button
+                key={i}
+                onClick={() => handleReplaceSlot(i)}
+                className="w-full text-left rounded border border-astro-ink bg-[#130d1c] px-3 py-1.5 font-mono text-[10px] text-bone hover:border-accent transition-colors"
+              >
+                Slot {i + 1} : {slot || '—'}
+              </button>
+            ))}
+          </div>
+          <button onClick={() => setPickingSlot(null)} className="mt-2 font-mono text-[9px] text-off-white opacity-50">
+            Annuler
+          </button>
+        </div>
+      )}
+
       <p className="font-mono text-[10px] uppercase tracking-widest text-off-white">
-        Memory Slots actifs ({activeHacks.length}/3)
+        Memory Slots ({activeHacks.length}/3)
       </p>
+
       {activeHacks.length === 0 && (
         <p className="font-mono text-[11px] text-off-white opacity-50">
-          Aucun hack en mémoire. Ajoutez des noms dans vos Memory Slots (feuille de personnage).
+          Aucun hack chargé. Appuyez sur "Équiper" ci-dessous.
         </p>
       )}
-      {activeHacks.map(({ hack }) => {
+
+      {activeHacks.map(({ hack, slotIndex }) => {
         const res = getHackResolution(hack.id)
         const costLabel = res
-          ? res.energyCost > 0
-            ? `${res.energyCost} Energy`
-            : `${res.hyperCost} Hyperdrive`
+          ? res.energyCost > 0 ? `${res.energyCost} Energy` : `${res.hyperCost} Hyperdrive`
           : '?'
         return (
           <Card key={hack.id}>
             <div className="flex items-start gap-3">
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-1">
+                  <span className="font-mono text-[9px] text-off-white opacity-50">#{slotIndex + 1}</span>
                   <span className="font-display text-sm text-bone uppercase">{hack.name}</span>
-                  {hack.isMaster && (
-                    <span className="font-mono text-[9px] px-1.5 py-0.5 bg-accent text-bone rounded">MASTER</span>
-                  )}
+                  {hack.isMaster && <span className="font-mono text-[9px] px-1.5 py-0.5 bg-accent text-bone rounded">MASTER</span>}
                   <span className="font-mono text-[9px] text-astro-yellow">{costLabel}</span>
                 </div>
                 <p className="font-mono text-[10px] text-off-white leading-relaxed">{hack.effect}</p>
-                <p className="font-mono text-[9px] text-off-white opacity-50 mt-1">Stat : {hack.stat}</p>
               </div>
+              <button
+                onClick={() => equipHack('', slotIndex)}
+                className="font-mono text-[9px] text-off-white opacity-40 hover:opacity-80 shrink-0"
+              >
+                ✕
+              </button>
             </div>
           </Card>
         )
@@ -68,20 +116,28 @@ function HacksSection() {
       <div className="mt-4">
         <p className="font-mono text-[10px] uppercase tracking-widest text-off-white mb-2">Tous les hacks</p>
         <div className="space-y-1">
-          {hacksData.hacks.map((hack) => (
-            <div
-              key={hack.id}
-              className="rounded border border-astro-ink bg-[#1a1025] px-3 py-2"
-            >
-              <div className="flex items-center gap-2">
-                <span className="font-display text-xs text-bone uppercase">{hack.name}</span>
-                {hack.isMaster && (
-                  <span className="font-mono text-[9px] px-1 py-0.5 bg-accent text-bone rounded">MASTER</span>
-                )}
+          {hacksData.hacks.map((hack) => {
+            const isLoaded = loadedIds.has(hack.id)
+            return (
+              <div key={hack.id} className="rounded border border-astro-ink bg-[#1a1025] px-3 py-2">
+                <div className="flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-2 min-w-0">
+                    <span className="font-display text-xs text-bone uppercase">{hack.name}</span>
+                    {hack.isMaster && <span className="font-mono text-[9px] px-1 py-0.5 bg-accent text-bone rounded">MASTER</span>}
+                  </div>
+                  <Button
+                    variant={isLoaded ? 'secondary' : 'ghost'}
+                    onClick={() => !isLoaded && handleEquip(hack.name)}
+                    disabled={isLoaded}
+                    className="text-[9px] shrink-0 py-1 px-2"
+                  >
+                    {isLoaded ? 'Chargé' : 'Équiper'}
+                  </Button>
+                </div>
+                <p className="font-mono text-[9px] text-off-white opacity-70 mt-0.5 leading-relaxed">{hack.effect}</p>
               </div>
-              <p className="font-mono text-[9px] text-off-white opacity-70 mt-0.5 leading-relaxed">{hack.effect}</p>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </div>
@@ -94,6 +150,7 @@ function CybertechSection() {
   const removeCybertech = useGameStore((s) => s.removeCybertech)
 
   const installed = new Set(character.installedCybertech ?? [])
+  const exp = character.resources.exp
 
   const TIER_COLORS: Record<number, string> = {
     1: 'text-medusa',
@@ -104,10 +161,11 @@ function CybertechSection() {
   return (
     <div className="space-y-2">
       <p className="font-mono text-[10px] uppercase tracking-widest text-off-white mb-3">
-        Installé : {installed.size} implant{installed.size !== 1 ? 's' : ''}
+        Installé : {installed.size} implant{installed.size !== 1 ? 's' : ''} · EXP disponible : <span className="text-bone">{exp}</span>
       </p>
       {(cybertechData as Cybertech[]).map((cyb) => {
         const isInstalled = installed.has(cyb.id)
+        const canAfford = isInstalled || exp >= (cyb as any).cost
         const hasBoost = Object.values(cyb.statBoost).some((v) => v > 0)
         const boostStr = hasBoost
           ? Object.entries(cyb.statBoost)
@@ -121,11 +179,12 @@ function CybertechSection() {
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-1">
                   <span className="font-display text-sm text-bone uppercase">{cyb.name}</span>
-                  <span className={`font-mono text-[9px] ${TIER_COLORS[cyb.tier] ?? 'text-off-white'}`}>
-                    T{cyb.tier}
-                  </span>
-                  {boostStr && (
-                    <span className="font-mono text-[9px] text-medusa">{boostStr}</span>
+                  <span className={`font-mono text-[9px] ${TIER_COLORS[cyb.tier] ?? 'text-off-white'}`}>T{cyb.tier}</span>
+                  {boostStr && <span className="font-mono text-[9px] text-medusa">{boostStr}</span>}
+                  {!isInstalled && (
+                    <span className={`font-mono text-[9px] ${canAfford ? 'text-astro-yellow' : 'text-off-white opacity-40'}`}>
+                      {(cyb as any).cost} EXP
+                    </span>
                   )}
                 </div>
                 <p className="font-mono text-[9px] text-off-white opacity-60">{cyb.manufacturer}</p>
@@ -143,6 +202,7 @@ function CybertechSection() {
               <Button
                 variant={isInstalled ? 'secondary' : 'ghost'}
                 onClick={() => isInstalled ? removeCybertech(cyb.id) : installCybertech(cyb.id)}
+                disabled={!isInstalled && !canAfford}
                 className="text-[10px] shrink-0"
               >
                 {isInstalled ? 'Retirer' : 'Installer'}
@@ -153,6 +213,10 @@ function CybertechSection() {
       })}
     </div>
   )
+}
+
+function droneName(raw: string): string {
+  return raw.replace(/^DRONE_/i, '').replace(/_/g, ' ')
 }
 
 function DronesSection() {
@@ -166,7 +230,7 @@ function DronesSection() {
       {deployedId && (
         <div className="rounded-lg border border-medusa bg-medusa/10 px-3 py-2 flex items-center justify-between">
           <p className="font-mono text-[10px] text-medusa uppercase tracking-wider">
-            Drone déployé : {(dronesData as Drone[]).find((d) => d.id === deployedId)?.name ?? deployedId}
+            Drone déployé : {droneName((dronesData as Drone[]).find((d) => d.id === deployedId)?.name ?? deployedId)}
           </p>
           <Button variant="ghost" onClick={undeployDrone} className="text-[10px]">Rappeler</Button>
         </div>
@@ -178,7 +242,7 @@ function DronesSection() {
             <div className="flex items-start gap-3">
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="font-display text-sm text-bone uppercase">{drone.name}</span>
+                  <span className="font-display text-sm text-bone uppercase">{droneName(drone.name)}</span>
                   {isDeployed && (
                     <span className="font-mono text-[9px] px-1.5 py-0.5 bg-medusa text-astro-black rounded">ACTIF</span>
                   )}
