@@ -1,8 +1,9 @@
+import { useState } from 'react'
 import Card from '../components/ui/Card'
+import Button from '../components/ui/Button'
 import ResourceBar from '../components/ui/ResourceBar'
 import { useGameStore } from '../stores/gameStore'
 import starshipsData from '../../data/starships.json'
-
 
 export default function StarshipSheet() {
   const starship = useGameStore((s) => s.starship)!
@@ -10,8 +11,44 @@ export default function StarshipSheet() {
   const updateFuel = useGameStore((s) => s.updateFuel)
   const updateShields = useGameStore((s) => s.updateShields)
   const setCargoSlot = useGameStore((s) => s.setCargoSlot)
+  const startStarshipCombat = useGameStore((s) => s.startStarshipCombat)
+  const [showSelector, setShowSelector] = useState(false)
 
   const shipData = starshipsData.find((s) => s.id === starship.dataId)
+
+  if (showSelector) {
+    return (
+      <div className="min-h-screen bg-astro-black px-4 pt-8 pb-24 max-w-2xl mx-auto">
+        <div className="flex items-center gap-3 mb-4">
+          <button onClick={() => setShowSelector(false)} className="font-mono text-[10px] text-off-white hover:text-bone">← Retour</button>
+          <h1 className="font-display text-2xl text-bone uppercase">Choisir l'ennemi</h1>
+        </div>
+        <div className="space-y-2">
+          {(starshipsData as Array<{ id: string; name: string; class: string; hull: number; modules: string[]; skill: string; exp: number }>).map((s) => (
+            <button
+              key={s.id}
+              onClick={() => { startStarshipCombat(s.id); setShowSelector(false) }}
+              className="w-full text-left rounded-lg border-2 border-astro-ink bg-[#1a1025] hover:border-accent px-4 py-3 transition-all active:scale-95"
+            >
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <span className={`font-mono text-[9px] px-1.5 py-0.5 rounded border border-astro-ink ${s.class === 'S' ? 'bg-accent text-bone' : s.class === 'A' ? 'bg-astro-yellow text-astro-black' : 'bg-[#130d1c] text-off-white'}`}>
+                    Cl. {s.class}
+                  </span>
+                  <span className="font-display text-sm text-bone uppercase">{s.name}</span>
+                </div>
+                <div className="font-mono text-[10px] text-off-white text-right">
+                  <div>Hull <span className="text-bone">{s.hull}</span></div>
+                  <div className="text-astro-yellow">{s.exp} EXP</div>
+                </div>
+              </div>
+              <p className="font-serif italic text-[10px] text-off-white opacity-60 mt-1">{s.skill}</p>
+            </button>
+          ))}
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="min-h-screen bg-astro-black px-4 pt-6 pb-24 max-w-2xl mx-auto">
@@ -32,6 +69,13 @@ export default function StarshipSheet() {
               </div>
             )}
           </div>
+          <Button
+            variant="primary"
+            onClick={() => setShowSelector(true)}
+            className="text-[10px] shrink-0"
+          >
+            ⚔ Combat
+          </Button>
         </div>
         {shipData && (
           <p className="font-serif italic text-off-white text-sm mt-2">{shipData.skill}</p>

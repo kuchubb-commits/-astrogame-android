@@ -18,12 +18,16 @@
 | Phase 1 | CharacterCreation, PlayerSheet, StarshipSheet, Zustand persist | ✅ |
 | Phase 2 | Carte hex SVG 36 cases, MOVE/EXPLORE/MARK, journal de cycle persisté | ✅ |
 | Phase 3 | Oracle Yes/No d6×d6 + mots-clés, historique Zustand (Gemini reporté) | ✅ |
+| Phase 4 | Combat terrestre : initiative, armes, hacks, statuts, victoire/défaite | ✅ |
+| Phase 5 | Arsenal : équiper hacks, coût EXP cybertech, noms drones | ✅ |
+| Phase 6 | Combat spatial : Action Dice, modules, Shields, Critical, victoire/défaite | ✅ |
 
 ### Prochaine étape
 
-**Phase 4 — Combat terrestre** (déjà partiellement codé, à vérifier) :
-- `engine/combat.ts` + `engine/hackResolver.ts` + `pages/CombatScreen.tsx` existent
-- Lancer l'app, tester un combat complet et corriger les bugs trouvés
+**Phase 7 — Settlements & activités** :
+- Settlement : faction, refuel, heal, Bounty
+- Trade Post, Scrapyard, Combat Sim, Home Pods
+- Cybersphere (mini-jeu réseau)
 
 ### Architecture actuelle (`src/`)
 

@@ -89,3 +89,23 @@ export interface OracleEntry {
 }
 
 export type PlayTab = 'player' | 'map' | 'oracle' | 'arsenal' | 'starship'
+
+export interface StarshipCombatState {
+  enemyShipId: string
+  enemyShipName: string
+  enemyModules: string[]
+  playerModules: string[]
+  player: { hull: number; maxHull: number; shields: number }
+  enemy: { hull: number; maxHull: number; shields: number }
+  turn: 'player' | 'enemy'
+  phase: 'active' | 'victory' | 'defeat' | 'escaped'
+  log: CombatLogEntry[]
+  round: number
+  actionDice: number[]
+  usedDiceIndices: number[]
+  playerDoubleNext: boolean
+  playerExtraDmg: number
+  playerApolloUsed: boolean
+  playerDeltaUsed: boolean
+  expReward: number
+}

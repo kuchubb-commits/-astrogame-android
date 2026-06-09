@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import type { Character, Starship, PlayTab, MapData, HexState, CycleEntry, CombatState, CombatantState, OracleEntry } from '../types/game'
+import type { Character, Starship, PlayTab, MapData, HexState, CycleEntry, CombatState, CombatantState, OracleEntry, StarshipCombatState } from '../types/game'
 import { ALL_HEXES, STARTING_HEX } from '../engine/hexMap'
 import type { ExploreResult } from '../engine/exploration'
 import {
@@ -8,6 +8,12 @@ import {
   parseDamageFormula, extractWeaponFormula, hasStatus,
 } from '../engine/combat'
 import { resolveHack, getHackResolution } from '../engine/hackResolver'
+import {
+  findModule, getEngineConfig, rollDice, canActivate,
+  resolveModuleActivation, resolveEnemyShipTurn,
+  getStarshipData, calcStartingShields,
+} from '../engine/starshipCombat'
+import type { BattleCtx } from '../engine/starshipCombat'
 import enemiesData from '../../data/enemies.json'
 import cybertechData from '../../data/cybertech.json'
 
@@ -24,6 +30,7 @@ interface GameState {
   starship: Starship | null
   mapData: MapData | null
   combat: CombatState | null
+  shipCombat: StarshipCombatState | null
   oracleLog: OracleEntry[]
   activeTab: PlayTab
 
@@ -65,13 +72,22 @@ interface GameState {
   deployDrone: (id: string) => void
   undeployDrone: () => void
 
-  // Combat
+  // Combat terrestre
   startCombat: (enemyId: string) => void
   playerAttack: (weaponStr: string) => void
   playerUseHack: (hackId: string) => void
   enemyAct: () => void
   playerEscape: () => void
   endCombat: () => void
+
+  // Combat spatial
+  startStarshipCombat: (enemyShipId: string) => void
+  rollShipDice: () => void
+  activateShipModule: (moduleName: string, dieIndex: number) => void
+  endPlayerShipTurn: () => void
+  enemyShipAct: () => void
+  escapeStarship: () => void
+  endStarshipCombat: () => void
 }
 
 export const useGameStore = create<GameState>()(
@@ -81,15 +97,16 @@ export const useGameStore = create<GameState>()(
       starship: null,
       mapData: null,
       combat: null,
+      shipCombat: null,
       oracleLog: [],
       activeTab: 'player',
 
       startGame: (character, starship) =>
-        set({ character, starship, mapData: initMapData(), combat: null, oracleLog: [], activeTab: 'player' }),
+        set({ character, starship, mapData: initMapData(), combat: null, shipCombat: null, oracleLog: [], activeTab: 'player' }),
 
       ensureMap: () => set((s) => s.mapData ? s : { mapData: initMapData() }),
 
-      resetGame: () => set({ character: null, starship: null, mapData: null, combat: null, activeTab: 'player' }),
+      resetGame: () => set({ character: null, starship: null, mapData: null, combat: null, shipCombat: null, activeTab: 'player' }),
 
       setTab: (tab) => set({ activeTab: tab }),
 
@@ -436,6 +453,213 @@ export const useGameStore = create<GameState>()(
           ? { ...character, health: { ...character.health, current: combat.player.hp }, resources: { ...character.resources, exp: character.resources.exp + combat.expReward } }
           : { ...character, health: { ...character.health, current: Math.max(1, combat.player.hp) } }
         set({ combat: null, character: updatedChar })
+      },
+
+      // ── COMBAT SPATIAL ──────────────────────────────────────────────────────
+
+      startStarshipCombat: (enemyShipId) => {
+        const { starship } = get()
+        if (!starship) return
+        const enemyData = getStarshipData(enemyShipId)
+        if (!enemyData) return
+
+        const playerInit = Math.floor(Math.random() * 6) + 1
+        const enemyInit = Math.floor(Math.random() * 6) + 1
+        const playerFirst = playerInit >= enemyInit
+
+        const playerStartShields = Math.min(8, starship.shields + calcStartingShields(starship.modules, playerFirst))
+        const enemyStartShields = calcStartingShields(enemyData.modules, !playerFirst)
+
+        const sc: StarshipCombatState = {
+          enemyShipId,
+          enemyShipName: enemyData.name,
+          enemyModules: enemyData.modules,
+          playerModules: starship.modules,
+          player: { hull: starship.hull.current, maxHull: starship.hull.max, shields: playerStartShields },
+          enemy: { hull: enemyData.hull, maxHull: enemyData.hull, shields: Math.min(8, enemyStartShields) },
+          turn: playerFirst ? 'player' : 'enemy',
+          phase: 'active',
+          log: [
+            { text: `⚔ Combat spatial : ${enemyData.name} (Hull ${enemyData.hull}, Classe ${enemyData.class})`, type: 'system' },
+            { text: `Initiative d6 [vous: ${playerInit}, ennemi: ${enemyInit}] — ${playerFirst ? 'vous agissez en premier' : "l'ennemi agit en premier"}.`, type: 'system' },
+          ],
+          round: 1,
+          actionDice: [],
+          usedDiceIndices: [],
+          playerDoubleNext: false,
+          playerExtraDmg: 0,
+          playerApolloUsed: false,
+          playerDeltaUsed: false,
+          expReward: enemyData.exp,
+        }
+        set({ shipCombat: sc })
+        if (!playerFirst) setTimeout(() => get().enemyShipAct(), 800)
+      },
+
+      rollShipDice: () => {
+        const { shipCombat } = get()
+        if (!shipCombat || shipCombat.turn !== 'player' || shipCombat.phase !== 'active') return
+        if (shipCombat.actionDice.length > 0) return
+
+        const config = getEngineConfig(shipCombat.playerModules)
+        let count = config.diceCount
+        if (shipCombat.round === 1 && config.firstTurnBonus > 0) count += config.firstTurnBonus
+        if (shipCombat.player.hull <= 10 && shipCombat.playerModules.some((n) => findModule(n)?.id === 'eclipse-bridge')) count += 1
+
+        set({ shipCombat: { ...shipCombat, actionDice: rollDice(count), usedDiceIndices: [] } })
+      },
+
+      activateShipModule: (moduleName, dieIndex) => {
+        const { shipCombat } = get()
+        if (!shipCombat || shipCombat.phase !== 'active' || shipCombat.turn !== 'player') return
+        if (shipCombat.usedDiceIndices.includes(dieIndex)) return
+        const die = shipCombat.actionDice[dieIndex]
+        if (die === undefined) return
+        const mod = findModule(moduleName)
+        if (!mod || !canActivate(die, mod.activationRoll)) return
+
+        const ctx: BattleCtx = { doubleNextAttack: shipCombat.playerDoubleNext, extraDamage: shipCombat.playerExtraDmg }
+        const result = resolveModuleActivation(moduleName, die, shipCombat.player, shipCombat.enemy, ctx)
+
+        let newPlayer = result.newOwner
+        let newEnemy = result.newTarget
+        const newUsed = [...shipCombat.usedDiceIndices, dieIndex]
+        let logs = [...shipCombat.log, { text: `[d${die}] ${result.log}`, type: 'attack' as const }]
+
+        // orion-command: +1 hull per shield gained
+        const shieldsGained = newPlayer.shields - shipCombat.player.shields
+        if (shieldsGained > 0 && shipCombat.playerModules.some((n) => findModule(n)?.id === 'orion-command')) {
+          const healed = Math.min(shieldsGained, newPlayer.maxHull - newPlayer.hull)
+          if (healed > 0) {
+            newPlayer = { ...newPlayer, hull: newPlayer.hull + healed }
+            logs = [...logs, { text: `Orion Command — +${healed} Hull.`, type: 'system' as const }]
+          }
+        }
+
+        // apollo-cockpit: first time entering critical, +2 shields
+        let playerApolloUsed = shipCombat.playerApolloUsed
+        if (!playerApolloUsed && newPlayer.hull > 0 && newPlayer.hull <= 10) {
+          if (shipCombat.playerModules.some((n) => findModule(n)?.id === 'apollo-cockpit')) {
+            newPlayer = { ...newPlayer, shields: Math.min(8, newPlayer.shields + 2) }
+            logs = [...logs, { text: `Apollo Cockpit — Condition critique ! +2 Shields.`, type: 'system' as const }]
+            playerApolloUsed = true
+          }
+        }
+
+        logs = logs.slice(-30)
+
+        if (newEnemy.hull <= 0) {
+          set({
+            shipCombat: {
+              ...shipCombat, player: newPlayer, enemy: newEnemy, phase: 'victory',
+              usedDiceIndices: newUsed, playerDoubleNext: result.newCtx.doubleNextAttack,
+              playerExtraDmg: result.newCtx.extraDamage, playerApolloUsed,
+              log: [...logs, { text: `✓ ${shipCombat.enemyShipName} détruit ! +${shipCombat.expReward} EXP.`, type: 'victory' as const }],
+            }
+          })
+          return
+        }
+
+        const allUsed = newUsed.length >= shipCombat.actionDice.length
+        set({
+          shipCombat: {
+            ...shipCombat, player: newPlayer, enemy: newEnemy,
+            usedDiceIndices: newUsed, playerDoubleNext: result.newCtx.doubleNextAttack,
+            playerExtraDmg: result.newCtx.extraDamage, playerApolloUsed, log: logs,
+          }
+        })
+        if (allUsed) setTimeout(() => get().enemyShipAct(), 600)
+      },
+
+      endPlayerShipTurn: () => {
+        const { shipCombat } = get()
+        if (!shipCombat || shipCombat.phase !== 'active' || shipCombat.turn !== 'player') return
+        const unused = shipCombat.actionDice.length - shipCombat.usedDiceIndices.length
+        const log = unused > 0
+          ? [...shipCombat.log, { text: `Fin du tour (${unused} dé(s) ignoré(s)).`, type: 'system' as const }].slice(-30)
+          : shipCombat.log
+        set({ shipCombat: { ...shipCombat, log } })
+        setTimeout(() => get().enemyShipAct(), 400)
+      },
+
+      enemyShipAct: () => {
+        const { shipCombat } = get()
+        if (!shipCombat || shipCombat.phase !== 'active') return
+
+        const { newPlayer, newEnemy, logs } = resolveEnemyShipTurn(
+          shipCombat.enemyModules,
+          shipCombat.player,
+          shipCombat.enemy,
+          shipCombat.round,
+        )
+
+        let curPlayer = newPlayer
+        const combatLogs: StarshipCombatState['log'] = logs.map((t) => ({ text: t, type: 'enemy' as const }))
+
+        // delta-cargo-bridge: survive first destruction
+        let playerDeltaUsed = shipCombat.playerDeltaUsed
+        if (curPlayer.hull <= 0 && !playerDeltaUsed && shipCombat.playerModules.some((n) => findModule(n)?.id === 'delta-cargo-bridge')) {
+          curPlayer = { ...curPlayer, hull: 10, shields: Math.min(8, curPlayer.shields + 1) }
+          combatLogs.push({ text: `Delta Cargo Bridge — Destruction évitée ! Hull 10, +1 Shield.`, type: 'system' })
+          playerDeltaUsed = true
+        }
+
+        // apollo-cockpit trigger from enemy attack
+        let playerApolloUsed = shipCombat.playerApolloUsed
+        if (!playerApolloUsed && curPlayer.hull > 0 && curPlayer.hull <= 10) {
+          if (shipCombat.playerModules.some((n) => findModule(n)?.id === 'apollo-cockpit')) {
+            curPlayer = { ...curPlayer, shields: Math.min(8, curPlayer.shields + 2) }
+            combatLogs.push({ text: `Apollo Cockpit — Condition critique ! +2 Shields.`, type: 'system' })
+            playerApolloUsed = true
+          }
+        }
+
+        const allLogs = [...shipCombat.log, ...combatLogs].slice(-30)
+
+        if (curPlayer.hull <= 0) {
+          set({
+            shipCombat: {
+              ...shipCombat, player: curPlayer, enemy: newEnemy, phase: 'defeat',
+              playerDeltaUsed, playerApolloUsed,
+              log: [...allLogs, { text: `✗ Votre vaisseau est détruit !`, type: 'defeat' as const }],
+            }
+          })
+          return
+        }
+
+        set({
+          shipCombat: {
+            ...shipCombat, player: curPlayer, enemy: newEnemy,
+            turn: 'player', round: shipCombat.round + 1,
+            actionDice: [], usedDiceIndices: [],
+            playerDeltaUsed, playerApolloUsed, log: allLogs,
+          }
+        })
+      },
+
+      escapeStarship: () =>
+        set((s) => {
+          if (!s.shipCombat) return s
+          return {
+            shipCombat: {
+              ...s.shipCombat, phase: 'escaped',
+              log: [...s.shipCombat.log, { text: `Fuite spatiale réussie.`, type: 'system' as const }].slice(-30),
+            }
+          }
+        }),
+
+      endStarshipCombat: () => {
+        const { shipCombat, starship, character } = get()
+        if (!shipCombat || !starship || !character) return
+        const updatedStarship = {
+          ...starship,
+          hull: { ...starship.hull, current: Math.max(0, shipCombat.player.hull) },
+          shields: shipCombat.player.shields,
+        }
+        const updatedChar = shipCombat.phase === 'victory'
+          ? { ...character, resources: { ...character.resources, exp: character.resources.exp + shipCombat.expReward } }
+          : character
+        set({ shipCombat: null, starship: updatedStarship, character: updatedChar })
       },
     }),
     { name: 'astroprisma-save' }
