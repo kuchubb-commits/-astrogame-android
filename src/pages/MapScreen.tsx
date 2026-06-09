@@ -155,8 +155,8 @@ export default function MapScreen() {
           </Card>
         )}
 
-        {/* Last result */}
-        {lastResult && (
+        {/* Last result — only shown while the current hex is still unexplored */}
+        {lastResult && !currentHexState.explored && (
           <div
             className="rounded-lg border px-3 py-2"
             style={{ borderColor: lastResult.color, backgroundColor: lastResult.color + '18' }}
