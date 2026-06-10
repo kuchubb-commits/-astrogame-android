@@ -5,24 +5,32 @@
 
 ---
 
+> **Challenge Rolls** : tous les rolls de stats utilisent **d10 + stat** vs **d10 + stat adversaire**. Succès si résultat joueur > résultat ennemi. (→ ch2-rules.md §2.4)
+> Note : le combat spatial utilise des **Action Dice (d6)** pour les modules vaisseau — distinct des Challenge Rolls personnage.
+> **Symboles** : `HP` Health · `⚡` Energy · `♡` Armor · `◈` Hyperdrive · `✳` Damage · `❄` Serum · `✦` Scraps · `★` Favor · `♦` Action cost
+
 ## 6.1 — SPACE BATTLE RULES (p.51–52)
 
 ### Combat Procedure (p.51)
 
 Le combat spatial suit la même séquence que le combat standard.
 
-- En approche **BALLISTIC** → l'ennemi passe en ordre de tour organisé
-- Chaque ennemi roll ses **d6** (attribut Dexterity) pour l'Initiative
-- Pendant le tour ennemi → roll sur la liste d'actions ennemies pour chaque point **ACTION**
+**Ordre de tour :**
+- Roll **d10 + GRA** (joueur) vs **d10 + ACTIONS** (ennemi) — le plus haut agit en premier
+- L'ennemi utilise son score d'**ACTIONS** à la place de GRA pour ce roll
+
+**Tour ennemi :**
+- Roll un **d10** sur la liste de moves ennemis une fois par point **ACTION**
+- Exemple : un ennemi avec **2 ACTIONS** roll 2 fois sur sa liste de moves par tour
 
 ### Action Dice (p.51)
 
 Principale différence avec le combat personnage-à-personnage :
 
-- Chaque tour, chaque joueur roll ses **Action Dice** — un nombre de **d6** basé sur le score **Dexterity** ou **Engines**
-- Les résultats sont comparés à l'attribut **Engine** du module ou vaisseau ciblé
-- Les Action Dice sont dépensés sur les **weapons** et **System** modules du vaisseau
-- **1 Action Die = 1 usage** de module par tour
+- Au début de chaque tour, roll un nombre de **d6** déterminé par le score **Engines** du vaisseau
+- Ces dés sont dépensés sur les modules **Weapons** et **Systems** pour les activer
+- **1 Action Die = 1 activation** de module par tour
+- Le résultat du dé doit correspondre à la plage d'activation indiquée sur le module (ex : `3-5 ▶`)
 
 ### Hull (p.51)
 
@@ -50,13 +58,13 @@ Principale différence avec le combat personnage-à-personnage :
 
 ### Boost Escape (p.52)
 
-- Bonus **+2** au roll d'évasion
-- Coût : **5 Fuel** + **1 Hull** de dégâts
-- Utilisable **une seule fois** par combat
+- Fuite **immédiate sans jet de dé**
+- Coût : **5 Fuel**
+- Peut être utilisé à tout moment, même pendant le tour ennemi
 
 ### Critical Condition (p.52)
 
-- Vaisseau à **0 Hull ou moins** = Critical Condition
+- Vaisseau à **10 Hull ou moins** = Critical Condition
 - Certains modules ont des effets différents selon cet état
 
 ---
@@ -130,8 +138,8 @@ Principale différence avec le combat personnage-à-personnage :
 | Shields (stack jusqu'à 8, bloque 1 attaque) | 52 |
 | Boarding (docking, capturer capitaine) | 52 |
 | Escape (2 Action Dice) | 52 |
-| Boost Escape (+2, 5 Fuel, 1 Hull) | 52 |
-| Critical Condition (Hull ≤ 0) | 52 |
+| Boost Escape (fuite immédiate sans dé, 5 Fuel, tout moment) | 52 |
+| Critical Condition (Hull **≤ 10**) | 52 |
 | 8 Engine modules | 53 |
 | 8 Control modules | 54 |
 | 8 System modules | 55 |

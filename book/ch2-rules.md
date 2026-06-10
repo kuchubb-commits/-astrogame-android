@@ -36,69 +36,89 @@ Chaque personnage commence avec **2 Health Packs** et **50 Scope**.
 ## 2.2 — ORIGINS (p.11–12)
 
 6 Origins disponibles. Chaque Origin définit les stats de départ et l'équipement initial.
+Tout personnage commence aussi avec **2 Health Packs** et **50 Scraps** (commun à toutes les Origins).
 
-### ESOTERORIST (p.11)
-Stats : VIGOR · GRACE · MIND · TECH
-> History is written by the winners, unless you were born on the losing side. Whether you were a child soldier or a warden from the wrong part of town, you've decided to take justice into your own hands.
+### ECOTERRORIST (p.11)
+| Stat | VIG | GRA | MIN | TEC |
+|---|---|---|---|---|
+| Valeur | **3** | 2 | 0 | 1 |
+
+> History is written by the winners, sadly you were born on the losing side. Whether you were a child soldier or a worker from a factory planet, you have now chosen to take justice into your own hands.
 
 Équipement :
-- Pulse Rifle (d8+1 / 2A)
-- Bulletproof Vest (1R)
-- Frag Grenades ×2
+- Pulse Rifle [2d6+VIG]
+- Bulletproof Vest [+1 Armor]
+- 2× Frag Grenades
 
 ---
 
 ### GLITCHBLADE (p.11)
-Stats : VIGOR · GRACE · MIND · TECH
-> A rogue cyber agent with both an experimental tech-blade and advanced skills in evasion, stealth, and survival. You've gone off-grid after being burned by your handler.
+| Stat | VIG | GRA | MIN | TEC |
+|---|---|---|---|---|
+| Valeur | 1 | **3** | 2 | 0 |
+
+> A rogue agent adept with melee weapons and hacking. Stealth, dexterity, cunning — undetectable, swift, lethal.
 
 Équipement :
-- Carbon Dagger (d6+1 / 1A)
-- Hard Cloak (version 8.4)
-- Stealth Shroud (1 use)
+- Carbon Dagger [d8+GRA]
+- Heat Chamber [Weapon Mod]
+- HACK_Shadow
 
 ---
 
 ### WIREHEAD (p.11)
-Stats : VIGOR · GRACE · MIND · TECH
+| Stat | VIG | GRA | MIN | TEC |
+|---|---|---|---|---|
+| Valeur | 1 | 0 | 2 | **3** |
+
 > You grew up surrounded by circuits, building and repairing drones, mechs, and other machinery. You are one with the machine.
 
 Équipement :
-- Helix Wire (d6+1 / 2A)
-- Hotlink (passive)
+- DRONE_Spider
+- Helix Wire [d8+VIG]
+- 1× NetLink
 
 ---
 
 ### ASTROMANCER (p.12)
-Stats : VIGOR · GRACE · **MIND✦** · TECH
-> You spent your whole life logged into cyberspace. Your knowledge in code and megabytes allows you to manipulate the digital forces of the Network.
+| Stat | VIG | GRA | MIN | TEC |
+|---|---|---|---|---|
+| Valeur | 0 | 1 | **3** | 2 |
+
+> You spent your whole life logged into the Cybersphere. Your knowledge of code and neophysics allows you to merge the virtual and material worlds.
 
 Équipement :
-- data_Goggles (+1)
-- data_Tracker (+1)
-- Datajack Hardwire
+- HACK_Javelin
+- HACK_Trojan
+- 2× Stratogen Hormones
 
 ---
 
 ### DESPERADO (p.12)
-Stats : VIGOR · **GRACE✦** · MIND · TECH
-> The ruthless in control of space outlaws and renegades of the far world. You act on instinct — a born survivor outside of the restraining grip of galactic law.
+| Stat | VIG | GRA | MIN | TEC |
+|---|---|---|---|---|
+| Valeur | 2 | **3** | 0 | 1 |
+
+> The authoritarian control of the Old World empires has ended. You found a new life outside of the restraining grip of galactic law.
 
 Équipement :
-- Laser Blaster (D6+1 | 14)
-- Railer Sight (Weapon Mod)
-- Contraband Packages
+- Laser Blaster [d8+VIG]
+- Reflex Sight [Weapon Mod]
+- 2× Contraband Packages
 
 ---
 
 ### CHROMESKIN (p.12)
-Stats : **VIGOR✦** · GRACE · MIND · TECH
-> The majority of your body has been replaced with synthetic DNI. Hardwired and enhanced implants provide an edge over the standard soldier. You are the pinnacle of cybernetics.
+| Stat | VIG | GRA | MIN | TEC |
+|---|---|---|---|---|
+| Valeur | 2 | 1 | 0 | **3** |
+
+> The human body is a canvas. Your goal: transcend humanity and reach the limits of cybertechnology.
 
 Équipement :
-- Reinforced Jacket (4)
-- Reinforced Implant (4)
-- Cyberfist (D6+2)
+- Plasma Shield [d8+VIG, +1 Armor]
+- Reinforced Jacket [+1 Armor]
+- Chromefist [Cybertech]
 
 ---
 
@@ -131,18 +151,31 @@ Stats : **VIGOR✦** · GRACE · MIND · TECH
 | **MIND** | Planification, hacking, raisonnement, connaissances, machines |
 | **TECH** | Fabrication, réparation, utilisation de technologie |
 
+### Symboles officiels du jeu
+
+| Symbole | Ressource | Description |
+|---|---|---|
+| `HP` | **Health** | Condition physique. À 0 → roll vie/mort |
+| `⚡` | **Energy** | Abilities MIND/CYBERTECH. Restaure 3⚡ quand HP atteint 0 |
+| `♡` | **Armor** | Réduit les dégâts reçus |
+| `◈` | **Hyperdrive** | Jauge spéciale (reroll, max dégâts, ability gratuite) |
+| `✳` | **Damage** | Dégâts infligés |
+| `❄` | **Serum** | Monnaie universelle |
+| `✦` | **Scraps** | Craft, réparation vaisseau, trading |
+| `♦` | **Action / Challenge** | Coût d'action ou résultat Challenge Roll |
+
 ### Ressources
 
-**HEALTH** — Condition physique du personnage. À 0 → roll vie/mort.
+**HP (Health)** — Condition physique du personnage. À 0 → roll vie/mort.
 
-**ENERGY** — Utilisée pour les abilities MIND ou CYBERTECH. Restaure 3 Energy quand on atteint 0 Health.
+**⚡ (Energy)** — Utilisée pour les abilities MIND ou CYBERTECH. Restaure 3⚡ quand on atteint 0 HP.
 
-**ARMOR** — Réduit les dégâts reçus.
+**♡ (Armor)** — Réduit les dégâts reçus.
 
-**HYPERDRIVE** — Jauge spéciale. Dépenser pour :
+**◈ (Hyperdrive)** — Jauge spéciale. Dépenser pour :
 - Booster n'importe quel roll de +1
 - Infliger les dégâts **maximaux** avec une attaque
-- Utiliser une ability cybernétique MAX sans payer le coût Energy
+- Utiliser une ability cybernétique MAX sans payer le coût ⚡
 
 → Se réinitialise après un **Rest**.
 
@@ -150,11 +183,12 @@ Stats : **VIGOR✦** · GRACE · MIND · TECH
 
 ### Ressources économiques (p.16)
 
-| Ressource | Usage |
-|---|---|
-| **EXP** | Gagné en battant des ennemis. Dépensé pour les implants Cybertech et modules Starship |
-| **Serum** | Monnaie universelle. Départ : **3#** |
-| **Favor** | Relation avec chaque faction (positive ou négative) |
+| Symbole | Ressource | Usage |
+|---|---|---|
+| `EXP` | **EXP** | Gagné en battant des ennemis. Dépensé pour Cybertech et modules Starship |
+| `❄` | **Serum** | Monnaie universelle. Départ : **3❄** |
+| `✦` | **Scraps** | Craft d'objets, réparation vaisseau, trading |
+| `★` | **Favor** | Relation avec chaque faction (positive ou négative) |
 
 ### Cybertech (p.16)
 
@@ -163,9 +197,14 @@ Implants installés sur le personnage pour augmenter les stats et débloquer des
 ### Challenge Rolls (p.16)
 
 ```
-[ Dé ] + [ Modificateur ]  vs  [ Dé de Difficulté ]
+[ d10 ] + [ Stat joueur ]  vs  [ d10 ] + [ Stat adversaire ]
 ```
-Réussi si résultat **≥ difficulté**. Le résultat le plus haut compte.
+
+- Lancer **2 dés d10** : le **Player die** et le **Challenge die**
+- Ajouter la **stat pertinente** du joueur au Player die
+- Ajouter la **stat de l'adversaire** au Challenge die
+- **Succès** si le résultat du Player die est **strictement supérieur** au Challenge die
+- Contre l'environnement (sans adversaire) : aucun stat ajouté au Challenge die
 
 ### Story Choices (p.16)
 
@@ -202,7 +241,7 @@ Chaque faction possède une **Faction Strength** de 0 à **3 max**. Toutes comme
 | Planet & 2 Satellites | Planète + 2 satellites |
 | Asteroid | Astéroïde |
 | Research Station | Station de recherche |
-| Helion Station | Station Helion |
+| Helios Station | Station Helios |
 | Pirate Hideout | Repaire de pirates |
 | Forest Planet | Planète forêt |
 | Void Planet | Planète vide |
@@ -283,9 +322,9 @@ Utiliser l'**Oracle** pour les rencontres sociales + **Challenge Roll** pour ré
 
 | Stat | Valeur | Règle |
 |---|---|---|
-| **Hull** | **10** | 1 Hull perdu par point de dégât. À 0 → ship détruit |
-| **Fuel** | Variable | **1 Fuel** dépensé par hex déplacé. À 0 → ship stranded |
-| **Cargo Hold** | **6 items max** | Accessible pendant le combat spatial |
+| **Hull** | **20** | 1 Hull perdu par point de dégât. À 0 → ship détruit |
+| **Fuel** | **20** | **1 Fuel** dépensé par hex déplacé. À 0 → ship stranded |
+| **Cargo Hold** | **6 items max** (4 au départ — 2 slots verrouillés) | Accessible pendant le combat spatial |
 
 ### Profils pré-construits (p.25)
 
@@ -304,7 +343,9 @@ Utiliser l'**Oracle** pour les rencontres sociales + **Challenge Roll** pour ré
 **Création du vaisseau** :
 1. Aller à la section Starship Modules
 2. Choisir **3 modules Tier 1** : 1 Control + 1 Engines + 1 au choix
-3. Noter les effets sur le Starship Sheet
+3. Choisir **1 module Tier 2** au choix
+4. Noter les effets sur le Starship Sheet
+5. Les modules restants sont débloqués au fil de l'aventure
 
 **Upgrades** : remplacer modules de même type. Vendre/changer design en **Starport** (Scraps & CR).
 
@@ -357,7 +398,7 @@ Utiliser l'**Oracle** pour les rencontres sociales + **Challenge Roll** pour ré
 | Character Sheets (3 types) | 10 |
 | Campaign Mode / Multiplayer | 13 |
 | Player Sheet (Memory, Weapons, Inventory) | 14 |
-| Origin : Esoterorist | 11 |
+| Origin : Ecoterrorist | 11 |
 | Origin : Glitchblade | 11 |
 | Origin : Wirehead | 11 |
 | Origin : Astromancer | 12 |
@@ -379,7 +420,7 @@ Utiliser l'**Oracle** pour les rencontres sociales + **Challenge Roll** pour ré
 | Crewmembers (max 4, rôles) | 21 |
 | Passive + Active Skills (1+3) | 22 |
 | Actions crewmembers | 23 |
-| Hull (10) / Fuel (1/hex) / Cargo (6) | 25 |
+| Hull (20) / Fuel (20) / Cargo (6) | 25 |
 | Modules vaisseau (6 slots) | 26 |
 | Création vaisseau (3 Tier 1) | 26 |
 | Penalités Favor (non-hostiles) | 27 |
@@ -388,18 +429,84 @@ Utiliser l'**Oracle** pour les rencontres sociales + **Challenge Roll** pour ré
 
 ---
 
-## ORACLE — Quick Reference (p.138)
+## 2.11 — RÈGLES DE BASE (intégrées depuis ch1)
 
-> Lancer un d6 pour obtenir la réponse (colonne) + lancer un d6 pour le thème narratif (ligne).
+### Démarrage de la partie
 
-| d6 thème | 1 — NO, AND… | 2 — NO | 3 — NO, BUT… | 4 — YES, BUT… | 5 — YES | 6 — YES, AND… |
-|----------|-------------|--------|-------------|--------------|---------|---------------|
-| 1 | Void | Suspicion | Survival | Nurturing | Compromise | Balance |
-| 2 | Treason | Regression | Sacrifice | Light | Prophecy | Wealth |
-| 3 | Chaos | Collision | Conflict | Noise | Evolution | Change |
-| 4 | Pain | Desire | Control | Healing | Guidance | Order |
-| 5 | Corruption | Vengeance | Electricity | Velocity | Growth | Truth |
-| 6 | Oppression | Occult | Subversion | Freedom | Nature | Time |
+Séquence de démarrage dans l'ordre :
+1. Créer la **fiche Personnage** — Origin, stats, équipement de départ
+2. Créer la **fiche Vaisseau** — 3 modules Tier 1 + 1 module Tier 2
+3. Placer son **token** au centre de la Star System Map (Starting Location)
+4. Explorer une tuile dans n'importe quelle direction → premier cycle
+
+---
+
+### Modes de jeu
+
+| Mode | Description | Durée |
+|---|---|---|
+| **Quick Mode** | Résolution rapide, notes courtes, événements résumés | 1–2h |
+| **Journaling Mode** *(Recommandé)* | Narration détaillée, descriptions de scènes, immersion totale | 2h+ par cycle |
+
+---
+
+### Notation des dés
+
+| Notation | Signification |
+|---|---|
+| **d4 / d6 / d8 / d10 / d12 / d20** | Lancer le dé correspondant |
+| **2d6** | Lancer 2 dés à 6 faces, additionner (résultat : 2–12) |
+| **d66** | Lancer 2d6, lire séparément comme un nombre à 2 chiffres (11–66) |
+| **d6+1** | Lancer un d6, ajouter 1 au résultat |
+| **d6×[stat]** | Lancer un d6, multiplier par la valeur d'une stat |
+
+---
+
+### Cycle d'exploration
+
+Chaque cycle = un déplacement + une exploration. 3 étapes :
+
+**1. MOVE YOUR STARSHIP**
+Se déplacer d'**1 hex** → coûte **1 Fuel**. Ou utiliser le **Warp Drive** (n'importe quelle tuile → 6 Fuel).
+
+**2. EXPLORE LOCATION — Exploration Roll**
+Durant la deuxième étape de chaque cycle, lancer un **d6** pour déterminer le lieu ou la rencontre. C'est l'**Exploration Roll**.
+
+Se référer à la table de rencontres du **ring actuel** pour identifier le type de rencontre. Certains résultats nécessitent de lancer des d6 supplémentaires pour préciser les détails.
+
+| Étape | Action |
+|---|---|
+| 1 | Lancer un **d6** sur la table de rencontres du ring |
+| 2 | Lancer un **d6 additionnel** pour préciser la rencontre |
+
+**3. MARK DETAILS**
+Dessiner la découverte sur la **carte** et écrire l'événement dans le **Journal**.
+
+### Planets & Satellites (règle officielle p.5)
+
+Quand on découvre un nouveau **hex planète** :
+1. Lancer un **d6** pour découvrir la **forme** et le **nombre de satellites** → utiliser la table Planet Shape du ring actuel (p.63–67)
+2. Si la planète a des satellites → **choisir** quelle destination explorer (planète ou satellite)
+3. Les destinations non explorées restent disponibles lors des **visites futures** du hex
+
+**Exemple officiel :**
+> Vous découvrez une petite planète avec **2 satellites**. Première visite → vous explorez un satellite. Deuxième visite → vous explorez la planète. Troisième visite → vous explorez le satellite restant.
+
+---
+
+### Les 3 Rings de la Star System Map
+
+| Ring | Caractéristiques |
+|---|---|
+| **Outer Ring** | Zone la plus grande et volatile — Asterion Fields, pirates, contrebande |
+| **Middle Ring** | Températures confortables (110–180j) — anciens settlements, Star Volumes, ressources rares |
+| **Inner Ring** | Borde l'étoile — températures extrêmes, Solar Flares, Helio Forms bloquent la navigation |
+
+---
+
+## ORACLE
+
+> Toutes les règles et tables de l'Oracle sont regroupées dans **→ ch12-oracle.md**
 
 ---
 
@@ -416,10 +523,10 @@ Utiliser l'**Oracle** pour les rencontres sociales + **Challenge Roll** pour ré
 
 ## SERUM & SCRAPS — Définitions (p.139)
 
-| Ressource | Symbole | Usage |
-|-----------|---------|-------|
-| **Serum** | § | Monnaie principale — transactions entre personnages |
-| **Scraps** | ⚙ | Craft d'objets, réparation du vaisseau, trading |
+| Symbole | Ressource | Usage |
+|---------|-----------|-------|
+| `❄` | **Serum** | Monnaie principale — transactions entre personnages |
+| `✦` | **Scraps** | Craft d'objets, réparation du vaisseau, trading |
 
 ---
 

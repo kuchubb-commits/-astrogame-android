@@ -2,7 +2,8 @@
 
 > Roadmap de développement, ordonnée du minimum jouable vers l'app complète.
 > Stack : React + Vite + TypeScript + Tailwind + Zustand + Gemini AI.
-> Source de toutes les données : `book/` (extraction Core Book complète).
+> Source de toutes les données : `book/` + `data/*.json` (extraction Core Book complète).
+> **Dernière mise à jour : 2026-06-10 — Phases 0 à 8 terminées. Prochaine : Phase 9.**
 
 ---
 
@@ -18,7 +19,7 @@
 
 ---
 
-## Phase 0 — Fondations techniques ⬜
+## Phase 0 — Fondations techniques ✅
 
 **Objectif** : projet qui démarre, structure claire, données prêtes à l'emploi.
 
@@ -31,7 +32,7 @@
 
 ---
 
-## Phase Design — Système visuel & composants de base ⬜
+## Phase Design — Système visuel & composants de base ✅
 
 **Objectif** : poser l'identité visuelle Astroprisma dans l'app avant de construire les écrans, pour que toutes les phases suivantes réutilisent les mêmes briques. Référence : `design.md`.
 
@@ -46,7 +47,7 @@
 
 ---
 
-## Phase 1 — Personnage & feuilles (jouer « à vide ») ⬜
+## Phase 1 — Personnage & feuilles (jouer « à vide ») ✅
 
 **Objectif** : créer un personnage et consulter/éditer ses fiches.
 
@@ -59,7 +60,7 @@
 
 ---
 
-## Phase 2 — Carte & cycle d'exploration minimal ⬜
+## Phase 2 — Carte & cycle d'exploration minimal ✅
 
 **Objectif** : jouer le premier cycle d'exploration de bout en bout (hors combat détaillé).
 
@@ -72,7 +73,7 @@
 
 ---
 
-## Phase 3 — Oracle & IA narrative ⬜
+## Phase 3 — Oracle & IA narrative ✅ (Oracle implémenté — Gemini reporté à Phase 10)
 
 **Objectif** : transformer les résultats de tables en récit.
 
@@ -84,7 +85,7 @@
 
 ---
 
-## Phase 4 — Combat terrestre ⬜
+## Phase 4 — Combat terrestre ✅
 
 **Objectif** : résoudre un combat contre les ennemis de la base de données.
 
@@ -98,7 +99,7 @@
 
 ---
 
-## Phase 5 — Hacking, Drones, Cybertech, Équipement ⬜
+## Phase 5 — Hacking, Drones, Cybertech, Équipement ✅
 
 **Objectif** : compléter l'arsenal du personnage.
 
@@ -112,7 +113,7 @@
 
 ---
 
-## Phase 6 — Combat spatial ⬜
+## Phase 6 — Combat spatial ✅
 
 **Objectif** : résoudre un affrontement de vaisseaux.
 
@@ -125,7 +126,7 @@
 
 ---
 
-## Phase 7 — Settlements & activités ⬜
+## Phase 7 — Settlements & activités ✅
 
 **Objectif** : disposer des hubs de jeu.
 
@@ -139,7 +140,7 @@
 
 ---
 
-## Phase 8 — Factions & narration longue ⬜
+## Phase 8 — Factions & narration longue ✅
 
 **Objectif** : donner un but à la campagne.
 
@@ -153,32 +154,84 @@
 
 ---
 
-## Phase 9 — Crew, Connections & PNJ ⬜
+## Phase 9 — Crew, Connections & PNJ 🔜 ← PROCHAINE ÉTAPE
 
 **Objectif** : enrichir l'équipage et le social.
 
 - Connections (Affinity 5 → recrutement), Social Stats/Rolls.
-- Crewmembers (max 4, rôles, passive + 3 active skills, inventaire), actions d'équipage.
+- Crewmembers (max 4, rôles, passive + 3 active skills, inventaire), actions d'équipage en combat.
+- Progression équipage (EXP partagé, montée de niveau).
+- Effets passifs en combat selon composition d'équipage.
 - Générateur de PNJ complet (trade/emotion/look/reaction/goal/requests d100).
+- Recrutement depuis Home Pods en Settlement.
 
 **C'est fini quand** : on recrute des crewmembers et des connections, ils agissent en jeu, et le générateur de PNJ produit des rencontres exploitables par l'IA.
 
 ---
 
-## Phase 10 — Abyssal Scars, Campagne, Multijoueur, Polish ⬜
+## Phase 10 — Gemini AI & narration ⬜
+
+**Objectif** : donner vie aux résultats de tables via l'IA.
+
+- Intégration Gemini : prompt construit à partir du résultat Oracle/Exploration + contexte (lieu, faction, état du personnage).
+- Résultat → narration 2–3 phrases journalisée automatiquement.
+- Mode dégradé si Gemini indisponible (affichage brut des résultats de tables).
+- Modes Quick (rapide, peu de narration) vs Journaling (immersif, narration complète).
+
+**C'est fini quand** : une rencontre tirée au sort produit un paragraphe narratif cohérent, journalisé automatiquement.
+
+---
+
+## Phase 11 — Abyssal Scars, Campagne longue, Polish ⬜
 
 **Objectif** : finaliser l'expérience longue.
 
 - Abyssal Scars (quasi-mort d6, séquelles permanentes).
 - Mode Campagne (3 systèmes enchaînés, difficulté croissante).
-- Achievements.
 - Export du journal de campagne.
-- Polish UI/UX mobile, modes Quick/Journaling, sauvegardes multiples.
+- Sauvegardes multiples (plusieurs parties en parallèle).
+- Polish UI/UX mobile.
 
 **C'est fini quand** : une campagne complète est jouable du premier cycle à une fin, avec gestion de la mort et un journal exportable.
 
 ---
 
+## Phase 12 — Publication ⬜
+
+**Objectif** : publier sur Google Play.
+
+- Build release Android (APK signé).
+- Icône + splash screen ASTROPRISMA.
+- Tests complets d'une campagne (3 systèmes, une fin de faction).
+- Store listing Google Play.
+
+**C'est fini quand** : l'app est publiée et jouable depuis le Play Store.
+
+---
+
 ## Note de priorisation
 
-La Phase 0 et la Phase Design forment les **fondations** (technique + système visuel) ; les phases 0→3 forment le **MVP jouable** (créer un perso, explorer, narrer). Les phases 4→6 ajoutent les systèmes de résolution lourds (combats, arsenal). Les phases 7→10 apportent la profondeur de campagne. On ne démarre une phase qu'après validation de la précédente.
+La Phase 0 et la Phase Design forment les **fondations** (technique + système visuel) ; les phases 0→3 forment le **MVP jouable** (créer un perso, explorer, narrer). Les phases 4→6 ajoutent les systèmes de résolution lourds (combats, arsenal). Les phases 7→12 apportent la profondeur de campagne et la publication. On ne démarre une phase qu'après validation de la précédente.
+
+---
+
+## Données vérifiées — valeurs critiques (audit 2026-06-10)
+
+> Source de vérité : `chapitres/data-verified.md` — zoom ×4 sur PNG sources.
+> Ne pas modifier ces valeurs dans les JSON sans re-vérification sur le livre.
+
+| Donnée | Valeur correcte |
+|---|---|
+| Armures (10 sets) | Tiers **+1 / +2 / +3** (jamais +4) |
+| Weapon Mods | **6 tiers** par catégorie Ranged + Melee (achetés WARG Settlements) |
+| Critical Condition vaisseau | Hull **≤ 10** (pas ≤ 0) |
+| Boost Escape | Fuite immédiate sans dé, **5 Fuel**, tout moment même pendant tour ennemi |
+| Drones — achat | **Synth Settlements uniquement** |
+| Narcobiotics | Obtenus via **rencontres faction Corsaire** — pas d'achat, pas de prix |
+| Dégâts drones | Jamais Direct Damage → **ignorent IMMUNITY et Armor** |
+| SUPERNOVA (Master Hack) | **3d6** (pas 3d8) |
+| MANTIS SCYTHES (Cybertech) | **d6 × GRA** (pas d8 × GRA) |
+| HALO DISCS | **2d6 + GRA** |
+| PLASMA SHIELD | **d8 + VIG + +1 Shield** while equipped |
+| Vaisseaux ennemis | **18 vaisseaux**, tous Hull 20, classes C/B/A/S |
+| Ennemis | **30 ennemis** validés, ch9-enemies.md correct |

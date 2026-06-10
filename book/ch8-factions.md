@@ -1,5 +1,8 @@
 # Chapitre 8 — Factions & Quests (p.92–112)
 
+> **Challenge Rolls** : toutes les mentions **ROLL [STAT]** = **d10 + stat** vs **d10 + stat adversaire** (ou d10 seul contre l'environnement). Succès si résultat joueur > résultat ennemi. (→ ch2-rules.md §2.4)
+> **Symboles** : `HP` Health · `⚡` Energy · `♡` Armor · `◈` Hyperdrive · `✳` Damage · `❄` Serum · `✦` Scraps · `★` Favor · `♦` Action cost
+
 ---
 
 ## FACTION FAVOR (p.92)

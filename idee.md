@@ -56,26 +56,33 @@ Autour de cette boucle se greffent : combat terrestre, combat spatial, hacking, 
 - Tour par tour, ordre d'initiative (d10 + GRA).
 - Actions : WEAPON, HACK, CYBERTECH, ESCAPE + Main/Side Action.
 - **Status conditions** : Overheat, Shock, Stun, Silence, Breach, Immunity (+ Blinded, Beaconed, Toxins).
-- Armes (8 ranged, 6 melee), Weapon Mods (D1→D4), calcul des dégâts ordonné, dégâts directs, multi-ennemis, EXP par difficulté.
+- Armes (8 ranged, 6 melee), **Weapon Mods (Tiers 1–6, max 2 par arme, achetés aux WARG Settlements)**, calcul des dégâts ordonné, dégâts directs, multi-ennemis, EXP par difficulté.
+- Mods Ranged : Silencer(1/75★) · Laser Accelerator(2/75★) · Reflex Sight(3/100★) · Malware Injection(4/100★) · Auto Reloader(5/150★) · Smart Aim(6/150★).
+- Mods Melee : Stealth Grip(1/75★) · Counter Guard(2/75★) · Vibrating Motor(3/100★) · Heat Chamber(4/100★) · Kinetic Engine(5/150★) · Charge Attack(6/150★).
 
 ### 3.5 Hacking & Drones
-- HACKS (10) résolus en MIN ; échec → Malware (table d10).
-- Master Hacks (6).
-- 4 Drones/Mechs (Spider, Greyhound, Ladybug, ÔwÓ) avec ability passive + actives.
+- HACKS (10) résolus en MIN ; échec → Malware (table d10). Achetés aux **Medusa Settlements (150★)**.
+- Master Hacks (6) — coût 3♦ chacun, non-achetables, vendus 200★.
+- 4 Drones/Mechs (Spider 150★ · Greyhound 350★ · Ladybug 350★ · ÔwÓ 600★) avec ability passive + actives.
+- **Dégâts drones = jamais Direct Damage** → ignorent IMMUNITY et Armor.
+- **Achat exclusif : Synth Settlements uniquement.**
 
 ### 3.6 Cybertech
-- 6 fabricants, 18 implants (3 tiers), boost de stats + abilities, achat/retrait chez les Wiredocs.
+- 6 fabricants (Synbios, Yedrsl, Frontera, Orbital, Evo, Rip Tec), 18 implants (3 tiers), boost de stats + abilities, achat/retrait chez les Wiredocs.
+- Valeur vérifiée : **MANTIS SCYTHES = d6 × GRA** (Frontera tier 3), ×2 si premier dans l'ordre de tour.
 
 ### 3.7 Équipement & loot
 - 22 items, grenades, status cures, quest items, scraps.
-- Armor Sets (10, +4 Armor, immunités).
-- Narcobiotics (6) + règle d'Overdose (stages).
+- Armor Sets (10 sets, tiers **+1/+2/+3 Armor**, immunités pour tiers +2 ATHENA/ORION/MERCURIAN/HADES, prix 50→300★).
+- Narcobiotics (6 : B1→B6) + règle d'Overdose (Stage 0→4). Obtenus **uniquement via les rencontres de faction Corsaire** — pas de prix, pas d'achat.
 - Tables de loot aléatoire (d18 loot, d6 boss).
 
 ### 3.8 Combat spatial
-- **Action Dice** (d6 selon Engines), Hull (20 fixe), Shields (stack jusqu'à 8), Boarding, Escape / Boost Escape, Critical Condition.
-- Modules de vaisseau (Engines, Control, Systems, Weapons — 8 par catégorie, 4 tiers).
-- 18 vaisseaux pré-construits en 3 classes (B/A/S) + tables de Captains.
+- **Action Dice** (d6 selon Engines), Hull **20 fixe**, Shields (stack jusqu'à 8), Boarding, Escape / Boost Escape.
+- **Critical Condition** = Hull **≤ 10** (pas ≤ 0).
+- **Boost Escape** = fuite immédiate sans dé, coût 5 Fuel, même pendant le tour ennemi.
+- Modules de vaisseau (Engines, Control, Systems, Weapons — 8 par catégorie, 4 tiers, prix 70→350★).
+- 18 vaisseaux pré-construits en classes C/B/A/S + tables de Captains.
 
 ### 3.9 Exploration & contenu
 - Settlements : Hangar (refuel, ships, modules), Wiredoc (heal, cybertech), Trade Post, Trading Hub, activités (Test Flight, Cybersphere, Scrapyard, Combat Sim, Home Pods), Sidequests par faction.
@@ -90,9 +97,14 @@ Autour de cette boucle se greffent : combat terrestre, combat spatial, hacking, 
 - Missions répétables (tables d10 : objectif + lieu + complication + récompense), encounters neutres/hostiles, troupes et vaisseaux par faction.
 - Générateur de PNJ (trade, emotion, look, reaction, goal, requests d100).
 
-### 3.11 Base de données
-- 20 ennemis (statblocks complets : HP, Armor, stats, actions par jet, skills, loot, bosses).
-- 18 vaisseaux, modules, Captains.
+### 3.11 Base de données (auditée et vérifiée — `data-verified.md`)
+- **30 ennemis** Core Book (statblocks complets : HP, Armor, stats, actions par jet, skills, loot, bosses). Tous validés sur PNG.
+- **+18 ennemis supplémentaires** (Spacefarer's Journal DATABASE 01+02) — à intégrer.
+- **18 vaisseaux ennemis** Core Book (classes C/B/A/S, Hull 20, Actions 2–4), modules, Captains.
+- **+6 vaisseaux de départ alternatifs** + **+6 vaisseaux Class-Y faction** (Favor ≥ 4, exclusifs) — Spacefarer's Journal DATABASE 03+04.
+- **100 PNJ nommés** (Characters d100) + **100 Settlement Quirks** — tables de rencontres du Journal.
+- **7 Achievements** : ASTROPRISMA · ORIGIN STORY · SERUM ADDICT · CORE CONFLICT · LONE WOLF · HARDCORE · IMMORTAL.
+- **Source de vérité stats** : `chapitres/data-verified.md` — toutes les valeurs vérifiées zoom ×4 sur PNG sources.
 
 ---
 

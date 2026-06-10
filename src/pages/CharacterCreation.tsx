@@ -42,6 +42,8 @@ function buildCharacter(origin: Origin, name: string): Character {
     deployedDroneId: null,
     joinedFactionId: null,
     currentMission: null,
+    crewmembers: [],
+    connections: [],
   }
 }
 

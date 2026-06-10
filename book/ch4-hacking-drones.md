@@ -11,9 +11,11 @@
 
 Les HACKS sont des abilities puissantes utilisant la stat **MIN** (MIND) pour s'infiltrer dans les systèmes ennemis.
 
-**Résolution :**
-- Roll **MIN** contre l'ennemi
-- **Succès** → le HACK est uploadé dans son interface virtuelle, l'effet s'applique
+> **Symboles** : `HP` Health · `⚡` Energy · `♡` Armor · `◈` Hyperdrive · `✳` Damage · `❄` Serum · `✦` Scraps · `★` Favor · `♦` Action cost
+
+**Résolution (Challenge Roll) :**
+- **d10 + MIN** (joueur) vs **d10** (ennemi)
+- **Succès** si résultat joueur > résultat ennemi → le HACK s'applique
 - **Échec** → le HACK échoue, le personnage est infecté par un **Malware**
 
 ### MALWARE
@@ -27,10 +29,11 @@ Quand un personnage échoue un HACK, ses systèmes sont corrompus.
 
 Robots et mechs avancés contrôlables à distance en combat.
 
-- Dépenser une action **DEPLOY** pour déployer un DRONE dans sa zone
-- Le Drone agit sur les futures actions DEPLOY du joueur
-- Contrôler le DRONE = choisir l'une de ses abilities à activer
-- Chaque DRONE possède **1 ability passive** qui s'active après déploiement
+- **♦ Main Action** → déployer le DRONE dans sa zone
+- **◇ Side Action** → contrôler le DRONE (choisir une ability à activer)
+- Chaque DRONE possède **1 ability passive** qui s'active automatiquement après déploiement
+
+> ⚠️ **Les dégâts de DRONES ne sont JAMAIS du Direct Damage** — même leurs abilities offensives. Ils ignorent IMMUNITY et ignorent l'Armor. (→ ch3-combat.md §3.3)
 
 ---
 
@@ -77,13 +80,13 @@ La stat utilisée pour les effets des HACKS est **MIN** (MIND).
 - HACKS achetés aux **Medusa Settlements** pour **150★**
 - **MASTER HACKS** : vendus pour **200★**, ne peuvent pas être achetés
 
-### Master Hacks (6) — coût 34⚡ chacun
+### Master Hacks (6) — coût 3♦ chacun
 
 | # | Master Hack | Effet |
 |---|---|---|
 | 01 | **MINDSTEAL** | Set enemy MIN à 0 + gain X MIN pour 2 tours (X = MIN de base de l'ennemi) |
 | 02 | **PARASITE** | **Breach** TOUS les ennemis pour MIN tours + restore 2 Health par ennemi affecté |
-| 03 | **SUPERNOVA** | 3d6 damage à TOUS les ennemis + **Shock** pour MIN tours |
+| 03 | **SUPERNOVA** | **3d6** damage à TOUS les ennemis + **Shock** pour MIN tours |
 | 04 | **RAGNAROK** | **Overheat** TOUS les ennemis pour TEC tours. Overheat inflige +MIN dégâts supplémentaires jusqu'à fin de combat |
 | 05 | **AEGIS** | Gagne TEC Armor temporaire pour MIN tours |
 | 06 | **ARCHANGEL** | Restore d10 × TEC Health à soi-même ou un allié |
@@ -96,11 +99,13 @@ La stat utilisée pour les effets des HACKS est **MIN** (MIND).
 
 **Description :** Drone terrestre rapide construit à partir de pièces mécaniques reconditionnées. Le "Spider" est le drone le plus commun, utilisé par les hackers et opérateurs de rue pour surveiller les terrains dangereux.
 
+Prix : **150★**
+
 | Move | Coût | Effet |
 |---|---|---|
-| **OCTOMORPHOSIS** | 1 | S'infiltre dans les espaces étroits |
-| **CARBON CLAW** | 1 | d6 + TEC damage |
-| **PARALYZING WEB** | 1 | d4 Kinetic damage + la cible **ne peut pas se déplacer** |
+| **OCTOMORPHOSIS** | PASSIF | **+1 TEC** pour ce combat |
+| **CARBON CLAW** | 2♦ | **d8 + TEC** ✳ *(not direct)* |
+| **PARALYZING WEB** | 3♦ | **Stun** la cible pour **2 tours** *(not direct)* |
 
 ---
 
@@ -108,13 +113,13 @@ La stat utilisée pour les effets des HACKS est **MIN** (MIND).
 
 **Description :** Unité K9 mécanique télécommandée fabriquée par PRAXTON CORP. Déployée lors de missions de reconnaissance et patrouilles. Rare mais encore en circulation.
 
-Trouvé dans : DRONES / Synth Settlements
+Trouvé dans : DRONES / Synth Settlements. Prix : **350★**
 
 | Move | Coût | Effet |
 |---|---|---|
-| **CAMOUFLAGE** | 1 | Pilot effectue un check DRONES furtivité — drone devient invisible |
-| **FETCH** | 3⚡ | Gain a random narco-biotic or grenade |
-| **BITE** | 1 | d6 Kinetic damage |
+| **CAMOUFLAGE** | PASSIF | Si premier dans l'ordre de tour → **BITE** inflige **double damage** |
+| **FETCH** | 3♦ | Gain a random narco-biotic or grenade |
+| **BITE** | 1♦ | **2d6** ✳ *(not direct)* |
 
 ---
 
@@ -122,11 +127,13 @@ Trouvé dans : DRONES / Synth Settlements
 
 **Description :** Drone compact 4cm×9cm construit par **Yihiro Industries**. Spécialisé en cyber-défense, équipé d'un émetteur EMP pour désactiver les systèmes et l'électronique ennemis.
 
+Prix : **350★**
+
 | Move | Coût | Effet |
 |---|---|---|
 | **HP INJECTION** | PASSIF | Restore **TEC** Health chaque tour |
-| **EMP RELAY** | 2⚡ | **Silence** un ennemi pour **2 tours** |
-| **TASER SHOT** | 3⚡ | **Shock** un ennemi pour **2 tours** |
+| **EMP RELAY** | 2♦ | **Silence** un ennemi pour **2 tours** |
+| **TASER SHOT** | 3♦ | **Shock** un ennemi pour **2 tours** |
 
 ---
 
@@ -134,17 +141,21 @@ Trouvé dans : DRONES / Synth Settlements
 
 **Description :** Version jailbreakée et modifiée du **Berserk MKII** Mech Unit. L'UI militaire et le software ont été remplacés par l'IA d'un forum de virtual pets. Ancienne version.
 
+Prix : **600★**
+
 | Move | Coût | Effet |
 |---|---|---|
-| **AUTO-TURRET** | PASSIF | Deal **TEC** damage chaque tour |
-| **DOUBLE MINIGUN** | 4⚡ | Deal **2d6 + TEC** damage |
-| **MISSILE STRIKE** | 6⚡ | Deal **d8 × TEC** damage |
+| **AUTO-TURRET** | PASSIF | **TEC** ✳ chaque tour *(not direct)* |
+| **DOUBLE MINIGUN** | 4♦ | **2d6 + TEC** ✳ *(not direct)* |
+| **MISSILE STRIKE** | 6♦ | **d8 + TEC** ✳ *(not direct)* |
 
 ---
 
 ## 4.4 — CYBERTECH (p.43–44)
 
 ### Règles générales
+
+> **Les DRONES s'achètent uniquement dans les **Synth Settlements**.**
 
 - Roll pour trouver un Cybertech aléatoire en exploration
 - Acheter n'importe quel implant Cybertech au coût listé dans les **Settlements**
@@ -174,7 +185,7 @@ Trouvé dans : DRONES / Synth Settlements
 |---|---|---|
 | **TITANIUM BONES** | **+1 VIG** — +1★ Armor | 3♦ + 100★ |
 | **FORCEBLAST HAND** | **+1 VIG** — Attaques mêlée infligent **+d6X** jusqu'à la fin du combat. **[2★][◇ Side]** | 6♦ + 200★ |
-| **MANTIS SCYTHES** | Deal **d8 × GRA**, multiplié ×2 si premier dans l'ordre de tour. **[5★][♦ Main]** | 9♦ + 300★ |
+| **MANTIS SCYTHES** | Deal **d6 × GRA**, multiplié ×2 si premier dans l'ordre de tour. **[5★][♦ Main]** | 9♦ + 300★ |
 
 #### 04 — ORBITAL DYNAMICS
 
@@ -211,15 +222,15 @@ Trouvé dans : DRONES / Synth Settlements
 | Drones (DEPLOY action, passive ability) | 38 |
 | 10 Hacks (roll d10, JAVELIN→HYDRA) | 39 |
 | Hacks achetés Medusa Settlements (150★) | 40 |
-| Master Hacks (×6, 34⚡, non-achetables) | 40 |
-| DRONE_Spider (CARBON CLAW d6+TEC) | 41 |
+| Master Hacks (×6, 3♦ chacun, non-achetables) | 40 |
+| DRONE_Spider (CARBON CLAW d8+TEC, 150★) | 41 |
 | DRONE_Greyhound (CAMOUFLAGE, PRAXTON CORP) | 41 |
 | DRONE_Ladybug (EMP, HP INJECTION) | 42 |
 | DRONE_ÔwÓ (jailbreak, AUTO-TURRET) | 42 |
 | Cybertech — achat Settlements | 43 |
 | SYNBIOS : HEALING NANOBOTS (2d8+TEC) | 44 |
 | YEDRSL : ZETTABYTE RAM → Master Hack | 44 |
-| FRONTERA : MANTIS SCYTHES (d8×GRA) | 44 |
+| FRONTERA : MANTIS SCYTHES (d6×GRA) | 44 |
 | ORBITAL : HYPER REFLEXES (esquive) | 44 |
 | EVO : HEART ENGINE (résurrection 10HP) | 44 |
 | RIP TEC : CHAINSAW ARMS (d10×VIG) | 44 |

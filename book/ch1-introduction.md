@@ -114,9 +114,12 @@ Pour jouer, il faut :
 
 ### STARTING YOUR ADVENTURE (p.4)
 
-- Créer son **Player Character** (→ p.9) et choisir son **Origin** (→ p.11)
-- Placer son token sur la **Starting Location** au centre de la carte
-- Explorer une tuile dans n'importe quelle direction pour commencer le **premier cycle**
+Séquence de démarrage dans l'ordre :
+
+1. Créer la **fiche Personnage** — choisir son Origin (→ p.11), stats, équipement de départ
+2. Créer la **fiche Vaisseau** — choisir 3 modules Tier 1 + 1 module Tier 2 (→ p.25)
+3. Placer son **token** sur la **Starting Location** au centre de la Star System Map
+4. Explorer une tuile dans n'importe quelle direction pour commencer le **premier cycle**
 
 ---
 
@@ -167,48 +170,7 @@ Si la planète a des satellites → explorer les satellites lors des visites sui
 
 ## 1.4 — ORACLE (p.7–8)
 
-### Qu'est-ce que l'Oracle ? (p.7)
-
-The **Oracle System** is an artificial intelligence software from the Old World that has been developed and pre-configured to aid questioners in their exploration missions.
-
-Rôle : aider les joueurs à répondre à toute question **Yes/No** ou **Open-Ended** pendant le jeu.
-
-### YES/NO QUESTIONS — Table d6 (p.7)
-
-| Roll | Réponse | Signification |
-|---|---|---|
-| 1 | **No, And** | Negative + complication |
-| 2 | **No** | Negative answer |
-| 3 | **No, But** | Negative + bonus |
-| 4 | **Yes, But** | Positive + complication |
-| 5 | **Yes** | Positive answer |
-| 6 | **Yes, And** | Positive + bonus |
-
-### TABLES ORACLE — Mots-clés (p.7–8)
-
-**Groupe A (d6) :**
-Submission · Regression · Collision · Control · Electronics · Occult
-
-**Groupe B (d6) :**
-Survival · Resilience · Conflict · Contact · Subterfuge · Emergence
-
-**YES, BUT — mots-clés (p.8) :**
-Nurturing · Light · Noise · Unifying · Malaise · Finesse
-
-**YES — mots-clés (p.8) :**
-Compromise · Propriety · Evolution · Guidance · Growth · Nature
-
-**YES, AND — mots-clés (p.8) :**
-Balance · Wealth · Change · Freedom · Harmony · Truth
-
-### OPEN-ENDED QUESTIONS (p.8)
-
-Open-Ended Questions permettent une interaction plus élaborée avec l'Oracle. Elles sont abstraites et servent de **narrative prompt** pour construire l'histoire.
-
-Si la réponse de l'Oracle ne fait pas sens dans le contexte → recommencer le tirage.
-
-**Exemple de jeu :**
-> Tu rencontres un objet étrange dans une station déserte. Tu demandes à l'Oracle s'il semble d'origine humaine → réponse négative. Tu poses ensuite une Open-Ended Question sur son origine. Tu combines le résultat avec ton environnement pour construire une description vivante de sa nature.
+> Toutes les règles et tables de l'Oracle sont regroupées dans **→ ch12-oracle.md**
 
 ---
 

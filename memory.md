@@ -22,15 +22,15 @@
 | Phase 5 | Arsenal : équiper hacks, coût EXP cybertech, noms drones | ✅ |
 | Phase 6 | Combat spatial : Action Dice, modules, Shields, Critical, victoire/défaite | ✅ |
 | Phase 7 | Settlements : Hangar, WireDoc, Commerce, Scrapyard, Cybersphere, Combat Sim, NPC Generator | ✅ |
+| Phase 8 | Factions : Favor (-X→10), joinFaction/leaveFaction, missions d10, événements 2/5/10, fins, troupes/vaisseaux d6, badge MapScreen | ✅ |
 
 ### Prochaine étape
 
-**Phase 8 — Factions & narration longue** :
-- Favor (-X → +10), seuils 2/5/10, expulsion
-- Faction Events (rejoindre / mission majeure / 3 fins)
-- Missions répétables par faction
-- Encounters neutres/hostiles, troupes, vaisseaux
-- Faction Strength sur la carte
+**Phase 9 — Équipage & progression longue** :
+- Recrutement de crewmembers depuis Home Pods
+- Compétences actives des membres d'équipage
+- Progression équipage (EXP partagé)
+- Effets passifs en combat (bonus stats)
 
 ### Architecture actuelle (`src/`)
 
@@ -49,6 +49,32 @@ src/
 `book/` : 11 chapitres (ch1–ch11). Toutes les données du jeu viennent de là.
 `data/` : 23 fichiers JSON extraits — source unique de vérité.
 
+### Contenu supplémentaire — Spacefarer's Journal (découvert 2026-06-10)
+
+> Source : `character/Spacefarer_s_Journal_-_Digital_File__Form-Fillable_.pdf`
+> À intégrer dans les JSON et l'app (non encore codé).
+
+- **18 ennemis supplémentaires** (DATABASE 01+02) : WARG Grenadier, WARG Partisan Guard, ISF Starscout, ISF Walking Fortress, Medusa Cyphersteel, Medusa Gridripper, Synth Chromesage, Corsair Buccaneer, Corsair Casino Shark + 9 autres (Clone Colonist, Narcoaddict, Afterlife Ghoul, Corpo Paramilitary, Melting Metalskin, Scrapeater, Emperor Scrapeater, Cortex Brainworm, Quetzal Decalaris, Horned Tarrasosaur)
+- **12 vaisseaux supplémentaires** (DATABASE 03+04) : 6 vaisseaux de départ alternatifs + 6 vaisseaux **Class-Y exclusifs par faction** (Favor ≥ 4 requis)
+- **100 PNJ nommés** (Characters d100) — table de rencontres NPC
+- **100 Settlement Quirks** — table de particularités de lieux
+- **7 Achievements** : ASTROPRISMA / ORIGIN STORY / SERUM ADDICT / CORE CONFLICT / LONE WOLF / HARDCORE / IMMORTAL
+
+### Audit des données — TERMINÉ ✅ (2026-06-10)
+
+`chapitres/data-verified.md` : toutes les valeurs numériques vérifiées zoom ×4 sur PNG sources.
+**Utiliser ce fichier comme référence avant tout codage de stats, dés ou prix.**
+
+Corrections critiques retenues :
+- Armures : tiers **+1 / +2 / +3** (jamais +4)
+- Weapon Mods : **6 tiers** Ranged + Melee (achetés WARG Settlements)
+- MANTIS SCYTHES : **d6 × GRA** (pas d8)
+- SUPERNOVA : **3d6** (pas 3d8)
+- Critical Condition vaisseau : Hull **≤ 10** (pas ≤ 0)
+- Boost Escape : fuite immédiate sans dé, **5 Fuel**, tout moment
+- Drones : achat **Synth Settlements uniquement**
+- Narcobiotics : obtenus via **rencontres faction Corsaire** — pas d'achat, pas de prix
+
 ## Concept central du jeu
 
 > Astroprisma est un **arbre de décision en cascade piloté par des jets de dés successifs** — chaque lancer ouvre une branche, chaque branche mène à un nouveau lancer, jusqu'au texte narratif final (généré par l'IA Gemini à partir du résultat de table + contexte).
@@ -60,7 +86,7 @@ Boucle : MOVE (−1 Fuel) → EXPLORE (d6 par anneau) → MARK (carte + journal)
 1. **Valider avant de coder** — chaque module discuté avant implémentation. Pas de gold-plating.
 2. **Petits commits fréquents** — chaque fonctionnalité = 1 commit, message clair.
 3. **Tests manuels d'abord** — lancer l'app et vérifier le comportement avant de passer à la suite.
-4. **Données = Core Book uniquement** — tout vient de `book/`. Aucune règle inventée.
+4. **Données = Core Book + data-verified.md** — tout vient de `book/` et des JSON. Pour toute valeur numérique (dés, prix, stats), vérifier d'abord `chapitres/data-verified.md`. Aucune règle inventée.
 5. **Langue** — UI en français, code/chemins/identifiants en anglais.
 
 ## Règle zoom images (Pillow ×3)

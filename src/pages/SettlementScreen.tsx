@@ -3,6 +3,7 @@ import Card from '../components/ui/Card'
 import Button from '../components/ui/Button'
 import ResourceBar from '../components/ui/ResourceBar'
 import { useGameStore } from '../stores/gameStore'
+import type { Crewmember } from '../types/game'
 import enemiesData from '../../data/enemies.json'
 import itemsData from '../../data/items.json'
 import factionsData from '../../data/factions.json'
@@ -175,6 +176,7 @@ export default function SettlementScreen() {
   const startCybersphere = useGameStore((s) => s.startCybersphere)
   const startCombat    = useGameStore((s) => s.startCombat)
   const generateNpc    = useGameStore((s) => s.generateNpc)
+  const recruitCrew    = useGameStore((s) => s.recruitCrew)
   const joinFaction    = useGameStore((s) => s.joinFaction)
   const leaveFaction   = useGameStore((s) => s.leaveFaction)
   const generateFactionMission = useGameStore((s) => s.generateFactionMission)
@@ -550,10 +552,30 @@ export default function SettlementScreen() {
 
   const renderHomePods = () => {
     const npc = settlement.lastNpc
+    const crewCount = character.crewmembers?.length ?? 0
+    const canHire = crewCount < 4 && character.resources.serum >= 150
+
+    const hireNpc = () => {
+      if (!npc || !canHire) return
+      const newCrew: Crewmember = {
+        name: npc.trade,
+        role: 'pilot',
+        passiveSkill: `${npc.trade} — ${npc.emotion}`,
+        activeSkills: [],
+        hp: { current: 20, max: 20 },
+        stats: { vigor: 0, grace: 0, mind: 0, tech: 0 },
+        inventory: [null, null, null, null],
+      }
+      recruitCrew(newCrew, 150)
+    }
+
     return (
       <div className="space-y-3">
         <button onClick={() => setActView(null)} className="font-mono text-[10px] text-off-white hover:text-bone">← Retour</button>
         <h2 className="font-display text-xl text-bone uppercase">Home Pods</h2>
+        <div className="flex items-center justify-between">
+          <p className="font-mono text-[9px] text-off-white opacity-60">Équipage : {crewCount}/4</p>
+        </div>
         <Button variant="primary" onClick={generateNpc} className="w-full">
           🎲 Générer un PNJ
         </Button>
@@ -562,21 +584,43 @@ export default function SettlementScreen() {
             <p className="font-mono text-[9px] uppercase tracking-widest text-accent mb-3">PNJ Rencontré</p>
             <div className="space-y-1.5">
               {[
-                { label: 'Profession', value: npc.trade },
-                { label: 'Style',      value: npc.style },
-                { label: 'Tenue',      value: npc.look },
-                { label: 'Humeur',     value: npc.emotion },
-                { label: 'Réaction',   value: npc.reaction },
-                { label: 'Faction',    value: npc.faction },
-                { label: 'But',        value: npc.goal },
+                { label: 'Profession',  value: npc.trade },
+                { label: 'Style',       value: npc.style },
+                { label: 'Tenue',       value: npc.look },
+                { label: 'Humeur',      value: npc.emotion },
+                { label: 'Réaction',    value: npc.reaction },
+                { label: 'Faction',     value: npc.faction },
+                { label: 'But',         value: npc.goal },
+                { label: 'Théorie Apo', value: npc.apocalypseTheory },
               ].map(({ label, value }) => (
-                <div key={label} className="flex items-center justify-between gap-2">
+                <div key={label} className="flex items-start justify-between gap-2">
                   <span className="font-mono text-[9px] text-off-white opacity-60 uppercase w-24 shrink-0">{label}</span>
-                  <span className="font-mono text-xs text-bone">{value}</span>
+                  <span className="font-mono text-[10px] text-bone text-right">{value}</span>
                 </div>
               ))}
             </div>
-            <p className="font-mono text-[9px] text-off-white opacity-40 mt-3">Recrutement de l'équipage disponible en Phase 9.</p>
+
+            {/* Requête */}
+            <div className="mt-3 rounded bg-[#130d1c] border border-astro-ink px-2 py-2">
+              <p className="font-mono text-[8px] uppercase text-off-white/50 mb-1">Requête (d100)</p>
+              <p className="font-mono text-[10px] text-bone leading-relaxed">{npc.requests}</p>
+            </div>
+
+            {/* Recrutement */}
+            <div className="mt-3 pt-3 border-t border-astro-ink">
+              <p className="font-mono text-[9px] text-off-white opacity-60 mb-2">
+                Recruter comme membre d'équipage — <span className="text-astro-yellow">150 Serum</span>
+                {crewCount >= 4 && <span className="text-astro-orange ml-2">Équipage complet (4/4)</span>}
+              </p>
+              <Button
+                variant="ghost"
+                className="w-full text-[10px]"
+                disabled={!canHire}
+                onClick={hireNpc}
+              >
+                + Engager ({character.resources.serum} Serum dispo)
+              </Button>
+            </div>
           </Card>
         )}
       </div>

@@ -2,6 +2,7 @@
 
 > Extraction complète — agents Sonnet, lecture visuelle directe des PNG.
 > ⚠️ Certaines valeurs partiellement illisibles sont signalées avec (?)
+> **Symboles** : `HP` Health · `⚡` Energy · `♡` Armor · `◈` Hyperdrive · `✳` Damage · `❄` Serum · `✦` Scraps · `★` Favor · `♦` Action cost
 
 ---
 
@@ -19,28 +20,28 @@
 
 | Item | Effet | Coût |
 |---|---|---|
-| **Health Pack** | Restore **4d8 + VIG** Health | 20¤ |
-| **Energy Cell** | Restore **4d6 + TEC** Energy | 20¤ |
-| **Nanobot Suit** | Auto-succès sur **VIG Challenge Roll** | 50¤ |
-| **Data Shard** | Auto-succès sur **MIN** ou **TEC Challenge Roll** | 50¤ |
-| **ReroFilter** | Remove **OVERHEAT** | 15¤ |
-| **ShieldDisc** | Remove **BREACH** | 15¤ |
-| **SonarEye** | Remove **SILENCE** | 15¤ |
-| **AmniViro** | Remove **BEACON** | 15¤ |
-| **AdrenaShot** | Remove **STUN** | 15¤ |
-| **Frag Grenade** | Succès contre ennemi difficulté max → tous les ennemis **Silenced** pour TEC tours | 40¤ |
-| **EMP Grenade** | Succès contre ennemi difficulté max → tous les ennemis **Silenced** pour TEC tours | 40¤ |
-| **Heat Bomb** | Succès contre ennemi difficulté max → tous les ennemis **Stunned** pour TEC tours | 40¤ |
-| **Tear Shell** | Succès contre ennemi difficulté max → tous les ennemis **Blinded** pour TEC tours | 40¤ |
-| **Flash Bomb** | Succès contre ennemi difficulté max → tous les ennemis **Beaconed** pour TEC tours | 40¤ |
-| **Holoskin Decoy** | Succès → **DNA** jusqu'au prochain cycle | 30¤ |
-| **Stasis Stimulant** | Succès → **TEC** jusqu'au prochain cycle | 30¤ |
-| **Timing Hormone** | +1 **VIG** jusqu'au prochain cycle | 30¤ |
-| **Blackthorn Capsule** | +1 **GRA** jusqu'au prochain cycle | 30¤ |
-| **TruZite Tablet** | +1 à **toutes les stats** jusqu'au prochain cycle | 80¤ |
-| **Signature Matrix** | Succès → +1d6 à **n'importe quel roll** jusqu'au prochain cycle | 30¤ |
-| **NuScan** | Débloque 3 slots dans la **Cyberspace Memory Clock** | 30¤ |
-| **Zero Clapper** | Gagne une action **Ride** supplémentaire au prochain tour | 20¤ |
+| **Health Pack** | Restore **d10 + VIG** Health | 20★ |
+| **Energy Cell** | Restore **d6 + TEC** Energy | 20★ |
+| **Nanobot Suit** | Auto-succès sur **VIG Challenge Roll** | 50★ |
+| **Data Shard** | Auto-succès sur **MIN** ou **TEC Challenge Roll** | 50★ |
+| **ReroFilter** | Remove **OVERHEAT** | 15★ |
+| **ShieldDisc** | Remove **BREACH** | 15★ |
+| **SonarEye** | Remove **SILENCE** | 15★ |
+| **AmniViro** | Remove **BEACON** | 15★ |
+| **AdrenaShot** | Remove **STUN** | 15★ |
+| **Frag Grenade** | Succès contre ennemi difficulté max → tous les ennemis **d8 × VIG** ✳ | 40★ |
+| **EMP Grenade** | Succès contre ennemi difficulté max → tous les ennemis **Silenced** pour TEC tours | 40★ |
+| **Heat Bomb** | Succès contre ennemi difficulté max → tous les ennemis **Stunned** pour TEC tours | 40★ |
+| **Tear Shell** | Succès contre ennemi difficulté max → tous les ennemis **Blinded** pour TEC tours | 40★ |
+| **Flash Bomb** | Succès contre ennemi difficulté max → tous les ennemis **Beaconed** pour TEC tours | 40★ |
+| **Holoskin Decoy** | Succès → **DNA** jusqu'au prochain cycle | 30★ |
+| **Stasis Stimulant** | Succès → **TEC** jusqu'au prochain cycle | 30★ |
+| **Timing Hormone** | +1 **VIG** jusqu'au prochain cycle | 30★ |
+| **Blackthorn Capsule** | +1 **GRA** jusqu'au prochain cycle | 30★ |
+| **TruZite Tablet** | +1 à **toutes les stats** jusqu'au prochain cycle | 80★ |
+| **Signature Matrix** | Succès → +1d6 à **n'importe quel roll** jusqu'au prochain cycle | 30★ |
+| **NuScan** | Débloque 3 slots dans la **Cyberspace Memory Clock** | 30★ |
+| **Zero Clapper** | Gagne une action **Ride** supplémentaire au prochain tour | 20★ |
 
 ### Tables de Loot aléatoire (p.138)
 
@@ -165,18 +166,18 @@
 > Un seul Armor Tag actif à la fois (même si plusieurs en inventaire).
 > Achat possible au prix listé (coûte 1 Inventory Slot).
 
-| # | Armure | Armor | Effet spécial |
-|---|---|---|---|
-| 1 | **REINFORCED JACKET** | +4 | — |
-| 2 | **BULLETPROOF VEST** | +4 | Attaques à distance infligent **-1 damage** |
-| 3 | **NIGHTRUNNER CLOTHING** | +4 | Fuir le combat ne nécessite pas de **Challenge Roll** |
-| 4 | **COMBAT EXOSKELETON** | +4 | Mêlée inflige **+1 damage** |
-| 5 | **EAGLESHOT VEST** | +4 | Armes à distance infligent **+1 damage** |
-| 6 | **ATHENA X ARMOR** | +4 | Immunisé à **SILENCE** |
-| 7 | **ORION II ARMOR** | +4 | Immunisé à **SHOCK** |
-| 8 | **MERCURIAN ARMOR** | +4 | Immunisé à **STUN** |
-| 9 | **HADES IV ARMOR** | +4 | Immunisé à **OVERHEAT** |
-| 10 | **COLOSSUS SUIT** | +3 | — (300 Serum) |
+| # | Armure | Armor | Effet spécial | Prix |
+|---|---|---|---|---|
+| 1 | **REINFORCED JACKET** | +1 | — | 50★ |
+| 2 | **BULLETPROOF VEST** | +1 | Attaques à distance infligent **-1 damage** | 75★ |
+| 3 | **NIGHTRUNNER CLOTHING** | +1 | Fuir le combat ne nécessite pas de **Challenge Roll** | 100★ |
+| 4 | **COMBAT EXOSKELETON** | +2 | Mêlée inflige **+1 damage** | 200★ |
+| 5 | **EAGLESHOT VEST** | +2 | Armes à distance infligent **+1 damage** | 200★ |
+| 6 | **ATHENA X ARMOR** | +2 | Immunisé à **SILENCE** | 250★ |
+| 7 | **ORION II ARMOR** | +2 | Immunisé à **SHOCK** | 250★ |
+| 8 | **MERCURIAN ARMOR** | +2 | Immunisé à **STUN** | 250★ |
+| 9 | **HADES IV ARMOR** | +2 | Immunisé à **OVERHEAT** | 250★ |
+| 10 | **COLOSSUS SUIT** | +3 | — | 300★ |
 
 ---
 
@@ -184,7 +185,7 @@
 
 **Description :** Composés pharmaceutiques qui augmentent les stats du personnage pour une durée limitée.
 
-- Achetés et vendus uniquement dans les **Corsair Settlements**
+- Obtenus uniquement lors des **rencontres de faction Corsaire** (pas d'achat possible)
 - Consommer plus d'un narcobiotic en même temps → **OVERDOSE**
 
 ### Règle Overdose
@@ -265,7 +266,7 @@ Consommer plus d'un narcobiotic par cycle = **OVERDOSE**. Chaque usage suppléme
 | LOOT REWARDS d18 (01-18) | 138 |
 | BOSS REWARDS d6 (01-06) | 138 |
 | Quest Items + Scraps | 48 |
-| Armor Tags (10 sets, tous +4 Armor) | 49 |
+| Armor Tags (10 sets, +1/+2/+3 selon tier) | 49 |
 | Armures immunités (ATHENA→HADES : Silence/Shock/Stun/Overheat) | 49 |
 | Narcobiotics — Corsair Settlements uniquement | 50 |
 | Overdose rules (Stage 0→3) | 50 |

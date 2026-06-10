@@ -1,6 +1,8 @@
 # Chapter 7 — Exploration
 
 > **Note extraction (2026-06-08)** : L'offset PDF change à partir de ch7. Pour ch1-ch6 : offset +3 (PDF page = livre page + 3). Pour ch7+ : offset 0 (page_XXX.png = page livre XXX). Probablement dû à des pages d'illustration insérées entre ch6 et ch7.
+> **Challenge Rolls** : toutes les mentions ✦ **ROLL [STAT]** = **d10 + stat** vs **d10** (environnement) ou **d10 + stat adversaire**. Succès si résultat joueur > résultat ennemi. (→ ch2-rules.md §2.4)
+> **Symboles** : `HP` Health · `⚡` Energy · `♡` Armor · `◈` Hyperdrive · `✳` Damage · `❄` Serum · `✦` Scraps · `★` Favor · `♦` Action cost
 
 ---
 
@@ -58,6 +60,18 @@ The starship docking ports at the bottom of the Settlement are known as **The Ha
 ### SETTLEMENT ACTIVITIES
 
 There are different activities you can do while spending time at the Settlement [p.59].
+
+| # | Activité | Résumé |
+|---|---|---|
+| 1 | **Hangar** | Hull entièrement restauré + achat/vente vaisseaux & modules + refuel (3₵/unité) |
+| 2 | **Wiredoc** | Health entièrement restaurée + achat/vente/installation Cybertech |
+| 3 | **Trade Post** | Acheter/vendre armes, équipements, mods, armures, drones, narcobiotics, hacks |
+| 4 | **Test Flight** | 1×/cycle — 3₵ — Speed Race ou Combat Drill |
+| 5 | **Cybersphere** | 1×/cycle — 5★ — 12 moves max, collecter Matrix Nodes |
+| 6 | **Scrapyard** | Crafter des items (Scraps) ou démonter pour 50% Scraps |
+| 7 | **Combat Sim** | 1×/cycle — simuler un combat sans risque de mort, gagner EXP |
+| 8 | **Home Pods** | Rencontrer des PNJ (NPC Generator) + recruter Crewmembers (150₵) |
+| 9 | **Sidequests** | 0–3 Favor avec la faction dirigeante + pas de sidequest en cours → +1 Favor à la complétion |
 
 ---
 
@@ -651,7 +665,7 @@ You only have **12 moves** to explore the network. Mark 1 cell on the Memory Clo
 **2** — A **Voidcrawler** tries to break into fuel reserves.
 - **Attack** or **Fight the alien** or **Let it feed** → Creature teleports away. Lose **4 Fuel**.
 
-**3** — Navigation controls vibrate. Watch stops, spins backward. Wake up **06 years younger**.
+**3** — Navigation controls vibrate. Watch stops, spins backward. Wake up **d6 years younger**.
 
 **4** — **Eclipse Warden** ship speaks: *"WHAT LIGHT GUIDES YOUR PATH? MAY YOU FIND THE EMBRACE OF THE PROPHET BEFORE THE END."*
 
@@ -661,7 +675,69 @@ You only have **12 moves** to explore the network. Mark 1 cell on the Memory Clo
 
 ---
 
+## 7.0 — STAR SYSTEM & EXPLORATION ROLLS (p.5 — données image officielle)
+
+### Star System Map
+
+Explorer la **Star System Map** est l'objectif principal du jeu. Les hexes qui forment le système stellaire sont regroupés en différents **rings** [p.63].
+
+| Ring | Description |
+|---|---|
+| **Outer Ring** | Zone la plus grande et volatile — Asterion Fields, pirates, contrebande |
+| **Middle Ring** | Zone tempérée (110–180j) — anciens settlements, Star Volumes, ressources rares |
+| **Inner Ring** | Borde l'étoile — températures extrêmes, Solar Flares, Helio Forms |
+
+### Exploration Roll (règle officielle)
+
+Durant la **deuxième étape** de chaque cycle, lancer un **d6** pour déterminer le lieu ou la rencontre.
+
+Se référer à la **table de rencontres du ring actuel** pour identifier le type de rencontre. Certains résultats nécessitent des d6 supplémentaires pour préciser les détails.
+
+| Étape | Action |
+|---|---|
+| 1 | Lancer un **d6** sur la table de rencontres du ring |
+| 2 | Lancer un **d6 additionnel** pour préciser la rencontre |
+
+---
+
 ## 7.9 - Planets
+
+### COMMENT EXPLORER UN HEX PLANÈTE — Étapes dans l'ordre
+
+**Exemple officiel :**
+> Vous découvrez une planète avec **2 satellites**. Première visite → vous explorez un satellite. Deuxième visite → vous explorez la planète. Troisième visite → vous explorez le satellite restant.
+
+#### ÉTAPE 1 — Première visite du hex : apparition sur la map
+Lancer un d6 sur la **table Planet Types du ring actuel** → détermine la structure de la planète pour la carte :
+- Ex. Outer Ring : 1-2 Two Moons / 3-4 Ringed Planet / 5-6 Giant Planet
+- Ce jet sert uniquement à **dessiner la planète sur la map** et savoir combien de satellites elle possède
+- Les satellites apparaissent sur la map mais restent **non explorés**
+
+#### ÉTAPE 2 — Choisir sa destination
+Le joueur choisit où aller :
+- **→ La planète** : continuer avec les étapes Planète ci-dessous
+- **→ Un satellite** : continuer avec les étapes Satellite ci-dessous (accessible dès la première visite ou lors d'un retour)
+
+---
+
+#### SI ON EXPLORE LA PLANÈTE
+
+1. **Type d'environnement** — d6 sur le Planet Location Generator → Gaian, Calorian, Vaporian, Aquarian, Sylvanian ou Ecumenopolis
+2. **Landing Spot** — d6 sur la table du type obtenu → endroit précis où on atterrit
+3. **Planet Encounter** — d6 sur la table d'encounters propre à ce type → événement à la surface
+4. **Texte narratif** — Combiner les résultats et écrire dans le Journal
+
+---
+
+#### SI ON EXPLORE UN SATELLITE
+*(accessible dès la première visite ou lors d'un retour sur le hex)*
+
+1. **Type de satellite** — d6 sur le Satellite Location Generator → Asteroid, Crater Moon, Nuclear Moon, Frost Moon, Volcanic Moon ou Hollow Moon
+2. **Landing Spot** — d6 sur la table du type obtenu → endroit précis où on atterrit
+3. **Satellite Encounter** — d6 sur la table d'encounters propre à ce type → événement à la surface
+4. **Texte narratif** — Combiner les résultats et écrire dans le Journal
+
+---
 
 ### PLANET LOCATION GENERATOR (Roll d6 pour type + d6 pour landing spot)
 
@@ -1207,7 +1283,7 @@ If the result is **lower than 6**, your Player Character mysteriously avoids dea
 | d6 | Résultat | Détails |
 |----|----------|---------|
 | **1** | **SETTLEMENT** | Roll d10 → Faction en contrôle (1-2 Corsair / 3-4 WARG / 5-6 Medusa / 7-8 ISF / 9-10 Synth Arch) |
-| **2** | **RING EVENT** | Roll d6 : Outer → EVEN Pirate Hideout / ODD Asteroid Sea · Middle → EVEN Star Cruiser / ODD Research Outpost · Inner → EVEN Solar Flare / ODD Helios Farm |
+| **2** | **RING EVENT** | Roll d6 : Outer → ODD Pirate Hideout / EVEN Asteroid Sea · Middle → ODD Star Cruiser / EVEN Research Outpost · Inner → ODD Solar Flare / EVEN Helios Farm |
 | **3** | **HOSTILE ENCOUNTER** | Roll d6 : 1 No Encounter / 2 Outlaws & Looters / 3 Space Pirates / 4 Mercenaries / 5 Spacefarers / 6 Faction Battles → puis roll d6 pour l'encounter spécifique |
 | **4** | **NEUTRAL ENCOUNTER** | Roll d6 : 1 No Encounter / 2 Derelict Ships / 3 Cargo Transport / 4 Civilian Transport / 5 Radio Signals / 6 Supranatural Events → puis roll d6 pour l'encounter spécifique |
 | **5** | **PLANET** | Roll d6 Planet Shape selon l'anneau (Outer p.83 / Middle p.65 / Inner p.87) · Roll d6 Planet Type (p.73) · Roll d6 Satellite type si applicable (p.84) |

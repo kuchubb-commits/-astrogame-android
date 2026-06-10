@@ -1,7 +1,12 @@
+import { useState } from 'react'
 import Card from '../components/ui/Card'
 import ResourceBar from '../components/ui/ResourceBar'
+import Button from '../components/ui/Button'
+import CrewCard from '../components/ui/CrewCard'
+import ConnectionRow from '../components/ui/ConnectionRow'
 import { useGameStore } from '../stores/gameStore'
 import originsData from '../../data/origins.json'
+import type { Connection } from '../types/game'
 
 function Counter({
   label,
@@ -106,6 +111,8 @@ function GaugeRow({
   )
 }
 
+type SheetPage = 'stats' | 'crew'
+
 export default function PlayerSheet() {
   const character = useGameStore((s) => s.character)!
   const updateStat = useGameStore((s) => s.updateStat)
@@ -114,13 +121,19 @@ export default function PlayerSheet() {
   const setWeaponSlot = useGameStore((s) => s.setWeaponSlot)
   const setMemorySlot = useGameStore((s) => s.setMemorySlot)
   const resetGame = useGameStore((s) => s.resetGame)
+  const addConnection = useGameStore((s) => s.addConnection)
+
+  const [page, setPage] = useState<SheetPage>('stats')
+  const [newConn, setNewConn] = useState<Partial<Connection>>({})
 
   const origin = originsData.find((o) => o.id === character.originId)
+  const crewmembers = character.crewmembers ?? []
+  const connections = character.connections ?? []
 
   return (
     <div className="min-h-screen bg-astro-black px-4 pt-6 pb-24 max-w-2xl mx-auto">
       {/* Header */}
-      <div className="mb-6">
+      <div className="mb-4">
         <div className="flex items-start justify-between">
           <div>
             <h1 className="font-display text-3xl text-bone uppercase tracking-wider">{character.name}</h1>
@@ -138,6 +151,101 @@ export default function PlayerSheet() {
           </button>
         </div>
       </div>
+
+      {/* Page selector */}
+      <div className="flex gap-2 mb-4">
+        {(['stats', 'crew'] as SheetPage[]).map((p) => (
+          <button
+            key={p}
+            onClick={() => setPage(p)}
+            className={`flex-1 font-mono text-[10px] uppercase py-1.5 rounded border-2 transition-all active:scale-95
+              ${page === p ? 'border-accent text-accent bg-accent/10' : 'border-astro-ink text-off-white hover:border-accent/50'}`}
+          >
+            {p === 'stats' ? 'PAGE 1 — Stats' : `PAGE 2 — Équipage (${crewmembers.length}/4)`}
+          </button>
+        ))}
+      </div>
+
+      {/* ── PAGE 2 : Équipage & Connexions ─────────────────────────────────── */}
+      {page === 'crew' && (
+        <div className="space-y-4">
+          {/* Crew */}
+          <div>
+            <p className="font-mono text-[10px] uppercase tracking-widest text-off-white mb-2">
+              Équipage <span className="opacity-50">({crewmembers.length}/4)</span>
+            </p>
+            {crewmembers.length === 0 && (
+              <p className="font-mono text-[10px] text-off-white opacity-30 italic">
+                Aucun membre d'équipage — recrutez depuis Home Pods ou ajoutez une Connection.
+              </p>
+            )}
+            <div className="space-y-3">
+              {crewmembers.map((c, i) => (
+                <CrewCard key={i} crew={c} index={i} />
+              ))}
+            </div>
+          </div>
+
+          {/* Connections */}
+          <div>
+            <p className="font-mono text-[10px] uppercase tracking-widest text-off-white mb-2">
+              Connections <span className="opacity-50">({connections.length})</span>
+              <span className="opacity-40 ml-2 normal-case">Affinité 5 → recruter</span>
+            </p>
+            <div className="space-y-1.5 mb-3">
+              {connections.length === 0 && (
+                <p className="font-mono text-[10px] text-off-white opacity-30 italic">Aucune connection.</p>
+              )}
+              {connections.map((conn, i) => (
+                <ConnectionRow key={i} conn={conn} index={i} />
+              ))}
+            </div>
+
+            {/* Add connection form */}
+            <Card>
+              <p className="font-mono text-[9px] uppercase tracking-widest text-off-white mb-2">Ajouter une connection</p>
+              <div className="space-y-1.5">
+                <input
+                  type="text"
+                  placeholder="Nom"
+                  value={newConn.name ?? ''}
+                  onChange={(e) => setNewConn((p) => ({ ...p, name: e.target.value }))}
+                  className="w-full bg-[#130d1c] border border-astro-ink rounded px-2 py-1 font-mono text-xs text-bone placeholder-off-white/30 focus:outline-none focus:border-accent"
+                />
+                <input
+                  type="text"
+                  placeholder="Lieu / Localisation"
+                  value={newConn.location ?? ''}
+                  onChange={(e) => setNewConn((p) => ({ ...p, location: e.target.value }))}
+                  className="w-full bg-[#130d1c] border border-astro-ink rounded px-2 py-1 font-mono text-xs text-bone placeholder-off-white/30 focus:outline-none focus:border-accent"
+                />
+                <input
+                  type="text"
+                  placeholder="Data / Info"
+                  value={newConn.data ?? ''}
+                  onChange={(e) => setNewConn((p) => ({ ...p, data: e.target.value }))}
+                  className="w-full bg-[#130d1c] border border-astro-ink rounded px-2 py-1 font-mono text-xs text-bone placeholder-off-white/30 focus:outline-none focus:border-accent"
+                />
+                <Button
+                  variant="ghost"
+                  className="w-full text-[10px]"
+                  disabled={!newConn.name}
+                  onClick={() => {
+                    if (!newConn.name) return
+                    addConnection({ name: newConn.name, location: newConn.location ?? '', data: newConn.data ?? '', affinity: 0 })
+                    setNewConn({})
+                  }}
+                >
+                  + Ajouter
+                </Button>
+              </div>
+            </Card>
+          </div>
+        </div>
+      )}
+
+      {/* ── PAGE 1 : Stats ─────────────────────────────────────────────────── */}
+      {page === 'stats' && <>
 
       {/* Stats */}
       <Card className="mb-4">
@@ -241,6 +349,7 @@ export default function PlayerSheet() {
           ))}
         </div>
       </Card>
+      </>}
     </div>
   )
 }

@@ -1,5 +1,8 @@
 # Ch9 — Database: Enemies (p.113–118)
 
+> **Challenge Rolls** : toutes les mentions **ROLL [STAT]** = **d10 + stat** vs **d10 + stat adversaire**. Succès si résultat joueur > résultat ennemi. (→ ch2-rules.md §2.4)
+> **Symboles** : `HP` Health · `⚡` Energy · `♡` Armor · `◈` Hyperdrive · `✳` Damage · `❄` Serum · `✦` Scraps · `★` Favor · `♦` Action cost
+
 20 ennemis organisés en 3 catégories. Chaque carte contient : HP, Armor, stats (VIG/GRA/MIN/TEC), actions avec résultats de dé, skills spéciaux, loot.
 
 ---

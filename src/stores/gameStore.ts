@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import type { Character, Starship, PlayTab, MapData, HexState, CycleEntry, CombatState, CombatantState, OracleEntry, StarshipCombatState, SettlementState, GeneratedNpc, FactionMission } from '../types/game'
+import type { Character, Starship, PlayTab, MapData, HexState, CycleEntry, CombatState, CombatantState, OracleEntry, StarshipCombatState, SettlementState, GeneratedNpc, FactionMission, Crewmember, Connection } from '../types/game'
 import { ALL_HEXES, STARTING_HEX } from '../engine/hexMap'
 import type { ExploreResult } from '../engine/exploration'
 import {
@@ -91,6 +91,16 @@ interface GameState {
   exitCybersphere: () => void
   generateNpc: () => void
 
+  // Crew & Connections
+  recruitCrew: (crew: Crewmember, costSerum?: number) => void
+  dismissCrew: (index: number) => void
+  updateCrewHp: (index: number, current: number) => void
+  updateCrewStat: (crewIndex: number, stat: keyof Crewmember['stats'], delta: number) => void
+  setCrewInventorySlot: (crewIndex: number, slotIndex: number, value: string | null) => void
+  addConnection: (conn: Connection) => void
+  removeConnection: (index: number) => void
+  updateConnectionAffinity: (index: number, delta: number) => void
+
   // Factions
   joinFaction: (factionId: string) => void
   leaveFaction: () => void
@@ -129,8 +139,10 @@ export const useGameStore = create<GameState>()(
       oracleLog: [],
       activeTab: 'player',
 
-      startGame: (character, starship) =>
-        set({ character, starship, mapData: initMapData(), combat: null, shipCombat: null, settlement: null, oracleLog: [], activeTab: 'player' }),
+      startGame: (character, starship) => {
+        const c = character.crewmembers ? character : { ...character, crewmembers: [], connections: [] }
+        set({ character: c, starship, mapData: initMapData(), combat: null, shipCombat: null, settlement: null, oracleLog: [], activeTab: 'player' })
+      },
 
       ensureMap: () => set((s) => s.mapData ? s : { mapData: initMapData() }),
 
@@ -1095,28 +1107,104 @@ export const useGameStore = create<GameState>()(
       generateNpc: () =>
         set((s) => {
           if (!s.settlement) return s
-          const pick = <T extends { roll: number; value: string }>(table: T[], max?: number) => {
-            const n = max ?? table.length
-            const roll = Math.ceil(Math.random() * n)
-            return table.find((e) => {
+          const pickValue = (table: any[], max: number) => {
+            const roll = Math.ceil(Math.random() * max)
+            const entry = table.find((e: any) => {
               const r = e.roll
               if (typeof r === 'string') {
-                const [lo, hi] = (r as string).split('-').map(Number)
-                return roll >= lo && roll <= (hi ?? lo)
+                const parts = r.split('-').map(Number)
+                return roll >= parts[0] && roll <= (parts[1] ?? parts[0])
               }
               return r === roll
-            })?.value ?? '—'
+            })
+            return entry?.value ?? entry?.request ?? '—'
           }
           const npc: GeneratedNpc = {
-            trade: pick((npcsData as any).trade, 20),
-            emotion: pick((npcsData as any).emotion, 20),
-            look: pick((npcsData as any).look, 20),
-            style: pick((npcsData as any).style, 6),
-            reaction: pick((npcsData as any).reaction, 12),
-            faction: pick((npcsData as any).faction, 6),
-            goal: pick((npcsData as any).goal, 10),
+            trade:            pickValue((npcsData as any).trade, 20),
+            emotion:          pickValue((npcsData as any).emotion, 20),
+            look:             pickValue((npcsData as any).look, 20),
+            style:            pickValue((npcsData as any).style, 6),
+            reaction:         pickValue((npcsData as any).reaction, 12),
+            faction:          pickValue((npcsData as any).faction, 6),
+            goal:             pickValue((npcsData as any).goal, 10),
+            apocalypseTheory: pickValue((npcsData as any).apocalypseTheory, 10),
+            requests:         pickValue((npcsData as any).requests, 100),
           }
           return { settlement: { ...s.settlement, lastNpc: npc } }
+        }),
+
+      // ── CREW & CONNECTIONS ──────────────────────────────────────────────────
+
+      recruitCrew: (crew, costSerum = 0) =>
+        set((s) => {
+          if (!s.character) return s
+          const current = s.character.crewmembers ?? []
+          if (current.length >= 4) return s
+          if (costSerum > 0 && s.character.resources.serum < costSerum) return s
+          const resources = costSerum > 0
+            ? { ...s.character.resources, serum: s.character.resources.serum - costSerum }
+            : s.character.resources
+          return { character: { ...s.character, crewmembers: [...current, crew], resources } }
+        }),
+
+      dismissCrew: (index) =>
+        set((s) => {
+          if (!s.character) return s
+          const crewmembers = (s.character.crewmembers ?? []).filter((_, i) => i !== index)
+          return { character: { ...s.character, crewmembers } }
+        }),
+
+      updateCrewHp: (index, current) =>
+        set((s) => {
+          if (!s.character) return s
+          const crewmembers = [...(s.character.crewmembers ?? [])]
+          if (!crewmembers[index]) return s
+          crewmembers[index] = { ...crewmembers[index], hp: { ...crewmembers[index].hp, current: Math.max(0, current) } }
+          return { character: { ...s.character, crewmembers } }
+        }),
+
+      updateCrewStat: (crewIndex, stat, delta) =>
+        set((s) => {
+          if (!s.character) return s
+          const crewmembers = [...(s.character.crewmembers ?? [])]
+          if (!crewmembers[crewIndex]) return s
+          const oldStats = crewmembers[crewIndex].stats
+          crewmembers[crewIndex] = { ...crewmembers[crewIndex], stats: { ...oldStats, [stat]: Math.max(0, oldStats[stat] + delta) } }
+          return { character: { ...s.character, crewmembers } }
+        }),
+
+      setCrewInventorySlot: (crewIndex, slotIndex, value) =>
+        set((s) => {
+          if (!s.character) return s
+          const crewmembers = [...(s.character.crewmembers ?? [])]
+          if (!crewmembers[crewIndex]) return s
+          const inventory = [...crewmembers[crewIndex].inventory]
+          inventory[slotIndex] = value
+          crewmembers[crewIndex] = { ...crewmembers[crewIndex], inventory }
+          return { character: { ...s.character, crewmembers } }
+        }),
+
+      addConnection: (conn) =>
+        set((s) => {
+          if (!s.character) return s
+          const connections = [...(s.character.connections ?? []), conn]
+          return { character: { ...s.character, connections } }
+        }),
+
+      removeConnection: (index) =>
+        set((s) => {
+          if (!s.character) return s
+          const connections = (s.character.connections ?? []).filter((_, i) => i !== index)
+          return { character: { ...s.character, connections } }
+        }),
+
+      updateConnectionAffinity: (index, delta) =>
+        set((s) => {
+          if (!s.character) return s
+          const connections = [...(s.character.connections ?? [])]
+          if (!connections[index]) return s
+          connections[index] = { ...connections[index], affinity: Math.max(0, Math.min(5, connections[index].affinity + delta)) }
+          return { character: { ...s.character, connections } }
         }),
     }),
     { name: 'astroprisma-save' }

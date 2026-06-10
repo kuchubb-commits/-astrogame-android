@@ -5,6 +5,9 @@
 
 ---
 
+> **Challenge Rolls** : tous les rolls de stats utilisent **d10 + stat** vs **d10 + stat adversaire**. Succès si résultat joueur > résultat ennemi. (→ ch2-rules.md §2.4)
+> **Symboles** : `HP` Health · `⚡` Energy · `♡` Armor · `◈` Hyperdrive · `✳` Damage · `❄` Serum · `✦` Scraps · `★` Favor · `♦` Action cost
+
 ## 3.1 — COMBAT MOVES & TURN STRUCTURE (p.30)
 
 ### Combat Moves — 4 actions majeures possibles
@@ -12,9 +15,9 @@
 | Action | Règle |
 |---|---|
 | **WEAPON** | Attaquer avec une arme équipée. Roll damage + stat pertinente |
-| **HACK** | ROLL+MIND contre l'ennemi. Succès → hack prend effet |
+| **HACK** | **d10+MIN** contre **d10** de l'ennemi. Succès → hack prend effet |
 | **CYBERTECH** | Utiliser une ability active depuis les modules cybertech installés |
-| **ESCAPE** | Fuir un combat → ROLL+MOVE. Succès → quitter le combat |
+| **ESCAPE** | Fuir un combat → **d10+MOVE** vs d10 ennemi. Succès → quitter le combat |
 
 ### Turn Basics
 
@@ -107,9 +110,15 @@ Effets qui prennent effet **le même tour** où ils sont appliqués. Disparaisse
 
 ### Direct Damage
 
-Les dégâts directs = attaques d'armes, Cybertech, HACKS offensifs, grenades.
+**Règle générale : tout effet mentionnant "damage" = Direct Damage.**
 
-Les dégâts des **Status Conditions** et des **DRONES** ne comptent **pas** comme Direct Damage.
+Sources de Direct Damage : attaques d'armes, Cybertech, HACKS offensifs, grenades.
+
+**Exceptions — ces deux sources NE sont PAS du Direct Damage :**
+- Dégâts des **Status Conditions** (OVERHEAT, etc.)
+- Dégâts des **DRONES** (toutes leurs abilities, même offensives)
+
+> Ces exceptions **ignorent IMMUNITY** et **ignorent l'Armor**.
 
 ### Weapon Mods — Règles générales (intro)
 
@@ -156,29 +165,29 @@ Les dégâts des **Status Conditions** et des **DRONES** ne comptent **pas** com
 
 ## 3.6 — WEAPON MODS (p.36)
 
-Niveaux de rareté/tier : **D1** (commun) → **D4** (rare). Max **2 mods** par arme.
+Max **2 mods** par arme.
 
 ### Ranged Mods
 
-| Mod | Tier | Effet |
-|---|---|---|
-| **SILENCER** | D1 | Dégâts divisés par 2 (arrondi bas). Les attaques ne comptent pas comme Noisy ou Loud |
-| **REFLEX SIGHT** | D2 | Si AGI supérieure à l'ennemi → **+2 bonus damage** par attaque |
-| **AUTO RELOADER** | D2 | Attaquer et effectuer une **Blade Action** à la place d'un Reload |
-| **LASER ACCELERATOR** | D3 | Cette arme **ignore l'Armor ennemie** sur les dégâts |
-| **MALWARE INJECTION** | D3 | Roll base damage **4 ou 5** → **Stagger** l'ennemi. Si déjà Stunned → **+5 bonus damage** |
-| **SMART AIM** | D4 | Roll les dégâts **deux fois**, garder le plus haut. **Ignore le couvert** |
+| Mod | Tier | Effet | Prix |
+|---|---|---|---|
+| **SILENCER** | 1 | Dégâts divisés par 2 (arrondi bas). Les attaques **ne comptent pas comme Direct Damage** | 75★ |
+| **LASER ACCELERATOR** | 2 | Cette arme **ignore l'Armor ennemie** sur les dégâts | 75★ |
+| **REFLEX SIGHT** | 3 | Si GRA supérieure à l'ennemi → **+2 bonus damage** par attaque | 100★ |
+| **MALWARE INJECTION** | 4 | Roll base damage **1 ou 2** → ennemi **Breached** pour **2 tours** | 100★ |
+| **AUTO RELOADER** | 5 | Dépenser **3♦** → attaquer via **◇ Side Action** au lieu de **♦ Main** | 150★ |
+| **SMART AIM** | 6 | Roll les dégâts **deux fois**, garder le plus haut | 150★ |
 
 ### Melee Mods
 
-| Mod | Tier | Effet |
-|---|---|---|
-| **STEALTH GRIP** | D1 | Si premier dans l'ordre de tour : premier hit **+d4** bonus damage. Si en furtivité : **+d8** |
-| **VIBRATING MOTOR** | D3 | Si VIG supérieure à l'ennemi → **+2 damage** par attaque |
-| **KINETIC ENGINE** | D5 | Restaure **1** (ressource) à chaque attaque avec cette arme |
-| **COUNTER GUARD** | D3 | Dépenser **3 Energy** → réaction quand un ennemi adjacent attaque |
-| **HEAT CHAMBER** | D4 | Roll **1 ou 2** base damage → ennemi **Overheated** pour **2 tours** |
-| **CHARGE ATTACK** | D4 | Dépenser **3★** → attaque double damage *(Side Action)* |
+| Mod | Tier | Effet | Prix |
+|---|---|---|---|
+| **STEALTH GRIP** | 1 | Si premier dans l'ordre de tour : la première attaque **ne consomme pas la Main Action** | 75★ |
+| **COUNTER GUARD** | 2 | Dépenser **3♦** → réaction après avoir **reçu des dégâts** | 75★ |
+| **VIBRATING MOTOR** | 3 | Si VIG supérieure à l'ennemi → **+2 damage** par attaque | 100★ |
+| **HEAT CHAMBER** | 4 | Roll **1 ou 2** base damage → ennemi **Overheated** pour **2 tours** | 100★ |
+| **KINETIC ENGINE** | 5 | Restaure **1♦** à chaque attaque avec cette arme | 150★ |
+| **CHARGE ATTACK** | 6 | Dépenser **3♦** → attaque **double damage** *(Side Action)* | 150★ |
 
 ---
 
@@ -197,7 +206,7 @@ Niveaux de rareté/tier : **D1** (commun) → **D4** (rare). Max **2 mods** par 
 | Status Conditions (6 types) | 32 |
 | OVERHEAT / SHOCK / STUN / SILENCE / BREACH / IMMUNITY | 32 |
 | Direct Damage (ignore Armor + Shields) | 32 |
-| Weapon Mods — règles générales (3 max, swap) | 32 |
+| Weapon Mods — règles générales (2 max, swap) | 32 |
 | Ranged Weapons (8 armes, dés + portées) | 33–34 |
 | Melee Weapons (6 armes, Carbon Dagger → Plasma Shield) | 35 |
-| Weapon Mods list (D1→D4, 13 mods) | 36 |
+| Weapon Mods list (D1→D6, 12 mods) | 36 |

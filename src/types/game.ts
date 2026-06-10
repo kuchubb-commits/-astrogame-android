@@ -1,3 +1,20 @@
+export interface Crewmember {
+  name: string
+  role: 'pilot' | 'medic' | 'mechanic-navigator' | 'gunner-marine'
+  passiveSkill: string
+  activeSkills: string[]
+  hp: { current: number; max: number }
+  stats: { vigor: number; grace: number; mind: number; tech: number }
+  inventory: (string | null)[]
+}
+
+export interface Connection {
+  name: string
+  location: string
+  data: string
+  affinity: number
+}
+
 export interface Character {
   name: string
   originId: string
@@ -14,6 +31,8 @@ export interface Character {
   deployedDroneId: string | null
   joinedFactionId: string | null
   currentMission: FactionMission | null
+  crewmembers: Crewmember[]
+  connections: Connection[]
 }
 
 export interface Starship {
@@ -103,6 +122,8 @@ export interface GeneratedNpc {
   reaction: string
   faction: string
   goal: string
+  apocalypseTheory: string
+  requests: string
 }
 
 export interface CybersphereLogEntry {
