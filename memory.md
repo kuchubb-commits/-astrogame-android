@@ -23,14 +23,13 @@
 | Phase 6 | Combat spatial : Action Dice, modules, Shields, Critical, victoire/défaite | ✅ |
 | Phase 7 | Settlements : Hangar, WireDoc, Commerce, Scrapyard, Cybersphere, Combat Sim, NPC Generator | ✅ |
 | Phase 8 | Factions : Favor (-X→10), joinFaction/leaveFaction, missions d10, événements 2/5/10, fins, troupes/vaisseaux d6, badge MapScreen | ✅ |
+| Phase 9 | Crew, Connections & NPC Generator : Crewmember/Connection types, CrewCard, ConnectionRow, PAGE 2 PlayerSheet, Home Pods recrutement 150★, GeneratedNpc complet (+apocalypseTheory +requests) | ✅ |
 
 ### Prochaine étape
 
-**Phase 9 — Équipage & progression longue** :
-- Recrutement de crewmembers depuis Home Pods
-- Compétences actives des membres d'équipage
-- Progression équipage (EXP partagé)
-- Effets passifs en combat (bonus stats)
+**Phase 10 — Gemini AI & narration** :
+- Intégration Gemini (prompt Oracle/Exploration + contexte → narration 2-3 phrases)
+- Mode dégradé si Gemini indisponible
 
 ### Architecture actuelle (`src/`)
 
